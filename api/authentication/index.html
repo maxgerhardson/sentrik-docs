@@ -1421,7 +1421,7 @@
 
 
 <h1 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h1>
-<p>SENTRA supports API key authentication and JWT token authentication.</p>
+<p>sentrik supports API key authentication and JWT token authentication.</p>
 <h2 id="api-key-authentication">API key authentication<a class="headerlink" href="#api-key-authentication" title="Permanent link">&para;</a></h2>
 <p>Set the <code>GUARD_API_KEY</code> environment variable to enable API key auth:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GUARD_API_KEY</span><span class="o">=</span><span class="s2">&quot;your-secret-key&quot;</span>
@@ -1435,7 +1435,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid or missing API key&quot;</span><span class="p">}</span>
 </code></pre></div>
 <h2 id="jwt-authentication">JWT authentication<a class="headerlink" href="#jwt-authentication" title="Permanent link">&para;</a></h2>
-<p>For production deployments, SENTRA supports JWT-based authentication with role-based access control.</p>
+<p>For production deployments, sentrik supports JWT-based authentication with role-based access control.</p>
 <h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># .guard.yaml</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">auth</span><span class="p">:</span>

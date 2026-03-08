@@ -1084,15 +1084,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-sentra-helps" class="md-nav__link">
+  <a href="#how-sentrik-helps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How SENTRA Helps
+        How sentrik Helps
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How SENTRA Helps">
+    <nav class="md-nav" aria-label="How sentrik Helps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1381,15 +1381,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-sentra-helps" class="md-nav__link">
+  <a href="#how-sentrik-helps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How SENTRA Helps
+        How sentrik Helps
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How SENTRA Helps">
+    <nav class="md-nav" aria-label="How sentrik Helps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1553,7 +1553,7 @@
 
 
 <h1 id="saas-teams-using-ai-coding-agents">SaaS Teams Using AI Coding Agents<a class="headerlink" href="#saas-teams-using-ai-coding-agents" title="Permanent link">&para;</a></h1>
-<p>SENTRA governs AI-generated code in CI/CD pipelines, ensuring quality and security standards are met before code ships.</p>
+<p>sentrik governs AI-generated code in CI/CD pipelines, ensuring quality and security standards are met before code ships.</p>
 <h2 id="the-challenge">The Challenge<a class="headerlink" href="#the-challenge" title="Permanent link">&para;</a></h2>
 <p>SaaS engineering teams are adopting AI coding tools rapidly:</p>
 <ul>
@@ -1563,15 +1563,15 @@
 <li><strong>No traceability</strong> — generated code isn't linked to requirements or tickets</li>
 <li><strong>Security blind spots</strong> — AI agents don't know your security policies</li>
 </ul>
-<p>SENTRA acts as an automated reviewer that enforces your standards on every commit, whether written by a human or an AI agent.</p>
-<h2 id="how-sentra-helps">How SENTRA Helps<a class="headerlink" href="#how-sentra-helps" title="Permanent link">&para;</a></h2>
+<p>sentrik acts as an automated reviewer that enforces your standards on every commit, whether written by a human or an AI agent.</p>
+<h2 id="how-sentrik-helps">How sentrik Helps<a class="headerlink" href="#how-sentrik-helps" title="Permanent link">&para;</a></h2>
 <h3 id="1-automated-code-governance">1. Automated Code Governance<a class="headerlink" href="#1-automated-code-governance" title="Permanent link">&para;</a></h3>
-<p>SENTRA sits in your CI/CD pipeline and checks every PR:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Developer / AI Agent → git push → CI Pipeline → SENTRA Gate → Merge
+<p>sentrik sits in your CI/CD pipeline and checks every PR:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Developer / AI Agent → git push → CI Pipeline → sentrik Gate → Merge
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                                                    ↓
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                                              Pass or Block
 </code></pre></div>
-<p>No manual review needed for standard checks. Your team reviews architecture and logic; SENTRA handles compliance and quality.</p>
+<p>No manual review needed for standard checks. Your team reviews architecture and logic; sentrik handles compliance and quality.</p>
 <h3 id="2-custom-rules-for-your-codebase">2. Custom Rules for Your Codebase<a class="headerlink" href="#2-custom-rules-for-your-codebase" title="Permanent link">&para;</a></h3>
 <p>Define rules that match your team's conventions:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># standards.yaml</span>
@@ -1614,7 +1614,7 @@
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">        </span><span class="c1"># Not relevant for API-only service</span>
 </code></pre></div>
 <h3 id="4-work-item-traceability">4. Work Item Traceability<a class="headerlink" href="#4-work-item-traceability" title="Permanent link">&para;</a></h3>
-<p>Link code to tickets automatically. SENTRA integrates with:</p>
+<p>Link code to tickets automatically. sentrik integrates with:</p>
 <ul>
 <li><strong>GitHub Issues</strong> — link findings to issues, auto-create issues for gaps</li>
 <li><strong>Azure DevOps</strong> — work item sync, iteration-scoped queries</li>
@@ -1642,7 +1642,7 @@
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentra-scan</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SENTRA Scan</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik Scan</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentra scan --staged</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="nt">pass_filenames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
@@ -1650,7 +1650,7 @@
 <p>Developers get instant feedback on AI-generated code before pushing.</p>
 <h2 id="cicd-integration-examples">CI/CD Integration Examples<a class="headerlink" href="#cicd-integration-examples" title="Permanent link">&para;</a></h2>
 <h3 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SENTRA Gate</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik Gate</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">jobs</span><span class="p">:</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">gate</span><span class="p">:</span>
@@ -1692,7 +1692,7 @@
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">parallel_scan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nt">max_workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
 </code></pre></div>
-<p>SENTRA distributes file evaluation across threads, with thread-safe caching. Scan metrics (<code>out/scan_metrics.json</code>) report cache hit rates and per-phase timing.</p>
+<p>sentrik distributes file evaluation across threads, with thread-safe caching. Scan metrics (<code>out/scan_metrics.json</code>) report cache hit rates and per-phase timing.</p>
 <h2 id="enterprise-features">Enterprise Features<a class="headerlink" href="#enterprise-features" title="Permanent link">&para;</a></h2>
 <p>Unlock advanced capabilities with a license key:</p>
 <table>

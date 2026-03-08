@@ -1056,15 +1056,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-sentra-helps" class="md-nav__link">
+  <a href="#how-sentrik-helps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How SENTRA Helps
+        How sentrik Helps
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How SENTRA Helps">
+    <nav class="md-nav" aria-label="How sentrik Helps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1331,15 +1331,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-sentra-helps" class="md-nav__link">
+  <a href="#how-sentrik-helps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How SENTRA Helps
+        How sentrik Helps
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How SENTRA Helps">
+    <nav class="md-nav" aria-label="How sentrik Helps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1453,7 +1453,7 @@
 
 
 <h1 id="fintech-financial-services-soc2-owasp">Fintech &amp; Financial Services (SOC2 + OWASP)<a class="headerlink" href="#fintech-financial-services-soc2-owasp" title="Permanent link">&para;</a></h1>
-<p>SENTRA enforces SOC2 Trust Services Criteria and OWASP Top 10 compliance for fintech teams using AI coding tools.</p>
+<p>sentrik enforces SOC2 Trust Services Criteria and OWASP Top 10 compliance for fintech teams using AI coding tools.</p>
 <h2 id="the-challenge">The Challenge<a class="headerlink" href="#the-challenge" title="Permanent link">&para;</a></h2>
 <p>Financial services teams operate under intense regulatory pressure:</p>
 <ul>
@@ -1462,8 +1462,8 @@
 <li><strong>AI coding agents</strong> generate code faster than security teams can review it</li>
 <li><strong>Auditors expect documentation</strong> — "we use Copilot" is not an acceptable control statement</li>
 </ul>
-<p>SENTRA provides the automated evidence trail that satisfies auditors while letting your team ship with AI assistance.</p>
-<h2 id="how-sentra-helps">How SENTRA Helps<a class="headerlink" href="#how-sentra-helps" title="Permanent link">&para;</a></h2>
+<p>sentrik provides the automated evidence trail that satisfies auditors while letting your team ship with AI assistance.</p>
+<h2 id="how-sentrik-helps">How sentrik Helps<a class="headerlink" href="#how-sentrik-helps" title="Permanent link">&para;</a></h2>
 <h3 id="1-soc2-standards-pack">1. SOC2 Standards Pack<a class="headerlink" href="#1-soc2-standards-pack" title="Permanent link">&para;</a></h3>
 <p>Enable the built-in <code>soc2</code> pack to enforce 16 Trust Services Criteria rules:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># .guard.yaml</span>
@@ -1526,7 +1526,7 @@
 <li><strong>A10 SSRF</strong> — Server-side request forgery patterns</li>
 </ul>
 <h3 id="3-audit-evidence-for-soc2">3. Audit Evidence for SOC2<a class="headerlink" href="#3-audit-evidence-for-soc2" title="Permanent link">&para;</a></h3>
-<p>Every SENTRA scan generates machine-readable audit evidence:</p>
+<p>Every sentrik scan generates machine-readable audit evidence:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sentra<span class="w"> </span>scan
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Generates:</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">#   out/findings.json     — All findings with severity, rule, file, line</span>
@@ -1540,7 +1540,7 @@
 <thead>
 <tr>
 <th>SOC2 Criteria</th>
-<th>SENTRA Evidence</th>
+<th>sentrik Evidence</th>
 </tr>
 </thead>
 <tbody>
@@ -1589,7 +1589,7 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM transactions WHERE user_id = &#39;</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&#39; AND date &gt; &#39;</span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
 </code></pre></div>
-<p>SENTRA catches this in CI:</p>
+<p>sentrik catches this in CI:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>CRITICAL  owasp-a03-injection  src/transactions.py:3
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  SQL injection via string formatting in database query.
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  Use parameterized queries instead.
@@ -1625,7 +1625,7 @@
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="nt">log_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">out/agent_audit.jsonl</span>
 </code></pre></div>
 <h2 id="ml-severity-estimation">ML Severity Estimation<a class="headerlink" href="#ml-severity-estimation" title="Permanent link">&para;</a></h2>
-<p>For non-deterministic findings (e.g., from AI-assisted scanners), SENTRA's ML severity estimator provides consistent risk scoring:</p>
+<p>For non-deterministic findings (e.g., from AI-assisted scanners), sentrik's ML severity estimator provides consistent risk scoring:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">ml_severity_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <p>The estimator uses code context, pattern risk, file risk, and finding density to score findings — reducing false positives and ensuring critical issues surface first.</p>

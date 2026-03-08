@@ -1028,15 +1028,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-sentra-helps" class="md-nav__link">
+  <a href="#how-sentrik-helps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How SENTRA Helps
+        How sentrik Helps
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How SENTRA Helps">
+    <nav class="md-nav" aria-label="How sentrik Helps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1320,15 +1320,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-sentra-helps" class="md-nav__link">
+  <a href="#how-sentrik-helps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How SENTRA Helps
+        How sentrik Helps
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How SENTRA Helps">
+    <nav class="md-nav" aria-label="How sentrik Helps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1431,7 +1431,7 @@
 
 
 <h1 id="medical-device-software-iec-62304">Medical Device Software (IEC 62304)<a class="headerlink" href="#medical-device-software-iec-62304" title="Permanent link">&para;</a></h1>
-<p>SENTRA enforces IEC 62304 and 21 CFR Part 11 compliance for teams building medical device software with AI coding tools.</p>
+<p>sentrik enforces IEC 62304 and 21 CFR Part 11 compliance for teams building medical device software with AI coding tools.</p>
 <h2 id="the-challenge">The Challenge<a class="headerlink" href="#the-challenge" title="Permanent link">&para;</a></h2>
 <p>Medical device software teams face a difficult intersection:</p>
 <ul>
@@ -1440,10 +1440,10 @@
 <li><strong>FDA 21 CFR Part 11</strong> demands audit trails, electronic signatures, and data integrity controls</li>
 <li><strong>Manual compliance</strong> slows teams to a crawl — reviewing every AI suggestion against regulatory requirements</li>
 </ul>
-<p>SENTRA automates this enforcement in your CI/CD pipeline, so your team moves fast without breaking compliance.</p>
-<h2 id="how-sentra-helps">How SENTRA Helps<a class="headerlink" href="#how-sentra-helps" title="Permanent link">&para;</a></h2>
+<p>sentrik automates this enforcement in your CI/CD pipeline, so your team moves fast without breaking compliance.</p>
+<h2 id="how-sentrik-helps">How sentrik Helps<a class="headerlink" href="#how-sentrik-helps" title="Permanent link">&para;</a></h2>
 <h3 id="1-requirements-traceability">1. Requirements Traceability<a class="headerlink" href="#1-requirements-traceability" title="Permanent link">&para;</a></h3>
-<p>Every code change must trace back to a documented requirement. SENTRA scans your codebase and cross-references against your work item tracker (Azure DevOps, GitHub Issues, Jira).</p>
+<p>Every code change must trace back to a documented requirement. sentrik scans your codebase and cross-references against your work item tracker (Azure DevOps, GitHub Issues, Jira).</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Scan and check traceability</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentra<span class="w"> </span>scan
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1526,7 +1526,7 @@
 <h3 id="3-governance-gates-in-cicd">3. Governance Gates in CI/CD<a class="headerlink" href="#3-governance-gates-in-cicd" title="Permanent link">&para;</a></h3>
 <p>Block non-compliant PRs from merging:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># .github/workflows/sentra-gate.yml</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SENTRA Gate</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik Gate</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentra gate --git-range &quot;origin/main...HEAD&quot; --decorate-pr --status-check</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
