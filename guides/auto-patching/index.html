@@ -12,13 +12,13 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/api/reference/">
+        <link rel="canonical" href="https://docs.sentrik.dev/guides/auto-patching/">
       
       
-        <link rel="prev" href="../../standards-packs/authoring-custom-packs/">
+        <link rel="prev" href="../dashboard/">
       
       
-        <link rel="next" href="../authentication/">
+        <link rel="next" href="../ci-cd-integration/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Reference - sentrik documentation</title>
+        <title>Auto-Patching - sentrik documentation</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-reference" class="md-skip">
+        <a href="#auto-patching" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference
+              Auto-Patching
             
           </span>
         </div>
@@ -409,8 +409,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -421,13 +423,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -448,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -466,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/cli-reference/" class="md-nav__link">
+      <a href="../cli-reference/" class="md-nav__link">
         
   
   
@@ -494,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/dashboard/" class="md-nav__link">
+      <a href="../dashboard/" class="md-nav__link">
         
   
   
@@ -519,10 +519,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../guides/auto-patching/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Auto-Patching
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -538,6 +565,148 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autofix-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autofix strategies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autofix strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove_line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment_out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        comment_out
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace_match" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        replace_match
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-in-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using in CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-rules-define-autofix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How rules define autofix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reviewing-patches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing patches
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -550,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/ci-cd-integration/" class="md-nav__link">
+      <a href="../ci-cd-integration/" class="md-nav__link">
         
   
   
@@ -1153,8 +1322,6 @@
       
   
   
-    
-  
   
   
     
@@ -1167,11 +1334,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -1192,7 +1361,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1207,37 +1376,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../api/reference/" class="md-nav__link">
         
   
   
@@ -1253,208 +1395,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#starting-the-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Starting the server
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core endpoints
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core endpoints">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get-health" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GET /health
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-scan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        POST /scan
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-gate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        POST /gate
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        POST /report
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GET /rules
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#governance-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Governance endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#standards-pack-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Standards pack endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#devops-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DevOps endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#findings-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Findings endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sse-endpoint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SSE endpoint
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#approval-endpoints-enterprise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Approval endpoints (Enterprise)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Error handling
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1467,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authentication/" class="md-nav__link">
+      <a href="../../api/authentication/" class="md-nav__link">
         
   
   
@@ -1495,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rbac/" class="md-nav__link">
+      <a href="../../api/rbac/" class="md-nav__link">
         
   
   
@@ -1784,10 +1724,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#starting-the-server" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Starting the server
+        How it works
       
     </span>
   </a>
@@ -1795,22 +1735,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-endpoints" class="md-nav__link">
+  <a href="#autofix-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core endpoints
+        Autofix strategies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core endpoints">
+    <nav class="md-nav" aria-label="Autofix strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-health" class="md-nav__link">
+  <a href="#remove_line" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GET /health
+        remove_line
       
     </span>
   </a>
@@ -1818,10 +1758,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#post-scan" class="md-nav__link">
+  <a href="#comment_out" class="md-nav__link">
     <span class="md-ellipsis">
       
-        POST /scan
+        comment_out
       
     </span>
   </a>
@@ -1829,32 +1769,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#post-gate" class="md-nav__link">
+  <a href="#replace_match" class="md-nav__link">
     <span class="md-ellipsis">
       
-        POST /gate
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        POST /report
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GET /rules
+        replace_match
       
     </span>
   </a>
@@ -1867,10 +1785,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-endpoints" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration endpoints
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-in-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using in CI/CD
       
     </span>
   </a>
@@ -1878,10 +1824,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#governance-endpoints" class="md-nav__link">
+  <a href="#how-rules-define-autofix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Governance endpoints
+        How rules define autofix
       
     </span>
   </a>
@@ -1889,76 +1835,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#standards-pack-endpoints" class="md-nav__link">
+  <a href="#reviewing-patches" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Standards pack endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#devops-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DevOps endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#findings-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Findings endpoints
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sse-endpoint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SSE endpoint
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#approval-endpoints-enterprise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Approval endpoints (Enterprise)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Error handling
+        Reviewing patches
       
     </span>
   </a>
@@ -1982,349 +1862,138 @@
 
 
 
-<h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
-<p>The sentrik REST API exposes the scanning pipeline over HTTP, enabling remote scanning, gating, and report generation.</p>
-<h2 id="starting-the-server">Starting the server<a class="headerlink" href="#starting-the-server" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>serve<span class="w">                     </span><span class="c1"># Default: 0.0.0.0:8000</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>serve<span class="w"> </span>--port<span class="w"> </span><span class="m">9000</span><span class="w">         </span><span class="c1"># Custom port</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sentrik<span class="w"> </span>serve<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w">   </span><span class="c1"># Localhost only</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sentrik<span class="w"> </span>serve<span class="w"> </span>--reload<span class="w">            </span><span class="c1"># Dev mode with auto-reload</span>
+<h1 id="auto-patching">Auto-Patching<a class="headerlink" href="#auto-patching" title="Permanent link">&para;</a></h1>
+<p>sentrik can automatically generate and apply fixes for certain findings. When a rule has an autofix strategy defined, <code>sentrik scan</code> produces unified diff patches that you can review and apply in one command.</p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Scan</strong> — <code>sentrik scan</code> evaluates your code against all enabled rules. For rules that define an autofix strategy, sentrik generates a unified diff patch for each affected file.</li>
+<li><strong>Patch files</strong> — Patches are written to <code>out/patches/</code> as numbered <code>.patch</code> files (e.g., <code>0001.patch</code>, <code>0002.patch</code>).</li>
+<li><strong>Apply</strong> — Run <code>sentrik apply-patches</code> to apply all generated patches to your source files.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Step 1: Scan and generate patches</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>scan
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Step 2: Review patches (optional)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>cat<span class="w"> </span>out/patches/0001.patch
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Step 3: Apply all patches</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sentrik<span class="w"> </span>apply-patches
 </code></pre></div>
-<p>Auto-generated interactive docs are available at:</p>
-<ul>
-<li><strong>Swagger UI</strong>: <code>http://localhost:8000/docs</code></li>
-<li><strong>ReDoc</strong>: <code>http://localhost:8000/redoc</code></li>
-<li><strong>API Landing</strong>: <code>http://localhost:8000/api</code></li>
-</ul>
-<h2 id="core-endpoints">Core endpoints<a class="headerlink" href="#core-endpoints" title="Permanent link">&para;</a></h2>
-<h3 id="get-health"><code>GET /health</code><a class="headerlink" href="#get-health" title="Permanent link">&para;</a></h3>
-<p>Health check. Always accessible (no auth required).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">}</span>
+<h2 id="autofix-strategies">Autofix strategies<a class="headerlink" href="#autofix-strategies" title="Permanent link">&para;</a></h2>
+<p>Each rule can define one of three autofix strategies:</p>
+<h3 id="remove_line"><code>remove_line</code><a class="headerlink" href="#remove_line" title="Permanent link">&para;</a></h3>
+<p>Deletes the offending line entirely. Used for code that should not exist at all, such as debug statements or wildcard imports.</p>
+<p><strong>Before:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># flagged by no-star-imports</span>
+</code></pre></div></p>
+<p><strong>After:</strong> <em>(line removed)</em></p>
+<h3 id="comment_out"><code>comment_out</code><a class="headerlink" href="#comment_out" title="Permanent link">&para;</a></h3>
+<p>Comments out the offending line, preserving indentation. Useful when you want to keep the code visible for review but prevent it from executing.</p>
+<p><strong>Before:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    <span class="nb">eval</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>  <span class="c1"># flagged by no-eval</span>
+</code></pre></div></p>
+<p><strong>After:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    <span class="c1"># eval(user_input)  # flagged by no-eval</span>
+</code></pre></div></p>
+<h3 id="replace_match"><code>replace_match</code><a class="headerlink" href="#replace_match" title="Permanent link">&para;</a></h3>
+<p>Replaces the matched code snippet with a specified replacement string. Used when there is a known safe alternative for the flagged pattern.</p>
+<p><strong>Before:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;hardcoded_secret&quot;</span>
+</code></pre></div></p>
+<p><strong>After:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;PASSWORD&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>Auto-patching is controlled via the <code>governance</code> section in your config:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">governance</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">auto_patch</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">max_severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">low</span><span class="w">  </span><span class="c1"># Only auto-patch findings up to this severity</span>
 </code></pre></div>
-<h3 id="post-scan"><code>POST /scan</code><a class="headerlink" href="#post-scan" title="Permanent link">&para;</a></h3>
-<p>Scan code and return findings.</p>
-<p><strong>Request body:</strong></p>
+<p>The <code>max_severity</code> setting prevents auto-patching of high-impact findings that should be reviewed manually. Options: <code>low</code>, <code>medium</code>, <code>high</code>, <code>critical</code>.</p>
+<h3 id="governance-profiles">Governance profiles<a class="headerlink" href="#governance-profiles" title="Permanent link">&para;</a></h3>
+<p>The built-in governance profiles set different auto-patch defaults:</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
+<th>Profile</th>
+<th><code>auto_patch.enabled</code></th>
+<th><code>max_severity</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>repo_path</code></td>
-<td>string</td>
-<td>No</td>
-<td>Path to repository (default: <code>.</code>)</td>
+<td><strong>strict</strong></td>
+<td><code>false</code></td>
+<td>—</td>
 </tr>
 <tr>
-<td><code>files</code></td>
-<td>object</td>
-<td>No</td>
-<td>Map of file path to content for inline scanning</td>
+<td><strong>standard</strong></td>
+<td><code>true</code></td>
+<td><code>low</code></td>
 </tr>
 <tr>
-<td><code>changed_files</code></td>
-<td>string[]</td>
-<td>No</td>
-<td>Limit scan to these files</td>
-</tr>
-<tr>
-<td><code>config_overrides</code></td>
-<td>object</td>
-<td>No</td>
-<td>Override <code>.guard.yaml</code> settings</td>
+<td><strong>permissive</strong></td>
+<td><code>true</code></td>
+<td><code>medium</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Response:</strong> <code>{ findings: [...], total: N, by_severity: {...} }</code></p>
-<h3 id="post-gate"><code>POST /gate</code><a class="headerlink" href="#post-gate" title="Permanent link">&para;</a></h3>
-<p>Scan code and return pass/fail gate result.</p>
-<p><strong>Request body:</strong> Same as <code>/scan</code>.</p>
-<p><strong>Response:</strong> <code>{ passed: bool, total_findings: N, critical: N, high: N, ... }</code></p>
-<h3 id="post-report"><code>POST /report</code><a class="headerlink" href="#post-report" title="Permanent link">&para;</a></h3>
-<p>Generate a report. Query param <code>format</code>: <code>html</code>, <code>junit</code>, <code>sarif</code>.</p>
-<p><strong>Response:</strong> <code>{ format: "html", content: "..." }</code></p>
-<h3 id="get-rules"><code>GET /rules</code><a class="headerlink" href="#get-rules" title="Permanent link">&para;</a></h3>
-<p>List all configured rules.</p>
-<p><strong>Response:</strong> <code>{ rules: [...], total: N }</code></p>
-<h2 id="configuration-endpoints">Configuration endpoints<a class="headerlink" href="#configuration-endpoints" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/config</code></td>
-<td>GET</td>
-<td>Get current configuration</td>
-</tr>
-<tr>
-<td><code>/api/config</code></td>
-<td>POST</td>
-<td>Update configuration</td>
-</tr>
-<tr>
-<td><code>/api/config/validate</code></td>
-<td>GET</td>
-<td>Validate configuration</td>
-</tr>
-<tr>
-<td><code>/api/metrics</code></td>
-<td>GET</td>
-<td>Get scan metrics</td>
-</tr>
-<tr>
-<td><code>/api/trends</code></td>
-<td>GET</td>
-<td>Get scan trend data</td>
-</tr>
-</tbody>
-</table>
-<h2 id="governance-endpoints">Governance endpoints<a class="headerlink" href="#governance-endpoints" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/governance</code></td>
-<td>GET</td>
-<td>Get governance settings</td>
-</tr>
-<tr>
-<td><code>/api/governance</code></td>
-<td>POST</td>
-<td>Update governance settings</td>
-</tr>
-<tr>
-<td><code>/api/audit</code></td>
-<td>GET</td>
-<td>Get audit log entries</td>
-</tr>
-<tr>
-<td><code>/api/license</code></td>
-<td>GET</td>
-<td>Get license information</td>
-</tr>
-</tbody>
-</table>
-<h2 id="standards-pack-endpoints">Standards pack endpoints<a class="headerlink" href="#standards-pack-endpoints" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/packs</code></td>
-<td>GET</td>
-<td>List all packs</td>
-</tr>
-<tr>
-<td><code>/api/packs</code></td>
-<td>POST</td>
-<td>Create a custom pack</td>
-</tr>
-<tr>
-<td><code>/api/packs/{id}</code></td>
-<td>DELETE</td>
-<td>Delete a custom pack</td>
-</tr>
-<tr>
-<td><code>/api/packs/{id}/export</code></td>
-<td>GET</td>
-<td>Export pack as YAML</td>
-</tr>
-<tr>
-<td><code>/api/packs/import</code></td>
-<td>POST</td>
-<td>Import a pack from YAML</td>
-</tr>
-<tr>
-<td><code>/api/packs/{id}/overrides</code></td>
-<td>POST</td>
-<td>Set pack rule overrides</td>
-</tr>
-</tbody>
-</table>
-<h2 id="devops-endpoints">DevOps endpoints<a class="headerlink" href="#devops-endpoints" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/work-items</code></td>
-<td>GET</td>
-<td>List work items</td>
-</tr>
-<tr>
-<td><code>/api/reconcile</code></td>
-<td>POST</td>
-<td>Reconcile findings with work items</td>
-</tr>
-<tr>
-<td><code>/api/devops/test-connection</code></td>
-<td>POST</td>
-<td>Test DevOps provider connectivity</td>
-</tr>
-<tr>
-<td><code>/api/devops/status</code></td>
-<td>GET</td>
-<td>Get DevOps connection status</td>
-</tr>
-</tbody>
-</table>
-<h2 id="requirements-endpoints">Requirements endpoints<a class="headerlink" href="#requirements-endpoints" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/generate-reqs</code></td>
-<td>POST</td>
-<td>Auto-generate requirements from code</td>
-</tr>
-<tr>
-<td><code>/api/check-coverage</code></td>
-<td>GET</td>
-<td>Check requirement coverage</td>
-</tr>
-</tbody>
-</table>
-<h2 id="findings-endpoints">Findings endpoints<a class="headerlink" href="#findings-endpoints" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/findings</code></td>
-<td>GET</td>
-<td>Get scan findings</td>
-</tr>
-<tr>
-<td><code>/api/suppressions</code></td>
-<td>GET</td>
-<td>Get active suppressions</td>
-</tr>
-</tbody>
-</table>
-<h2 id="sse-endpoint">SSE endpoint<a class="headerlink" href="#sse-endpoint" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/run-scan-stream</code></td>
-<td>POST</td>
-<td>Scan with real-time progress via SSE</td>
-</tr>
-</tbody>
-</table>
-<h2 id="approval-endpoints-enterprise">Approval endpoints (Enterprise)<a class="headerlink" href="#approval-endpoints-enterprise" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/approvals</code></td>
-<td>GET</td>
-<td>List approval requests</td>
-</tr>
-<tr>
-<td><code>/api/approvals/{id}</code></td>
-<td>GET</td>
-<td>Get approval request details</td>
-</tr>
-<tr>
-<td><code>/api/approvals/{id}</code></td>
-<td>PATCH</td>
-<td>Approve or reject a request</td>
-</tr>
-<tr>
-<td><code>/api/approvals/{id}/status</code></td>
-<td>GET</td>
-<td>Get approval status</td>
-</tr>
-</tbody>
-</table>
-<h2 id="error-handling">Error handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>Success</td>
-</tr>
-<tr>
-<td>400</td>
-<td>Bad request</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Invalid or missing API key</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Insufficient permissions</td>
-</tr>
-<tr>
-<td>422</td>
-<td>Validation error</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal server error</td>
-</tr>
-</tbody>
-</table>
-<p>Error response format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error description&quot;</span><span class="p">}</span>
+<h2 id="using-in-cicd">Using in CI/CD<a class="headerlink" href="#using-in-cicd" title="Permanent link">&para;</a></h2>
+<p>You can integrate auto-patching into your CI pipeline to automatically fix low-severity issues:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># GitHub Actions example</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scan</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik scan</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apply auto-fixes</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik apply-patches</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Commit fixes</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="no">git diff --quiet || (</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="no">git add -A &amp;&amp;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">      </span><span class="no">git commit -m &quot;fix: apply sentrik auto-patches&quot; &amp;&amp;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">      </span><span class="no">git push</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="no">)</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Auto-committing patches in CI should only be used for low-severity findings with well-understood fixes. Always review patches for critical or high-severity findings manually.</p>
+</div>
+<h2 id="how-rules-define-autofix">How rules define autofix<a class="headerlink" href="#how-rules-define-autofix" title="Permanent link">&para;</a></h2>
+<p>Rules in standards packs or custom rules can specify an autofix strategy:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">rules</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SEC-001</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no-eval</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">regex</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;\\beval\\(&quot;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nt">autofix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">comment_out</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SEC-002</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no-hardcoded-secrets</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">regex</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;(password|secret|api_key)\\s*=\\s*[\&quot;&#39;][^\&quot;&#39;]+[\&quot;&#39;]&quot;</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="nt">autofix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace_match</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="nt">autofix_replacement</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;os.environ.get(&quot;SECRET&quot;,</span><span class="nv"> </span><span class="s">&quot;&quot;)&#39;</span>
+</code></pre></div>
+<p>The <code>autofix</code> field maps to a strategy, and <code>autofix_replacement</code> provides the replacement text for the <code>replace_match</code> strategy.</p>
+<h2 id="reviewing-patches">Reviewing patches<a class="headerlink" href="#reviewing-patches" title="Permanent link">&para;</a></h2>
+<p>Patches are standard unified diffs. You can inspect them with any diff viewer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># View all patches</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ls<span class="w"> </span>out/patches/
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Read a specific patch</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>cat<span class="w"> </span>out/patches/0001.patch
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Use git apply for a dry run</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>git<span class="w"> </span>apply<span class="w"> </span>--check<span class="w"> </span>out/patches/0001.patch
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Always review patches before applying, especially for <code>replace_match</code> fixes where the replacement may need context-specific adjustments.</p>
+</div>
 
 
 
