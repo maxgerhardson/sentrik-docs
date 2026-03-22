@@ -2375,7 +2375,8 @@
 <p>Your AI coding agent (Claude Code, Cursor, VS Code) calls Sentrik tools during code generation and review. The AI understands your compliance requirements before writing code — it checks what rules apply, writes compliant code, and verifies it inline. The MCP server uses the AI tool's own LLM (Claude, GPT, etc.) and requires no additional configuration beyond adding Sentrik as an MCP server.</p>
 <p><strong>Best for:</strong> Developers writing code with AI assistance who want compliance checks built into their coding workflow.</p>
 <h3 id="dashboard-ai-chat-for-compliance-officers">Dashboard AI Chat (for compliance officers)<a class="headerlink" href="#dashboard-ai-chat-for-compliance-officers" title="Permanent link">&para;</a></h3>
-<p>Click "Fix with AI" on any finding in the Sentrik dashboard. A chat panel opens where you can discuss the finding with an LLM — ask why the code is non-compliant, explore remediation options, and apply fixes directly from the browser. This mode requires configuring <code>GUARD_LLM_PROVIDER</code> (set to <code>anthropic</code>, <code>openai</code>, or <code>ollama</code>) and the corresponding API key.</p>
+<p>Click "Fix with AI" on any finding in the Sentrik dashboard. A chat panel opens where you can discuss the finding with an LLM — ask why the code is non-compliant, explore remediation options, and apply fixes directly from the browser. Configure the LLM provider from the <strong>Settings</strong> page in the dashboard — select your provider, paste your API key, and click Save.</p>
+<p><img alt="AI Integration Settings" src="../../assets/images/docs-ai-integration.png" /></p>
 <p><strong>Best for:</strong> Compliance teams and QA engineers triaging findings in the browser without touching an IDE.</p>
 <h3 id="how-they-differ">How they differ<a class="headerlink" href="#how-they-differ" title="Permanent link">&para;</a></h3>
 <table>
