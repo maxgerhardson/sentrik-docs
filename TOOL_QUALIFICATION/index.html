@@ -1,0 +1,3627 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Governance runtime for AI-generated code. Scan, gate, and trace compliance automatically.">
+      
+      
+        <meta name="author" content="Sentrik">
+      
+      
+        <link rel="canonical" href="https://docs.sentrik.dev/TOOL_QUALIFICATION/">
+      
+      
+        <link rel="prev" href="../tutorials/medical-device-walkthrough/">
+      
+      
+        <link rel="next" href="../TOOL_QUALIFICATION_CHECKLIST/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Qualification Report - sentrik documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sentrik-tool-qualification-report" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="sentrik documentation" class="md-header__button md-logo" aria-label="sentrik documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            sentrik documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Qualification Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="sentrik documentation" class="md-nav__button md-logo" aria-label="sentrik documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    sentrik documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HOW_SENTRIK_WORKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/cli-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/auto-patching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Auto-Patching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/ci-cd-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/mcp-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration (AI Agents)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards Packs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Standards Packs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Free Tier
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Free Tier
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/iec-62304/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEC 62304
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/owasp-top-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Top 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/soc2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOC2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/hipaa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HIPAA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/pci-dss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PCI DSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/iso-27001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 27001
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organization Tier
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Organization Tier
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/iec-81001-5-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEC 81001-5-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/fda-21cfr11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21 CFR Part 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/iso-14971/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 14971
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/misra-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MISRA C/C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/do-178c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DO-178C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/iso-26262/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ISO 26262
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards-packs/authoring-custom-packs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Custom Packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/rbac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RBAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use Cases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Use Cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/medical-devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Medical Devices (IEC 62304)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/fintech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fintech (SOC2 + OWASP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/saas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SaaS & AI Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/medical-device-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Medical Device Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Qualification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Qualification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Report
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#document-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Document Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Document Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#revision-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revision History
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-tool-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tool Identification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Tool Identification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-general-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 General Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-tool-category-iso-26262" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Tool Category (ISO 26262)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-tool-confidence-level-iec-62304" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Tool Confidence Level (IEC 62304)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tool-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tool Classification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Tool Classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-classification-per-iec-62304-section-812" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Classification per IEC 62304 Section 8.1.2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-classification-per-iso-26262-part-8-section-1146" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Classification per ISO 26262 Part 8 Section 11.4.6
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tool-qualification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tool Qualification Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Tool Qualification Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-method-1-increased-confidence-from-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Method 1: Increased Confidence from Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-method-2-evaluation-of-the-tool-development-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Method 2: Evaluation of the Tool Development Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-method-3-validation-of-the-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Method 3: Validation of the Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-method-4-development-in-accordance-with-a-safety-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Method 4: Development in Accordance with a Safety Standard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-validation-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validation Evidence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Validation Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Test Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-deterministic-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Deterministic Operation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Known Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-version-control-and-traceability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Version Control and Traceability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-fail-safe-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Fail-Safe Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-operating-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Operating Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Operating Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-supported-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Supported Platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-deployment-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Deployment Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-intended-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Intended Use
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Intended Use">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-primary-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Primary Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-scope-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Scope Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-residual-risk-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Residual Risk Assessment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Residual Risk Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-false-positive-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 False Positive Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-false-negative-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 False Negative Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-tool-failure-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Tool Failure Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-configuration-error-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Configuration Error Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-qualification-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Qualification Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Qualification Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-re-qualification-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Re-Qualification Triggers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ongoing-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Ongoing Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-version-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Version Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a-standards-pack-rule-mapping-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix A: Standards Pack Rule Mapping Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-b-analysis-technique-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix B: Analysis Technique Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOOL_QUALIFICATION_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#document-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Document Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Document Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#revision-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revision History
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-tool-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tool Identification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Tool Identification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-general-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 General Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-tool-category-iso-26262" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Tool Category (ISO 26262)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-tool-confidence-level-iec-62304" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Tool Confidence Level (IEC 62304)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tool-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tool Classification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Tool Classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-classification-per-iec-62304-section-812" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Classification per IEC 62304 Section 8.1.2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-classification-per-iso-26262-part-8-section-1146" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Classification per ISO 26262 Part 8 Section 11.4.6
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tool-qualification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tool Qualification Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Tool Qualification Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-method-1-increased-confidence-from-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Method 1: Increased Confidence from Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-method-2-evaluation-of-the-tool-development-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Method 2: Evaluation of the Tool Development Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-method-3-validation-of-the-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Method 3: Validation of the Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-method-4-development-in-accordance-with-a-safety-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Method 4: Development in Accordance with a Safety Standard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-validation-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validation Evidence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Validation Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Test Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-deterministic-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Deterministic Operation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Known Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-version-control-and-traceability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Version Control and Traceability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-fail-safe-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Fail-Safe Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-operating-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Operating Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Operating Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-supported-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Supported Platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-deployment-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Deployment Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-intended-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Intended Use
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Intended Use">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-primary-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Primary Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-scope-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Scope Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-residual-risk-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Residual Risk Assessment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Residual Risk Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-false-positive-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 False Positive Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-false-negative-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 False Negative Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-tool-failure-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Tool Failure Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-configuration-error-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Configuration Error Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-qualification-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Qualification Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Qualification Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-re-qualification-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Re-Qualification Triggers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ongoing-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Ongoing Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-version-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Version Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a-standards-pack-rule-mapping-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix A: Standards Pack Rule Mapping Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-b-analysis-technique-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix B: Analysis Technique Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sentrik-tool-qualification-report">SENTRIK Tool Qualification Report<a class="headerlink" href="#sentrik-tool-qualification-report" title="Permanent link">&para;</a></h1>
+<p><strong>Document ID:</strong> SENTRIK-TQR-001
+<strong>Revision:</strong> 1.0
+<strong>Date:</strong> 2026-03-20
+<strong>Classification:</strong> Quality Management System Document</p>
+<hr />
+<h2 id="document-control">Document Control<a class="headerlink" href="#document-control" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tool Name</td>
+<td>SENTRIK</td>
+</tr>
+<tr>
+<td>Tool Version</td>
+<td>1.1.0</td>
+</tr>
+<tr>
+<td>Vendor</td>
+<td>Sentrik (https://sentrik.dev)</td>
+</tr>
+<tr>
+<td>Document Author</td>
+<td>Sentrik Engineering</td>
+</tr>
+<tr>
+<td>Approval Status</td>
+<td>Released</td>
+</tr>
+</tbody>
+</table>
+<h3 id="revision-history">Revision History<a class="headerlink" href="#revision-history" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Rev</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-03-20</td>
+<td>Sentrik Engineering</td>
+<td>Initial release</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-tool-identification">1. Tool Identification<a class="headerlink" href="#1-tool-identification" title="Permanent link">&para;</a></h2>
+<h3 id="11-general-information">1.1 General Information<a class="headerlink" href="#11-general-information" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tool Name</strong></td>
+<td>SENTRIK</td>
+</tr>
+<tr>
+<td><strong>Version</strong></td>
+<td>1.1.0</td>
+</tr>
+<tr>
+<td><strong>Vendor</strong></td>
+<td>Sentrik (sentrik.dev)</td>
+</tr>
+<tr>
+<td><strong>Distribution</strong></td>
+<td>PyPI (<code>sentrik</code>), npm (<code>sentrik</code>), Docker (<code>maxgerhardson/sentrik</code>), standalone binary</td>
+</tr>
+<tr>
+<td><strong>License</strong></td>
+<td>Proprietary (EULA)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-purpose">1.2 Purpose<a class="headerlink" href="#12-purpose" title="Permanent link">&para;</a></h3>
+<p>SENTRIK is a governance runtime for software development teams building safety-critical and regulated products. Its purpose is to:</p>
+<ul>
+<li><strong>Enforce coding standards</strong> through static pattern matching (regex), abstract syntax tree (AST) analysis, and structural file policy checks against configurable rule sets mapped to regulatory standards.</li>
+<li><strong>Perform regulatory compliance scanning</strong> against pre-built standards packs (IEC 62304, OWASP Top 10, SOC 2, HIPAA, PCI DSS, ISO 27001) and custom organizational rules.</li>
+<li><strong>Provide requirement-to-code traceability</strong> by linking source files to requirements and detecting requirement drift.</li>
+<li><strong>Gate CI/CD pipelines</strong> by evaluating scan results against configurable severity thresholds and returning deterministic pass/fail exit codes.</li>
+<li><strong>Generate compliance evidence</strong> in machine-readable formats (SARIF, JUnit XML, HTML, CSV) suitable for audit review.</li>
+<li><strong>Maintain audit trails</strong> of all governance decisions, scan results, and gate outcomes.</li>
+</ul>
+<h3 id="13-tool-category-iso-26262">1.3 Tool Category (ISO 26262)<a class="headerlink" href="#13-tool-category-iso-26262" title="Permanent link">&para;</a></h3>
+<p><strong>Tool Impact (TI): TI 2</strong> — SENTRIK can fail to detect an error or non-compliance in the software under development, but it cannot introduce errors into the software product itself. SENTRIK operates in a read-only capacity on source code; it does not modify, compile, or link any artifact that becomes part of the deliverable software.</p>
+<p>Note: The optional auto-patch feature can suggest code modifications, but these are explicitly staged as proposals requiring human review and are not applied without developer confirmation. Auto-patching is excluded from the qualification scope.</p>
+<h3 id="14-tool-confidence-level-iec-62304">1.4 Tool Confidence Level (IEC 62304)<a class="headerlink" href="#14-tool-confidence-level-iec-62304" title="Permanent link">&para;</a></h3>
+<p><strong>Confidence Level 2</strong> — The output of SENTRIK (scan findings, gate pass/fail decisions, compliance reports) is verified by subsequent activities in the software development lifecycle:</p>
+<ul>
+<li>Gate enforcement prevents merge of non-compliant code (fail-safe behavior).</li>
+<li>Human review of findings is required by governance policy before acceptance.</li>
+<li>Audit trail provides a permanent record of all tool decisions for independent verification.</li>
+<li>Compliance reports are reviewed by quality assurance personnel during formal audits.</li>
+</ul>
+<hr />
+<h2 id="2-tool-classification">2. Tool Classification<a class="headerlink" href="#2-tool-classification" title="Permanent link">&para;</a></h2>
+<h3 id="21-classification-per-iec-62304-section-812">2.1 Classification per IEC 62304 Section 8.1.2<a class="headerlink" href="#21-classification-per-iec-62304-section-812" title="Permanent link">&para;</a></h3>
+<p>IEC 62304:2006+AMD1:2015, Section 8.1 requires that software tools used in the development of medical device software be validated for their intended use when the output of the tool is not independently verified.</p>
+<p>SENTRIK falls into the class of <strong>tools whose output could contain undetected errors</strong> (i.e., false negatives — a compliance violation that the tool fails to flag). This classification triggers the requirement for tool validation as described in Section 8.1.2.</p>
+<p>However, because SENTRIK's output is:</p>
+<ol>
+<li>Verified by subsequent V&amp;V activities (code review, integration testing, system testing),</li>
+<li>Supplemented by manual compliance checks during design reviews, and</li>
+<li>Recorded in an audit trail for independent review,</li>
+</ol>
+<p>the tool is classified at <strong>Confidence Level 2</strong>, meaning that validation evidence must demonstrate fitness for purpose but exhaustive proof of correctness is not required.</p>
+<h3 id="22-classification-per-iso-26262-part-8-section-1146">2.2 Classification per ISO 26262 Part 8 Section 11.4.6<a class="headerlink" href="#22-classification-per-iso-26262-part-8-section-1146" title="Permanent link">&para;</a></h3>
+<p>ISO 26262:2018, Part 8, Section 11 defines a classification method based on two dimensions:</p>
+<p><strong>Tool Impact (TI):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Definition</th>
+<th>SENTRIK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TI 1</td>
+<td>Tool cannot introduce or fail to detect errors</td>
+<td>No</td>
+</tr>
+<tr>
+<td>TI 2</td>
+<td>Tool can fail to detect errors but cannot introduce errors</td>
+<td><strong>Yes</strong></td>
+</tr>
+</tbody>
+</table>
+<p>SENTRIK is classified as <strong>TI 2</strong> because a false negative (missed finding) could result in non-compliant code proceeding through the pipeline. However, SENTRIK never modifies compiled artifacts, linker configurations, or any deliverable component of the target software.</p>
+<p><strong>Tool Error Detection (TD):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Definition</th>
+<th>SENTRIK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TD 1</td>
+<td>High degree of confidence that a tool malfunction will be detected</td>
+<td>No</td>
+</tr>
+<tr>
+<td>TD 2</td>
+<td>Medium degree of confidence that a tool malfunction will be detected</td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr>
+<td>TD 3</td>
+<td>Low degree of confidence that a tool malfunction will be detected</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>SENTRIK is classified as <strong>TD 2</strong> because:</p>
+<ul>
+<li>Gate failures produce exit code 1 (observable in CI/CD).</li>
+<li>Scan results are captured in structured reports reviewed by developers and quality personnel.</li>
+<li>The audit trail records all tool decisions.</li>
+<li>However, a silent false negative (the tool simply not flagging a violation) would not be automatically detected without independent code review.</li>
+</ul>
+<p><strong>Tool Confidence Level (TCL) Determination:</strong></p>
+<p>Per ISO 26262 Part 8, Table 4:</p>
+<table>
+<thead>
+<tr>
+<th>TI \ TD</th>
+<th>TD 1</th>
+<th>TD 2</th>
+<th>TD 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TI 1</td>
+<td>TCL 1</td>
+<td>TCL 1</td>
+<td>TCL 1</td>
+</tr>
+<tr>
+<td>TI 2</td>
+<td>TCL 1</td>
+<td><strong>TCL 2</strong></td>
+<td>TCL 3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result: TCL 2</strong> — Qualification is required. Methods 1 and/or 2 (see Section 3) are sufficient for TCL 2 qualification.</p>
+<hr />
+<h2 id="3-tool-qualification-methods">3. Tool Qualification Methods<a class="headerlink" href="#3-tool-qualification-methods" title="Permanent link">&para;</a></h2>
+<p>ISO 26262 Part 8, Section 11.4.7 defines four qualification methods. The following methods are applied to SENTRIK:</p>
+<h3 id="31-method-1-increased-confidence-from-use">3.1 Method 1: Increased Confidence from Use<a class="headerlink" href="#31-method-1-increased-confidence-from-use" title="Permanent link">&para;</a></h3>
+<p><strong>Applicability:</strong> Sufficient for TCL 2 qualification.</p>
+<p>Evidence of operational reliability:</p>
+<ul>
+<li>SENTRIK has been in continuous development and use since its initial release, with iterative refinement across 26+ development phases.</li>
+<li>The tool has been exercised against real-world codebases including medical device software, fintech applications, and SaaS platforms.</li>
+<li>The automated test suite (2,100+ tests) is executed on every code change, providing continuous regression verification.</li>
+<li>The tool has been used in CI/CD pipelines (GitHub Actions, Azure Pipelines) processing thousands of scan cycles during development and validation.</li>
+</ul>
+<h3 id="32-method-2-evaluation-of-the-tool-development-process">3.2 Method 2: Evaluation of the Tool Development Process<a class="headerlink" href="#32-method-2-evaluation-of-the-tool-development-process" title="Permanent link">&para;</a></h3>
+<p><strong>Applicability:</strong> Sufficient for TCL 2 qualification.</p>
+<p>The SENTRIK development process includes:</p>
+<ul>
+<li><strong>Version control:</strong> All source code is maintained under Git with full commit history and traceability.</li>
+<li><strong>Automated testing:</strong> 2,100+ unit and integration tests with an 80% minimum coverage threshold enforced by CI/CD.</li>
+<li><strong>Continuous integration:</strong> Every commit is validated against the full test suite before merge.</li>
+<li><strong>Code review:</strong> All changes are reviewed before integration into the main branch.</li>
+<li><strong>Release process:</strong> Automated release pipeline (GitHub Actions) builds, tests, packages, and publishes artifacts. No release is issued without a passing test suite.</li>
+<li><strong>Defect tracking:</strong> Issues are tracked in the project management system with full lifecycle visibility.</li>
+</ul>
+<h3 id="33-method-3-validation-of-the-tool">3.3 Method 3: Validation of the Tool<a class="headerlink" href="#33-method-3-validation-of-the-tool" title="Permanent link">&para;</a></h3>
+<p><strong>Applicability:</strong> Provides additional confidence beyond TCL 2 requirements.</p>
+<p>Validation testing has been performed to confirm correct operation:</p>
+<ul>
+<li><strong>Known-defect detection:</strong> Test cases inject known coding violations (e.g., <code>eval()</code> usage, hardcoded secrets, missing documentation, prohibited imports) and verify that SENTRIK correctly identifies them with the expected severity, rule ID, and file location.</li>
+<li><strong>Standard clause mapping:</strong> Each rule in every standards pack is verified to map to a specific regulatory clause (e.g., rule <code>IEC62304-5.5.5-CPP</code> maps to IEC 62304 Section 5.5.5).</li>
+<li><strong>Gate behavior:</strong> Test cases verify that the gate correctly returns exit code 0 (pass) or exit code 1 (fail) based on configurable severity thresholds.</li>
+<li><strong>Report generation:</strong> Test cases verify that output reports (SARIF, JUnit, HTML, CSV) contain the expected structure and content.</li>
+<li><strong>Determinism:</strong> Repeated scans of identical input produce identical output, confirmed by automated regression tests.</li>
+</ul>
+<h3 id="34-method-4-development-in-accordance-with-a-safety-standard">3.4 Method 4: Development in Accordance with a Safety Standard<a class="headerlink" href="#34-method-4-development-in-accordance-with-a-safety-standard" title="Permanent link">&para;</a></h3>
+<p><strong>Applicability:</strong> Not applied. Method 4 requires development per a recognized safety standard (e.g., IEC 61508 Part 3). This method is not required for TCL 2 and has not been applied to SENTRIK's own development process.</p>
+<hr />
+<h2 id="4-validation-evidence">4. Validation Evidence<a class="headerlink" href="#4-validation-evidence" title="Permanent link">&para;</a></h2>
+<h3 id="41-test-suite">4.1 Test Suite<a class="headerlink" href="#41-test-suite" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total automated tests</td>
+<td>2,100+</td>
+</tr>
+<tr>
+<td>Test framework</td>
+<td>pytest</td>
+</tr>
+<tr>
+<td>Minimum coverage</td>
+<td>80% (enforced by CI/CD)</td>
+</tr>
+<tr>
+<td>Test execution frequency</td>
+<td>Every commit, every pull request, every release</td>
+</tr>
+</tbody>
+</table>
+<p>Test coverage includes:</p>
+<ul>
+<li>All rule types: <code>regex</code>, <code>ast</code>, <code>file_policy</code>, <code>required_pattern</code>, <code>documentation_obligation</code>, <code>requirement_verification</code></li>
+<li>All six standards packs (IEC 62304, OWASP Top 10, SOC 2, HIPAA, PCI DSS, ISO 27001)</li>
+<li>All CLI commands (<code>scan</code>, <code>gate</code>, <code>init</code>, <code>reconcile</code>, <code>compliance-report</code>, <code>verify-reqs</code>, <code>trace</code>, etc.)</li>
+<li>All output formats (SARIF, JUnit XML, HTML, CSV)</li>
+<li>Configuration loading, validation, and migration</li>
+<li>License enforcement and governance policy evaluation</li>
+<li>DevOps provider integration (Azure DevOps, GitHub, Jira)</li>
+<li>Edge cases: empty files, binary files, malformed input, missing configuration</li>
+</ul>
+<h3 id="42-deterministic-operation">4.2 Deterministic Operation<a class="headerlink" href="#42-deterministic-operation" title="Permanent link">&para;</a></h3>
+<p>SENTRIK's core analysis is deterministic. Given identical inputs (source code, rule set, configuration), the tool produces identical outputs (findings list, severity assignments, gate decision). This property is guaranteed by the following design:</p>
+<ul>
+<li><strong>Regex rules:</strong> Pattern matching against file contents is inherently deterministic.</li>
+<li><strong>AST rules:</strong> Python abstract syntax tree analysis is parsed deterministically by the standard library <code>ast</code> module.</li>
+<li><strong>File policy rules:</strong> Structural checks (line counts, docstring presence, import verification) operate on deterministic file properties.</li>
+<li><strong>Required pattern rules:</strong> Absence detection is deterministic.</li>
+<li><strong>Severity assignment:</strong> Severity is assigned by the rule definition, not by probabilistic analysis. The optional heuristic rescorer uses a deterministic weighted formula (not machine learning).</li>
+<li><strong>Gate decision:</strong> Pass/fail is computed by comparing finding severities against a configured threshold list. No randomness is involved.</li>
+</ul>
+<p>Non-deterministic features (LLM-powered confidence rescoring) are:</p>
+<ul>
+<li>Disabled by default.</li>
+<li>Opt-in only (requires explicit configuration).</li>
+<li>Excluded from the qualification scope.</li>
+<li>Clearly identified in output when active (<code>deterministic=False</code> flag on affected findings).</li>
+</ul>
+<h3 id="43-known-limitations">4.3 Known Limitations<a class="headerlink" href="#43-known-limitations" title="Permanent link">&para;</a></h3>
+<p>The following limitations are documented and must be considered when using SENTRIK as part of a verification and validation strategy:</p>
+<ol>
+<li>
+<p><strong>False positives from regex matching in non-executable contexts.</strong> Regex rules may match patterns appearing in comments, string literals, or documentation. This is mitigated by the confidence scoring system, which assigns reduced confidence (0.4-0.7) to matches in these contexts. Suppression rules allow teams to dismiss confirmed false positives with documented rationale.</p>
+</li>
+<li>
+<p><strong>No data flow analysis.</strong> SENTRIK does not perform inter-procedural data flow analysis, taint tracking, or symbolic execution. It cannot detect vulnerabilities that require understanding how data propagates through the program (e.g., SQL injection via an indirect variable). Teams requiring data flow analysis should supplement SENTRIK with dedicated SAST tools.</p>
+</li>
+<li>
+<p><strong>No binary or compiled code analysis.</strong> SENTRIK operates exclusively on source code. It does not analyze compiled binaries, intermediate representations, or linked executables.</p>
+</li>
+<li>
+<p><strong>Language-specific AST analysis limited to Python.</strong> The built-in AST checks (complexity analysis, mutable defaults, nested functions, etc.) operate on Python source files only. Other languages are covered by regex rules and file policy checks.</p>
+</li>
+<li>
+<p><strong>SBOM vulnerability scanning depends on external databases.</strong> The SBOM scanning feature queries the OSV.dev vulnerability database. Completeness and accuracy depend on the external database's coverage. Network availability is required.</p>
+</li>
+<li>
+<p><strong>LLM-powered features are non-deterministic.</strong> When enabled, LLM confidence rescoring introduces non-deterministic behavior. These features are excluded from the qualification scope and must not be relied upon for safety-critical decisions.</p>
+</li>
+</ol>
+<h3 id="44-version-control-and-traceability">4.4 Version Control and Traceability<a class="headerlink" href="#44-version-control-and-traceability" title="Permanent link">&para;</a></h3>
+<ul>
+<li>All source code is maintained in a Git repository with full commit history.</li>
+<li>Every rule in every standards pack includes a <code>standard_ref</code> field mapping to a specific regulatory clause (e.g., <code>IEC 62304 §5.5.5</code>, <code>OWASP A03:2021</code>, <code>SOC2 CC6.1</code>).</li>
+<li>The audit trail (<code>out/agent_audit.jsonl</code>) records every scan, gate decision, and governance action with timestamps, user identity, and decision rationale.</li>
+<li>Compliance reports include rule-to-standard traceability for each finding.</li>
+</ul>
+<h3 id="45-fail-safe-behavior">4.5 Fail-Safe Behavior<a class="headerlink" href="#45-fail-safe-behavior" title="Permanent link">&para;</a></h3>
+<p>SENTRIK is designed to fail safely:</p>
+<ul>
+<li>If the scan encounters an error (invalid configuration, file read failure, internal exception), it exits with code 1 (gate failure). The default behavior is to block, not to pass silently.</li>
+<li>If no standards or rules are configured, the tool reports the configuration issue and does not produce a false "all clear" result.</li>
+<li>If the gate threshold configuration is invalid, the gate fails closed.</li>
+</ul>
+<hr />
+<h2 id="5-operating-environment">5. Operating Environment<a class="headerlink" href="#5-operating-environment" title="Permanent link">&para;</a></h2>
+<h3 id="51-supported-platforms">5.1 Supported Platforms<a class="headerlink" href="#51-supported-platforms" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>3.11 or later</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>Windows 10/11, macOS 12+, Linux (Ubuntu 20.04+, RHEL 8+)</td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>x86_64, ARM64 (Apple Silicon)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-dependencies">5.2 Dependencies<a class="headerlink" href="#52-dependencies" title="Permanent link">&para;</a></h3>
+<p><strong>Core scanning (no external dependencies beyond Python standard library):</strong></p>
+<ul>
+<li>Regex analysis: Python <code>re</code> module (standard library)</li>
+<li>AST analysis: Python <code>ast</code> module (standard library)</li>
+<li>File I/O: Python <code>pathlib</code>, <code>os</code> modules (standard library)</li>
+</ul>
+<p><strong>Runtime dependencies (installed via pip):</strong></p>
+<ul>
+<li><code>typer</code> — CLI framework</li>
+<li><code>fastapi</code> + <code>uvicorn</code> — REST API server</li>
+<li><code>pyyaml</code> — YAML configuration parsing</li>
+<li><code>httpx</code> — HTTP client for DevOps provider APIs</li>
+<li><code>rich</code> — Terminal output formatting</li>
+</ul>
+<p><strong>Optional dependencies (not required for core scanning):</strong></p>
+<ul>
+<li><code>clang-tidy</code>, <code>cppcheck</code> — deeper C/C++ analysis (external tools, not bundled)</li>
+<li>LLM provider API keys — confidence rescoring (non-deterministic, excluded from qualification scope)</li>
+</ul>
+<h3 id="53-deployment-modes">5.3 Deployment Modes<a class="headerlink" href="#53-deployment-modes" title="Permanent link">&para;</a></h3>
+<p>SENTRIK supports the following deployment configurations, all producing equivalent scan results:</p>
+<ol>
+<li><strong>CLI on developer workstation</strong> — <code>sentrik scan</code>, <code>sentrik gate</code></li>
+<li><strong>CI/CD pipeline step</strong> — GitHub Actions, Azure Pipelines, GitLab CI, Jenkins</li>
+<li><strong>Pre-commit hook</strong> — <code>sentrik scan --staged</code></li>
+<li><strong>Docker container</strong> — <code>docker.io/maxgerhardson/sentrik</code></li>
+<li><strong>REST API server</strong> — <code>sentrik dashboard</code> with dashboard and programmatic access</li>
+<li><strong>VS Code / Cursor extension</strong> — in-editor diagnostics with scan-on-save</li>
+</ol>
+<hr />
+<h2 id="6-intended-use">6. Intended Use<a class="headerlink" href="#6-intended-use" title="Permanent link">&para;</a></h2>
+<h3 id="61-primary-use-cases">6.1 Primary Use Cases<a class="headerlink" href="#61-primary-use-cases" title="Permanent link">&para;</a></h3>
+<p>SENTRIK is intended for use as a <strong>supplementary verification tool</strong> within a software development lifecycle governed by a quality management system. Specific intended uses include:</p>
+<ol>
+<li><strong>Automated compliance scanning</strong> — Continuous verification of source code against regulatory coding standards (IEC 62304, OWASP Top 10, SOC 2, HIPAA, PCI DSS, ISO 27001) during development.</li>
+<li><strong>CI/CD gate enforcement</strong> — Blocking non-compliant code from being merged into protected branches by returning a deterministic pass/fail result based on configurable severity thresholds.</li>
+<li><strong>Pre-commit verification</strong> — Scanning staged changes before commit to provide early feedback to developers.</li>
+<li><strong>Compliance evidence generation</strong> — Producing structured reports (SARIF, JUnit XML, HTML) documenting scan results for audit review and regulatory submissions.</li>
+<li><strong>Requirement traceability</strong> — Mapping source files to requirements and detecting requirement drift.</li>
+<li><strong>Audit trail maintenance</strong> — Recording all governance decisions, scan outcomes, and gate results for retrospective analysis.</li>
+</ol>
+<h3 id="62-scope-limitations">6.2 Scope Limitations<a class="headerlink" href="#62-scope-limitations" title="Permanent link">&para;</a></h3>
+<p>SENTRIK is <strong>NOT</strong> intended to serve as:</p>
+<ul>
+<li>The <strong>sole verification method</strong> for safety-critical software. It must be used as part of a broader verification and validation (V&amp;V) strategy that includes code review, unit testing, integration testing, system testing, and formal design reviews.</li>
+<li>A <strong>replacement for human judgment</strong> in safety-critical decisions. All critical findings should be reviewed by qualified personnel.</li>
+<li>A <strong>formal methods tool</strong>. SENTRIK does not perform mathematical proof of correctness, model checking, or exhaustive state-space exploration.</li>
+<li>A <strong>compiler or build tool</strong>. SENTRIK does not participate in the compilation, linking, or deployment of the software product.</li>
+</ul>
+<hr />
+<h2 id="7-residual-risk-assessment">7. Residual Risk Assessment<a class="headerlink" href="#7-residual-risk-assessment" title="Permanent link">&para;</a></h2>
+<h3 id="71-false-positive-risk">7.1 False Positive Risk<a class="headerlink" href="#71-false-positive-risk" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Risk</strong></td>
+<td>SENTRIK may flag compliant code as non-compliant (false positive).</td>
+</tr>
+<tr>
+<td><strong>Impact</strong></td>
+<td>Developer time spent investigating non-issues. No safety impact (false positives do not mask real defects).</td>
+</tr>
+<tr>
+<td><strong>Probability</strong></td>
+<td>Medium — regex rules can match patterns in comments, strings, and documentation.</td>
+</tr>
+<tr>
+<td><strong>Mitigation</strong></td>
+<td>Confidence scoring assigns reduced confidence to matches in non-executable contexts. Suppression rules allow documented dismissal of confirmed false positives. Rule-specific <code>exclude_patterns</code> configuration.</td>
+</tr>
+<tr>
+<td><strong>Residual</strong></td>
+<td>Low — manageable through configuration and team workflow.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-false-negative-risk">7.2 False Negative Risk<a class="headerlink" href="#72-false-negative-risk" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Risk</strong></td>
+<td>SENTRIK may fail to detect a genuine compliance violation (false negative).</td>
+</tr>
+<tr>
+<td><strong>Impact</strong></td>
+<td>Non-compliant code may proceed through the pipeline undetected by this tool.</td>
+</tr>
+<tr>
+<td><strong>Probability</strong></td>
+<td>Medium — regex pattern matching has inherent coverage limits; no data flow analysis is performed.</td>
+</tr>
+<tr>
+<td><strong>Mitigation</strong></td>
+<td>Multi-standard rule coverage provides overlapping detection (the same issue may be caught by rules from different frameworks). Independent code review is required by governance policy. Integration and system testing provide additional verification layers. Regular rule set updates expand detection coverage.</td>
+</tr>
+<tr>
+<td><strong>Residual</strong></td>
+<td>Medium — accepted as inherent to pattern-based static analysis. Must be compensated by other V&amp;V activities per the quality management system.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-tool-failure-risk">7.3 Tool Failure Risk<a class="headerlink" href="#73-tool-failure-risk" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Risk</strong></td>
+<td>SENTRIK may crash, hang, or produce corrupted output.</td>
+</tr>
+<tr>
+<td><strong>Impact</strong></td>
+<td>Pipeline gate may not execute, potentially allowing unverified code to proceed.</td>
+</tr>
+<tr>
+<td><strong>Probability</strong></td>
+<td>Low — extensive test coverage and fail-safe design (errors produce exit code 1).</td>
+</tr>
+<tr>
+<td><strong>Mitigation</strong></td>
+<td>Fail-safe behavior: any unhandled exception causes exit code 1 (gate failure). CI/CD pipelines treat non-zero exit codes as step failures. Scan metrics and audit logs provide observability into tool operation.</td>
+</tr>
+<tr>
+<td><strong>Residual</strong></td>
+<td>Low — fail-safe design ensures failures block rather than pass.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="74-configuration-error-risk">7.4 Configuration Error Risk<a class="headerlink" href="#74-configuration-error-risk" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Risk</strong></td>
+<td>Misconfiguration may disable rules, reduce gate strictness, or exclude critical files from scanning.</td>
+</tr>
+<tr>
+<td><strong>Impact</strong></td>
+<td>Reduced detection coverage without visible indication.</td>
+</tr>
+<tr>
+<td><strong>Probability</strong></td>
+<td>Low — configuration validation (<code>sentrik validate-config</code>) detects common errors.</td>
+</tr>
+<tr>
+<td><strong>Mitigation</strong></td>
+<td><code>sentrik validate-config</code> command verifies configuration integrity. Governance profiles provide pre-validated configurations (strict, standard, permissive). Configuration is version-controlled alongside source code. Configuration changes are visible in code review.</td>
+</tr>
+<tr>
+<td><strong>Residual</strong></td>
+<td>Low — manageable through process controls and configuration review.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-qualification-maintenance">8. Qualification Maintenance<a class="headerlink" href="#8-qualification-maintenance" title="Permanent link">&para;</a></h2>
+<h3 id="81-re-qualification-triggers">8.1 Re-Qualification Triggers<a class="headerlink" href="#81-re-qualification-triggers" title="Permanent link">&para;</a></h3>
+<p>Re-qualification of SENTRIK is required when any of the following changes occur:</p>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Re-Qualification Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Major version change (e.g., 1.x to 2.x)</td>
+<td>Yes — full re-qualification</td>
+</tr>
+<tr>
+<td>Change to rule matching logic (regex engine, AST parser)</td>
+<td>Yes — targeted re-qualification of affected rule types</td>
+</tr>
+<tr>
+<td>Introduction of new analysis techniques</td>
+<td>Yes — qualification of new technique</td>
+</tr>
+<tr>
+<td>Change to gate decision logic</td>
+<td>Yes — targeted re-qualification</td>
+</tr>
+<tr>
+<td>Change to report output format</td>
+<td>Yes — if report format is cited in regulatory submissions</td>
+</tr>
+<tr>
+<td>New standards pack added</td>
+<td>No — new packs do not affect existing rule behavior</td>
+</tr>
+<tr>
+<td>New rules added to existing packs</td>
+<td>No — additive changes do not affect existing behavior</td>
+</tr>
+<tr>
+<td>Bug fixes that do not change detection logic</td>
+<td>No</td>
+</tr>
+<tr>
+<td>UI/dashboard changes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Minor version updates (e.g., 1.1 to 1.2)</td>
+<td>No — unless detection logic is modified</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-ongoing-validation">8.2 Ongoing Validation<a class="headerlink" href="#82-ongoing-validation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The automated test suite (2,100+ tests) is executed on every code change and must pass before any release.</li>
+<li>Regression tests verify that previously detected findings continue to be detected after updates.</li>
+<li>Release notes document all changes and identify any that affect detection behavior.</li>
+</ul>
+<h3 id="83-version-tracking">8.3 Version Tracking<a class="headerlink" href="#83-version-tracking" title="Permanent link">&para;</a></h3>
+<p>Each project using SENTRIK for qualified purposes must record:</p>
+<ul>
+<li>The exact SENTRIK version in use (obtainable via <code>sentrik version</code>).</li>
+<li>The standards packs and versions enabled.</li>
+<li>Any custom rules added to the configuration.</li>
+<li>The governance profile and gate thresholds configured.</li>
+<li>The deployment mode (CLI, CI/CD, Docker, etc.).</li>
+</ul>
+<hr />
+<h2 id="9-references">9. References<a class="headerlink" href="#9-references" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Standard / Document</th>
+<th>Relevance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 62304:2006+AMD1:2015, Section 8.1</td>
+<td>Software development tools — validation requirements</td>
+</tr>
+<tr>
+<td>ISO 26262:2018, Part 8, Section 11</td>
+<td>Qualification of software tools</td>
+</tr>
+<tr>
+<td>IEC 61508:2010, Part 3, Section 7.4.4</td>
+<td>Software tool qualification (general functional safety)</td>
+</tr>
+<tr>
+<td>FDA Guidance: "Off-The-Shelf Software Use in Medical Devices" (2019)</td>
+<td>FDA expectations for software tools in medical device development</td>
+</tr>
+<tr>
+<td>ISO 14971:2019</td>
+<td>Application of risk management to medical devices (referenced for residual risk methodology)</td>
+</tr>
+<tr>
+<td>ISO 13485:2016, Section 7.5.6</td>
+<td>Validation of processes for production and service provision (QMS context)</td>
+</tr>
+<tr>
+<td>DO-330: Software Tool Qualification Considerations</td>
+<td>Aerospace tool qualification framework (informative reference for cross-domain alignment)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix-a-standards-pack-rule-mapping-summary">Appendix A: Standards Pack Rule Mapping Summary<a class="headerlink" href="#appendix-a-standards-pack-rule-mapping-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Standards Pack</th>
+<th>Standard Reference</th>
+<th>Number of Rules</th>
+<th>Rule Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fda-iec-62304</td>
+<td>IEC 62304 / 21 CFR Part 11</td>
+<td>14</td>
+<td>regex, ast, file_policy, required_pattern</td>
+</tr>
+<tr>
+<td>owasp-top-10</td>
+<td>OWASP Top 10 2021</td>
+<td>22</td>
+<td>regex, file_policy</td>
+</tr>
+<tr>
+<td>soc2</td>
+<td>SOC 2 Trust Services Criteria</td>
+<td>16</td>
+<td>regex, file_policy, required_pattern</td>
+</tr>
+<tr>
+<td>hipaa</td>
+<td>HIPAA 45 CFR Part 164</td>
+<td>15</td>
+<td>regex, file_policy, required_pattern</td>
+</tr>
+<tr>
+<td>pci-dss</td>
+<td>PCI DSS v4.0</td>
+<td>16</td>
+<td>regex, file_policy, required_pattern</td>
+</tr>
+<tr>
+<td>iso-27001</td>
+<td>ISO/IEC 27001:2022 Annex A</td>
+<td>14</td>
+<td>regex, file_policy, required_pattern</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix-b-analysis-technique-summary">Appendix B: Analysis Technique Summary<a class="headerlink" href="#appendix-b-analysis-technique-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Deterministic</th>
+<th>Qualified</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regex pattern matching</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Pattern-based detection of prohibited constructs</td>
+</tr>
+<tr>
+<td>AST analysis (Python)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Structural analysis of Python syntax trees</td>
+</tr>
+<tr>
+<td>File policy checks</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Structural validation of file properties</td>
+</tr>
+<tr>
+<td>Required pattern checks</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Detection of absent required patterns</td>
+</tr>
+<tr>
+<td>Heuristic rescoring</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Deterministic weighted-formula severity adjustment</td>
+</tr>
+<tr>
+<td>LLM confidence scoring</td>
+<td>No</td>
+<td><strong>No</strong></td>
+<td>Non-deterministic, opt-in, excluded from scope</td>
+</tr>
+<tr>
+<td>Auto-patching</td>
+<td>No</td>
+<td><strong>No</strong></td>
+<td>Requires human review, excluded from scope</td>
+</tr>
+<tr>
+<td>SBOM/OSV scanning</td>
+<td>Yes*</td>
+<td><strong>No</strong></td>
+<td>Depends on external database; excluded from scope</td>
+</tr>
+</tbody>
+</table>
+<p>* Deterministic for a given database state, but database contents change over time.</p>
+<hr />
+<p><em>End of Document</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025-2026 Sentrik
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.npmjs.com/package/sentrik" target="_blank" rel="noopener" title="www.npmjs.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M288 288h-32v-64h32zm288-128v192H288v32H160v-32H0V160zm-416 32H32v128h64v-96h32v96h32zm160 0H192v160h64v-32h64zm224 0H352v128h64v-96h32v96h32v-96h32v96h32z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -18,14 +18,14 @@
         <link rel="prev" href="../auto-patching/">
       
       
-        <link rel="next" href="../../standards-packs/overview/">
+        <link rel="next" href="../mcp-integration/">
       
       
         
       
       
       <link rel="icon" href="../../assets/favicon.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -466,6 +466,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../HOW_SENTRIK_WORKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cli-reference/" class="md-nav__link">
         
   
@@ -710,6 +738,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#devops-project-mismatch-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps project mismatch warning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#environment-variables-for-ci" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -735,6 +774,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration (AI Agents)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1697,6 +1764,123 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Qualification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Qualification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1824,6 +2008,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#devops-project-mismatch-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps project mismatch warning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#environment-variables-for-ci" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1931,6 +2126,8 @@
 <p>If the pre-commit scan finds fixable issues:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sentrik<span class="w"> </span>fix-hook<span class="w">    </span><span class="c1"># Auto-fix and re-stage</span>
 </code></pre></div>
+<h2 id="devops-project-mismatch-warning">DevOps project mismatch warning<a class="headerlink" href="#devops-project-mismatch-warning" title="Permanent link">&para;</a></h2>
+<p>When a DevOps provider is configured (Azure DevOps, GitHub, or Jira), sentrik checks whether the configured project name matches the local git repository name. If they differ, a warning is shown during <code>Test Connection</code> and <code>reconcile</code> to prevent accidentally syncing findings or work items to the wrong project.</p>
 <h2 id="environment-variables-for-ci">Environment variables for CI<a class="headerlink" href="#environment-variables-for-ci" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1967,6 +2164,26 @@
 <tr>
 <td><code>JIRA_TOKEN</code></td>
 <td>Jira authentication</td>
+</tr>
+<tr>
+<td><code>GUARD_CONFIDENCE_SCORING_ENABLED</code></td>
+<td>Enable LLM-powered confidence re-scoring (<code>true</code>)</td>
+</tr>
+<tr>
+<td><code>GUARD_CONFIDENCE_SCORING_MAX_FINDINGS</code></td>
+<td>Max findings to re-score per scan (default: <code>50</code>)</td>
+</tr>
+<tr>
+<td><code>GUARD_LLM_PROVIDER</code></td>
+<td>LLM provider for confidence scoring (<code>anthropic</code>, <code>openai</code>, <code>ollama</code>)</td>
+</tr>
+<tr>
+<td><code>GUARD_LLM_MODEL</code></td>
+<td>LLM model name</td>
+</tr>
+<tr>
+<td><code>GUARD_LLM_BASE_URL</code></td>
+<td>Base URL for LLM API (required for <code>ollama</code>)</td>
 </tr>
 </tbody>
 </table>

@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -466,6 +466,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../HOW_SENTRIK_WORKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../guides/cli-reference/" class="md-nav__link">
         
   
@@ -558,6 +586,34 @@
     
   
     CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/mcp-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration (AI Agents)
   
 
     
@@ -1408,13 +1464,369 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#findings-endpoints" class="md-nav__link">
+  <a href="#findings-reporting-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Findings endpoints
+        Findings &amp; reporting endpoints
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Findings &amp; reporting endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apicompliance-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/compliance-report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitrust-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/trust-center
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sbom-supply-chain-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SBOM &amp; supply chain endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SBOM &amp; supply chain endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apisbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/sbom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apivulns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/vulns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apivulnsreport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/vulns/report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apilicenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/licenses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-evidence-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance &amp; evidence endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compliance &amp; evidence endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apievidence-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/evidence-export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiimpact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apimetricshistory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/metrics/history
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdk-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDK endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SDK endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apisdkcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/sdk/check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apisdkcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/sdk/context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apisdkrules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/sdk/rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organization-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organization endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organization endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiorgprojects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/org/projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditor-portal-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditor portal endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auditor portal endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-auditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /auditor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiauditorportal-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/auditor/portal-data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiauditordownload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/auditor/download
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-endpoints_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apipull-reqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/pull-reqs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-oauthproviderconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /oauth/{provider}/connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-oauthprovidercallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /oauth/{provider}/callback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-oauthproviderdisconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /oauth/{provider}/disconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apioauthstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/oauth/status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1757,6 +2169,123 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Qualification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Qualification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1922,13 +2451,369 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#findings-endpoints" class="md-nav__link">
+  <a href="#findings-reporting-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Findings endpoints
+        Findings &amp; reporting endpoints
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Findings &amp; reporting endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apicompliance-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/compliance-report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apitrust-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/trust-center
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sbom-supply-chain-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SBOM &amp; supply chain endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SBOM &amp; supply chain endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apisbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/sbom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apivulns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/vulns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apivulnsreport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/vulns/report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apilicenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/licenses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-evidence-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance &amp; evidence endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compliance &amp; evidence endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apievidence-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/evidence-export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiimpact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apimetricshistory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/metrics/history
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdk-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDK endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SDK endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apisdkcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/sdk/check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apisdkcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/sdk/context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apisdkrules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/sdk/rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organization-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organization endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organization endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiorgprojects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/org/projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditor-portal-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditor portal endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auditor portal endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-auditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /auditor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiauditorportal-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/auditor/portal-data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiauditordownload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/auditor/download
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-endpoints_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apipull-reqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/pull-reqs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-oauthproviderconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /oauth/{provider}/connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-oauthprovidercallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /oauth/{provider}/callback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-oauthproviderdisconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /oauth/{provider}/disconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apioauthstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/oauth/status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1985,10 +2870,10 @@
 <h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
 <p>The sentrik REST API exposes the scanning pipeline over HTTP, enabling remote scanning, gating, and report generation.</p>
 <h2 id="starting-the-server">Starting the server<a class="headerlink" href="#starting-the-server" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>serve<span class="w">                     </span><span class="c1"># Default: 0.0.0.0:8000</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>serve<span class="w"> </span>--port<span class="w"> </span><span class="m">9000</span><span class="w">         </span><span class="c1"># Custom port</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sentrik<span class="w"> </span>serve<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w">   </span><span class="c1"># Localhost only</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sentrik<span class="w"> </span>serve<span class="w"> </span>--reload<span class="w">            </span><span class="c1"># Dev mode with auto-reload</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>dashboard<span class="w">                     </span><span class="c1"># Default: 0.0.0.0:8000</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>dashboard<span class="w"> </span>--port<span class="w"> </span><span class="m">9000</span><span class="w">         </span><span class="c1"># Custom port</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sentrik<span class="w"> </span>dashboard<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w">   </span><span class="c1"># Localhost only</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sentrik<span class="w"> </span>dashboard<span class="w"> </span>--reload<span class="w">            </span><span class="c1"># Dev mode with auto-reload</span>
 </code></pre></div>
 <p>Auto-generated interactive docs are available at:</p>
 <ul>
@@ -2216,7 +3101,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="findings-endpoints">Findings endpoints<a class="headerlink" href="#findings-endpoints" title="Permanent link">&para;</a></h2>
+<h2 id="findings-reporting-endpoints">Findings &amp; reporting endpoints<a class="headerlink" href="#findings-reporting-endpoints" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2236,8 +3121,471 @@
 <td>GET</td>
 <td>Get active suppressions</td>
 </tr>
+<tr>
+<td><code>/api/compliance-report</code></td>
+<td>GET</td>
+<td>Generate per-framework compliance report (HTML)</td>
+</tr>
+<tr>
+<td><code>/api/trust-center</code></td>
+<td>GET</td>
+<td>Generate public-safe trust center page</td>
+</tr>
+<tr>
+<td><code>/api/audit/runs</code></td>
+<td>GET</td>
+<td>List historical scan runs</td>
+</tr>
+<tr>
+<td><code>/api/audit/runs/{run_id}/report</code></td>
+<td>GET</td>
+<td>Generate report for a past scan run</td>
+</tr>
 </tbody>
 </table>
+<h3 id="get-apicompliance-report"><code>GET /api/compliance-report</code><a class="headerlink" href="#get-apicompliance-report" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>framework</code></td>
+<td>string</td>
+<td>Standard name filter (e.g. <code>IEC 62304</code>). Omit for all.</td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td>bool</td>
+<td>If true, return available frameworks instead of report.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-apitrust-center"><code>GET /api/trust-center</code><a class="headerlink" href="#get-apitrust-center" title="Permanent link">&para;</a></h3>
+<p>Returns a public-safe compliance summary (no file paths, code, or finding details).</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format</code></td>
+<td>string</td>
+<td><code>html</code> (default) or <code>json</code></td>
+</tr>
+<tr>
+<td><code>org_name</code></td>
+<td>string</td>
+<td>Organization name for the page header</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sbom-supply-chain-endpoints">SBOM &amp; supply chain endpoints<a class="headerlink" href="#sbom-supply-chain-endpoints" title="Permanent link">&para;</a></h2>
+<h3 id="get-apisbom"><code>GET /api/sbom</code><a class="headerlink" href="#get-apisbom" title="Permanent link">&para;</a></h3>
+<p>Generate a Software Bill of Materials (SBOM) from dependency manifests detected in the project (e.g. <code>requirements.txt</code>, <code>package.json</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format</code></td>
+<td>string</td>
+<td><code>cyclonedx</code></td>
+<td>SBOM format: <code>cyclonedx</code> or <code>spdx</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> CycloneDX or SPDX JSON document with all detected components.</p>
+<h3 id="get-apivulns"><code>GET /api/vulns</code><a class="headerlink" href="#get-apivulns" title="Permanent link">&para;</a></h3>
+<p>Return vulnerability scan results. Reads cached results from <code>out/vulnerabilities.json</code> by default, or triggers a live scan against OSV.dev when <code>refresh=true</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>refresh</code></td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Force a fresh scan instead of reading cached results</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> <code>{ vulnerable_count: N, total_dependencies: N, vulnerabilities: [...] }</code></p>
+<h3 id="get-apivulnsreport"><code>GET /api/vulns/report</code><a class="headerlink" href="#get-apivulnsreport" title="Permanent link">&para;</a></h3>
+<p>Generate an HTML vulnerability report from cached or live scan results.</p>
+<p><strong>Response:</strong> <code>{ html: "...", vulnerable_count: N, total_dependencies: N }</code></p>
+<h3 id="get-apilicenses"><code>GET /api/licenses</code><a class="headerlink" href="#get-apilicenses" title="Permanent link">&para;</a></h3>
+<p>Return dependency license scan results. Detects project manifests, parses dependencies, and queries registries (PyPI, npm) for license metadata. Results are cached in <code>out/licenses.json</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>refresh</code></td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Force a fresh license scan instead of reading cached results</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> License scan result with per-dependency license information.</p>
+<h2 id="compliance-evidence-endpoints">Compliance &amp; evidence endpoints<a class="headerlink" href="#compliance-evidence-endpoints" title="Permanent link">&para;</a></h2>
+<h3 id="get-apievidence-export"><code>GET /api/evidence-export</code><a class="headerlink" href="#get-apievidence-export" title="Permanent link">&para;</a></h3>
+<p>Generate an audit evidence package mapped to compliance framework controls.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>framework</code></td>
+<td>string</td>
+<td><code>""</code></td>
+<td>Framework name (e.g. <code>SOC2</code>, <code>IEC 62304</code>). Omit for framework list.</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td>string</td>
+<td><code>json</code></td>
+<td>Output format: <code>json</code> or <code>html</code></td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>If true, return available frameworks instead of evidence</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response (list=true or no framework):</strong> <code>{ frameworks: ["SOC2", "IEC 62304", ...] }</code></p>
+<p><strong>Response (json):</strong> Evidence package with items mapped to framework controls.</p>
+<p><strong>Response (html):</strong> <code>{ html: "...", framework: "SOC2" }</code></p>
+<h3 id="get-apiimpact"><code>GET /api/impact</code><a class="headerlink" href="#get-apiimpact" title="Permanent link">&para;</a></h3>
+<p>Analyze which rules, requirements, and frameworks are affected by changed files.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git_range</code></td>
+<td>string</td>
+<td><code>""</code></td>
+<td>Git range for diff (e.g. <code>origin/main...HEAD</code>)</td>
+</tr>
+<tr>
+<td><code>staged</code></td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Analyze staged changes instead of a git range</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> Impact analysis report with affected rules, requirements, and frameworks.</p>
+<h3 id="get-apimetricshistory"><code>GET /api/metrics/history</code><a class="headerlink" href="#get-apimetricshistory" title="Permanent link">&para;</a></h3>
+<p>Return scan history and statistics from the metrics database.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>days</code></td>
+<td>int</td>
+<td><code>90</code></td>
+<td>Number of days of history (1–365)</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>int</td>
+<td><code>50</code></td>
+<td>Maximum records to return (1–500)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> <code>{ scans: [...], trend: [...], compliance_trend: [...], stats: {...} }</code></p>
+<h2 id="sdk-endpoints">SDK endpoints<a class="headerlink" href="#sdk-endpoints" title="Permanent link">&para;</a></h2>
+<p>Compliance checking endpoints designed for AI coding agents.</p>
+<h3 id="post-apisdkcheck"><code>POST /api/sdk/check</code><a class="headerlink" href="#post-apisdkcheck" title="Permanent link">&para;</a></h3>
+<p>Check code for compliance violations.</p>
+<p><strong>Request body:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>Source code to check</td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>Filename for language detection and rule matching</td>
+</tr>
+<tr>
+<td><code>frameworks</code></td>
+<td>string[]</td>
+<td>No</td>
+<td>Limit checks to specific frameworks</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> <code>{ compliant: bool, findings: [...], suggestions: [...], confidence: N }</code></p>
+<h3 id="get-apisdkcontext"><code>GET /api/sdk/context</code><a class="headerlink" href="#get-apisdkcontext" title="Permanent link">&para;</a></h3>
+<p>Return compliance context for a file (applicable rules, frameworks, requirements).</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>Target file path (e.g. <code>src/main.cpp</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> Compliance context object with applicable rules and framework mappings.</p>
+<h3 id="get-apisdkrules"><code>GET /api/sdk/rules</code><a class="headerlink" href="#get-apisdkrules" title="Permanent link">&para;</a></h3>
+<p>Return applicable rules for a file, optionally filtered by framework.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>Target file path (e.g. <code>src/main.cpp</code>)</td>
+</tr>
+<tr>
+<td><code>frameworks</code></td>
+<td>string</td>
+<td>No</td>
+<td>Comma-separated framework names (e.g. <code>HIPAA,SOC2</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> List of rules that apply to the given file.</p>
+<h2 id="organization-endpoints">Organization endpoints<a class="headerlink" href="#organization-endpoints" title="Permanent link">&para;</a></h2>
+<h3 id="get-apiorgprojects"><code>GET /api/org/projects</code><a class="headerlink" href="#get-apiorgprojects" title="Permanent link">&para;</a></h3>
+<p>Aggregate compliance data across multiple repositories under an organization root directory.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>root</code></td>
+<td>string</td>
+<td>Parent of cwd</td>
+<td>Root directory containing sub-projects</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> Per-project compliance data with aggregated organization-level statistics.</p>
+<h2 id="auditor-portal-endpoints">Auditor portal endpoints<a class="headerlink" href="#auditor-portal-endpoints" title="Permanent link">&para;</a></h2>
+<p>Time-boxed, read-only access for external auditors. Tokens are generated via <code>sentrik auditor-token</code> CLI.</p>
+<h3 id="get-auditor"><code>GET /auditor</code><a class="headerlink" href="#get-auditor" title="Permanent link">&para;</a></h3>
+<p>Serve the auditor portal HTML page. The page handles token validation client-side via the <code>/api/auditor/portal-data</code> endpoint.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>Auditor access token (passed as query param, read by the page JS)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> HTML page.</p>
+<h3 id="get-apiauditorportal-data"><code>GET /api/auditor/portal-data</code><a class="headerlink" href="#get-apiauditorportal-data" title="Permanent link">&para;</a></h3>
+<p>Return read-only portal data for a valid auditor token. No source code, full file paths, configuration secrets, or API keys are included in the response.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>Auditor access token</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> <code>{ auditor_name, auditor_email, expires_at, access_scope, metrics, findings_by_rule, frameworks, audit_log, trends }</code> — fields present depend on the token's <code>access_scope</code>.</p>
+<h3 id="get-apiauditordownload"><code>GET /api/auditor/download</code><a class="headerlink" href="#get-apiauditordownload" title="Permanent link">&para;</a></h3>
+<p>Download a report for a valid auditor token. Requires <code>evidence</code> in the token's access scope.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>Auditor access token</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>No</td>
+<td>Report type: <code>compliance</code> (default), <code>evidence</code>, or <code>trust-center</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> HTML report content.</p>
+<h2 id="requirements-endpoints_1">Requirements endpoints<a class="headerlink" href="#requirements-endpoints_1" title="Permanent link">&para;</a></h2>
+<h3 id="post-apipull-reqs"><code>POST /api/pull-reqs</code><a class="headerlink" href="#post-apipull-reqs" title="Permanent link">&para;</a></h3>
+<p>Pull requirements from the configured DevOps provider into <code>requirements.yaml</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>merge</code></td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Merge with existing requirements instead of overwriting</td>
+</tr>
+<tr>
+<td><code>map-files</code></td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Auto-map requirements to source files</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response:</strong> <code>{ status, requirements: [...], requirements_file, count, provider }</code></p>
+<h2 id="oauth-endpoints">OAuth endpoints<a class="headerlink" href="#oauth-endpoints" title="Permanent link">&para;</a></h2>
+<p>Connect to DevOps providers (Azure DevOps, GitHub, Jira) via OAuth instead of managing PATs manually. Valid provider values: <code>azure</code>, <code>github</code>, <code>jira</code>.</p>
+<h3 id="get-oauthproviderconnect"><code>GET /oauth/{provider}/connect</code><a class="headerlink" href="#get-oauthproviderconnect" title="Permanent link">&para;</a></h3>
+<p>Initiate the OAuth authorization flow. Redirects the user to the provider's login page. Returns an error redirect to <code>/dashboard?oauth_error=...</code> if the client ID is not configured.</p>
+<h3 id="get-oauthprovidercallback"><code>GET /oauth/{provider}/callback</code><a class="headerlink" href="#get-oauthprovidercallback" title="Permanent link">&para;</a></h3>
+<p>Handle the OAuth callback from the provider after user authorization. Exchanges the authorization code for access/refresh tokens, stores them locally in <code>.sentrik/local/oauth_tokens.json</code>, and redirects to <code>/dashboard?oauth_success={provider}</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>Authorization code from the provider</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>string</td>
+<td>CSRF state parameter</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td>string</td>
+<td>Error code if authorization was denied</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-oauthproviderdisconnect"><code>POST /oauth/{provider}/disconnect</code><a class="headerlink" href="#post-oauthproviderdisconnect" title="Permanent link">&para;</a></h3>
+<p>Remove stored OAuth tokens for a provider.</p>
+<p><strong>Response:</strong> <code>{ status: "ok", message: "Disconnected from {provider}" }</code></p>
+<h3 id="get-apioauthstatus"><code>GET /api/oauth/status</code><a class="headerlink" href="#get-apioauthstatus" title="Permanent link">&para;</a></h3>
+<p>Return OAuth connection status for all providers.</p>
+<p><strong>Response:</strong> <code>{ azure: {...}, github: {...}, jira: {...} }</code> — each value contains connection status details.</p>
 <h2 id="sse-endpoint">SSE endpoint<a class="headerlink" href="#sse-endpoint" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

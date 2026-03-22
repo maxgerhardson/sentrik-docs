@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.sentrik.dev/guides/cli-reference/">
       
       
-        <link rel="prev" href="../../getting-started/configuration/">
+        <link rel="prev" href="../../HOW_SENTRIK_WORKS/">
       
       
         <link rel="next" href="../dashboard/">
@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -463,6 +463,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HOW_SENTRIK_WORKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -537,6 +565,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#supply-chain-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supply chain commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#governance-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -571,10 +621,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sentrik-set-tier" class="md-nav__link">
+  <a href="#sentrik-compliance-report" class="md-nav__link">
     <span class="md-ellipsis">
       
-        sentrik set-tier
+        sentrik compliance-report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-history-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik history-report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-trust-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik trust-center
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik watch
       
     </span>
   </a>
@@ -583,6 +666,244 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supply-chain-command-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supply chain command details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supply chain command details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik sbom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-vulns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik vulns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik licenses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-command-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis command details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis command details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-analyze-cpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik analyze-cpp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-check-arch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik check-arch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-check-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik check-policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-check-inline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik check-inline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance-command-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance command details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Governance command details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-pull-reqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik pull-reqs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-evidence-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik evidence-export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-grc-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik grc-push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-org-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik org-dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-auditor-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik auditor create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-auditor-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik auditor list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-auditor-revoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik auditor revoke
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik mcp-server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidence Scoring
+      
+    </span>
+  </a>
   
 </li>
       
@@ -743,6 +1064,34 @@
     
   
     CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration (AI Agents)
   
 
     
@@ -1713,6 +2062,123 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Qualification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Qualification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1744,6 +2210,28 @@
     <span class="md-ellipsis">
       
         Core commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supply-chain-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supply chain commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis commands
       
     </span>
   </a>
@@ -1785,10 +2273,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sentrik-set-tier" class="md-nav__link">
+  <a href="#sentrik-compliance-report" class="md-nav__link">
     <span class="md-ellipsis">
       
-        sentrik set-tier
+        sentrik compliance-report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-history-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik history-report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-trust-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik trust-center
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik watch
       
     </span>
   </a>
@@ -1797,6 +2318,244 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supply-chain-command-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supply chain command details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supply chain command details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik sbom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-vulns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik vulns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik licenses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-command-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis command details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis command details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-analyze-cpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik analyze-cpp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-check-arch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik check-arch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-check-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik check-policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-check-inline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik check-inline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance-command-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance command details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Governance command details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-pull-reqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik pull-reqs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-evidence-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik evidence-export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-grc-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik grc-push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-org-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik org-dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-auditor-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik auditor create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-auditor-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik auditor list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-auditor-revoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik auditor revoke
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik mcp-server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidence Scoring
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1935,6 +2694,57 @@
 </tr>
 </tbody>
 </table>
+<p><img alt="Gate Failure" src="../../assets/images/docs-cli-gate-fail.png" /></p>
+<h2 id="supply-chain-commands">Supply chain commands<a class="headerlink" href="#supply-chain-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sentrik sbom</code></td>
+<td>Generate a Software Bill of Materials (CycloneDX or SPDX)</td>
+</tr>
+<tr>
+<td><code>sentrik vulns</code></td>
+<td>Scan dependencies for known vulnerabilities (CVEs) via OSV.dev</td>
+</tr>
+<tr>
+<td><code>sentrik licenses</code></td>
+<td>Scan dependency licenses and flag copyleft risk</td>
+</tr>
+</tbody>
+</table>
+<h2 id="analysis-commands">Analysis commands<a class="headerlink" href="#analysis-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sentrik analyze-cpp</code></td>
+<td>Run semantic C/C++ analysis with clang-tidy and/or cppcheck</td>
+</tr>
+<tr>
+<td><code>sentrik check-arch</code></td>
+<td>Check architecture rules — detect forbidden module dependencies</td>
+</tr>
+<tr>
+<td><code>sentrik check-policies</code></td>
+<td>Evaluate Policy-as-Code rules against the repository</td>
+</tr>
+<tr>
+<td><code>sentrik check-inline</code></td>
+<td>Check code compliance inline (for AI agents)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="governance-commands">Governance commands<a class="headerlink" href="#governance-commands" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1959,6 +2769,74 @@
 <tr>
 <td><code>sentrik generate-reqs</code></td>
 <td>Auto-generate requirements from untracked code</td>
+</tr>
+<tr>
+<td><code>sentrik verify-reqs</code></td>
+<td>Verify requirements match actual code (drift detection)</td>
+</tr>
+<tr>
+<td><code>sentrik pull-reqs</code></td>
+<td>Pull requirements from a DevOps provider into requirements.yaml</td>
+</tr>
+<tr>
+<td><code>sentrik trace</code></td>
+<td>Show traceability matrix (requirements → code)</td>
+</tr>
+<tr>
+<td><code>sentrik impact</code></td>
+<td>Analyse which compliance controls and requirements are affected by changed files</td>
+</tr>
+<tr>
+<td><code>sentrik compliance-report</code></td>
+<td>Generate per-framework compliance reports</td>
+</tr>
+<tr>
+<td><code>sentrik history-report</code></td>
+<td>Generate a report from a historical scan run</td>
+</tr>
+<tr>
+<td><code>sentrik trust-center</code></td>
+<td>Generate a public-safe trust center page</td>
+</tr>
+<tr>
+<td><code>sentrik evidence-export</code></td>
+<td>Generate audit evidence packages mapped to compliance framework controls</td>
+</tr>
+<tr>
+<td><code>sentrik grc-push</code></td>
+<td>Push compliance evidence to a GRC platform (Drata, Vanta, Secureframe, or webhook)</td>
+</tr>
+<tr>
+<td><code>sentrik org-dashboard</code></td>
+<td>Aggregate compliance data across multiple repositories</td>
+</tr>
+<tr>
+<td><code>sentrik watch</code></td>
+<td>Continuous monitoring — watch for file changes or scan periodically</td>
+</tr>
+<tr>
+<td><code>sentrik export-audit</code></td>
+<td>Export audit bundle (ZIP) for regulatory submission</td>
+</tr>
+<tr>
+<td><code>sentrik approve &lt;id&gt;</code></td>
+<td>Approve or reject an async gate approval request</td>
+</tr>
+<tr>
+<td><code>sentrik auditor create</code></td>
+<td>Create an auditor portal access token</td>
+</tr>
+<tr>
+<td><code>sentrik auditor list</code></td>
+<td>List active auditor portal tokens</td>
+</tr>
+<tr>
+<td><code>sentrik auditor revoke</code></td>
+<td>Revoke an auditor portal token by prefix match</td>
+</tr>
+<tr>
+<td><code>sentrik mcp-server</code></td>
+<td>Start the MCP server for AI agent integration</td>
 </tr>
 </tbody>
 </table>
@@ -2003,7 +2881,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>sentrik serve</code></td>
+<td><code>sentrik dashboard</code></td>
 <td>Start the REST API server + dashboard</td>
 </tr>
 <tr>
@@ -2023,14 +2901,6 @@
 <td>Show license status and features</td>
 </tr>
 <tr>
-<td><code>sentrik trial</code></td>
-<td>Generate a 30-day enterprise trial key</td>
-</tr>
-<tr>
-<td><code>sentrik set-tier</code></td>
-<td>Generate a license key for a specific tier</td>
-</tr>
-<tr>
 <td><code>sentrik install-check</code></td>
 <td>Verify installation and dependencies</td>
 </tr>
@@ -2040,12 +2910,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="sentrik-set-tier"><code>sentrik set-tier</code><a class="headerlink" href="#sentrik-set-tier" title="Permanent link">&para;</a></h3>
-<p>Generate a license key for a specific tier (for testing and development).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>set-tier<span class="w"> </span>enterprise<span class="w">              </span><span class="c1"># Enterprise key, valid 365 days</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>set-tier<span class="w"> </span>team<span class="w"> </span>--days<span class="w"> </span><span class="m">90</span><span class="w">          </span><span class="c1"># Team key, valid 90 days</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sentrik<span class="w"> </span>set-tier<span class="w"> </span>org<span class="w">                     </span><span class="c1"># Organization key, valid 365 days</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sentrik<span class="w"> </span>set-tier<span class="w"> </span>trial<span class="w">                   </span><span class="c1"># Trial key, valid 365 days</span>
+<h3 id="sentrik-compliance-report"><code>sentrik compliance-report</code><a class="headerlink" href="#sentrik-compliance-report" title="Permanent link">&para;</a></h3>
+<p>Generate per-framework compliance reports mapping findings to regulatory clauses.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>compliance-report<span class="w"> </span>--list<span class="w">                        </span><span class="c1"># List frameworks from last scan</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>compliance-report<span class="w"> </span>--framework<span class="w"> </span><span class="s2">&quot;IEC 62304&quot;</span><span class="w">       </span><span class="c1"># Single-framework report</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sentrik<span class="w"> </span>compliance-report<span class="w">                               </span><span class="c1"># All frameworks combined</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sentrik<span class="w"> </span>compliance-report<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;OWASP Top 10&quot;</span><span class="w"> </span>-o<span class="w"> </span>report.html<span class="w">  </span><span class="c1"># Custom output path</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2057,13 +2927,829 @@
 </thead>
 <tbody>
 <tr>
-<td><code>--days</code></td>
-<td>365</td>
-<td>Key validity in days</td>
+<td><code>--framework, -f</code></td>
+<td>all</td>
+<td>Standard name (e.g. <code>"IEC 62304"</code>, <code>"SOC2"</code>)</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>out/compliance-report.html</code></td>
+<td>Output file path</td>
+</tr>
+<tr>
+<td><code>--list, -l</code></td>
+<td>false</td>
+<td>List available frameworks and exit</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
 </tr>
 </tbody>
 </table>
-<p>Valid tiers: <code>trial</code>, <code>team</code>, <code>org</code>, <code>enterprise</code></p>
+<p>The report includes:</p>
+<ul>
+<li><strong>Compliance score card</strong> — percentage, rules passed/failed, clauses checked</li>
+<li><strong>Clause-by-clause table</strong> — PASS/FAIL status per regulatory clause</li>
+<li><strong>Findings detail</strong> — each finding mapped to its clause with remediation guidance</li>
+<li><strong>Documentation obligations</strong> — non-code items required by the standard</li>
+<li>Dark mode support, print-friendly CSS</li>
+</ul>
+<p>Also available via REST API: <code>GET /api/compliance-report?framework=IEC+62304</code></p>
+<h3 id="sentrik-history-report"><code>sentrik history-report</code><a class="headerlink" href="#sentrik-history-report" title="Permanent link">&para;</a></h3>
+<p>Generate a compliance report from a historical scan run.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sentrik<span class="w"> </span>history-report<span class="w"> </span>--list<span class="w">                          </span><span class="c1"># List available historical runs</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sentrik<span class="w"> </span>history-report<span class="w"> </span>--run-id<span class="w"> </span>&lt;RUN_ID&gt;<span class="w">               </span><span class="c1"># Generate report for a past run</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sentrik<span class="w"> </span>history-report<span class="w"> </span>--run-id<span class="w"> </span>&lt;RUN_ID&gt;<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;IEC 62304&quot;</span><span class="w">  </span><span class="c1"># With framework filter</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--run-id, -r</code></td>
+<td>—</td>
+<td>Run ID to generate report for</td>
+</tr>
+<tr>
+<td><code>--list, -l</code></td>
+<td>false</td>
+<td>List available historical runs and exit</td>
+</tr>
+<tr>
+<td><code>--framework, -f</code></td>
+<td>all</td>
+<td>Framework filter for compliance report</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>out/report-&lt;id&gt;.html</code></td>
+<td>Output file path</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Historical runs are automatically archived in <code>out/history/</code> after each scan or gate run.</p>
+<h3 id="sentrik-trust-center"><code>sentrik trust-center</code><a class="headerlink" href="#sentrik-trust-center" title="Permanent link">&para;</a></h3>
+<p>Generate a public-safe trust center page showing compliance posture. The page contains no source code, file paths, or finding details — safe to share with customers, auditors, or embed on a website.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sentrik<span class="w"> </span>trust-center<span class="w">                              </span><span class="c1"># HTML page to out/trust-center.html</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sentrik<span class="w"> </span>trust-center<span class="w"> </span>--org<span class="w"> </span><span class="s2">&quot;Acme Corp&quot;</span><span class="w">            </span><span class="c1"># With organization name in header</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sentrik<span class="w"> </span>trust-center<span class="w"> </span>--json<span class="w">                       </span><span class="c1"># JSON output to out/trust-center.json</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sentrik<span class="w"> </span>trust-center<span class="w"> </span>-o<span class="w"> </span>public/compliance.html<span class="w">    </span><span class="c1"># Custom output path</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--org</code></td>
+<td>—</td>
+<td>Organization name for the page header</td>
+</tr>
+<tr>
+<td><code>--json, -j</code></td>
+<td>false</td>
+<td>Output JSON instead of HTML</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>out/trust-center.html</code></td>
+<td>Output file path</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>The page includes:</p>
+<ul>
+<li><strong>Overall compliance score</strong> — Healthy / Needs Attention / At Risk status</li>
+<li><strong>Severity distribution</strong> — counts per severity level</li>
+<li><strong>Per-framework cards</strong> — score, progress bar, and rule pass rate for each standard</li>
+<li>Dark/light theme, responsive design, print-friendly</li>
+</ul>
+<p>Also available via REST API: <code>GET /api/trust-center?format=html&amp;org_name=Acme+Corp</code></p>
+<h3 id="sentrik-watch"><code>sentrik watch</code><a class="headerlink" href="#sentrik-watch" title="Permanent link">&para;</a></h3>
+<p>Continuous compliance monitoring — watch for file changes and re-scan automatically.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sentrik<span class="w"> </span>watch<span class="w">                              </span><span class="c1"># Watch for file changes, scan on save</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sentrik<span class="w"> </span>watch<span class="w"> </span>--interval<span class="w"> </span><span class="m">300</span><span class="w">               </span><span class="c1"># Periodic scan every 5 minutes</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sentrik<span class="w"> </span>watch<span class="w"> </span>--interval<span class="w"> </span><span class="m">60</span><span class="w"> </span>--quiet<span class="w">        </span><span class="c1"># Cron mode, minimal output</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--interval, -i</code></td>
+<td>—</td>
+<td>Periodic scan interval in seconds (optional, adds scheduled scans)</td>
+</tr>
+<tr>
+<td><code>--quiet, -q</code></td>
+<td>false</td>
+<td>Minimal output (cron-friendly)</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<h2 id="supply-chain-command-details">Supply chain command details<a class="headerlink" href="#supply-chain-command-details" title="Permanent link">&para;</a></h2>
+<h3 id="sentrik-sbom"><code>sentrik sbom</code><a class="headerlink" href="#sentrik-sbom" title="Permanent link">&para;</a></h3>
+<p>Generate a Software Bill of Materials (SBOM) from dependency manifests.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sentrik<span class="w"> </span>sbom<span class="w">                                    </span><span class="c1"># CycloneDX SBOM to out/sbom.json</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sentrik<span class="w"> </span>sbom<span class="w"> </span>--format<span class="w"> </span>spdx<span class="w">                      </span><span class="c1"># SPDX format</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>sentrik<span class="w"> </span>sbom<span class="w"> </span>--list<span class="w">                             </span><span class="c1"># List detected manifests and exit</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>sentrik<span class="w"> </span>sbom<span class="w"> </span>-o<span class="w"> </span>build/sbom.json<span class="w">                 </span><span class="c1"># Custom output path</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--format, -f</code></td>
+<td><code>cyclonedx</code></td>
+<td>SBOM format: <code>cyclonedx</code> or <code>spdx</code></td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>out/sbom.json</code></td>
+<td>Output file path</td>
+</tr>
+<tr>
+<td><code>--list, -l</code></td>
+<td>false</td>
+<td>List detected manifests and exit</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Supports <code>requirements.txt</code>, <code>package.json</code>, <code>Cargo.toml</code>, and other common manifest formats. Components are deduplicated across manifests.</p>
+<h3 id="sentrik-vulns"><code>sentrik vulns</code><a class="headerlink" href="#sentrik-vulns" title="Permanent link">&para;</a></h3>
+<p>Scan project dependencies for known vulnerabilities (CVEs) via OSV.dev.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sentrik<span class="w"> </span>vulns<span class="w">                                   </span><span class="c1"># Scan and show results</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sentrik<span class="w"> </span>vulns<span class="w"> </span>--json<span class="w">                            </span><span class="c1"># Output JSON</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sentrik<span class="w"> </span>vulns<span class="w"> </span>--fix-preview<span class="w">                     </span><span class="c1"># Preview available fixes</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>sentrik<span class="w"> </span>vulns<span class="w"> </span>--fix<span class="w">                             </span><span class="c1"># Auto-patch manifests with fixed versions</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sentrik<span class="w"> </span>vulns<span class="w"> </span>--fix<span class="w"> </span>--create-pr<span class="w">                 </span><span class="c1"># Apply fixes and create a PR</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--json, -j</code></td>
+<td>false</td>
+<td>Output JSON instead of Rich table</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>out/vulnerabilities.json</code></td>
+<td>Output file path</td>
+</tr>
+<tr>
+<td><code>--fix</code></td>
+<td>false</td>
+<td>Auto-patch manifest files with fixed versions</td>
+</tr>
+<tr>
+<td><code>--fix-preview</code></td>
+<td>false</td>
+<td>Show what <code>--fix</code> would change without modifying files</td>
+</tr>
+<tr>
+<td><code>--create-pr</code></td>
+<td>false</td>
+<td>Create a branch and PR with the fixes (requires <code>--fix</code> and a DevOps provider)</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Results are recorded to the local metrics database for trend tracking. The <code>--create-pr</code> flag requires a configured DevOps provider (Azure DevOps or GitHub).</p>
+<p><img alt="Vulnerability Scan" src="../../assets/images/docs-cli-vulns.png" /></p>
+<h3 id="sentrik-licenses"><code>sentrik licenses</code><a class="headerlink" href="#sentrik-licenses" title="Permanent link">&para;</a></h3>
+<p>Scan project dependencies for license types and flag copyleft risk.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sentrik<span class="w"> </span>licenses<span class="w">                                </span><span class="c1"># Scan and show all licenses</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sentrik<span class="w"> </span>licenses<span class="w"> </span>--copyleft-only<span class="w">                </span><span class="c1"># Show only copyleft-licensed packages</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sentrik<span class="w"> </span>licenses<span class="w"> </span>--json<span class="w">                         </span><span class="c1"># Output JSON</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>sentrik<span class="w"> </span>licenses<span class="w"> </span>-o<span class="w"> </span>build/licenses.json<span class="w">         </span><span class="c1"># Custom output path</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--json, -j</code></td>
+<td>false</td>
+<td>Output JSON instead of Rich table</td>
+</tr>
+<tr>
+<td><code>--copyleft-only</code></td>
+<td>false</td>
+<td>Show only copyleft-licensed packages</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>out/licenses.json</code></td>
+<td>Output file path</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Each dependency is classified by license risk level (high, medium, low, none) and flagged if it uses a copyleft license (GPL, AGPL, etc.).</p>
+<h2 id="analysis-command-details">Analysis command details<a class="headerlink" href="#analysis-command-details" title="Permanent link">&para;</a></h2>
+<h3 id="sentrik-analyze-cpp"><code>sentrik analyze-cpp</code><a class="headerlink" href="#sentrik-analyze-cpp" title="Permanent link">&para;</a></h3>
+<p>Run semantic C/C++ analysis with clang-tidy and/or cppcheck.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sentrik<span class="w"> </span>analyze-cpp<span class="w">                             </span><span class="c1"># Auto-detect available tools</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sentrik<span class="w"> </span>analyze-cpp<span class="w"> </span>--tool<span class="w"> </span>clang-tidy<span class="w">           </span><span class="c1"># Use clang-tidy only</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sentrik<span class="w"> </span>analyze-cpp<span class="w"> </span>--tool<span class="w"> </span>cppcheck<span class="w">             </span><span class="c1"># Use cppcheck only</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>sentrik<span class="w"> </span>analyze-cpp<span class="w"> </span>--tool<span class="w"> </span>both<span class="w">                 </span><span class="c1"># Use both tools</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>sentrik<span class="w"> </span>analyze-cpp<span class="w"> </span>--checks<span class="w"> </span><span class="s2">&quot;cert-*,misra-*&quot;</span><span class="w">   </span><span class="c1"># Specific clang-tidy checks</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>sentrik<span class="w"> </span>analyze-cpp<span class="w"> </span>--files<span class="w"> </span>src/main.cpp<span class="w">        </span><span class="c1"># Analyse specific files</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>sentrik<span class="w"> </span>analyze-cpp<span class="w"> </span>--json<span class="w"> </span>-o<span class="w"> </span>results.json<span class="w">      </span><span class="c1"># JSON output to file</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--tool, -t</code></td>
+<td><code>auto</code></td>
+<td>Tool to use: <code>clang-tidy</code>, <code>cppcheck</code>, <code>both</code>, or <code>auto</code></td>
+</tr>
+<tr>
+<td><code>--checks</code></td>
+<td>—</td>
+<td>Clang-tidy checks (comma-separated, e.g. <code>"cert-*,misra-*"</code>)</td>
+</tr>
+<tr>
+<td><code>--files, -f</code></td>
+<td>all</td>
+<td>Specific files to analyze</td>
+</tr>
+<tr>
+<td><code>--json, -j</code></td>
+<td>false</td>
+<td>Output JSON instead of Rich table</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>out/cpp_findings.json</code></td>
+<td>Output file path</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>In <code>auto</code> mode, the command detects which tools are installed and uses whatever is available. Findings are converted to standard SENTRIK findings format for integration with the gate and dashboard.</p>
+<h3 id="sentrik-check-arch"><code>sentrik check-arch</code><a class="headerlink" href="#sentrik-check-arch" title="Permanent link">&para;</a></h3>
+<p>Check architecture rules — detect forbidden module dependencies.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sentrik<span class="w"> </span>check-arch<span class="w">                              </span><span class="c1"># Check against architecture.yaml</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sentrik<span class="w"> </span>check-arch<span class="w"> </span>--init<span class="w">                       </span><span class="c1"># Generate a template architecture.yaml</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sentrik<span class="w"> </span>check-arch<span class="w"> </span>--config<span class="w"> </span>rules/arch.yaml<span class="w">     </span><span class="c1"># Custom rules file</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>sentrik<span class="w"> </span>check-arch<span class="w"> </span>--json<span class="w">                       </span><span class="c1"># JSON output</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--config, -c</code></td>
+<td><code>architecture.yaml</code></td>
+<td>Path to architecture rules YAML file</td>
+</tr>
+<tr>
+<td><code>--json, -j</code></td>
+<td>false</td>
+<td>Output results as JSON</td>
+</tr>
+<tr>
+<td><code>--init</code></td>
+<td>false</td>
+<td>Generate a template <code>architecture.yaml</code> file</td>
+</tr>
+</tbody>
+</table>
+<p>Architecture rules define allowed and forbidden import relationships between modules. Violations are reported with the source file, line number, and imported module. Exit code 1 when violations are found.</p>
+<h3 id="sentrik-check-policies"><code>sentrik check-policies</code><a class="headerlink" href="#sentrik-check-policies" title="Permanent link">&para;</a></h3>
+<p>Evaluate Policy-as-Code rules against the repository.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sentrik<span class="w"> </span>check-policies<span class="w">                          </span><span class="c1"># Evaluate policies.yaml</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sentrik<span class="w"> </span>check-policies<span class="w"> </span>--init<span class="w">                   </span><span class="c1"># Generate a template policies.yaml</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sentrik<span class="w"> </span>check-policies<span class="w"> </span>--config<span class="w"> </span>rules/pol.yaml<span class="w">  </span><span class="c1"># Custom policies file</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>sentrik<span class="w"> </span>check-policies<span class="w"> </span>--json<span class="w">                   </span><span class="c1"># JSON output</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--config</code></td>
+<td><code>policies.yaml</code></td>
+<td>Path to policies YAML file</td>
+</tr>
+<tr>
+<td><code>--json</code></td>
+<td>false</td>
+<td>Output results as JSON</td>
+</tr>
+<tr>
+<td><code>--init</code></td>
+<td>false</td>
+<td>Generate a template <code>policies.yaml</code> file</td>
+</tr>
+</tbody>
+</table>
+<p>Policies define repository-level constraints (e.g., required files, naming conventions, structural rules). Each policy violation includes the policy name, file, line, message, and severity.</p>
+<h3 id="sentrik-check-inline"><code>sentrik check-inline</code><a class="headerlink" href="#sentrik-check-inline" title="Permanent link">&para;</a></h3>
+<p>Check code compliance inline — designed for AI coding agents to validate code snippets before writing them.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sentrik<span class="w"> </span>check-inline<span class="w"> </span>--file<span class="w"> </span>src/main.cpp<span class="w"> </span>--code<span class="w"> </span><span class="s2">&quot;strcpy(dest, src);&quot;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sentrik<span class="w"> </span>check-inline<span class="w"> </span>--file<span class="w"> </span>src/main.cpp<span class="w"> </span>--stdin
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>sentrik<span class="w"> </span>check-inline<span class="w"> </span>--context<span class="w"> </span>src/main.cpp
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>sentrik<span class="w"> </span>check-inline<span class="w"> </span>--file<span class="w"> </span>app.py<span class="w"> </span>--code<span class="w"> </span><span class="s2">&quot;eval(data)&quot;</span><span class="w"> </span>--frameworks<span class="w"> </span><span class="s2">&quot;OWASP Top 10&quot;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--file, -f</code></td>
+<td>—</td>
+<td>Filename for language detection and rule matching</td>
+</tr>
+<tr>
+<td><code>--code, -c</code></td>
+<td>—</td>
+<td>Code string to check</td>
+</tr>
+<tr>
+<td><code>--stdin</code></td>
+<td>false</td>
+<td>Read code from stdin</td>
+</tr>
+<tr>
+<td><code>--context</code></td>
+<td>—</td>
+<td>Print compliance context for the given filename as JSON</td>
+</tr>
+<tr>
+<td><code>--frameworks</code></td>
+<td>all</td>
+<td>Comma-separated framework names to filter rules</td>
+</tr>
+</tbody>
+</table>
+<p>In context mode (<code>--context</code>), prints the applicable rules and frameworks for a file as JSON — useful for AI agents to understand constraints before generating code. Exit code 1 when findings are detected.</p>
+<h2 id="governance-command-details">Governance command details<a class="headerlink" href="#governance-command-details" title="Permanent link">&para;</a></h2>
+<h3 id="sentrik-pull-reqs"><code>sentrik pull-reqs</code><a class="headerlink" href="#sentrik-pull-reqs" title="Permanent link">&para;</a></h3>
+<p>Pull requirements from a DevOps provider into <code>requirements.yaml</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sentrik<span class="w"> </span>pull-reqs<span class="w"> </span>--provider<span class="w"> </span>azure<span class="w">              </span><span class="c1"># Pull from Azure DevOps</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sentrik<span class="w"> </span>pull-reqs<span class="w"> </span>--provider<span class="w"> </span>github<span class="w">             </span><span class="c1"># Pull from GitHub Issues</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>sentrik<span class="w"> </span>pull-reqs<span class="w"> </span>--provider<span class="w"> </span>jira<span class="w">               </span><span class="c1"># Pull from Jira</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>sentrik<span class="w"> </span>pull-reqs<span class="w"> </span>--merge<span class="w">                       </span><span class="c1"># Merge with existing requirements</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>sentrik<span class="w"> </span>pull-reqs<span class="w"> </span>--map-files<span class="w">                   </span><span class="c1"># Auto-map source files by title matching</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>sentrik<span class="w"> </span>pull-reqs<span class="w"> </span>-o<span class="w"> </span>reqs/requirements.yaml<span class="w">     </span><span class="c1"># Custom output path</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--provider, -p</code></td>
+<td>config value</td>
+<td>Override DevOps provider (<code>azure</code>, <code>github</code>, <code>jira</code>)</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>requirements.yaml</code></td>
+<td>Output YAML file path</td>
+</tr>
+<tr>
+<td><code>--merge</code></td>
+<td>false</td>
+<td>Merge with existing <code>requirements.yaml</code> instead of overwriting</td>
+</tr>
+<tr>
+<td><code>--map-files</code></td>
+<td>false</td>
+<td>Auto-map <code>source_files</code> by matching work item titles to filenames</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Work items are converted to requirement entries with ID, title, description, and acceptance criteria. The <code>--map-files</code> flag uses title-to-filename matching to populate the <code>source_files</code> field for traceability.</p>
+<h3 id="sentrik-impact"><code>sentrik impact</code><a class="headerlink" href="#sentrik-impact" title="Permanent link">&para;</a></h3>
+<p>Analyse which compliance controls and requirements are affected by changed files.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sentrik<span class="w"> </span>impact<span class="w">                                  </span><span class="c1"># Analyse staged files (default)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sentrik<span class="w"> </span>impact<span class="w"> </span>--staged<span class="w">                         </span><span class="c1"># Explicitly scope to staged files</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>sentrik<span class="w"> </span>impact<span class="w"> </span>--git-range<span class="w"> </span>origin/main...HEAD<span class="w">   </span><span class="c1"># Scope to a git range</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>sentrik<span class="w"> </span>impact<span class="w"> </span>--files<span class="w"> </span>src/auth.py<span class="w"> </span>src/db.py<span class="w">    </span><span class="c1"># Specific files</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>sentrik<span class="w"> </span>impact<span class="w"> </span>--json<span class="w">                           </span><span class="c1"># JSON output</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--git-range</code></td>
+<td>—</td>
+<td>Git range for scoping (e.g. <code>origin/main...HEAD</code>)</td>
+</tr>
+<tr>
+<td><code>--files, -f</code></td>
+<td>—</td>
+<td>Specific files to analyse</td>
+</tr>
+<tr>
+<td><code>--staged</code></td>
+<td>false</td>
+<td>Analyse staged files</td>
+</tr>
+<tr>
+<td><code>--json</code></td>
+<td>false</td>
+<td>Output as JSON</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>The report shows per-file risk level (high/medium/low), affected rules, affected requirements, and impacted frameworks. When critical or high-severity rules are affected, the report flags that revalidation is required.</p>
+<h3 id="sentrik-evidence-export"><code>sentrik evidence-export</code><a class="headerlink" href="#sentrik-evidence-export" title="Permanent link">&para;</a></h3>
+<p>Generate audit evidence packages mapped to compliance framework controls.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sentrik<span class="w"> </span>evidence-export<span class="w"> </span>--list<span class="w">                           </span><span class="c1"># List available frameworks</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sentrik<span class="w"> </span>evidence-export<span class="w"> </span>--framework<span class="w"> </span><span class="s2">&quot;SOC2&quot;</span><span class="w">               </span><span class="c1"># Export for a single framework</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>sentrik<span class="w"> </span>evidence-export<span class="w"> </span>--all<span class="w">                            </span><span class="c1"># Export for all frameworks</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>sentrik<span class="w"> </span>evidence-export<span class="w"> </span>--framework<span class="w"> </span><span class="s2">&quot;IEC 62304&quot;</span><span class="w"> </span>--json<span class="w">   </span><span class="c1"># JSON output</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>sentrik<span class="w"> </span>evidence-export<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;SOC2&quot;</span><span class="w"> </span>-o<span class="w"> </span>evidence/<span class="w">           </span><span class="c1"># Custom output directory</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--framework, -f</code></td>
+<td>—</td>
+<td>Framework to export evidence for (e.g. <code>"SOC2"</code>, <code>"IEC 62304"</code>)</td>
+</tr>
+<tr>
+<td><code>--all, -a</code></td>
+<td>false</td>
+<td>Export evidence for all available frameworks</td>
+</tr>
+<tr>
+<td><code>--list, -l</code></td>
+<td>false</td>
+<td>List available frameworks and exit</td>
+</tr>
+<tr>
+<td><code>--json, -j</code></td>
+<td>false</td>
+<td>Output JSON instead of HTML</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td><code>out/evidence-&lt;framework&gt;.html</code></td>
+<td>Output directory or file path</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Evidence packages map scan findings, compliance scores, and audit log entries to specific framework controls. Output is an HTML report by default, or JSON for programmatic consumption. Requires either <code>--framework</code> or <code>--all</code>.</p>
+<h3 id="sentrik-grc-push"><code>sentrik grc-push</code><a class="headerlink" href="#sentrik-grc-push" title="Permanent link">&para;</a></h3>
+<p>Push compliance evidence to a GRC platform (Drata, Vanta, Secureframe, or generic webhook).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sentrik<span class="w"> </span>grc-push<span class="w">                                </span><span class="c1"># Push scan_complete event (default)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>sentrik<span class="w"> </span>grc-push<span class="w"> </span>--event<span class="w"> </span>gate_passed<span class="w">            </span><span class="c1"># Push gate result</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>sentrik<span class="w"> </span>grc-push<span class="w"> </span>--event<span class="w"> </span>vuln_scan<span class="w">              </span><span class="c1"># Push vulnerability scan results</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>sentrik<span class="w"> </span>grc-push<span class="w"> </span>--test<span class="w">                         </span><span class="c1"># Send a test payload to verify connectivity</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--event, -e</code></td>
+<td><code>scan_complete</code></td>
+<td>Event type: <code>scan_complete</code>, <code>gate_passed</code>, <code>gate_failed</code>, <code>vuln_scan</code></td>
+</tr>
+<tr>
+<td><code>--test</code></td>
+<td>false</td>
+<td>Send a test payload to verify webhook connectivity</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Requires <code>grc_webhook_url</code> in config or <code>GUARD_GRC_WEBHOOK_URL</code> env var. Payloads include project name, findings summary, compliance scores, and timestamps. Run <code>sentrik scan</code> or <code>sentrik gate</code> before pushing scan/gate events.</p>
+<h3 id="sentrik-org-dashboard"><code>sentrik org-dashboard</code><a class="headerlink" href="#sentrik-org-dashboard" title="Permanent link">&para;</a></h3>
+<p>Aggregate compliance data across multiple repositories into a single view.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sentrik<span class="w"> </span>org-dashboard<span class="w">                           </span><span class="c1"># Scan subdirectories of current dir</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>sentrik<span class="w"> </span>org-dashboard<span class="w"> </span>--root<span class="w"> </span>~/projects<span class="w">         </span><span class="c1"># Custom organization root</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>sentrik<span class="w"> </span>org-dashboard<span class="w"> </span>--json<span class="w">                    </span><span class="c1"># JSON output</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>sentrik<span class="w"> </span>org-dashboard<span class="w"> </span>-o<span class="w"> </span>report.html<span class="w">            </span><span class="c1"># Generate HTML report</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--root, -r</code></td>
+<td><code>.</code></td>
+<td>Organization root directory containing sub-projects</td>
+</tr>
+<tr>
+<td><code>--json, -j</code></td>
+<td>false</td>
+<td>Output JSON instead of Rich table</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td>—</td>
+<td>Write HTML report to this file path</td>
+</tr>
+</tbody>
+</table>
+<p>Discovers projects by looking for <code>.sentrik/config.yaml</code> or <code>.guard.yaml</code> in subdirectories. The summary shows per-project compliance score, findings by severity, gate status, and framework coverage. Use <code>--output</code> to generate an HTML dashboard report.</p>
+<h3 id="sentrik-auditor-create"><code>sentrik auditor create</code><a class="headerlink" href="#sentrik-auditor-create" title="Permanent link">&para;</a></h3>
+<p>Create an auditor portal access token for external auditors.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sentrik<span class="w"> </span>auditor<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;Jane Doe&quot;</span><span class="w"> </span>--email<span class="w"> </span>jane@auditor.com
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>sentrik<span class="w"> </span>auditor<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;Auditor&quot;</span><span class="w"> </span>--email<span class="w"> </span>a@co.com<span class="w"> </span>--hours<span class="w"> </span><span class="m">24</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>sentrik<span class="w"> </span>auditor<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;Auditor&quot;</span><span class="w"> </span>--email<span class="w"> </span>a@co.com<span class="w"> </span>--scope<span class="w"> </span>findings,compliance
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name, -n</code></td>
+<td>(required)</td>
+<td>Auditor's name</td>
+</tr>
+<tr>
+<td><code>--email, -e</code></td>
+<td>(required)</td>
+<td>Auditor's email address</td>
+</tr>
+<tr>
+<td><code>--hours, -H</code></td>
+<td>72</td>
+<td>Token lifetime in hours</td>
+</tr>
+<tr>
+<td><code>--port, -p</code></td>
+<td>8000</td>
+<td>Server port for the portal URL</td>
+</tr>
+<tr>
+<td><code>--scope, -s</code></td>
+<td>all</td>
+<td>Comma-separated scopes: <code>findings</code>, <code>compliance</code>, <code>audit_log</code>, <code>evidence</code>, <code>trends</code></td>
+</tr>
+</tbody>
+</table>
+<p>Generates a time-limited token and prints the portal URL. Share the URL with the auditor. The server must be running (<code>sentrik dashboard</code>) for the auditor to access the portal.</p>
+<h3 id="sentrik-auditor-list"><code>sentrik auditor list</code><a class="headerlink" href="#sentrik-auditor-list" title="Permanent link">&para;</a></h3>
+<p>List all active auditor portal tokens.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sentrik<span class="w"> </span>auditor<span class="w"> </span>list
+</code></pre></div>
+<p>Shows the auditor name, email, expiry time, and token prefix for each active token.</p>
+<h3 id="sentrik-auditor-revoke"><code>sentrik auditor revoke</code><a class="headerlink" href="#sentrik-auditor-revoke" title="Permanent link">&para;</a></h3>
+<p>Revoke an auditor portal token by prefix match.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sentrik<span class="w"> </span>auditor<span class="w"> </span>revoke<span class="w"> </span>abc123def456<span class="w">             </span><span class="c1"># Full or partial token prefix</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TOKEN_PREFIX</code></td>
+<td>Token or prefix of the token to revoke</td>
+</tr>
+</tbody>
+</table>
+<p>Revokes all tokens matching the given prefix. Use <code>sentrik auditor list</code> to find token prefixes.</p>
+<h3 id="sentrik-mcp-server"><code>sentrik mcp-server</code><a class="headerlink" href="#sentrik-mcp-server" title="Permanent link">&para;</a></h3>
+<p>Start the MCP (Model Context Protocol) server for AI agent integration. AI coding tools like Claude Code, Cursor, and VS Code connect to this server to access Sentrik's compliance tools during code generation and review.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sentrik<span class="w"> </span>mcp-server
+</code></pre></div>
+<p>The server communicates over stdio (stdin/stdout) — the standard MCP transport. You don't run this directly; configure it in your AI tool's MCP settings:</p>
+<p><strong>Claude Code</strong> (<code>.claude/claude_desktop_config.json</code> or project <code>.mcp.json</code>):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Cursor</strong> (Settings &gt; MCP Servers):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>The MCP server exposes 7 tools:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scan_file</code></td>
+<td>Scan a single file for compliance issues</td>
+</tr>
+<tr>
+<td><code>get_compliance_context</code></td>
+<td>Get applicable rules and constraints for a file</td>
+</tr>
+<tr>
+<td><code>check_code_snippet</code></td>
+<td>Check inline code without a file on disk</td>
+</tr>
+<tr>
+<td><code>get_scan_summary</code></td>
+<td>Get current project compliance status</td>
+</tr>
+<tr>
+<td><code>explain_rule</code></td>
+<td>Explain a specific compliance rule in detail</td>
+</tr>
+<tr>
+<td><code>get_vulnerabilities</code></td>
+<td>Get dependency vulnerability scan results</td>
+</tr>
+<tr>
+<td><code>run_scan</code></td>
+<td>Run a full project scan</td>
+</tr>
+</tbody>
+</table>
+<p>For detailed setup instructions, see the <a href="../mcp-integration/">MCP Integration Guide</a>.</p>
+<h2 id="confidence-scoring">Confidence Scoring<a class="headerlink" href="#confidence-scoring" title="Permanent link">&para;</a></h2>
+<p>Regex findings are assigned a confidence score based on where the match occurs:</p>
+<table>
+<thead>
+<tr>
+<th>Confidence</th>
+<th>Context</th>
+<th>Deterministic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Executable code</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>0.7</td>
+<td>Test file (<code>test_</code> prefix, <code>_test.py</code> suffix, <code>/tests/</code> dir)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>Inside a comment (<code>#</code> for Python/Ruby/YAML/Shell, <code>//</code> for JS/TS/C/C++/Go/Rust/Java/Swift/Kotlin/Scala/Dart)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>0.4</td>
+<td>Inside a string literal or docstring</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>AST, file_policy, and required_pattern checks always report confidence 1.0 (structurally verified). SARIF imports default to 0.9, LLM findings use the LLM-provided value, and requirement drift findings use 0.7.</p>
+<p>Confidence feeds into the severity rescorer when <code>severity_rescoring_enabled: true</code> — lower-confidence findings are less likely to be escalated.</p>
 <h2 id="pre-commit-commands">Pre-commit commands<a class="headerlink" href="#pre-commit-commands" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2139,7 +3825,7 @@
 </table>
 <p><code>--staged</code>, <code>--git-range</code>, and <code>--diff</code> are mutually exclusive.</p>
 <h2 id="scan-command-options">Scan command options<a class="headerlink" href="#scan-command-options" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sentrik<span class="w"> </span>scan<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sentrik<span class="w"> </span>scan<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2172,7 +3858,7 @@
 </tbody>
 </table>
 <h2 id="gate-command-options">Gate command options<a class="headerlink" href="#gate-command-options" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sentrik<span class="w"> </span>gate<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sentrik<span class="w"> </span>gate<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2217,7 +3903,7 @@
 </tbody>
 </table>
 <h2 id="serve-command-options">Serve command options<a class="headerlink" href="#serve-command-options" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sentrik<span class="w"> </span>serve<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sentrik<span class="w"> </span>dashboard<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2242,7 +3928,7 @@
 </tbody>
 </table>
 <h2 id="reconcile-command-options">Reconcile command options<a class="headerlink" href="#reconcile-command-options" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sentrik<span class="w"> </span>reconcile<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sentrik<span class="w"> </span>reconcile<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>

@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -466,6 +466,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../HOW_SENTRIK_WORKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../guides/cli-reference/" class="md-nav__link">
         
   
@@ -558,6 +586,34 @@
     
   
     CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/mcp-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration (AI Agents)
   
 
     
@@ -1537,10 +1593,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ml-severity-estimation" class="md-nav__link">
+  <a href="#severity-rescoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ML Severity Estimation
+        Severity Rescoring
       
     </span>
   </a>
@@ -1691,6 +1747,123 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Qualification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Qualification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1812,10 +1985,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ml-severity-estimation" class="md-nav__link">
+  <a href="#severity-rescoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ML Severity Estimation
+        Severity Rescoring
       
     </span>
   </a>
@@ -2022,11 +2195,11 @@
 <a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="nt">log_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">out/agent_audit.jsonl</span>
 </code></pre></div>
-<h2 id="ml-severity-estimation">ML Severity Estimation<a class="headerlink" href="#ml-severity-estimation" title="Permanent link">&para;</a></h2>
-<p>For non-deterministic findings (e.g., from AI-assisted scanners), sentrik's ML severity estimator provides consistent risk scoring:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">ml_severity_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<h2 id="severity-rescoring">Severity Rescoring<a class="headerlink" href="#severity-rescoring" title="Permanent link">&para;</a></h2>
+<p>For non-deterministic findings (e.g., from AI-assisted scanners), sentrik's heuristic severity rescorer provides consistent risk scoring:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">ml_severity_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># config key kept for backward compatibility</span>
 </code></pre></div>
-<p>The estimator uses code context, pattern risk, file risk, and finding density to score findings — reducing false positives and ensuring critical issues surface first.</p>
+<p>The rescorer uses code context, pattern risk, file risk, and finding density to score findings — reducing false positives and ensuring critical issues surface first. Runs entirely locally with no AI models or external APIs.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>sentra
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sentra<span class="w"> </span>init<span class="w">           </span><span class="c1"># Select: Standard governance</span>

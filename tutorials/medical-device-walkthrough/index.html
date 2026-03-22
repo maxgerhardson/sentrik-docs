@@ -18,12 +18,14 @@
         <link rel="prev" href="../../use-cases/saas/">
       
       
+        <link rel="next" href="../../TOOL_QUALIFICATION/">
+      
       
         
       
       
       <link rel="icon" href="../../assets/favicon.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -464,6 +466,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../HOW_SENTRIK_WORKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../guides/cli-reference/" class="md-nav__link">
         
   
@@ -556,6 +586,34 @@
     
   
     CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/mcp-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration (AI Agents)
   
 
     
@@ -1722,6 +1780,123 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Qualification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Qualification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TOOL_QUALIFICATION_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1996,16 +2171,23 @@
 <h2 id="9-generate-compliance-reports">9. Generate compliance reports<a class="headerlink" href="#9-generate-compliance-reports" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sentrik<span class="w"> </span>report<span class="w"> </span>--format<span class="w"> </span>html
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sentrik<span class="w"> </span>report<span class="w"> </span>--format<span class="w"> </span>sarif
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Per-framework compliance report with clause-by-clause mapping</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>sentrik<span class="w"> </span>compliance-report<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;IEC 62304&quot;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Public-safe trust center page for customers/auditors</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>sentrik<span class="w"> </span>trust-center<span class="w"> </span>--org<span class="w"> </span><span class="s2">&quot;MedFiles Inc&quot;</span>
 </code></pre></div>
 <p>HTML reports include:
 - Donut chart showing severity distribution
 - Sortable findings table with code context
 - Documentation obligation checklist
 - Filter by severity, rule, or file</p>
+<p>The compliance report maps each finding to its IEC 62304 clause with pass/fail status. The trust center page shows compliance posture without exposing any source code — suitable for sharing with regulatory bodies or embedding on your company website.</p>
 <p>These reports serve as <strong>audit evidence</strong> for FDA submission.</p>
 <h2 id="10-dashboard">10. Dashboard<a class="headerlink" href="#10-dashboard" title="Permanent link">&para;</a></h2>
 <p>Start the management console:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sentrik<span class="w"> </span>serve
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sentrik<span class="w"> </span>dashboard
 </code></pre></div>
 <p>Open <a href="http://localhost:8000/dashboard">http://localhost:8000/dashboard</a> to:
 - View real-time scan results
