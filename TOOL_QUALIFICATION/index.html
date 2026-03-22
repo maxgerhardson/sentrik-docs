@@ -2779,8 +2779,8 @@
 
 
 
-<h1 id="sentrik-tool-qualification-report">SENTRIK Tool Qualification Report<a class="headerlink" href="#sentrik-tool-qualification-report" title="Permanent link">&para;</a></h1>
-<p><strong>Document ID:</strong> SENTRIK-TQR-001
+<h1 id="sentrik-tool-qualification-report">sentrik Tool Qualification Report<a class="headerlink" href="#sentrik-tool-qualification-report" title="Permanent link">&para;</a></h1>
+<p><strong>Document ID:</strong> sentrik-TQR-001
 <strong>Revision:</strong> 1.0
 <strong>Date:</strong> 2026-03-20
 <strong>Classification:</strong> Quality Management System Document</p>
@@ -2796,7 +2796,7 @@
 <tbody>
 <tr>
 <td>Tool Name</td>
-<td>SENTRIK</td>
+<td>sentrik</td>
 </tr>
 <tr>
 <td>Tool Version</td>
@@ -2848,7 +2848,7 @@
 <tbody>
 <tr>
 <td><strong>Tool Name</strong></td>
-<td>SENTRIK</td>
+<td>sentrik</td>
 </tr>
 <tr>
 <td><strong>Version</strong></td>
@@ -2869,7 +2869,7 @@
 </tbody>
 </table>
 <h3 id="12-purpose">1.2 Purpose<a class="headerlink" href="#12-purpose" title="Permanent link">&para;</a></h3>
-<p>SENTRIK is a governance runtime for software development teams building safety-critical and regulated products. Its purpose is to:</p>
+<p>sentrik is a governance runtime for software development teams building safety-critical and regulated products. Its purpose is to:</p>
 <ul>
 <li><strong>Enforce coding standards</strong> through static pattern matching (regex), abstract syntax tree (AST) analysis, and structural file policy checks against configurable rule sets mapped to regulatory standards.</li>
 <li><strong>Perform regulatory compliance scanning</strong> against pre-built standards packs (IEC 62304, OWASP Top 10, SOC 2, HIPAA, PCI DSS, ISO 27001) and custom organizational rules.</li>
@@ -2879,10 +2879,10 @@
 <li><strong>Maintain audit trails</strong> of all governance decisions, scan results, and gate outcomes.</li>
 </ul>
 <h3 id="13-tool-category-iso-26262">1.3 Tool Category (ISO 26262)<a class="headerlink" href="#13-tool-category-iso-26262" title="Permanent link">&para;</a></h3>
-<p><strong>Tool Impact (TI): TI 2</strong> — SENTRIK can fail to detect an error or non-compliance in the software under development, but it cannot introduce errors into the software product itself. SENTRIK operates in a read-only capacity on source code; it does not modify, compile, or link any artifact that becomes part of the deliverable software.</p>
+<p><strong>Tool Impact (TI): TI 2</strong> — sentrik can fail to detect an error or non-compliance in the software under development, but it cannot introduce errors into the software product itself. sentrik operates in a read-only capacity on source code; it does not modify, compile, or link any artifact that becomes part of the deliverable software.</p>
 <p>Note: The optional auto-patch feature can suggest code modifications, but these are explicitly staged as proposals requiring human review and are not applied without developer confirmation. Auto-patching is excluded from the qualification scope.</p>
 <h3 id="14-tool-confidence-level-iec-62304">1.4 Tool Confidence Level (IEC 62304)<a class="headerlink" href="#14-tool-confidence-level-iec-62304" title="Permanent link">&para;</a></h3>
-<p><strong>Confidence Level 2</strong> — The output of SENTRIK (scan findings, gate pass/fail decisions, compliance reports) is verified by subsequent activities in the software development lifecycle:</p>
+<p><strong>Confidence Level 2</strong> — The output of sentrik (scan findings, gate pass/fail decisions, compliance reports) is verified by subsequent activities in the software development lifecycle:</p>
 <ul>
 <li>Gate enforcement prevents merge of non-compliant code (fail-safe behavior).</li>
 <li>Human review of findings is required by governance policy before acceptance.</li>
@@ -2893,8 +2893,8 @@
 <h2 id="2-tool-classification">2. Tool Classification<a class="headerlink" href="#2-tool-classification" title="Permanent link">&para;</a></h2>
 <h3 id="21-classification-per-iec-62304-section-812">2.1 Classification per IEC 62304 Section 8.1.2<a class="headerlink" href="#21-classification-per-iec-62304-section-812" title="Permanent link">&para;</a></h3>
 <p>IEC 62304:2006+AMD1:2015, Section 8.1 requires that software tools used in the development of medical device software be validated for their intended use when the output of the tool is not independently verified.</p>
-<p>SENTRIK falls into the class of <strong>tools whose output could contain undetected errors</strong> (i.e., false negatives — a compliance violation that the tool fails to flag). This classification triggers the requirement for tool validation as described in Section 8.1.2.</p>
-<p>However, because SENTRIK's output is:</p>
+<p>sentrik falls into the class of <strong>tools whose output could contain undetected errors</strong> (i.e., false negatives — a compliance violation that the tool fails to flag). This classification triggers the requirement for tool validation as described in Section 8.1.2.</p>
+<p>However, because sentrik's output is:</p>
 <ol>
 <li>Verified by subsequent V&amp;V activities (code review, integration testing, system testing),</li>
 <li>Supplemented by manual compliance checks during design reviews, and</li>
@@ -2909,7 +2909,7 @@
 <tr>
 <th>Level</th>
 <th>Definition</th>
-<th>SENTRIK</th>
+<th>sentrik</th>
 </tr>
 </thead>
 <tbody>
@@ -2925,14 +2925,14 @@
 </tr>
 </tbody>
 </table>
-<p>SENTRIK is classified as <strong>TI 2</strong> because a false negative (missed finding) could result in non-compliant code proceeding through the pipeline. However, SENTRIK never modifies compiled artifacts, linker configurations, or any deliverable component of the target software.</p>
+<p>sentrik is classified as <strong>TI 2</strong> because a false negative (missed finding) could result in non-compliant code proceeding through the pipeline. However, sentrik never modifies compiled artifacts, linker configurations, or any deliverable component of the target software.</p>
 <p><strong>Tool Error Detection (TD):</strong></p>
 <table>
 <thead>
 <tr>
 <th>Level</th>
 <th>Definition</th>
-<th>SENTRIK</th>
+<th>sentrik</th>
 </tr>
 </thead>
 <tbody>
@@ -2953,7 +2953,7 @@
 </tr>
 </tbody>
 </table>
-<p>SENTRIK is classified as <strong>TD 2</strong> because:</p>
+<p>sentrik is classified as <strong>TD 2</strong> because:</p>
 <ul>
 <li>Gate failures produce exit code 1 (observable in CI/CD).</li>
 <li>Scan results are captured in structured reports reviewed by developers and quality personnel.</li>
@@ -2989,19 +2989,19 @@
 <p><strong>Result: TCL 2</strong> — Qualification is required. Methods 1 and/or 2 (see Section 3) are sufficient for TCL 2 qualification.</p>
 <hr />
 <h2 id="3-tool-qualification-methods">3. Tool Qualification Methods<a class="headerlink" href="#3-tool-qualification-methods" title="Permanent link">&para;</a></h2>
-<p>ISO 26262 Part 8, Section 11.4.7 defines four qualification methods. The following methods are applied to SENTRIK:</p>
+<p>ISO 26262 Part 8, Section 11.4.7 defines four qualification methods. The following methods are applied to sentrik:</p>
 <h3 id="31-method-1-increased-confidence-from-use">3.1 Method 1: Increased Confidence from Use<a class="headerlink" href="#31-method-1-increased-confidence-from-use" title="Permanent link">&para;</a></h3>
 <p><strong>Applicability:</strong> Sufficient for TCL 2 qualification.</p>
 <p>Evidence of operational reliability:</p>
 <ul>
-<li>SENTRIK has been in continuous development and use since its initial release, with iterative refinement across 26+ development phases.</li>
+<li>sentrik has been in continuous development and use since its initial release, with iterative refinement across 26+ development phases.</li>
 <li>The tool has been exercised against real-world codebases including medical device software, fintech applications, and SaaS platforms.</li>
 <li>The automated test suite (2,100+ tests) is executed on every code change, providing continuous regression verification.</li>
 <li>The tool has been used in CI/CD pipelines (GitHub Actions, Azure Pipelines) processing thousands of scan cycles during development and validation.</li>
 </ul>
 <h3 id="32-method-2-evaluation-of-the-tool-development-process">3.2 Method 2: Evaluation of the Tool Development Process<a class="headerlink" href="#32-method-2-evaluation-of-the-tool-development-process" title="Permanent link">&para;</a></h3>
 <p><strong>Applicability:</strong> Sufficient for TCL 2 qualification.</p>
-<p>The SENTRIK development process includes:</p>
+<p>The sentrik development process includes:</p>
 <ul>
 <li><strong>Version control:</strong> All source code is maintained under Git with full commit history and traceability.</li>
 <li><strong>Automated testing:</strong> 2,100+ unit and integration tests with an 80% minimum coverage threshold enforced by CI/CD.</li>
@@ -3014,14 +3014,14 @@
 <p><strong>Applicability:</strong> Provides additional confidence beyond TCL 2 requirements.</p>
 <p>Validation testing has been performed to confirm correct operation:</p>
 <ul>
-<li><strong>Known-defect detection:</strong> Test cases inject known coding violations (e.g., <code>eval()</code> usage, hardcoded secrets, missing documentation, prohibited imports) and verify that SENTRIK correctly identifies them with the expected severity, rule ID, and file location.</li>
+<li><strong>Known-defect detection:</strong> Test cases inject known coding violations (e.g., <code>eval()</code> usage, hardcoded secrets, missing documentation, prohibited imports) and verify that sentrik correctly identifies them with the expected severity, rule ID, and file location.</li>
 <li><strong>Standard clause mapping:</strong> Each rule in every standards pack is verified to map to a specific regulatory clause (e.g., rule <code>IEC62304-5.5.5-CPP</code> maps to IEC 62304 Section 5.5.5).</li>
 <li><strong>Gate behavior:</strong> Test cases verify that the gate correctly returns exit code 0 (pass) or exit code 1 (fail) based on configurable severity thresholds.</li>
 <li><strong>Report generation:</strong> Test cases verify that output reports (SARIF, JUnit, HTML, CSV) contain the expected structure and content.</li>
 <li><strong>Determinism:</strong> Repeated scans of identical input produce identical output, confirmed by automated regression tests.</li>
 </ul>
 <h3 id="34-method-4-development-in-accordance-with-a-safety-standard">3.4 Method 4: Development in Accordance with a Safety Standard<a class="headerlink" href="#34-method-4-development-in-accordance-with-a-safety-standard" title="Permanent link">&para;</a></h3>
-<p><strong>Applicability:</strong> Not applied. Method 4 requires development per a recognized safety standard (e.g., IEC 61508 Part 3). This method is not required for TCL 2 and has not been applied to SENTRIK's own development process.</p>
+<p><strong>Applicability:</strong> Not applied. Method 4 requires development per a recognized safety standard (e.g., IEC 61508 Part 3). This method is not required for TCL 2 and has not been applied to sentrik's own development process.</p>
 <hr />
 <h2 id="4-validation-evidence">4. Validation Evidence<a class="headerlink" href="#4-validation-evidence" title="Permanent link">&para;</a></h2>
 <h3 id="41-test-suite">4.1 Test Suite<a class="headerlink" href="#41-test-suite" title="Permanent link">&para;</a></h3>
@@ -3063,7 +3063,7 @@
 <li>Edge cases: empty files, binary files, malformed input, missing configuration</li>
 </ul>
 <h3 id="42-deterministic-operation">4.2 Deterministic Operation<a class="headerlink" href="#42-deterministic-operation" title="Permanent link">&para;</a></h3>
-<p>SENTRIK's core analysis is deterministic. Given identical inputs (source code, rule set, configuration), the tool produces identical outputs (findings list, severity assignments, gate decision). This property is guaranteed by the following design:</p>
+<p>sentrik's core analysis is deterministic. Given identical inputs (source code, rule set, configuration), the tool produces identical outputs (findings list, severity assignments, gate decision). This property is guaranteed by the following design:</p>
 <ul>
 <li><strong>Regex rules:</strong> Pattern matching against file contents is inherently deterministic.</li>
 <li><strong>AST rules:</strong> Python abstract syntax tree analysis is parsed deterministically by the standard library <code>ast</code> module.</li>
@@ -3080,16 +3080,16 @@
 <li>Clearly identified in output when active (<code>deterministic=False</code> flag on affected findings).</li>
 </ul>
 <h3 id="43-known-limitations">4.3 Known Limitations<a class="headerlink" href="#43-known-limitations" title="Permanent link">&para;</a></h3>
-<p>The following limitations are documented and must be considered when using SENTRIK as part of a verification and validation strategy:</p>
+<p>The following limitations are documented and must be considered when using sentrik as part of a verification and validation strategy:</p>
 <ol>
 <li>
 <p><strong>False positives from regex matching in non-executable contexts.</strong> Regex rules may match patterns appearing in comments, string literals, or documentation. This is mitigated by the confidence scoring system, which assigns reduced confidence (0.4-0.7) to matches in these contexts. Suppression rules allow teams to dismiss confirmed false positives with documented rationale.</p>
 </li>
 <li>
-<p><strong>No data flow analysis.</strong> SENTRIK does not perform inter-procedural data flow analysis, taint tracking, or symbolic execution. It cannot detect vulnerabilities that require understanding how data propagates through the program (e.g., SQL injection via an indirect variable). Teams requiring data flow analysis should supplement SENTRIK with dedicated SAST tools.</p>
+<p><strong>No data flow analysis.</strong> sentrik does not perform inter-procedural data flow analysis, taint tracking, or symbolic execution. It cannot detect vulnerabilities that require understanding how data propagates through the program (e.g., SQL injection via an indirect variable). Teams requiring data flow analysis should supplement sentrik with dedicated SAST tools.</p>
 </li>
 <li>
-<p><strong>No binary or compiled code analysis.</strong> SENTRIK operates exclusively on source code. It does not analyze compiled binaries, intermediate representations, or linked executables.</p>
+<p><strong>No binary or compiled code analysis.</strong> sentrik operates exclusively on source code. It does not analyze compiled binaries, intermediate representations, or linked executables.</p>
 </li>
 <li>
 <p><strong>Language-specific AST analysis limited to Python.</strong> The built-in AST checks (complexity analysis, mutable defaults, nested functions, etc.) operate on Python source files only. Other languages are covered by regex rules and file policy checks.</p>
@@ -3109,7 +3109,7 @@
 <li>Compliance reports include rule-to-standard traceability for each finding.</li>
 </ul>
 <h3 id="45-fail-safe-behavior">4.5 Fail-Safe Behavior<a class="headerlink" href="#45-fail-safe-behavior" title="Permanent link">&para;</a></h3>
-<p>SENTRIK is designed to fail safely:</p>
+<p>sentrik is designed to fail safely:</p>
 <ul>
 <li>If the scan encounters an error (invalid configuration, file read failure, internal exception), it exits with code 1 (gate failure). The default behavior is to block, not to pass silently.</li>
 <li>If no standards or rules are configured, the tool reports the configuration issue and does not produce a false "all clear" result.</li>
@@ -3161,7 +3161,7 @@
 <li>LLM provider API keys — confidence rescoring (non-deterministic, excluded from qualification scope)</li>
 </ul>
 <h3 id="53-deployment-modes">5.3 Deployment Modes<a class="headerlink" href="#53-deployment-modes" title="Permanent link">&para;</a></h3>
-<p>SENTRIK supports the following deployment configurations, all producing equivalent scan results:</p>
+<p>sentrik supports the following deployment configurations, all producing equivalent scan results:</p>
 <ol>
 <li><strong>CLI on developer workstation</strong> — <code>sentrik scan</code>, <code>sentrik gate</code></li>
 <li><strong>CI/CD pipeline step</strong> — GitHub Actions, Azure Pipelines, GitLab CI, Jenkins</li>
@@ -3173,7 +3173,7 @@
 <hr />
 <h2 id="6-intended-use">6. Intended Use<a class="headerlink" href="#6-intended-use" title="Permanent link">&para;</a></h2>
 <h3 id="61-primary-use-cases">6.1 Primary Use Cases<a class="headerlink" href="#61-primary-use-cases" title="Permanent link">&para;</a></h3>
-<p>SENTRIK is intended for use as a <strong>supplementary verification tool</strong> within a software development lifecycle governed by a quality management system. Specific intended uses include:</p>
+<p>sentrik is intended for use as a <strong>supplementary verification tool</strong> within a software development lifecycle governed by a quality management system. Specific intended uses include:</p>
 <ol>
 <li><strong>Automated compliance scanning</strong> — Continuous verification of source code against regulatory coding standards (IEC 62304, OWASP Top 10, SOC 2, HIPAA, PCI DSS, ISO 27001) during development.</li>
 <li><strong>CI/CD gate enforcement</strong> — Blocking non-compliant code from being merged into protected branches by returning a deterministic pass/fail result based on configurable severity thresholds.</li>
@@ -3183,12 +3183,12 @@
 <li><strong>Audit trail maintenance</strong> — Recording all governance decisions, scan outcomes, and gate results for retrospective analysis.</li>
 </ol>
 <h3 id="62-scope-limitations">6.2 Scope Limitations<a class="headerlink" href="#62-scope-limitations" title="Permanent link">&para;</a></h3>
-<p>SENTRIK is <strong>NOT</strong> intended to serve as:</p>
+<p>sentrik is <strong>NOT</strong> intended to serve as:</p>
 <ul>
 <li>The <strong>sole verification method</strong> for safety-critical software. It must be used as part of a broader verification and validation (V&amp;V) strategy that includes code review, unit testing, integration testing, system testing, and formal design reviews.</li>
 <li>A <strong>replacement for human judgment</strong> in safety-critical decisions. All critical findings should be reviewed by qualified personnel.</li>
-<li>A <strong>formal methods tool</strong>. SENTRIK does not perform mathematical proof of correctness, model checking, or exhaustive state-space exploration.</li>
-<li>A <strong>compiler or build tool</strong>. SENTRIK does not participate in the compilation, linking, or deployment of the software product.</li>
+<li>A <strong>formal methods tool</strong>. sentrik does not perform mathematical proof of correctness, model checking, or exhaustive state-space exploration.</li>
+<li>A <strong>compiler or build tool</strong>. sentrik does not participate in the compilation, linking, or deployment of the software product.</li>
 </ul>
 <hr />
 <h2 id="7-residual-risk-assessment">7. Residual Risk Assessment<a class="headerlink" href="#7-residual-risk-assessment" title="Permanent link">&para;</a></h2>
@@ -3203,7 +3203,7 @@
 <tbody>
 <tr>
 <td><strong>Risk</strong></td>
-<td>SENTRIK may flag compliant code as non-compliant (false positive).</td>
+<td>sentrik may flag compliant code as non-compliant (false positive).</td>
 </tr>
 <tr>
 <td><strong>Impact</strong></td>
@@ -3234,7 +3234,7 @@
 <tbody>
 <tr>
 <td><strong>Risk</strong></td>
-<td>SENTRIK may fail to detect a genuine compliance violation (false negative).</td>
+<td>sentrik may fail to detect a genuine compliance violation (false negative).</td>
 </tr>
 <tr>
 <td><strong>Impact</strong></td>
@@ -3265,7 +3265,7 @@
 <tbody>
 <tr>
 <td><strong>Risk</strong></td>
-<td>SENTRIK may crash, hang, or produce corrupted output.</td>
+<td>sentrik may crash, hang, or produce corrupted output.</td>
 </tr>
 <tr>
 <td><strong>Impact</strong></td>
@@ -3319,7 +3319,7 @@
 <hr />
 <h2 id="8-qualification-maintenance">8. Qualification Maintenance<a class="headerlink" href="#8-qualification-maintenance" title="Permanent link">&para;</a></h2>
 <h3 id="81-re-qualification-triggers">8.1 Re-Qualification Triggers<a class="headerlink" href="#81-re-qualification-triggers" title="Permanent link">&para;</a></h3>
-<p>Re-qualification of SENTRIK is required when any of the following changes occur:</p>
+<p>Re-qualification of sentrik is required when any of the following changes occur:</p>
 <table>
 <thead>
 <tr>
@@ -3377,9 +3377,9 @@
 <li>Release notes document all changes and identify any that affect detection behavior.</li>
 </ul>
 <h3 id="83-version-tracking">8.3 Version Tracking<a class="headerlink" href="#83-version-tracking" title="Permanent link">&para;</a></h3>
-<p>Each project using SENTRIK for qualified purposes must record:</p>
+<p>Each project using sentrik for qualified purposes must record:</p>
 <ul>
-<li>The exact SENTRIK version in use (obtainable via <code>sentrik version</code>).</li>
+<li>The exact sentrik version in use (obtainable via <code>sentrik version</code>).</li>
 <li>The standards packs and versions enabled.</li>
 <li>Any custom rules added to the configuration.</li>
 <li>The governance profile and gate thresholds configured.</li>
