@@ -2368,14 +2368,14 @@
 
 
 <h1 id="mcp-integration-guide">MCP Integration Guide<a class="headerlink" href="#mcp-integration-guide" title="Permanent link">&para;</a></h1>
-<p>SENTRIK exposes compliance tools via the <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)</a>, allowing AI coding agents to check code compliance during generation and review.</p>
+<p>sentrik exposes compliance tools via the <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)</a>, allowing AI coding agents to check code compliance during generation and review.</p>
 <h2 id="two-ai-integration-modes">Two AI Integration Modes<a class="headerlink" href="#two-ai-integration-modes" title="Permanent link">&para;</a></h2>
-<p>SENTRIK offers two independent ways to bring AI into your compliance workflow:</p>
+<p>sentrik offers two independent ways to bring AI into your compliance workflow:</p>
 <h3 id="mcp-server-for-developers">MCP Server (for developers)<a class="headerlink" href="#mcp-server-for-developers" title="Permanent link">&para;</a></h3>
-<p>Your AI coding agent (Claude Code, Cursor, VS Code) calls Sentrik tools during code generation and review. The AI understands your compliance requirements before writing code — it checks what rules apply, writes compliant code, and verifies it inline. The MCP server uses the AI tool's own LLM (Claude, GPT, etc.) and requires no additional configuration beyond adding Sentrik as an MCP server.</p>
+<p>Your AI coding agent (Claude Code, Cursor, VS Code) calls sentrik tools during code generation and review. The AI understands your compliance requirements before writing code — it checks what rules apply, writes compliant code, and verifies it inline. The MCP server uses the AI tool's own LLM (Claude, GPT, etc.) and requires no additional configuration beyond adding sentrik as an MCP server.</p>
 <p><strong>Best for:</strong> Developers writing code with AI assistance who want compliance checks built into their coding workflow.</p>
 <h3 id="dashboard-ai-chat-for-compliance-officers">Dashboard AI Chat (for compliance officers)<a class="headerlink" href="#dashboard-ai-chat-for-compliance-officers" title="Permanent link">&para;</a></h3>
-<p>Click "Fix with AI" on any finding in the Sentrik dashboard. A chat panel opens where you can discuss the finding with an LLM — ask why the code is non-compliant, explore remediation options, and apply fixes directly from the browser. Configure the LLM provider from the <strong>Settings</strong> page in the dashboard — select your provider, paste your API key, and click Save.</p>
+<p>Click "Fix with AI" on any finding in the sentrik dashboard. A chat panel opens where you can discuss the finding with an LLM — ask why the code is non-compliant, explore remediation options, and apply fixes directly from the browser. Configure the LLM provider from the <strong>Settings</strong> page in the dashboard — select your provider, paste your API key, and click Save.</p>
 <p><img alt="AI Integration Settings" src="../../assets/images/docs-ai-integration.png" /></p>
 <p><strong>Best for:</strong> Compliance teams and QA engineers triaging findings in the browser without touching an IDE.</p>
 <h3 id="how-they-differ">How they differ<a class="headerlink" href="#how-they-differ" title="Permanent link">&para;</a></h3>
@@ -2396,7 +2396,7 @@
 <tr>
 <td><strong>LLM used</strong></td>
 <td>The AI tool's own model (Claude, GPT)</td>
-<td>Sentrik's configured LLM provider</td>
+<td>sentrik's configured LLM provider</td>
 </tr>
 <tr>
 <td><strong>Configuration</strong></td>
@@ -2415,16 +2415,24 @@
 <p>Install sentrik:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>sentrik
 </code></pre></div>
-<p>Or via pip:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>sentrik<span class="o">[</span>mcp<span class="o">]</span>
-</code></pre></div>
 <h2 id="starting-the-mcp-server">Starting the MCP Server<a class="headerlink" href="#starting-the-mcp-server" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sentrik<span class="w"> </span>mcp-server
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sentrik<span class="w"> </span>mcp-server
 </code></pre></div>
 <p>The server communicates over stdio (stdin/stdout) — this is the standard MCP transport that AI tools use.</p>
 <h2 id="configuring-ai-tools">Configuring AI Tools<a class="headerlink" href="#configuring-ai-tools" title="Permanent link">&para;</a></h2>
 <h3 id="claude-code">Claude Code<a class="headerlink" href="#claude-code" title="Permanent link">&para;</a></h3>
 <p>Add to your project's <code>.mcp.json</code> or <code>~/.claude/claude_desktop_config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="cursor">Cursor<a class="headerlink" href="#cursor" title="Permanent link">&para;</a></h3>
+<p>Add to your MCP configuration (Settings &gt; MCP Servers):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -2434,27 +2442,16 @@
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="cursor">Cursor<a class="headerlink" href="#cursor" title="Permanent link">&para;</a></h3>
-<p>Add to your MCP configuration (Settings &gt; MCP Servers):</p>
+<h3 id="vs-code-with-mcp-extension">VS Code with MCP Extension<a class="headerlink" href="#vs-code-with-mcp-extension" title="Permanent link">&para;</a></h3>
+<p>Add to your workspace <code>.vscode/mcp.json</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;servers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="vs-code-with-mcp-extension">VS Code with MCP Extension<a class="headerlink" href="#vs-code-with-mcp-extension" title="Permanent link">&para;</a></h3>
-<p>Add to your workspace <code>.vscode/mcp.json</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;servers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="available-tools">Available Tools<a class="headerlink" href="#available-tools" title="Permanent link">&para;</a></h2>
 <p>The MCP server exposes 7 tools:</p>
@@ -2509,11 +2506,11 @@
 3. Explain each finding in context and suggest fixes</p>
 <h3 id="checking-code-during-generation">Checking code during generation<a class="headerlink" href="#checking-code-during-generation" title="Permanent link">&para;</a></h3>
 <p><strong>User:</strong> "Is this code HIPAA compliant?"</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">store_record</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ssn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">diagnosis</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;patients.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">);</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s,%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ssn</span><span class="p">,</span><span class="w"> </span><span class="n">diagnosis</span><span class="p">);</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">store_record</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ssn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">diagnosis</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;patients.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s,%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ssn</span><span class="p">,</span><span class="w"> </span><span class="n">diagnosis</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
 </code></pre></div>
 <p>The AI agent calls <code>check_code_snippet</code> with the code and <code>filename: "patient_handler.cpp"</code>, then explains the findings (plaintext PHI storage, no encryption, no access logging).</p>
 <h3 id="checking-project-status">Checking project status<a class="headerlink" href="#checking-project-status" title="Permanent link">&para;</a></h3>
@@ -2524,7 +2521,7 @@
 <p>The AI agent calls <code>explain_rule</code> with <code>rule_id: "HIPAA-164.312-a1"</code> and explains the rule's purpose, what code patterns it catches, and how to remediate.</p>
 <p><img alt="MCP in Claude Code" src="../../assets/images/docs-mcp-conversation.png" /></p>
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<p>The MCP server wraps SENTRIK's SDK and CLI:</p>
+<p>The MCP server wraps sentrik's SDK and CLI:</p>
 <ul>
 <li><code>scan_file</code> and <code>check_code_snippet</code> use the SDK's <code>check_code()</code> function, which runs the rules engine against code</li>
 <li><code>get_compliance_context</code> uses the SDK's <code>get_compliance_context()</code> function</li>
