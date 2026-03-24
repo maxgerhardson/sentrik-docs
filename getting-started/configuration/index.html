@@ -1153,6 +1153,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/php-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/kotlin-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kotlin Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2473,11 +2529,23 @@
 </tr>
 <tr>
 <td><code>GUARD_API_KEY</code></td>
-<td>REST API authentication key</td>
+<td>REST API authentication key (constant-time validated)</td>
 </tr>
 <tr>
 <td><code>GUARD_LICENSE_KEY</code></td>
 <td>License key for paid features</td>
+</tr>
+<tr>
+<td><code>GUARD_AUDIT_HMAC_KEY</code></td>
+<td>HMAC key for audit log integrity signatures</td>
+</tr>
+<tr>
+<td><code>GUARD_SESSION_SECRET</code></td>
+<td>Session secret for OIDC (generate ephemeral if unset)</td>
+</tr>
+<tr>
+<td><code>GUARD_RATE_LIMIT_RPM</code></td>
+<td>API rate limit per IP per minute (default: 60)</td>
 </tr>
 </tbody>
 </table>

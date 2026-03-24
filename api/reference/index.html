@@ -935,6 +935,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/php-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/kotlin-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kotlin Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1330,6 +1386,17 @@
     <span class="md-ellipsis">
       
         Starting the server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limiting
       
     </span>
   </a>
@@ -1857,6 +1924,45 @@
     <span class="md-ellipsis">
       
         Error handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-assistant-fix-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI assistant &amp; fix endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI assistant &amp; fix endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apiapply-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/apply-fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security notes
       
     </span>
   </a>
@@ -2324,6 +2430,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limiting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#core-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2850,6 +2967,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ai-assistant-fix-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI assistant &amp; fix endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI assistant &amp; fix endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-apiapply-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST /api/apply-fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security notes
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2881,6 +3037,30 @@
 <li><strong>ReDoc</strong>: <code>http://localhost:8000/redoc</code></li>
 <li><strong>API Landing</strong>: <code>http://localhost:8000/api</code></li>
 </ul>
+<h2 id="rate-limiting">Rate limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
+<p>All <code>/api/</code> endpoints are rate-limited per client IP using a sliding window (default: 60 requests/minute). Dashboard and static routes are not rate-limited.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GUARD_RATE_LIMIT_ENABLED</code></td>
+<td><code>true</code></td>
+<td>Enable/disable rate limiting</td>
+</tr>
+<tr>
+<td><code>GUARD_RATE_LIMIT_RPM</code></td>
+<td><code>60</code></td>
+<td>Requests per minute per IP</td>
+</tr>
+</tbody>
+</table>
+<p>When exceeded, the server returns <code>429 Too Many Requests</code> with a <code>Retry-After</code> header.</p>
 <h2 id="core-endpoints">Core endpoints<a class="headerlink" href="#core-endpoints" title="Permanent link">&para;</a></h2>
 <h3 id="get-health"><code>GET /health</code><a class="headerlink" href="#get-health" title="Permanent link">&para;</a></h3>
 <p>Health check. Always accessible (no auth required).</p>
@@ -3665,6 +3845,10 @@
 <td>Validation error</td>
 </tr>
 <tr>
+<td>429</td>
+<td>Rate limit exceeded (includes <code>Retry-After</code> header)</td>
+</tr>
+<tr>
 <td>500</td>
 <td>Internal server error</td>
 </tr>
@@ -3673,6 +3857,87 @@
 <p>Error response format:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error description&quot;</span><span class="p">}</span>
 </code></pre></div>
+<p>Note: Error responses never include internal file paths, stack traces, or library versions. Full error details are logged server-side only.</p>
+<h2 id="ai-assistant-fix-endpoints">AI assistant &amp; fix endpoints<a class="headerlink" href="#ai-assistant-fix-endpoints" title="Permanent link">&para;</a></h2>
+<p>These endpoints require API key authentication when <code>GUARD_API_KEY</code> is set.</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/api/ai-key</code></td>
+<td>POST</td>
+<td>Set LLM API key for current session (in-memory only)</td>
+</tr>
+<tr>
+<td><code>/api/vuln-fix</code></td>
+<td>POST</td>
+<td>Apply a dependency version fix to a manifest</td>
+</tr>
+<tr>
+<td><code>/api/apply-fix</code></td>
+<td>POST</td>
+<td>Apply a code fix to a source file (path-traversal protected)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-apiapply-fix"><code>POST /api/apply-fix</code><a class="headerlink" href="#post-apiapply-fix" title="Permanent link">&para;</a></h3>
+<p>Apply a code fix suggested by the AI chat assistant. The endpoint enforces path traversal protection — the target file must be within the project root, and symlinks that escape the root are rejected.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_path</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>Relative path within the project</td>
+</tr>
+<tr>
+<td><code>original_code</code></td>
+<td>string</td>
+<td>No</td>
+<td>Expected original code (soft verification)</td>
+</tr>
+<tr>
+<td><code>fixed_code</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>Replacement code</td>
+</tr>
+<tr>
+<td><code>start_line</code></td>
+<td>int</td>
+<td>Yes</td>
+<td>Start line number</td>
+</tr>
+<tr>
+<td><code>end_line</code></td>
+<td>int</td>
+<td>Yes</td>
+<td>End line number</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-notes">Security notes<a class="headerlink" href="#security-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>API key comparison</strong> uses <code>hmac.compare_digest()</code> for constant-time validation (prevents timing attacks)</li>
+<li><strong>OAuth tokens</strong> are encrypted at rest using Fernet symmetric encryption with a machine-derived PBKDF2 key</li>
+<li><strong>Audit log entries</strong> include HMAC-SHA256 integrity signatures (<code>_integrity</code> field) — tampered entries are flagged on read</li>
+<li><strong>CSRF state validation</strong> on OAuth callbacks requires both cookie presence and value match</li>
+<li><strong>Pack import validation</strong> enforces regex pattern length limits (2000 chars) to prevent ReDoS</li>
+</ul>
 
 
 
