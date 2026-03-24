@@ -1665,6 +1665,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#get-apiposture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/posture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-apimetricshistory" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2702,6 +2713,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#get-apiposture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET /api/posture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-apimetricshistory" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3144,7 +3166,12 @@
 <tr>
 <td><code>/api/metrics</code></td>
 <td>GET</td>
-<td>Get scan metrics</td>
+<td>Get scan metrics (includes <code>false_positive_rate</code>)</td>
+</tr>
+<tr>
+<td><code>/api/posture</code></td>
+<td>GET</td>
+<td>Aggregate security posture score (ASPM)</td>
 </tr>
 <tr>
 <td><code>/api/trends</code></td>
@@ -3498,6 +3525,22 @@
 </tbody>
 </table>
 <p><strong>Response:</strong> Impact analysis report with affected rules, requirements, and frameworks.</p>
+<h3 id="get-apiposture"><code>GET /api/posture</code><a class="headerlink" href="#get-apiposture" title="Permanent link">&para;</a></h3>
+<p>Return the aggregate Application Security Posture Management (ASPM) score. Combines four weighted components into a single 0–100 score with status labels.</p>
+<p><strong>Response:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;overall&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">78.5</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;needs_attention&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;components&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;compliance&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">92.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.35</span><span class="p">},</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;vulnerability&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">60.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.30</span><span class="p">},</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;trend&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">65.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">},</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;gate_reliability&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">85.0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.20</span><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Status values: <code>healthy</code> (≥80), <code>needs_attention</code> (≥60), <code>at_risk</code> (≥40), <code>critical</code> (&lt;40).</p>
 <h3 id="get-apimetricshistory"><code>GET /api/metrics/history</code><a class="headerlink" href="#get-apimetricshistory" title="Permanent link">&para;</a></h3>
 <p>Return scan history and statistics from the metrics database.</p>
 <table>
@@ -3855,7 +3898,7 @@
 </tbody>
 </table>
 <p>Error response format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error description&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error description&quot;</span><span class="p">}</span>
 </code></pre></div>
 <p>Note: Error responses never include internal file paths, stack traces, or library versions. Full error details are logged server-side only.</p>
 <h2 id="ai-assistant-fix-endpoints">AI assistant &amp; fix endpoints<a class="headerlink" href="#ai-assistant-fix-endpoints" title="Permanent link">&para;</a></h2>
