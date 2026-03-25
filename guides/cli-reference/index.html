@@ -3111,6 +3111,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sentrik<span class="w"> </span>watch<span class="w">                              </span><span class="c1"># Watch for file changes, scan on save</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sentrik<span class="w"> </span>watch<span class="w"> </span>--interval<span class="w"> </span><span class="m">300</span><span class="w">               </span><span class="c1"># Periodic scan every 5 minutes</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sentrik<span class="w"> </span>watch<span class="w"> </span>--interval<span class="w"> </span><span class="m">60</span><span class="w"> </span>--quiet<span class="w">        </span><span class="c1"># Cron mode, minimal output</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>sentrik<span class="w"> </span>watch<span class="w"> </span>--vulns<span class="w">                      </span><span class="c1"># Also scan deps for new CVEs (hourly)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sentrik<span class="w"> </span>watch<span class="w"> </span>--vulns<span class="w"> </span>--fix<span class="w"> </span>--create-pr<span class="w">    </span><span class="c1"># Auto-fix + auto-PR on new CVEs</span>
 </code></pre></div>
 <table>
 <thead>
@@ -3135,6 +3137,26 @@
 <td><code>--config, -c</code></td>
 <td>auto</td>
 <td>Config file path</td>
+</tr>
+<tr>
+<td><code>--vulns</code></td>
+<td>false</td>
+<td>Enable periodic dependency vulnerability scanning</td>
+</tr>
+<tr>
+<td><code>--vuln-interval</code></td>
+<td>3600</td>
+<td>Seconds between vulnerability scans</td>
+</tr>
+<tr>
+<td><code>--fix</code></td>
+<td>false</td>
+<td>Auto-patch vulnerable dependencies (requires <code>--vulns</code>)</td>
+</tr>
+<tr>
+<td><code>--create-pr</code></td>
+<td>false</td>
+<td>Create PR with fixes (requires <code>--fix</code> + DevOps provider)</td>
 </tr>
 </tbody>
 </table>
