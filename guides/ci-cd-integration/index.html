@@ -2207,6 +2207,7 @@
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik gate --git-range &quot;origin/main...HEAD&quot;</span>
 </code></pre></div>
 <h3 id="with-pr-decoration-and-status-checks">With PR decoration and status checks<a class="headerlink" href="#with-pr-decoration-and-status-checks" title="Permanent link">&para;</a></h3>
+<p>Posts a compliance summary comment on the PR showing per-framework findings breakdown, blocking count, and top findings.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik gate --git-range &quot;origin/main...HEAD&quot; --decorate-pr --status-check</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">          </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
