@@ -2308,6 +2308,18 @@
 <td>Number of parallel worker threads</td>
 </tr>
 <tr>
+<td><code>agent_scan</code></td>
+<td><code>false</code></td>
+<td><code>GUARD_AGENT_SCAN</code></td>
+<td>Enable multi-agent scanning (one agent per pack, evaluated in parallel)</td>
+</tr>
+<tr>
+<td><code>agent_max_concurrency</code></td>
+<td><code>0</code></td>
+<td><code>GUARD_AGENT_MAX_CONCURRENCY</code></td>
+<td>Max concurrent compliance agents (<code>0</code> = one per pack)</td>
+</tr>
+<tr>
 <td><code>ml_severity_enabled</code></td>
 <td><code>false</code></td>
 <td><code>GUARD_ML_SEVERITY_ENABLED</code></td>
@@ -2688,6 +2700,8 @@
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span><span class="nt">profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="nt">parallel_scan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="nt">max_workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="nt">agent_scan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">            </span><span class="c1"># one compliance agent per pack, evaluated in parallel</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="nt">agent_max_concurrency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">    </span><span class="c1"># 0 = auto (one thread per pack)</span>
 </code></pre></div>
 <h2 id="validate-configuration">Validate configuration<a class="headerlink" href="#validate-configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sentrik<span class="w"> </span>validate-config
