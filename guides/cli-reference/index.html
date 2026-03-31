@@ -982,6 +982,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Reconcile command options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-import-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik import-spec
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-attest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik attest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-diff-packs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik diff-packs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-gap-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik gap-analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2718,6 +2768,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Reconcile command options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-import-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik import-spec
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-attest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik attest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-diff-packs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik diff-packs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-gap-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik gap-analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2891,6 +2991,14 @@
 <td>Generate a public-safe trust center page</td>
 </tr>
 <tr>
+<td><code>sentrik attest</code></td>
+<td>Generate or verify a signed compliance attestation</td>
+</tr>
+<tr>
+<td><code>sentrik gap-analysis</code></td>
+<td>Generate regulatory gap report between pack versions</td>
+</tr>
+<tr>
 <td><code>sentrik evidence-export</code></td>
 <td>Generate audit evidence packages mapped to compliance framework controls</td>
 </tr>
@@ -2964,6 +3072,14 @@
 <tr>
 <td><code>sentrik export-pack &lt;id&gt;</code></td>
 <td>Export a pack to YAML</td>
+</tr>
+<tr>
+<td><code>sentrik import-spec &lt;file&gt;</code></td>
+<td>Generate security rules from an API spec (OpenAPI, AsyncAPI, protobuf)</td>
+</tr>
+<tr>
+<td><code>sentrik diff-packs &lt;id&gt; &lt;old&gt;</code></td>
+<td>Diff current pack against an older version YAML</td>
 </tr>
 </tbody>
 </table>
@@ -4071,6 +4187,124 @@
 <tr>
 <td><code>--work-items PATH</code></td>
 <td>Override work items file path</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sentrik-import-spec"><code>sentrik import-spec</code><a class="headerlink" href="#sentrik-import-spec" title="Permanent link">&para;</a></h3>
+<p>Generate security rules from an API specification file. Auto-detects format from file extension and content.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>openapi.yaml<span class="w"> </span>--enable<span class="w">          </span><span class="c1"># OpenAPI → rules, enable in config</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>events.yaml<span class="w"> </span>-f<span class="w"> </span>asyncapi<span class="w">        </span><span class="c1"># Explicit format</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>service.proto<span class="w"> </span>--id<span class="w"> </span>my-api<span class="w">      </span><span class="c1"># Custom pack ID</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--format, -f</code></td>
+<td>Spec format: <code>openapi</code>, <code>asyncapi</code>, <code>protobuf</code> (auto-detected if omitted)</td>
+</tr>
+<tr>
+<td><code>--id</code></td>
+<td>Pack ID (defaults to spec title/package name)</td>
+</tr>
+<tr>
+<td><code>--overwrite</code></td>
+<td>Overwrite existing pack</td>
+</tr>
+<tr>
+<td><code>--enable</code></td>
+<td>Enable pack in config after import</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Rules generated per format:</p>
+<ul>
+<li><strong>OpenAPI</strong>: auth enforcement, unbounded string inputs, sensitive response fields, HTTP servers, unconstrained path params</li>
+<li><strong>AsyncAPI</strong>: channel auth, sensitive payloads, unbounded fields, insecure broker protocols</li>
+<li><strong>Protobuf</strong>: sensitive fields, unbounded strings, RPC auth obligations</li>
+</ul>
+<h3 id="sentrik-attest"><code>sentrik attest</code><a class="headerlink" href="#sentrik-attest" title="Permanent link">&para;</a></h3>
+<p>Generate or verify a cryptographically signed compliance attestation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sentrik<span class="w"> </span>attest<span class="w">                              </span><span class="c1"># Generate attestation from latest scan</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>sentrik<span class="w"> </span>attest<span class="w"> </span>-o<span class="w"> </span>proof.json<span class="w">                </span><span class="c1"># Custom output path</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>sentrik<span class="w"> </span>attest<span class="w"> </span>--verify<span class="w"> </span>out/attestation.json<span class="w">  </span><span class="c1"># Verify existing attestation</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--output, -o</code></td>
+<td>Output file path (default: <code>out/attestation.json</code>)</td>
+</tr>
+<tr>
+<td><code>--verify</code></td>
+<td>Verify an existing attestation file</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>The attestation document includes: findings digest (SHA-256), severity counts, gate status, packs enabled, git SHA, tool version, and an HMAC-SHA256 signature.</p>
+<h3 id="sentrik-diff-packs"><code>sentrik diff-packs</code><a class="headerlink" href="#sentrik-diff-packs" title="Permanent link">&para;</a></h3>
+<p>Diff the current version of a standards pack against an older version.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>sentrik<span class="w"> </span>diff-packs<span class="w"> </span>owasp-top-10<span class="w"> </span>old-owasp.yaml<span class="w">       </span><span class="c1"># Human-readable diff</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>sentrik<span class="w"> </span>diff-packs<span class="w"> </span>supply-chain-security<span class="w"> </span>old.yaml<span class="w"> </span>-j<span class="w">  </span><span class="c1"># JSON output</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--json, -j</code></td>
+<td>Output as JSON</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sentrik-gap-analysis"><code>sentrik gap-analysis</code><a class="headerlink" href="#sentrik-gap-analysis" title="Permanent link">&para;</a></h3>
+<p>Generate a regulatory gap analysis between pack versions. Identifies new obligations, strengthened rules, relaxed rules, and removed controls.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>owasp-top-10<span class="w"> </span>old-owasp.yaml<span class="w">        </span><span class="c1"># Human-readable report</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>soc2<span class="w"> </span>old-soc2.yaml<span class="w"> </span>--json<span class="w">           </span><span class="c1"># JSON for automation</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>hipaa<span class="w"> </span>old.yaml<span class="w"> </span>-o<span class="w"> </span>gap-report.json<span class="w"> </span>-j<span class="w">  </span><span class="c1"># Save to file</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--output, -o</code></td>
+<td>Output file path (default: stdout)</td>
+</tr>
+<tr>
+<td><code>--json, -j</code></td>
+<td>Output as JSON</td>
 </tr>
 </tbody>
 </table>
