@@ -1029,6 +1029,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sentrik-drift-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik drift-scan
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2815,6 +2826,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sentrik-drift-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik drift-scan
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3017,6 +3039,10 @@
 <tr>
 <td><code>sentrik export-audit</code></td>
 <td>Export audit bundle (ZIP) for regulatory submission</td>
+</tr>
+<tr>
+<td><code>sentrik drift-scan</code></td>
+<td>Context-aware requirement drift analysis (behavioral, structural, cross-file, acceptance criteria)</td>
 </tr>
 <tr>
 <td><code>sentrik approve &lt;id&gt;</code></td>
@@ -4308,6 +4334,50 @@
 </tr>
 </tbody>
 </table>
+<h3 id="sentrik-drift-scan"><code>sentrik drift-scan</code><a class="headerlink" href="#sentrik-drift-scan" title="Permanent link">&para;</a></h3>
+<p>Context-aware requirement drift analysis. Detects four types of drift:</p>
+<ol>
+<li><strong>Behavioral</strong> — LLM compares requirement description against actual code behavior</li>
+<li><strong>Structural</strong> — detects removed/weakened security patterns (auth bypass, TLS disabled, weak crypto)</li>
+<li><strong>Cross-file</strong> — finds missing source files and suggests where code may have moved</li>
+<li><strong>Acceptance criteria</strong> — LLM validates each acceptance criterion against the implementation</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>sentrik<span class="w"> </span>drift-scan<span class="w">                              </span><span class="c1"># Analyze all requirements</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>-r<span class="w"> </span>custom-reqs.yaml<span class="w">          </span><span class="c1"># Custom requirements file</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>--staged<span class="w">                     </span><span class="c1"># Scope to staged files only</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>--json<span class="w"> </span>-o<span class="w"> </span>drift-report.json<span class="w">  </span><span class="c1"># JSON output</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--config, -c</code></td>
+<td>Config file path</td>
+</tr>
+<tr>
+<td><code>--requirements, -r</code></td>
+<td>Path to requirements.yaml</td>
+</tr>
+<tr>
+<td><code>--staged</code></td>
+<td>Scope to staged files only</td>
+</tr>
+<tr>
+<td><code>--output, -o</code></td>
+<td>Output file path</td>
+</tr>
+<tr>
+<td><code>--json, -j</code></td>
+<td>Output as JSON</td>
+</tr>
+</tbody>
+</table>
+<p>Structural and cross-file checks work without LLM. For behavioral drift and acceptance criteria validation, set <code>ANTHROPIC_API_KEY</code> (or configure another LLM provider).</p>
 
 
 
