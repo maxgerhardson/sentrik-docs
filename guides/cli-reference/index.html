@@ -2872,15 +2872,19 @@
 <tbody>
 <tr>
 <td><code>sentrik init</code></td>
-<td>Create <code>.sentrik/config.yaml</code> (interactive wizard or <code>--no-interactive</code>)</td>
+<td>Create <code>.sentrik/config.yaml</code> (supports <code>--mode developer\|compliance\|ci</code> presets)</td>
 </tr>
 <tr>
 <td><code>sentrik scan</code></td>
-<td>Run a scan and write findings/reports to <code>out/</code> (works without config)</td>
+<td>Run a scan and write findings/reports to <code>out/</code> (supports <code>--actionable-only</code>)</td>
 </tr>
 <tr>
 <td><code>sentrik gate</code></td>
 <td>Run scan and enforce quality gate (exit 0 pass / exit 1 fail)</td>
+</tr>
+<tr>
+<td><code>sentrik next-action</code></td>
+<td>Show top fixable findings from latest scan</td>
 </tr>
 <tr>
 <td><code>sentrik context</code></td>
@@ -3019,6 +3023,14 @@
 <tr>
 <td><code>sentrik gap-analysis</code></td>
 <td>Generate regulatory gap report between pack versions</td>
+</tr>
+<tr>
+<td><code>sentrik compliance-trend</code></td>
+<td>Show compliance score trend from historical scans</td>
+</tr>
+<tr>
+<td><code>sentrik risk-summary</code></td>
+<td>Generate one-page executive risk summary (HTML)</td>
 </tr>
 <tr>
 <td><code>sentrik evidence-export</code></td>
