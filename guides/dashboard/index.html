@@ -759,6 +759,61 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#quality-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expertise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expertise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attestation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attestation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#settings-shortcut-0" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1279,6 +1334,118 @@
     
   
     Kotlin Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/go-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Go Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/python-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/supply-chain-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/nist-ai-rmf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NIST AI RMF
   
 
     
@@ -2262,6 +2429,61 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#quality-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expertise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expertise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attestation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attestation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#settings-shortcut-0" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2412,6 +2634,16 @@
 <h3 id="licenses">Licenses<a class="headerlink" href="#licenses" title="Permanent link">&para;</a></h3>
 <p>Dependency license compliance results from <code>sentrik licenses</code>. Flags copyleft licenses, unknown licenses, and license conflicts. Filterable by license type and risk level.</p>
 <p><img alt="Licenses Page" src="../../assets/images/docs-licenses-page.png" /></p>
+<h3 id="quality-score">Quality Score<a class="headerlink" href="#quality-score" title="Permanent link">&para;</a></h3>
+<p>View your project's code quality score (0-100) across six weighted dimensions: compliance, complexity, test coverage, documentation, consistency, and dependency health. Includes a score ring visualization, per-dimension breakdown with progress bars, and a historical trend chart. Run <code>sentrik quality-score</code> to generate data.</p>
+<h3 id="project-profile">Project Profile<a class="headerlink" href="#project-profile" title="Permanent link">&para;</a></h3>
+<p>Auto-detected project profile showing languages, frameworks, architecture patterns, naming conventions, and a module map with file counts. Run <code>sentrik profile</code> to build or refresh the profile.</p>
+<h3 id="design-decisions">Design Decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h3>
+<p>Browse LLM-identified design decisions with category badges, risk descriptions, alternatives, and acknowledgement status. Click <strong>Acknowledge</strong> to mark a decision as reviewed with an optional note. A sidebar badge shows the count of pending decisions. Run <code>sentrik review-design --file &lt;path&gt;</code> to generate decisions.</p>
+<h3 id="expertise">Expertise<a class="headerlink" href="#expertise" title="Permanent link">&para;</a></h3>
+<p>Developer expertise profiles built from git history. Shows per-developer language expertise percentages and module activity bar charts. Run <code>sentrik check-expertise --profile</code> to build profiles.</p>
+<h3 id="attestation">Attestation<a class="headerlink" href="#attestation" title="Permanent link">&para;</a></h3>
+<p>View the latest compliance attestation including gate pass/fail status, findings count, files scanned, rules evaluated, scan duration, design review status, and the cryptographic signature. Run <code>sentrik attest</code> to generate an attestation.</p>
 <h3 id="settings-shortcut-0">Settings (Shortcut: <code>0</code>)<a class="headerlink" href="#settings-shortcut-0" title="Permanent link">&para;</a></h3>
 <p>View and validate configuration. The <strong>AI Integration</strong> card lets you configure an LLM provider (Anthropic, OpenAI, or Ollama) directly from the dashboard — select a provider, paste your API key, and click Save. Use "Test Connection" to verify it works. The API key is stored in memory only (never written to config files).</p>
 <p><img alt="AI Integration Settings" src="../../assets/images/docs-ai-integration.png" /></p>
@@ -2500,7 +2732,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2025-2026 Sentrik
+      Copyright &copy; 2026 Sentrik
     </div>
   
   

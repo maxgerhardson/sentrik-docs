@@ -12,13 +12,13 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/standards-packs/fda-21cfr11/">
+        <link rel="canonical" href="https://docs.sentrik.dev/standards-packs/python-security/">
       
       
-        <link rel="prev" href="../iec-81001-5-1/">
+        <link rel="prev" href="../go-security/">
       
       
-        <link rel="next" href="../iso-14971/">
+        <link rel="next" href="../supply-chain-security/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>21 CFR Part 11 - sentrik documentation</title>
+        <title>Python Security - sentrik documentation</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#21-cfr-part-11" class="md-skip">
+        <a href="#python-security" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              21 CFR Part 11
+              Python Security
             
           </span>
         </div>
@@ -748,6 +748,8 @@
                 
   
   
+    
+  
   
   
     
@@ -757,13 +759,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -784,7 +784,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1051,10 +1051,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../python-security/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1070,6 +1097,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-rules-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code rules (18)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use case
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1143,8 +1240,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1154,11 +1249,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
         
           
           <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
@@ -1179,7 +1276,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1222,37 +1319,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    21 CFR Part 11
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../fda-21cfr11/" class="md-nav__link">
         
   
   
@@ -1268,87 +1338,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#enable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enable
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rules
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code-rules-14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code rules (14)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation-obligations-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation obligations (2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-case" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use case
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2055,21 +2044,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#code-rules-14" class="md-nav__link">
+  <a href="#code-rules-18" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code rules (14)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation-obligations-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation obligations (2)
+        Code rules (18)
       
     </span>
   </a>
@@ -2109,18 +2087,14 @@
 
 
 
-<h1 id="21-cfr-part-11">21 CFR Part 11<a class="headerlink" href="#21-cfr-part-11" title="Permanent link">&para;</a></h1>
-<p>The <code>fda-21cfr11</code> pack enforces rules based on <strong>FDA 21 CFR Part 11 -- Electronic Records; Electronic Signatures</strong>. It covers audit trail requirements, access controls, data integrity, electronic signatures, system validation, and record retention for regulated industries.</p>
-<div class="admonition note">
-<p class="admonition-title">Organization tier required</p>
-<p>This pack requires an <strong>Organization</strong> or <strong>Enterprise</strong> license key. See <a href="https://sentrik.dev/pricing">Pricing</a> for details.</p>
-</div>
+<h1 id="python-security">Python Security<a class="headerlink" href="#python-security" title="Permanent link">&para;</a></h1>
+<p>The <code>python-security</code> pack enforces security rules for <strong>Python applications</strong> covering code execution, deserialization, command injection, cryptography, web frameworks (Django, Flask, FastAPI), file/path security, and network security.</p>
 <h2 id="enable">Enable<a class="headerlink" href="#enable" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>add-pack<span class="w"> </span>fda-21cfr11
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>add-pack<span class="w"> </span>python-security
 </code></pre></div>
 <h2 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">&para;</a></h2>
-<p>The pack includes 16 rules across code enforcement and documentation obligations:</p>
-<h3 id="code-rules-14">Code rules (14)<a class="headerlink" href="#code-rules-14" title="Permanent link">&para;</a></h3>
+<p>The pack includes 18 code rules:</p>
+<h3 id="code-rules-18">Code rules (18)<a class="headerlink" href="#code-rules-18" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2132,120 +2106,121 @@
 </thead>
 <tbody>
 <tr>
-<td>CFR11-001</td>
-<td>11.10(e)</td>
-<td>high</td>
-<td>Database writes without audit logging violate audit trail requirements</td>
-</tr>
-<tr>
-<td>CFR11-002</td>
-<td>11.10(e)</td>
-<td>medium</td>
-<td>Data records without timestamps violate audit trail requirements</td>
-</tr>
-<tr>
-<td>CFR11-003</td>
-<td>11.10(d)</td>
-<td>high</td>
-<td>API endpoints without authentication checks violate access control requirements</td>
-</tr>
-<tr>
-<td>CFR11-004</td>
-<td>11.10(d)</td>
+<td>PY-SEC-001</td>
+<td>CWE-95</td>
 <td>critical</td>
-<td>Hardcoded credentials in source code violate access control requirements</td>
+<td>eval() executes arbitrary code and is a critical injection vector</td>
 </tr>
 <tr>
-<td>CFR11-005</td>
-<td>11.10(e)</td>
-<td>high</td>
-<td>Direct record mutation without versioning violates electronic record integrity</td>
-</tr>
-<tr>
-<td>CFR11-006</td>
-<td>11.10(c)</td>
+<td>PY-SEC-002</td>
+<td>CWE-95</td>
 <td>critical</td>
-<td>Unsafe deserialization can corrupt regulated electronic records</td>
+<td>exec() executes arbitrary code strings and enables code injection</td>
 </tr>
 <tr>
-<td>CFR11-007</td>
-<td>11.100</td>
+<td>PY-SEC-003</td>
+<td>CWE-95</td>
 <td>high</td>
-<td>Regulated actions without signature verification violate electronic signature requirements</td>
+<td>compile() + exec() is equivalent to eval/exec and enables code injection</td>
 </tr>
 <tr>
-<td>CFR11-008</td>
-<td>11.100</td>
-<td>high</td>
-<td>Weak hash algorithms for digital signatures compromise signature integrity</td>
-</tr>
-<tr>
-<td>CFR11-009</td>
-<td>11.10(a)</td>
+<td>PY-SEC-004</td>
+<td>CWE-502</td>
 <td>critical</td>
-<td>Dynamic code execution (eval/exec) is prohibited in validated systems</td>
+<td>pickle.load() deserializes arbitrary Python objects and enables remote code execution</td>
 </tr>
 <tr>
-<td>CFR11-010</td>
-<td>11.10(a)</td>
-<td>medium</td>
-<td>Missing input validation violates system validation requirements</td>
-</tr>
-<tr>
-<td>CFR11-011</td>
-<td>11.10(c)</td>
-<td>medium</td>
-<td>Storing regulated records in temporary/memory storage violates retention requirements</td>
-</tr>
-<tr>
-<td>CFR11-012</td>
-<td>11.10(g)</td>
-<td>medium</td>
-<td>Operations on regulated data without role/permission checks violate authority requirements</td>
-</tr>
-<tr>
-<td>CFR11-013</td>
-<td>11.200(a)</td>
-<td>medium</td>
-<td>Sessions without timeout configuration violate device check requirements</td>
-</tr>
-<tr>
-<td>CFR11-014</td>
-<td>11.10(d)</td>
+<td>PY-SEC-005</td>
+<td>CWE-502</td>
 <td>high</td>
-<td>Logging passwords, signatures, or regulated PII violates record protection</td>
-</tr>
-</tbody>
-</table>
-<h3 id="documentation-obligations-2">Documentation obligations (2)<a class="headerlink" href="#documentation-obligations-2" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Clause</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CFR11-DOC-001</td>
-<td>11.10(a)</td>
-<td>System validation documentation (IQ/OQ/PQ protocols, traceability matrix)</td>
+<td>yaml.load() without SafeLoader can execute arbitrary Python code via YAML tags</td>
 </tr>
 <tr>
-<td>CFR11-DOC-002</td>
-<td>11.10(e)</td>
-<td>Audit trail review and management procedures</td>
+<td>PY-SEC-006</td>
+<td>CWE-502</td>
+<td>high</td>
+<td>shelve uses pickle internally and inherits its arbitrary code execution risks</td>
+</tr>
+<tr>
+<td>PY-SEC-007</td>
+<td>CWE-78</td>
+<td>critical</td>
+<td>os.system() passes commands through the shell and enables command injection</td>
+</tr>
+<tr>
+<td>PY-SEC-008</td>
+<td>CWE-78</td>
+<td>high</td>
+<td>subprocess with shell=True enables command injection through shell metacharacters</td>
+</tr>
+<tr>
+<td>PY-SEC-009</td>
+<td>CWE-328</td>
+<td>high</td>
+<td>MD5 and SHA1 are cryptographically broken and must not be used for security</td>
+</tr>
+<tr>
+<td>PY-SEC-010</td>
+<td>CWE-338</td>
+<td>medium</td>
+<td>The random module is not cryptographically secure and must not be used for tokens or keys</td>
+</tr>
+<tr>
+<td>PY-SEC-011</td>
+<td>CWE-215</td>
+<td>high</td>
+<td>Django DEBUG=True in production exposes sensitive information including settings and stack traces</td>
+</tr>
+<tr>
+<td>PY-SEC-012</td>
+<td>CWE-215</td>
+<td>critical</td>
+<td>Flask debug mode enables the interactive debugger which allows arbitrary code execution</td>
+</tr>
+<tr>
+<td>PY-SEC-013</td>
+<td>CWE-798</td>
+<td>critical</td>
+<td>Hardcoded SECRET_KEY allows session forgery and CSRF bypass</td>
+</tr>
+<tr>
+<td>PY-SEC-014</td>
+<td>CWE-89</td>
+<td>critical</td>
+<td>SQL queries built with f-strings or .format() are vulnerable to injection</td>
+</tr>
+<tr>
+<td>PY-SEC-015</td>
+<td>CWE-377</td>
+<td>medium</td>
+<td>tempfile.mktemp() has a race condition that enables symlink attacks</td>
+</tr>
+<tr>
+<td>PY-SEC-016</td>
+<td>CWE-732</td>
+<td>high</td>
+<td>Setting world-writable permissions creates a privilege escalation risk</td>
+</tr>
+<tr>
+<td>PY-SEC-017</td>
+<td>CWE-295</td>
+<td>high</td>
+<td>Disabling SSL verification allows man-in-the-middle attacks</td>
+</tr>
+<tr>
+<td>PY-SEC-018</td>
+<td>CWE-668</td>
+<td>medium</td>
+<td>Binding to 0.0.0.0 exposes the service to all network interfaces including external</td>
 </tr>
 </tbody>
 </table>
 <h2 id="use-case">Use case<a class="headerlink" href="#use-case" title="Permanent link">&para;</a></h2>
-<p>Pharmaceutical companies, biotech firms, CROs, and any FDA-regulated organization maintaining electronic records or using electronic signatures. The pack provides:</p>
+<p>Python web applications, APIs, data pipelines, and automation scripts. The pack provides:</p>
 <ol>
-<li><strong>Audit trail enforcement</strong> -- Catches database writes without logging, missing timestamps, and record mutations without versioning</li>
-<li><strong>Electronic signature integrity</strong> -- Flags regulated actions lacking signature verification and weak hash algorithms</li>
-<li><strong>Validated system compliance</strong> -- Detects eval/exec usage, missing input validation, and volatile storage of regulated records</li>
-<li><strong>FDA inspection readiness</strong> -- Documentation obligations map to 21 CFR Part 11 sections for pre-audit assessment</li>
+<li><strong>Code execution prevention</strong> -- Catches eval(), exec(), compile(), and unsafe deserialization via pickle, shelve, and yaml.load()</li>
+<li><strong>Injection detection</strong> -- Flags command injection via os.system() and subprocess shell=True, and SQL injection via f-strings and .format()</li>
+<li><strong>Web framework hardening</strong> -- Detects Django/Flask debug mode in production, hardcoded SECRET_KEY values, disabled SSL verification, and overly permissive network bindings</li>
 </ol>
 
 

@@ -12,13 +12,13 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/standards-packs/fda-21cfr11/">
+        <link rel="canonical" href="https://docs.sentrik.dev/standards-packs/go-security/">
       
       
-        <link rel="prev" href="../iec-81001-5-1/">
+        <link rel="prev" href="../kotlin-security/">
       
       
-        <link rel="next" href="../iso-14971/">
+        <link rel="next" href="../python-security/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>21 CFR Part 11 - sentrik documentation</title>
+        <title>Go Security - sentrik documentation</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#21-cfr-part-11" class="md-skip">
+        <a href="#go-security" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              21 CFR Part 11
+              Go Security
             
           </span>
         </div>
@@ -748,6 +748,8 @@
                 
   
   
+    
+  
   
   
     
@@ -757,13 +759,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -784,7 +784,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1023,10 +1023,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../go-security/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Go Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1042,6 +1069,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-rules-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code rules (15)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use case
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1143,8 +1240,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1154,11 +1249,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
         
           
           <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
@@ -1179,7 +1276,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1222,37 +1319,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    21 CFR Part 11
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../fda-21cfr11/" class="md-nav__link">
         
   
   
@@ -1268,87 +1338,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#enable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enable
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rules
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code-rules-14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code rules (14)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation-obligations-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation obligations (2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-case" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use case
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2055,21 +2044,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#code-rules-14" class="md-nav__link">
+  <a href="#code-rules-15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code rules (14)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation-obligations-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation obligations (2)
+        Code rules (15)
       
     </span>
   </a>
@@ -2109,18 +2087,14 @@
 
 
 
-<h1 id="21-cfr-part-11">21 CFR Part 11<a class="headerlink" href="#21-cfr-part-11" title="Permanent link">&para;</a></h1>
-<p>The <code>fda-21cfr11</code> pack enforces rules based on <strong>FDA 21 CFR Part 11 -- Electronic Records; Electronic Signatures</strong>. It covers audit trail requirements, access controls, data integrity, electronic signatures, system validation, and record retention for regulated industries.</p>
-<div class="admonition note">
-<p class="admonition-title">Organization tier required</p>
-<p>This pack requires an <strong>Organization</strong> or <strong>Enterprise</strong> license key. See <a href="https://sentrik.dev/pricing">Pricing</a> for details.</p>
-</div>
+<h1 id="go-security">Go Security<a class="headerlink" href="#go-security" title="Permanent link">&para;</a></h1>
+<p>The <code>go-security</code> pack enforces security rules for <strong>Go applications</strong> covering injection, cryptography, unsafe operations, concurrency, web framework vulnerabilities, and error handling.</p>
 <h2 id="enable">Enable<a class="headerlink" href="#enable" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>add-pack<span class="w"> </span>fda-21cfr11
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>add-pack<span class="w"> </span>go-security
 </code></pre></div>
 <h2 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">&para;</a></h2>
-<p>The pack includes 16 rules across code enforcement and documentation obligations:</p>
-<h3 id="code-rules-14">Code rules (14)<a class="headerlink" href="#code-rules-14" title="Permanent link">&para;</a></h3>
+<p>The pack includes 15 code rules:</p>
+<h3 id="code-rules-15">Code rules (15)<a class="headerlink" href="#code-rules-15" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2132,120 +2106,103 @@
 </thead>
 <tbody>
 <tr>
-<td>CFR11-001</td>
-<td>11.10(e)</td>
-<td>high</td>
-<td>Database writes without audit logging violate audit trail requirements</td>
-</tr>
-<tr>
-<td>CFR11-002</td>
-<td>11.10(e)</td>
-<td>medium</td>
-<td>Data records without timestamps violate audit trail requirements</td>
-</tr>
-<tr>
-<td>CFR11-003</td>
-<td>11.10(d)</td>
-<td>high</td>
-<td>API endpoints without authentication checks violate access control requirements</td>
-</tr>
-<tr>
-<td>CFR11-004</td>
-<td>11.10(d)</td>
+<td>GO-SEC-001</td>
+<td>CWE-89</td>
 <td>critical</td>
-<td>Hardcoded credentials in source code violate access control requirements</td>
+<td>SQL queries built with string concatenation or fmt.Sprintf are vulnerable to injection</td>
 </tr>
 <tr>
-<td>CFR11-005</td>
-<td>11.10(e)</td>
-<td>high</td>
-<td>Direct record mutation without versioning violates electronic record integrity</td>
-</tr>
-<tr>
-<td>CFR11-006</td>
-<td>11.10(c)</td>
+<td>GO-SEC-002</td>
+<td>CWE-78</td>
 <td>critical</td>
-<td>Unsafe deserialization can corrupt regulated electronic records</td>
+<td>os/exec with string interpolation enables command injection</td>
 </tr>
 <tr>
-<td>CFR11-007</td>
-<td>11.100</td>
+<td>GO-SEC-003</td>
+<td>CWE-79</td>
 <td>high</td>
-<td>Regulated actions without signature verification violate electronic signature requirements</td>
+<td>Using text/template instead of html/template for web output disables HTML escaping</td>
 </tr>
 <tr>
-<td>CFR11-008</td>
-<td>11.100</td>
+<td>GO-SEC-004</td>
+<td>CWE-328</td>
 <td>high</td>
-<td>Weak hash algorithms for digital signatures compromise signature integrity</td>
+<td>MD5 and SHA1 are cryptographically broken and must not be used for security purposes</td>
 </tr>
 <tr>
-<td>CFR11-009</td>
-<td>11.10(a)</td>
+<td>GO-SEC-005</td>
+<td>CWE-326</td>
+<td>high</td>
+<td>TLS versions below 1.2 are vulnerable to known attacks</td>
+</tr>
+<tr>
+<td>GO-SEC-006</td>
+<td>CWE-295</td>
 <td>critical</td>
-<td>Dynamic code execution (eval/exec) is prohibited in validated systems</td>
+<td>Disabling TLS certificate verification allows man-in-the-middle attacks</td>
 </tr>
 <tr>
-<td>CFR11-010</td>
-<td>11.10(a)</td>
+<td>GO-SEC-007</td>
+<td>CWE-321</td>
+<td>critical</td>
+<td>Cryptographic keys hardcoded in source code can be extracted by anyone with repo access</td>
+</tr>
+<tr>
+<td>GO-SEC-008</td>
+<td>CWE-787</td>
 <td>medium</td>
-<td>Missing input validation violates system validation requirements</td>
+<td>Package unsafe bypasses Go's type safety and memory safety guarantees</td>
 </tr>
 <tr>
-<td>CFR11-011</td>
-<td>11.10(c)</td>
+<td>GO-SEC-009</td>
+<td>CWE-120</td>
 <td>medium</td>
-<td>Storing regulated records in temporary/memory storage violates retention requirements</td>
+<td>CGO introduces C memory management risks (buffer overflows, use-after-free) into Go programs</td>
 </tr>
 <tr>
-<td>CFR11-012</td>
-<td>11.10(g)</td>
-<td>medium</td>
-<td>Operations on regulated data without role/permission checks violate authority requirements</td>
-</tr>
-<tr>
-<td>CFR11-013</td>
-<td>11.200(a)</td>
-<td>medium</td>
-<td>Sessions without timeout configuration violate device check requirements</td>
-</tr>
-<tr>
-<td>CFR11-014</td>
-<td>11.10(d)</td>
+<td>GO-SEC-010</td>
+<td>CWE-942</td>
 <td>high</td>
-<td>Logging passwords, signatures, or regulated PII violates record protection</td>
-</tr>
-</tbody>
-</table>
-<h3 id="documentation-obligations-2">Documentation obligations (2)<a class="headerlink" href="#documentation-obligations-2" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Clause</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CFR11-DOC-001</td>
-<td>11.10(a)</td>
-<td>System validation documentation (IQ/OQ/PQ protocols, traceability matrix)</td>
+<td>Allowing all CORS origins exposes the API to cross-origin attacks</td>
 </tr>
 <tr>
-<td>CFR11-DOC-002</td>
-<td>11.10(e)</td>
-<td>Audit trail review and management procedures</td>
+<td>GO-SEC-011</td>
+<td>CWE-22</td>
+<td>high</td>
+<td>Serving files from user-controlled paths without sanitization enables path traversal</td>
+</tr>
+<tr>
+<td>GO-SEC-012</td>
+<td>CWE-400</td>
+<td>low</td>
+<td>Goroutines without context cancellation can leak and exhaust resources</td>
+</tr>
+<tr>
+<td>GO-SEC-013</td>
+<td>CWE-833</td>
+<td>medium</td>
+<td>Unbuffered channels in HTTP handlers can cause goroutine deadlocks under load</td>
+</tr>
+<tr>
+<td>GO-SEC-014</td>
+<td>CWE-252</td>
+<td>medium</td>
+<td>Ignoring error returns can mask security failures and data corruption</td>
+</tr>
+<tr>
+<td>GO-SEC-015</td>
+<td>CWE-248</td>
+<td>medium</td>
+<td>Unrecovered panics in HTTP handlers crash the entire server</td>
 </tr>
 </tbody>
 </table>
 <h2 id="use-case">Use case<a class="headerlink" href="#use-case" title="Permanent link">&para;</a></h2>
-<p>Pharmaceutical companies, biotech firms, CROs, and any FDA-regulated organization maintaining electronic records or using electronic signatures. The pack provides:</p>
+<p>Go backend services, microservices, and CLI tools. The pack provides:</p>
 <ol>
-<li><strong>Audit trail enforcement</strong> -- Catches database writes without logging, missing timestamps, and record mutations without versioning</li>
-<li><strong>Electronic signature integrity</strong> -- Flags regulated actions lacking signature verification and weak hash algorithms</li>
-<li><strong>Validated system compliance</strong> -- Detects eval/exec usage, missing input validation, and volatile storage of regulated records</li>
-<li><strong>FDA inspection readiness</strong> -- Documentation obligations map to 21 CFR Part 11 sections for pre-audit assessment</li>
+<li><strong>Injection prevention</strong> -- Catches SQL injection via string concatenation, command injection via os/exec, XSS via text/template, and path traversal in file serving</li>
+<li><strong>Cryptography enforcement</strong> -- Flags weak hashes (MD5, SHA1), weak TLS versions, disabled certificate verification, and hardcoded crypto keys</li>
+<li><strong>Concurrency safety</strong> -- Detects goroutine leaks without context, unbuffered channels in HTTP handlers, and unrecovered panics</li>
 </ol>
 
 
