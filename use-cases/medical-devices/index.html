@@ -2100,10 +2100,10 @@
 <h3 id="1-requirements-traceability">1. Requirements Traceability<a class="headerlink" href="#1-requirements-traceability" title="Permanent link">&para;</a></h3>
 <p>Every code change must trace back to a documented requirement. sentrik scans your codebase and cross-references against your work item tracker (Azure DevOps, GitHub Issues, Jira).</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Scan and check traceability</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentra<span class="w"> </span>scan
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>scan
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Reconcile findings with work items</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sentra<span class="w"> </span>reconcile<span class="w"> </span>--dry-run
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sentrik<span class="w"> </span>reconcile<span class="w"> </span>--dry-run
 </code></pre></div>
 <p>Untraced code is flagged automatically. The reconciler creates work items for gaps and closes items when requirements are met.</p>
 <h3 id="2-iec-62304-standards-pack">2. IEC 62304 Standards Pack<a class="headerlink" href="#2-iec-62304-standards-pack" title="Permanent link">&para;</a></h3>
@@ -2180,16 +2180,16 @@
 </table>
 <h3 id="3-governance-gates-in-cicd">3. Governance Gates in CI/CD<a class="headerlink" href="#3-governance-gates-in-cicd" title="Permanent link">&para;</a></h3>
 <p>Block non-compliant PRs from merging:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># .github/workflows/sentra-gate.yml</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># .github/workflows/sentrik-gate.yml</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik Gate</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentra gate --git-range &quot;origin/main...HEAD&quot; --decorate-pr --status-check</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik gate --git-range &quot;origin/main...HEAD&quot; --decorate-pr --status-check</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
 </code></pre></div>
 <p>The gate fails with exit code 1 if critical or high findings exist. PR comments show exactly what failed and why.</p>
 <h3 id="4-audit-trail">4. Audit Trail<a class="headerlink" href="#4-audit-trail" title="Permanent link">&para;</a></h3>
 <p>Every scan, gate decision, and remediation is logged:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sentra<span class="w"> </span>scan<span class="w">    </span><span class="c1"># → out/agent_audit.jsonl</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sentrik<span class="w"> </span>scan<span class="w">    </span><span class="c1"># → out/agent_audit.jsonl</span>
 </code></pre></div>
 <p>The audit log captures:
 - Who triggered the scan (human or AI agent)
@@ -2203,7 +2203,7 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>2. Developer (or AI agent) writes src/anonymize.py
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>3. CI runs: sentra gate --decorate-pr --status-check
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>3. CI runs: sentrik gate --decorate-pr --status-check
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>   → FAIL: iec62304-no-hardcoded-secrets (hardcoded key in line 15)
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>   → FAIL: iec62304-input-validation (no input validation on patient_id)
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>   → PASS: iec62304-req-trace (REQ-042 linked via work_items.json)
@@ -2212,7 +2212,7 @@
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>   → PASS: All 14 IEC 62304 rules pass
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>   → PR merges
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>5. Weekly: sentra reconcile
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>5. Weekly: sentrik reconcile
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>   → Updates Azure DevOps work items with coverage status
 <a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>   → Closes REQ-042 as verified
 </code></pre></div>
@@ -2252,18 +2252,18 @@
 </code></pre></div>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Install</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>sentra
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>pip<span class="w"> </span>install<span class="w"> </span>sentrik
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Initialize with medical device preset</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>sentra<span class="w"> </span>init
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>sentrik<span class="w"> </span>init
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Select: Medical device (IEC 62304)</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Select: Strict governance</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Run your first scan</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>sentra<span class="w"> </span>scan
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>sentrik<span class="w"> </span>scan
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
 <a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c1"># View the dashboard</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>sentra<span class="w"> </span>serve
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>sentrik<span class="w"> </span>dashboard
 <a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="c1"># Open http://localhost:8000/dashboard</span>
 </code></pre></div>
 <p>See the <a href="../../tutorials/medical-device-walkthrough/">Medical Device Walkthrough</a> for a complete end-to-end tutorial.</p>
