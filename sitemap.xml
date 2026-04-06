@@ -73,6 +73,10 @@
          <lastmod>2026-04-06</lastmod>
     </url>
     <url>
+         <loc>https://docs.sentrik.dev/standards-packs/cmmc/</loc>
+         <lastmod>2026-04-06</lastmod>
+    </url>
+    <url>
          <loc>https://docs.sentrik.dev/standards-packs/do-178c/</loc>
          <lastmod>2026-04-06</lastmod>
     </url>
@@ -122,6 +126,10 @@
     </url>
     <url>
          <loc>https://docs.sentrik.dev/standards-packs/misra-c/</loc>
+         <lastmod>2026-04-06</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.sentrik.dev/standards-packs/nist-800-53/</loc>
          <lastmod>2026-04-06</lastmod>
     </url>
     <url>

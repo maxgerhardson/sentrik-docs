@@ -803,6 +803,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#attestation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1502,6 +1513,62 @@
     
   
     GDPR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/nist-800-53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NIST 800-53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/cmmc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CMMC 2.0
   
 
     
@@ -2529,6 +2596,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#attestation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2698,6 +2776,8 @@
 <p>Browse LLM-identified design decisions with category badges, risk descriptions, alternatives, and acknowledgement status. Click <strong>Acknowledge</strong> to mark a decision as reviewed with an optional note. A sidebar badge shows the count of pending decisions. Run <code>sentrik review-design --file &lt;path&gt;</code> to generate decisions.</p>
 <h3 id="expertise">Expertise<a class="headerlink" href="#expertise" title="Permanent link">&para;</a></h3>
 <p>Developer expertise profiles built from git history. Shows per-developer language expertise percentages and module activity bar charts. Run <code>sentrik check-expertise --profile</code> to build profiles.</p>
+<h3 id="threat-model">Threat Model<a class="headerlink" href="#threat-model" title="Permanent link">&para;</a></h3>
+<p>STRIDE-based threat model with filtering and AI chat. Shows threats identified by <code>sentrik threat-model</code> with severity pills (critical/high/medium/low), STRIDE category dropdown, status filter (mitigated/unmitigated), and search. Each unmitigated threat has a "Fix with AI" button that opens the AI chat panel with the full threat context (description, attack vector, impact, suggested mitigation) and a "Mark Mitigated" button. Run <code>sentrik threat-model --file &lt;path&gt;</code> to generate a threat model.</p>
 <h3 id="attestation">Attestation<a class="headerlink" href="#attestation" title="Permanent link">&para;</a></h3>
 <p>View the latest compliance attestation including gate pass/fail status, findings count, files scanned, rules evaluated, scan duration, design review status, and the cryptographic signature. Run <code>sentrik attest</code> to generate an attestation.</p>
 <h3 id="settings-shortcut-0">Settings (Shortcut: <code>0</code>)<a class="headerlink" href="#settings-shortcut-0" title="Permanent link">&para;</a></h3>

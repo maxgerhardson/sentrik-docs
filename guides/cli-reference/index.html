@@ -1123,6 +1123,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sentrik-threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik threat-model
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1796,6 +1807,62 @@
     
   
     GDPR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/nist-800-53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NIST 800-53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../standards-packs/cmmc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CMMC 2.0
   
 
     
@@ -3171,6 +3238,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sentrik-threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik threat-model
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3318,6 +3396,10 @@
 <tr>
 <td><code>sentrik compare</code></td>
 <td>Delta analysis — new/resolved findings vs previous run</td>
+</tr>
+<tr>
+<td><code>sentrik threat-model</code></td>
+<td>STRIDE-based threat modeling with LLM analysis</td>
 </tr>
 </tbody>
 </table>
@@ -5075,6 +5157,80 @@
 </tbody>
 </table>
 <p>Shows three categories: <strong>new</strong> findings (introduced since last run), <strong>resolved</strong> findings (fixed), and <strong>unchanged</strong> findings. Useful for PR reviews to see exactly what changed.</p>
+<h3 id="sentrik-threat-model"><code>sentrik threat-model</code><a class="headerlink" href="#sentrik-threat-model" title="Permanent link">&para;</a></h3>
+<p>STRIDE-based threat modeling using LLM analysis. Identifies spoofing, tampering, repudiation, information disclosure, denial of service, and elevation of privilege threats in your code.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--file<span class="w"> </span>src/api/routes/patients.py<span class="w">   </span><span class="c1"># Analyze a specific file</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--git-range<span class="w"> </span>HEAD~3..HEAD<span class="w">            </span><span class="c1"># Analyze recent changes</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--stride<span class="w"> </span>tampering<span class="w">                  </span><span class="c1"># Filter by STRIDE category</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--pending<span class="w">                           </span><span class="c1"># Show unmitigated threats</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--mitigate<span class="w"> </span>TM-ABC123<span class="w"> </span>--note<span class="w"> </span><span class="s2">&quot;Fixed&quot;</span><span class="w"> </span><span class="c1"># Mark threat as mitigated</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--json<span class="w">                              </span><span class="c1"># JSON output</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--file, -f</code></td>
+<td>—</td>
+<td>Specific file to analyze</td>
+</tr>
+<tr>
+<td><code>--git-range</code></td>
+<td>—</td>
+<td>Git range for scoping (e.g. <code>HEAD~3..HEAD</code>)</td>
+</tr>
+<tr>
+<td><code>--stride</code></td>
+<td>—</td>
+<td>Filter by STRIDE category (e.g. <code>spoofing</code>, <code>tampering</code>)</td>
+</tr>
+<tr>
+<td><code>--pending</code></td>
+<td>false</td>
+<td>Show only unmitigated threats</td>
+</tr>
+<tr>
+<td><code>--mitigate</code></td>
+<td>—</td>
+<td>Mark a threat as mitigated by ID (e.g. <code>TM-ABC123</code>)</td>
+</tr>
+<tr>
+<td><code>--note</code></td>
+<td>—</td>
+<td>Note for mitigation</td>
+</tr>
+<tr>
+<td><code>--json, -j</code></td>
+<td>false</td>
+<td>Output JSON</td>
+</tr>
+<tr>
+<td><code>--config, -c</code></td>
+<td>auto</td>
+<td>Config file path</td>
+</tr>
+</tbody>
+</table>
+<p>Requires an LLM provider (<code>ANTHROPIC_API_KEY</code> or <code>OPENAI_API_KEY</code>). Each threat includes:</p>
+<ul>
+<li><strong>Threat ID</strong> — unique identifier (e.g. <code>TM-14580B</code>)</li>
+<li><strong>STRIDE category</strong> — spoofing, tampering, repudiation, information_disclosure, denial_of_service, elevation_of_privilege</li>
+<li><strong>Component</strong> — affected file or module</li>
+<li><strong>Description</strong> — what the threat is</li>
+<li><strong>Attack vector</strong> — how an attacker would exploit it</li>
+<li><strong>Impact</strong> — what happens if exploited</li>
+<li><strong>Likelihood</strong> — high, medium, or low</li>
+<li><strong>Severity</strong> — critical, high, medium, or low</li>
+<li><strong>Mitigation</strong> — recommended fix</li>
+</ul>
+<p>Threats are stored in <code>out/threat_model.json</code>. The dashboard Threat Model tab shows threats with filters by severity, STRIDE category, and status. Each threat has a "Fix with AI" button that opens the AI chat panel with full threat context.</p>
+<p>Also available via REST API: <code>GET /api/threat-model</code></p>
 
 
 
