@@ -839,10 +839,87 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sentrik-open-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Open Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-quality-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Quality Score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-configure-ai-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Configure AI Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-copilot-ai-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Copilot AI Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sentrik-clear-diagnostics" class="md-nav__link">
     <span class="md-ellipsis">
       
         SENTRIK: Clear Diagnostics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-enable-pack-disable-pack-manage-packs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Enable Pack / Disable Pack / Manage Packs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-create-custom-pack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Create Custom Pack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-scan-this-file-scan-this-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Scan This File / Scan This Folder
       
     </span>
   </a>
@@ -2748,10 +2825,87 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sentrik-open-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Open Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-quality-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Quality Score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-configure-ai-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Configure AI Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-copilot-ai-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Copilot AI Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sentrik-clear-diagnostics" class="md-nav__link">
     <span class="md-ellipsis">
       
         SENTRIK: Clear Diagnostics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-enable-pack-disable-pack-manage-packs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Enable Pack / Disable Pack / Manage Packs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-create-custom-pack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Create Custom Pack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-scan-this-file-scan-this-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Scan This File / Scan This Folder
       
     </span>
   </a>
@@ -3156,7 +3310,7 @@
 <li>Config initialization output</li>
 </ul>
 <h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<p>Open the Command Palette (<code>Ctrl+Shift+P</code> / <code>Cmd+Shift+P</code>) and type "Sentrik" to see all available commands:</p>
+<p>Open the Command Palette (<code>Ctrl+Shift+P</code> / <code>Cmd+Shift+P</code>) and type "SENTRIK" to see all available commands:</p>
 <h3 id="sentrik-run-scan">SENTRIK: Run Scan<a class="headerlink" href="#sentrik-run-scan" title="Permanent link">&para;</a></h3>
 <p>Runs a full <code>sentrik scan</code> on your workspace and displays findings as inline diagnostics.</p>
 <ul>
@@ -3170,8 +3324,53 @@
 <li>If the gate <strong>fails</strong>, you'll see a failure notification with the counts of findings by severity</li>
 </ul>
 <p>Use this to check whether your code would pass the CI gate before pushing.</p>
+<h3 id="sentrik-open-dashboard">SENTRIK: Open Dashboard<a class="headerlink" href="#sentrik-open-dashboard" title="Permanent link">&para;</a></h3>
+<p>Starts the Sentrik dashboard server and opens it in your browser at <code>http://localhost:8000/dashboard</code>. Gives you access to all 21 tabs — compliance reports, evidence maps, threat models, audit logs, governance controls, and AI-powered fix suggestions.</p>
+<h3 id="sentrik-quality-score">SENTRIK: Quality Score<a class="headerlink" href="#sentrik-quality-score" title="Permanent link">&para;</a></h3>
+<p>Runs <code>sentrik quality-score</code> and displays your project's 0–100 quality score across six dimensions (security, compliance, maintainability, documentation, test coverage, and architecture) in the status bar and output panel.</p>
+<h3 id="sentrik-configure-ai-provider">SENTRIK: Configure AI Provider<a class="headerlink" href="#sentrik-configure-ai-provider" title="Permanent link">&para;</a></h3>
+<p>Opens a step-by-step wizard to set your AI provider for fix suggestions and analysis. Options:</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub Copilot</strong></td>
+<td>Recommended — uses your existing Copilot subscription, no API key needed</td>
+</tr>
+<tr>
+<td><strong>Anthropic (Claude)</strong></td>
+<td>Requires an Anthropic API key. Default model: <code>claude-sonnet-4-6</code></td>
+</tr>
+<tr>
+<td><strong>OpenAI</strong></td>
+<td>Requires an OpenAI API key. Default model: <code>gpt-4o</code></td>
+</tr>
+<tr>
+<td><strong>OpenAI-compatible</strong></td>
+<td>Any custom endpoint (e.g., Azure OpenAI). Prompts for base URL and API key</td>
+</tr>
+<tr>
+<td><strong>Ollama</strong></td>
+<td>Local models. Prompts for endpoint (default: <code>http://localhost:11434</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>API keys are stored securely in VS Code's secret storage — never written to disk or config files.</p>
+<h3 id="sentrik-copilot-ai-status">SENTRIK: Copilot AI Status<a class="headerlink" href="#sentrik-copilot-ai-status" title="Permanent link">&para;</a></h3>
+<p>Shows whether the Copilot LM proxy is active and which model is being used. Useful for confirming Copilot integration is working.</p>
 <h3 id="sentrik-clear-diagnostics">SENTRIK: Clear Diagnostics<a class="headerlink" href="#sentrik-clear-diagnostics" title="Permanent link">&para;</a></h3>
 <p>Removes all Sentrik diagnostics from the editor. Useful if you want a clean slate before running a fresh scan, or if you're temporarily working on something where the findings are distracting.</p>
+<h3 id="sentrik-enable-pack-disable-pack-manage-packs">SENTRIK: Enable Pack / Disable Pack / Manage Packs<a class="headerlink" href="#sentrik-enable-pack-disable-pack-manage-packs" title="Permanent link">&para;</a></h3>
+<p>Browse, enable, and disable standards packs directly from the Command Palette without editing config files.</p>
+<h3 id="sentrik-create-custom-pack">SENTRIK: Create Custom Pack<a class="headerlink" href="#sentrik-create-custom-pack" title="Permanent link">&para;</a></h3>
+<p>Launches a wizard to scaffold a new custom rules pack in your <code>.sentrik/rules/</code> directory.</p>
+<h3 id="sentrik-scan-this-file-scan-this-folder">SENTRIK: Scan This File / Scan This Folder<a class="headerlink" href="#sentrik-scan-this-file-scan-this-folder" title="Permanent link">&para;</a></h3>
+<p>Right-click any file or folder in the Explorer and select these commands to scope a scan to just that file or directory — useful for focused reviews without rescanning the entire project.</p>
 <h2 id="github-copilot-integration">GitHub Copilot Integration<a class="headerlink" href="#github-copilot-integration" title="Permanent link">&para;</a></h2>
 <p>The Sentrik extension automatically connects to <strong>GitHub Copilot</strong> with zero configuration. When Copilot is installed and active, Sentrik routes all AI features — fix suggestions, threat model analysis, design review — through Copilot's language model via VS Code's built-in <code>vscode.lm</code> API.</p>
 <p>This means:</p>
