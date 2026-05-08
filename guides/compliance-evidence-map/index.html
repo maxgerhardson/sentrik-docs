@@ -12,13 +12,13 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/api/authentication/">
+        <link rel="canonical" href="https://docs.sentrik.dev/guides/compliance-evidence-map/">
       
       
-        <link rel="prev" href="../reference/">
+        <link rel="prev" href="../dashboard/">
       
       
-        <link rel="next" href="../rbac/">
+        <link rel="next" href="../auto-patching/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Authentication - sentrik documentation</title>
+        <title>Compliance Evidence Map - sentrik documentation</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication" class="md-skip">
+        <a href="#compliance-evidence-map" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication
+              Compliance Evidence Map
             
           </span>
         </div>
@@ -409,8 +409,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -421,13 +423,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -448,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -494,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/cli-reference/" class="md-nav__link">
+      <a href="../cli-reference/" class="md-nav__link">
         
   
   
@@ -522,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/dashboard/" class="md-nav__link">
+      <a href="../dashboard/" class="md-nav__link">
         
   
   
@@ -547,10 +547,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../guides/compliance-evidence-map/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compliance Evidence Map
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -566,6 +593,242 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-evidence-is-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Evidence Is Collected
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Evidence Is Collected">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-pattern-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Pattern Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regex-rules-violation-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regex Rules (Violation Rules)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-obligations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Obligations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-policy-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Policy Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ast-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AST Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-evidence-maps-for-audits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Evidence Maps for Audits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Evidence Maps for Audits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-for-auditors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export for Auditors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auditor-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditor Portal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coverage-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage Calculation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -578,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/auto-patching/" class="md-nav__link">
+      <a href="../auto-patching/" class="md-nav__link">
         
   
   
@@ -606,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/ci-cd-integration/" class="md-nav__link">
+      <a href="../ci-cd-integration/" class="md-nav__link">
         
   
   
@@ -634,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/mcp-integration/" class="md-nav__link">
+      <a href="../mcp-integration/" class="md-nav__link">
         
   
   
@@ -662,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/securing-ai-generated-code/" class="md-nav__link">
+      <a href="../securing-ai-generated-code/" class="md-nav__link">
         
   
   
@@ -1604,8 +1867,6 @@
       
   
   
-    
-  
   
   
     
@@ -1618,11 +1879,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -1643,7 +1906,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1661,7 +1924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/" class="md-nav__link">
+      <a href="../../api/reference/" class="md-nav__link">
         
   
   
@@ -1686,37 +1949,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../api/authentication/" class="md-nav__link">
         
   
   
@@ -1732,126 +1968,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#api-key-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API key authentication
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="API key authentication">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#error-response-401" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Error response (401)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jwt-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JWT authentication
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="JWT authentication">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#token-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token format
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#token-claims" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token claims
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oidc-integration-enterprise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC integration (Enterprise)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication-priority" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authentication priority
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1864,7 +1980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rbac/" class="md-nav__link">
+      <a href="../../api/rbac/" class="md-nav__link">
         
   
   
@@ -2270,22 +2386,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api-key-authentication" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        API key authentication
+        Overview
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="API key authentication">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#error-response-401" class="md-nav__link">
+  <a href="#cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error response (401)
+        CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API
       
     </span>
   </a>
@@ -2298,71 +2447,154 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jwt-authentication" class="md-nav__link">
+  <a href="#how-evidence-is-collected" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JWT authentication
+        How Evidence Is Collected
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="JWT authentication">
+    <nav class="md-nav" aria-label="How Evidence Is Collected">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#required-pattern-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Pattern Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regex-rules-violation-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regex Rules (Violation Rules)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-obligations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Obligations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-policy-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Policy Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ast-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AST Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-evidence-maps-for-audits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Evidence Maps for Audits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Evidence Maps for Audits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-for-auditors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export for Auditors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auditor-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditor Portal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coverage-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage Calculation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
         Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#token-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token format
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#token-claims" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Token claims
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oidc-integration-enterprise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OIDC integration (Enterprise)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication-priority" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authentication priority
       
     </span>
   </a>
@@ -2386,76 +2618,134 @@
 
 
 
-<h1 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h1>
-<p>sentrik supports API key authentication and JWT token authentication.</p>
-<h2 id="api-key-authentication">API key authentication<a class="headerlink" href="#api-key-authentication" title="Permanent link">&para;</a></h2>
-<p>Set the <code>GUARD_API_KEY</code> environment variable to enable API key auth:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GUARD_API_KEY</span><span class="o">=</span><span class="s2">&quot;your-secret-key&quot;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>dashboard
+<h1 id="compliance-evidence-map">Compliance Evidence Map<a class="headerlink" href="#compliance-evidence-map" title="Permanent link">&para;</a></h1>
+<p>The Compliance Evidence Map shows where your code <strong>satisfies</strong> compliance requirements — not just violations, but proof of compliance. This is essential for audits, regulatory submissions, and continuous compliance monitoring.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Traditional scanners only tell you what's wrong. Sentrik's Evidence Map also shows what's right:</p>
+<ul>
+<li><strong>Met</strong> — code evidence found that satisfies the requirement</li>
+<li><strong>Violated</strong> — violations found by the scanner</li>
+<li><strong>Manual Review</strong> — documentation obligation with no matching docs found</li>
+<li><strong>Not Applicable</strong> — no files match the rule's scope</li>
+</ul>
+<p>The coverage percentage tells you how many applicable requirements have verified implementations.</p>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<h3 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Generate evidence map (HTML report)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sentrik<span class="w"> </span>compliance-map
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Filter by framework</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sentrik<span class="w"> </span>compliance-map<span class="w"> </span>--framework<span class="w"> </span><span class="s2">&quot;HIPAA&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># JSON output for automation</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sentrik<span class="w"> </span>compliance-map<span class="w"> </span>--json
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Custom output path</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>sentrik<span class="w"> </span>compliance-map<span class="w"> </span>-o<span class="w"> </span>audit-evidence.html
 </code></pre></div>
-<p>All endpoints (except <code>/health</code>) require the <code>X-API-Key</code> header:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-API-Key: your-secret-key&quot;</span><span class="w"> </span>http://localhost:8000/api/metrics
+<h3 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h3>
+<p>Click the <strong>Evidence Map</strong> tab in the sidebar (under Compliance). The dashboard shows:</p>
+<ul>
+<li>Coverage percentage and summary cards</li>
+<li>Framework filter dropdown</li>
+<li>Table grouped by standard showing each rule's status and evidence locations</li>
+</ul>
+<h3 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Get compliance map</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>GET<span class="w"> </span>/api/compliance-map
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Filter by framework</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>GET<span class="w"> </span>/api/compliance-map?framework<span class="o">=</span>HIPAA
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Force rebuild (bypasses cache)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>GET<span class="w"> </span>/api/compliance-map?refresh<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
-<p>If <code>GUARD_API_KEY</code> is not set, all endpoints are open (no auth required).</p>
-<p>API key validation uses constant-time comparison (<code>hmac.compare_digest</code>) to prevent timing side-channel attacks.</p>
-<h3 id="error-response-401">Error response (401)<a class="headerlink" href="#error-response-401" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid or missing API key&quot;</span><span class="p">}</span>
+<h2 id="how-evidence-is-collected">How Evidence Is Collected<a class="headerlink" href="#how-evidence-is-collected" title="Permanent link">&para;</a></h2>
+<p>Sentrik collects evidence differently depending on the rule type:</p>
+<h3 id="required-pattern-rules">Required Pattern Rules<a class="headerlink" href="#required-pattern-rules" title="Permanent link">&para;</a></h3>
+<p>These rules define patterns that <strong>should</strong> exist in your code. When found, Sentrik reports the exact file and line as evidence.</p>
+<p><strong>Example:</strong> HIPAA requires audit logging. The <code>required_pattern</code> rule looks for <code>import logging</code> or similar patterns. When found:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HIPAA-164.312-b (required_pattern): MET
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  → auth/session.py:14 — Implements audit-logging-required: import logging
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  → api/patients.py:3 — Implements audit-logging-required: import logging
 </code></pre></div>
-<h2 id="jwt-authentication">JWT authentication<a class="headerlink" href="#jwt-authentication" title="Permanent link">&para;</a></h2>
-<p>For production deployments, sentrik supports JWT-based authentication with role-based access control.</p>
-<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># .guard.yaml</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">auth</span><span class="p">:</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">jwt_secret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your-jwt-secret&quot;</span><span class="w">     </span><span class="c1"># Or set GUARD_JWT_SECRET env var</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;HS256&quot;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">token_expiry_hours</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24</span>
+<h3 id="regex-rules-violation-rules">Regex Rules (Violation Rules)<a class="headerlink" href="#regex-rules-violation-rules" title="Permanent link">&para;</a></h3>
+<p>These rules flag violations. Evidence = no violations found across all scanned files.</p>
+<p><strong>Example:</strong> OWASP A01 forbids wildcard CORS. When no violations exist:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>OWASP-A01-001 (regex): MET
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  → (project-wide) — No violations of no-permissive-cors across 43 file(s)
 </code></pre></div>
-<h3 id="token-format">Token format<a class="headerlink" href="#token-format" title="Permanent link">&para;</a></h3>
-<p>Include the JWT in the <code>Authorization</code> header:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;token&gt;&quot;</span><span class="w"> </span>http://localhost:8000/api/metrics
+<h3 id="documentation-obligations">Documentation Obligations<a class="headerlink" href="#documentation-obligations" title="Permanent link">&para;</a></h3>
+<p>These rules require documentation (e.g., risk management plans, security policies). Sentrik searches <code>.md</code>, <code>.adoc</code>, <code>.rst</code>, and <code>.txt</code> files for relevant keywords.</p>
+<p><strong>Example:</strong> HIPAA requires a risk analysis document. Sentrik finds it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>HIPAA-164.308-a1 (documentation_obligation): MET
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  → docs/risk-analysis.adoc:14 — Documentation found matching: risk, analysis, vulnerabilities
 </code></pre></div>
-<h3 id="token-claims">Token claims<a class="headerlink" href="#token-claims" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Claim</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>sub</code></td>
-<td>string</td>
-<td>User ID</td>
-</tr>
-<tr>
-<td><code>role</code></td>
-<td>string</td>
-<td>User role (<code>admin</code>, <code>security-lead</code>, <code>developer</code>, <code>viewer</code>, <code>agent</code>)</td>
-</tr>
-<tr>
-<td><code>repo_access</code></td>
-<td>string[]</td>
-<td>Repository access list (for <code>agent</code> role)</td>
-</tr>
-<tr>
-<td><code>exp</code></td>
-<td>int</td>
-<td>Token expiration timestamp</td>
-</tr>
-</tbody>
-</table>
-<h2 id="oidc-integration-enterprise">OIDC integration (Enterprise)<a class="headerlink" href="#oidc-integration-enterprise" title="Permanent link">&para;</a></h2>
-<p>Enterprise tier supports OIDC/SSO integration with identity providers like Auth0, Okta, and Azure AD.</p>
-<h2 id="authentication-priority">Authentication priority<a class="headerlink" href="#authentication-priority" title="Permanent link">&para;</a></h2>
-<p>When multiple auth methods are configured:</p>
-<ol>
-<li>JWT token (if present in <code>Authorization</code> header)</li>
-<li>API key (if present in <code>X-API-Key</code> header)</li>
-<li>No auth (if neither header is present and auth is disabled)</li>
-</ol>
+<p>Supported documentation formats:</p>
+<ul>
+<li>Markdown (<code>.md</code>)</li>
+<li>AsciiDoc (<code>.adoc</code>)</li>
+<li>reStructuredText (<code>.rst</code>)</li>
+<li>Plain text (<code>.txt</code>)</li>
+</ul>
+<h3 id="file-policy-rules">File Policy Rules<a class="headerlink" href="#file-policy-rules" title="Permanent link">&para;</a></h3>
+<p>Evidence = files that pass the policy check (e.g., docstrings present, line limits respected).</p>
+<h3 id="ast-rules">AST Rules<a class="headerlink" href="#ast-rules" title="Permanent link">&para;</a></h3>
+<p>Evidence = Python files that pass structural checks (e.g., no mutable defaults, acceptable complexity).</p>
+<h2 id="using-evidence-maps-for-audits">Using Evidence Maps for Audits<a class="headerlink" href="#using-evidence-maps-for-audits" title="Permanent link">&para;</a></h2>
+<h3 id="export-for-auditors">Export for Auditors<a class="headerlink" href="#export-for-auditors" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Generate HTML report for auditors</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sentrik<span class="w"> </span>compliance-map<span class="w"> </span>-o<span class="w"> </span>compliance-evidence.html
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Generate JSON for GRC platforms</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sentrik<span class="w"> </span>compliance-map<span class="w"> </span>--json<span class="w"> </span>-o<span class="w"> </span>compliance-evidence.json
+</code></pre></div>
+<h3 id="auditor-portal">Auditor Portal<a class="headerlink" href="#auditor-portal" title="Permanent link">&para;</a></h3>
+<p>Share the evidence map through the Auditor Portal:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Create auditor access token</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sentrik<span class="w"> </span>auditor<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;Jane Smith&quot;</span><span class="w"> </span>--email<span class="w"> </span><span class="s2">&quot;jane@auditor.com&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Start dashboard (auditor accesses via token URL)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>sentrik<span class="w"> </span>dashboard
+</code></pre></div>
+<h3 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h3>
+<p>Add evidence map generation to your pipeline:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># GitHub Actions</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate compliance evidence</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik compliance-map --json -o compliance-evidence.json</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload evidence</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compliance-evidence</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compliance-evidence.json</span>
+</code></pre></div>
+<h2 id="coverage-calculation">Coverage Calculation<a class="headerlink" href="#coverage-calculation" title="Permanent link">&para;</a></h2>
+<p>Coverage is calculated as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>coverage = met / (met + violated) * 100
+</code></pre></div>
+<p>Rules marked as "not applicable" or "manual review" are excluded from the calculation.</p>
+<h2 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h2>
+<p>The evidence map is cached at <code>out/compliance-map.json</code> after the first build. The dashboard serves from cache for fast loading. Use <code>?refresh=true</code> on the API or re-run <code>sentrik compliance-map</code> to rebuild.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>The evidence map uses the same scan configuration as <code>sentrik scan</code>:</p>
+<ul>
+<li><strong>Standards packs</strong> determine which rules are evaluated</li>
+<li><strong>scan_exclude</strong> patterns are respected</li>
+<li><strong>Suppressions</strong> are not applied (evidence map shows raw state)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># .sentrik/config.yaml</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">standards_packs</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">owasp-top-10</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hipaa</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">soc2</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fda-iec-62304</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nt">scan_exclude</span><span class="p">:</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tests/</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node_modules/</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/</span>
+</code></pre></div>
 
 
 
