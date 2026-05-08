@@ -12,13 +12,13 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/guides/ci-cd-integration/">
+        <link rel="canonical" href="https://docs.sentrik.dev/guides/vscode-extension-tutorial/">
       
       
-        <link rel="prev" href="../auto-patching/">
+        <link rel="prev" href="../ci-cd-integration/">
       
       
-        <link rel="next" href="../vscode-extension-tutorial/">
+        <link rel="next" href="../mcp-integration/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>CI/CD Integration - sentrik documentation</title>
+        <title>VS Code Extension - sentrik documentation</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cicd-integration" class="md-skip">
+        <a href="#sentrik-vs-code-extension-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CI/CD Integration
+              VS Code Extension
             
           </span>
         </div>
@@ -603,6 +603,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../ci-cd-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -622,7 +650,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD Integration
+    VS Code Extension
   
 
     
@@ -640,7 +668,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD Integration
+    VS Code Extension
   
 
     
@@ -666,22 +694,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#github-actions" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GitHub Actions
+        Prerequisites
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GitHub Actions">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-gate" class="md-nav__link">
+  <a href="#from-the-vs-code-marketplace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic gate
+        From the VS Code Marketplace
       
     </span>
   </a>
@@ -689,21 +728,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-pr-decoration-and-status-checks" class="md-nav__link">
+  <a href="#from-a-vsix-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With PR decoration and status checks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-sarif-upload-github-code-scanning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        With SARIF upload (GitHub Code Scanning)
+        From a .vsix File
       
     </span>
   </a>
@@ -716,22 +744,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#azure-pipelines" class="md-nav__link">
+  <a href="#first-launch-zero-config-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Azure Pipelines
+        First Launch — Zero-Config Setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Azure Pipelines">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Interface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding the Interface">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-gate_1" class="md-nav__link">
+  <a href="#inline-diagnostics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic gate
+        Inline Diagnostics
       
     </span>
   </a>
@@ -739,10 +778,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-pr-decoration" class="md-nav__link">
+  <a href="#status-bar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With PR decoration
+        Status Bar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output Channel
       
     </span>
   </a>
@@ -755,22 +805,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gitlab-cicd" class="md-nav__link">
+  <a href="#commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GitLab CI/CD
+        Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GitLab CI/CD">
+    <nav class="md-nav" aria-label="Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-gate_2" class="md-nav__link">
+  <a href="#sentrik-run-scan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic gate
+        SENTRIK: Run Scan
       
     </span>
   </a>
@@ -778,10 +828,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-sarif-for-gitlab-sast" class="md-nav__link">
+  <a href="#sentrik-run-gate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With SARIF for GitLab SAST
+        SENTRIK: Run Gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-clear-diagnostics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Clear Diagnostics
       
     </span>
   </a>
@@ -794,10 +855,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-commit-hook" class="md-nav__link">
+  <a href="#github-copilot-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pre-commit hook
+        GitHub Copilot Integration
       
     </span>
   </a>
@@ -805,10 +866,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#devops-project-mismatch-warning" class="md-nav__link">
+  <a href="#dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DevOps project mismatch warning
+        Dashboard
       
     </span>
   </a>
@@ -816,10 +877,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-variables-for-ci" class="md-nav__link">
+  <a href="#automatic-scan-on-save" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment variables for CI
+        Automatic Scan on Save
       
     </span>
   </a>
@@ -827,10 +888,210 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exit-codes" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exit codes
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extension-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extension Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#severity-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Severity Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-binary-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Binary Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typical-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Typical Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-1-catch-issues-while-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 1: Catch Issues While Coding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-2-pre-push-gate-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 2: Pre-Push Gate Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-3-focused-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 3: Focused Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-4-compliance-audit-prep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 4: Compliance Audit Prep
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-error-in-status-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Sentrik: error" in status bar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-diagnostics-appearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No diagnostics appearing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnostics-on-wrong-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostics on wrong lines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-not-activating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension not activating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legacy Settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
       
     </span>
   </a>
@@ -841,34 +1102,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../vscode-extension-tutorial/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    VS Code Extension
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2370,22 +2603,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#github-actions" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GitHub Actions
+        Prerequisites
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GitHub Actions">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-gate" class="md-nav__link">
+  <a href="#from-the-vs-code-marketplace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic gate
+        From the VS Code Marketplace
       
     </span>
   </a>
@@ -2393,21 +2637,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-pr-decoration-and-status-checks" class="md-nav__link">
+  <a href="#from-a-vsix-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With PR decoration and status checks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-sarif-upload-github-code-scanning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        With SARIF upload (GitHub Code Scanning)
+        From a .vsix File
       
     </span>
   </a>
@@ -2420,22 +2653,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#azure-pipelines" class="md-nav__link">
+  <a href="#first-launch-zero-config-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Azure Pipelines
+        First Launch — Zero-Config Setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Azure Pipelines">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Interface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding the Interface">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-gate_1" class="md-nav__link">
+  <a href="#inline-diagnostics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic gate
+        Inline Diagnostics
       
     </span>
   </a>
@@ -2443,10 +2687,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-pr-decoration" class="md-nav__link">
+  <a href="#status-bar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With PR decoration
+        Status Bar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output Channel
       
     </span>
   </a>
@@ -2459,22 +2714,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gitlab-cicd" class="md-nav__link">
+  <a href="#commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GitLab CI/CD
+        Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GitLab CI/CD">
+    <nav class="md-nav" aria-label="Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-gate_2" class="md-nav__link">
+  <a href="#sentrik-run-scan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic gate
+        SENTRIK: Run Scan
       
     </span>
   </a>
@@ -2482,10 +2737,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-sarif-for-gitlab-sast" class="md-nav__link">
+  <a href="#sentrik-run-gate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With SARIF for GitLab SAST
+        SENTRIK: Run Gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-clear-diagnostics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRIK: Clear Diagnostics
       
     </span>
   </a>
@@ -2498,10 +2764,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-commit-hook" class="md-nav__link">
+  <a href="#github-copilot-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pre-commit hook
+        GitHub Copilot Integration
       
     </span>
   </a>
@@ -2509,10 +2775,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#devops-project-mismatch-warning" class="md-nav__link">
+  <a href="#dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DevOps project mismatch warning
+        Dashboard
       
     </span>
   </a>
@@ -2520,10 +2786,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-variables-for-ci" class="md-nav__link">
+  <a href="#automatic-scan-on-save" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment variables for CI
+        Automatic Scan on Save
       
     </span>
   </a>
@@ -2531,10 +2797,210 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exit-codes" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exit codes
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extension-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extension Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#severity-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Severity Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-binary-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Binary Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typical-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Typical Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-1-catch-issues-while-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 1: Catch Issues While Coding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-2-pre-push-gate-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 2: Pre-Push Gate Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-3-focused-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 3: Focused Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-4-compliance-audit-prep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 4: Compliance Audit Prep
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentrik-error-in-status-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Sentrik: error" in status bar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-diagnostics-appearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No diagnostics appearing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnostics-on-wrong-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostics on wrong lines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-not-activating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension not activating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legacy Settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
       
     </span>
   </a>
@@ -2558,194 +3024,357 @@
 
 
 
-<h1 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h1>
-<p>sentrik integrates with GitHub Actions, Azure Pipelines, and GitLab CI/CD to enforce quality gates on every pull request.</p>
-<h2 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h2>
-<h3 id="basic-gate">Basic gate<a class="headerlink" href="#basic-gate" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik Gate</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">gate</span><span class="p">:</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install sentrik</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik gate --git-range &quot;origin/main...HEAD&quot;</span>
+<h1 id="sentrik-vs-code-extension-tutorial">Sentrik VS Code Extension Tutorial<a class="headerlink" href="#sentrik-vs-code-extension-tutorial" title="Permanent link">&para;</a></h1>
+<p>This tutorial walks you through installing, configuring, and using the Sentrik VS Code extension to get real-time governance feedback directly in your editor.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>VS Code</strong> v1.85.0 or later</li>
+<li><strong>Sentrik CLI</strong> installed via:</li>
+<li><code>pip install sentrik</code> (Python 3.11+)</li>
+</ul>
+<p>Verify the CLI is available:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sentrik<span class="w"> </span>--version
 </code></pre></div>
-<h3 id="with-pr-decoration-and-status-checks">With PR decoration and status checks<a class="headerlink" href="#with-pr-decoration-and-status-checks" title="Permanent link">&para;</a></h3>
-<p>Posts a compliance summary comment on the PR showing per-framework findings breakdown, blocking count, and top findings.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik gate --git-range &quot;origin/main...HEAD&quot; --decorate-pr --status-check</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">          </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">          </span><span class="nt">GUARD_GITHUB_OWNER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.repository_owner }}</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">          </span><span class="nt">GUARD_GITHUB_REPO</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.event.repository.name }}</span>
-</code></pre></div>
-<h3 id="with-sarif-upload-github-code-scanning">With SARIF upload (GitHub Code Scanning)<a class="headerlink" href="#with-sarif-upload-github-code-scanning" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik scan --git-range &quot;origin/main...HEAD&quot;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github/codeql-action/upload-sarif@v3</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always()</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">          </span><span class="nt">sarif_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">out/report.sarif.json</span>
-</code></pre></div>
-<h2 id="azure-pipelines">Azure Pipelines<a class="headerlink" href="#azure-pipelines" title="Permanent link">&para;</a></h2>
-<h3 id="basic-gate_1">Basic gate<a class="headerlink" href="#basic-gate_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">trigger</span><span class="p">:</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nt">pool</span><span class="p">:</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install sentrik</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik gate --git-range &quot;origin/main...HEAD&quot;</span>
-</code></pre></div>
-<h3 id="with-pr-decoration">With PR decoration<a class="headerlink" href="#with-pr-decoration" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">      </span><span class="no">sentrik gate --git-range &quot;origin/main...HEAD&quot; --decorate-pr --status-check</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">AZURE_DEVOPS_PAT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(AZURE_DEVOPS_PAT)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">GUARD_AZURE_DEVOPS_ORG</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(System.TeamFoundationCollectionUri)</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">GUARD_AZURE_DEVOPS_PROJECT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(System.TeamProject)</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">GUARD_AZURE_DEVOPS_REPO</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(Build.Repository.Name)</span>
-</code></pre></div>
-<h2 id="gitlab-cicd">GitLab CI/CD<a class="headerlink" href="#gitlab-cicd" title="Permanent link">&para;</a></h2>
-<h3 id="basic-gate_2">Basic gate<a class="headerlink" href="#basic-gate_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">sentrik-gate</span><span class="p">:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compliance</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.12-slim</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">before_script</span><span class="p">:</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install sentrik</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">script</span><span class="p">:</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="no">if [ &quot;$CI_PIPELINE_SOURCE&quot; = &quot;merge_request_event&quot; ]; then</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="no">sentrik gate --git-range &quot;origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME...HEAD&quot;</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="no">else</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="no">sentrik gate</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="no">fi</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">out/</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="nt">reports</span><span class="p">:</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">      </span><span class="nt">junit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">out/findings.junit.xml</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_PIPELINE_SOURCE == &quot;merge_request_event&quot;</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH</span>
-</code></pre></div>
-<h3 id="with-sarif-for-gitlab-sast">With SARIF for GitLab SAST<a class="headerlink" href="#with-sarif-for-gitlab-sast" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">sentrik-sast</span><span class="p">:</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compliance</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.12-slim</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">before_script</span><span class="p">:</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install sentrik</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">script</span><span class="p">:</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik scan</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="nt">reports</span><span class="p">:</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="nt">sast</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">out/findings.sarif</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="nt">allow_failure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<p>A complete template is available in the repository at <code>templates/gitlab-ci-sentrik.yml</code>.</p>
-<h2 id="pre-commit-hook">Pre-commit hook<a class="headerlink" href="#pre-commit-hook" title="Permanent link">&para;</a></h2>
-<p>sentrik can scan staged files before every commit:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># .pre-commit-config.yaml</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">repos</span><span class="p">:</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik-scan</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik scan</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentrik pre-commit-scan</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="nt">pass_filenames</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pre-commit</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-<p>Install the hook:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pre-commit<span class="w"> </span>install
-</code></pre></div>
-<p>If the pre-commit scan finds fixable issues:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sentrik<span class="w"> </span>fix-hook<span class="w">    </span><span class="c1"># Auto-fix and re-stage</span>
-</code></pre></div>
-<h2 id="devops-project-mismatch-warning">DevOps project mismatch warning<a class="headerlink" href="#devops-project-mismatch-warning" title="Permanent link">&para;</a></h2>
-<p>When a DevOps provider is configured (Azure DevOps, GitHub, or Jira), sentrik checks whether the configured project name matches the local git repository name. If they differ, a warning is shown during <code>Test Connection</code> and <code>reconcile</code> to prevent accidentally syncing findings or work items to the wrong project.</p>
-<h2 id="environment-variables-for-ci">Environment variables for CI<a class="headerlink" href="#environment-variables-for-ci" title="Permanent link">&para;</a></h2>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h3 id="from-the-vs-code-marketplace">From the VS Code Marketplace<a class="headerlink" href="#from-the-vs-code-marketplace" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open VS Code</li>
+<li>Go to the Extensions view (<code>Ctrl+Shift+X</code> / <code>Cmd+Shift+X</code>)</li>
+<li>Search for <strong>"Sentrik"</strong></li>
+<li>Click <strong>Install</strong></li>
+</ol>
+<h3 id="from-a-vsix-file">From a .vsix File<a class="headerlink" href="#from-a-vsix-file" title="Permanent link">&para;</a></h3>
+<p>If you have a <code>.vsix</code> package (e.g., from a GitHub Release):</p>
+<ol>
+<li>Open VS Code</li>
+<li>Open the Command Palette (<code>Ctrl+Shift+P</code> / <code>Cmd+Shift+P</code>)</li>
+<li>Run <strong>Extensions: Install from VSIX...</strong></li>
+<li>Select the <code>.vsix</code> file</li>
+</ol>
+<h2 id="first-launch-zero-config-setup">First Launch — Zero-Config Setup<a class="headerlink" href="#first-launch-zero-config-setup" title="Permanent link">&para;</a></h2>
+<p>When you open a project folder in VS Code with the Sentrik extension installed, it automatically:</p>
+<ol>
+<li><strong>Detects your project</strong> — identifies language, framework, and CI platform</li>
+<li><strong>Initializes config</strong> — creates <code>.sentrik/config.yaml</code> if one doesn't exist (runs <code>sentrik init --no-interactive</code> behind the scenes)</li>
+<li><strong>Runs an initial scan</strong> — analyzes your code and displays findings immediately</li>
+</ol>
+<p>You don't need to create any config files or run any commands manually. Just open your project and Sentrik starts working.</p>
+<blockquote>
+<p><strong>Note:</strong> Auto-init and auto-scan can be disabled in settings if you prefer manual control (see <a href="#configuration">Configuration</a> below).</p>
+</blockquote>
+<h2 id="understanding-the-interface">Understanding the Interface<a class="headerlink" href="#understanding-the-interface" title="Permanent link">&para;</a></h2>
+<h3 id="inline-diagnostics">Inline Diagnostics<a class="headerlink" href="#inline-diagnostics" title="Permanent link">&para;</a></h3>
+<p>Sentrik findings appear as native VS Code diagnostics — the same squiggly underlines you see for TypeScript errors or ESLint warnings:</p>
 <table>
 <thead>
 <tr>
-<th>Variable</th>
-<th>Purpose</th>
+<th>Severity</th>
+<th>Appearance</th>
+<th>VS Code Level</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>GUARD_LICENSE_KEY</code></td>
-<td>Enterprise license key</td>
+<td><strong>Critical</strong></td>
+<td>Red underline</td>
+<td>Error</td>
 </tr>
 <tr>
-<td><code>GUARD_STANDARDS_PACKS</code></td>
-<td>Comma-separated pack list</td>
+<td><strong>High</strong></td>
+<td>Red underline</td>
+<td>Error</td>
 </tr>
 <tr>
-<td><code>GUARD_GATE_FAIL_ON</code></td>
-<td>Override gate severities</td>
+<td><strong>Medium</strong></td>
+<td>Yellow underline</td>
+<td>Warning</td>
 </tr>
 <tr>
-<td><code>GUARD_GOVERNANCE_PROFILE</code></td>
-<td>Override governance profile</td>
+<td><strong>Low</strong></td>
+<td>Blue underline</td>
+<td>Information</td>
 </tr>
 <tr>
-<td><code>AZURE_DEVOPS_PAT</code></td>
-<td>Azure DevOps authentication</td>
-</tr>
-<tr>
-<td><code>GITHUB_TOKEN</code></td>
-<td>GitHub authentication</td>
-</tr>
-<tr>
-<td><code>JIRA_TOKEN</code></td>
-<td>Jira authentication</td>
-</tr>
-<tr>
-<td><code>GUARD_CONFIDENCE_SCORING_ENABLED</code></td>
-<td>Enable LLM-powered confidence re-scoring (<code>true</code>)</td>
-</tr>
-<tr>
-<td><code>GUARD_CONFIDENCE_SCORING_MAX_FINDINGS</code></td>
-<td>Max findings to re-score per scan (default: <code>50</code>)</td>
-</tr>
-<tr>
-<td><code>GUARD_LLM_PROVIDER</code></td>
-<td>LLM provider for confidence scoring (<code>anthropic</code>, <code>openai</code>, <code>ollama</code>)</td>
-</tr>
-<tr>
-<td><code>GUARD_LLM_MODEL</code></td>
-<td>LLM model name</td>
-</tr>
-<tr>
-<td><code>GUARD_LLM_BASE_URL</code></td>
-<td>Base URL for LLM API (required for <code>ollama</code>)</td>
+<td><strong>Info</strong></td>
+<td>Dots</td>
+<td>Hint</td>
 </tr>
 </tbody>
 </table>
-<h2 id="exit-codes">Exit codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
+<p>Each diagnostic includes:</p>
+<ul>
+<li>The rule ID (e.g., <code>SEC-001</code>)</li>
+<li>A description of the issue</li>
+<li>Remediation guidance explaining how to fix it</li>
+</ul>
+<p>You can see all findings in the <strong>Problems</strong> panel (<code>Ctrl+Shift+M</code> / <code>Cmd+Shift+M</code>), grouped by file.</p>
+<h3 id="status-bar">Status Bar<a class="headerlink" href="#status-bar" title="Permanent link">&para;</a></h3>
+<p>The Sentrik status bar item sits in the bottom-left of your editor and shows the current state:</p>
 <table>
 <thead>
 <tr>
-<th>Code</th>
+<th>Status</th>
+<th>Display</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>0</code></td>
-<td>Gate passed</td>
+<td>Idle</td>
+<td><code>Sentrik</code> (shield icon)</td>
+<td>Extension active, no recent scan</td>
 </tr>
 <tr>
-<td><code>1</code></td>
-<td>Gate failed (findings above threshold)</td>
+<td>Scanning</td>
+<td><code>Sentrik: scanning...</code> (spinner)</td>
+<td>Scan in progress</td>
+</tr>
+<tr>
+<td>Clean</td>
+<td><code>Sentrik: clean</code> (checkmark, green)</td>
+<td>No findings detected</td>
+</tr>
+<tr>
+<td>Issues found</td>
+<td><code>Sentrik: N issues</code> (shield, yellow)</td>
+<td>N findings in your project</td>
+</tr>
+<tr>
+<td>Error</td>
+<td><code>Sentrik: error</code> (warning, red)</td>
+<td>Scan failed — check Output panel</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Click the status bar item</strong> to manually trigger a scan at any time.</p>
+<h3 id="output-channel">Output Channel<a class="headerlink" href="#output-channel" title="Permanent link">&para;</a></h3>
+<p>For detailed logs, open the <strong>Output</strong> panel (<code>Ctrl+Shift+U</code>) and select <strong>Sentrik</strong> from the dropdown. This shows:</p>
+<ul>
+<li>Scan start/finish timestamps</li>
+<li>CLI command being executed</li>
+<li>Error messages and stack traces (if something goes wrong)</li>
+<li>Config initialization output</li>
+</ul>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<p>Open the Command Palette (<code>Ctrl+Shift+P</code> / <code>Cmd+Shift+P</code>) and type "Sentrik" to see all available commands:</p>
+<h3 id="sentrik-run-scan">SENTRIK: Run Scan<a class="headerlink" href="#sentrik-run-scan" title="Permanent link">&para;</a></h3>
+<p>Runs a full <code>sentrik scan</code> on your workspace and displays findings as inline diagnostics.</p>
+<ul>
+<li>Keyboard shortcut: Click the status bar item</li>
+<li>Equivalent CLI: <code>sentrik scan</code></li>
+</ul>
+<h3 id="sentrik-run-gate">SENTRIK: Run Gate<a class="headerlink" href="#sentrik-run-gate" title="Permanent link">&para;</a></h3>
+<p>Runs a governance gate check against your project. This is the same gate that runs in CI/CD pipelines.</p>
+<ul>
+<li>If the gate <strong>passes</strong>, you'll see a success notification</li>
+<li>If the gate <strong>fails</strong>, you'll see a failure notification with the counts of findings by severity</li>
+</ul>
+<p>Use this to check whether your code would pass the CI gate before pushing.</p>
+<h3 id="sentrik-clear-diagnostics">SENTRIK: Clear Diagnostics<a class="headerlink" href="#sentrik-clear-diagnostics" title="Permanent link">&para;</a></h3>
+<p>Removes all Sentrik diagnostics from the editor. Useful if you want a clean slate before running a fresh scan, or if you're temporarily working on something where the findings are distracting.</p>
+<h2 id="github-copilot-integration">GitHub Copilot Integration<a class="headerlink" href="#github-copilot-integration" title="Permanent link">&para;</a></h2>
+<p>The Sentrik extension automatically connects to <strong>GitHub Copilot</strong> with zero configuration. When Copilot is installed and active, Sentrik routes all AI features — fix suggestions, threat model analysis, design review — through Copilot's language model via VS Code's built-in <code>vscode.lm</code> API.</p>
+<p>This means:</p>
+<ul>
+<li><strong>No API keys needed</strong> — Sentrik uses your existing Copilot subscription</li>
+<li><strong>No configuration</strong> — auto-detected on startup, no settings to change</li>
+<li><strong>Works immediately</strong> — open a finding, click "Fix with AI", and Copilot responds</li>
+</ul>
+<p>The integration runs on a local proxy (port 47200) that translates Sentrik's AI requests into VS Code LM API calls. If Copilot is not installed, Sentrik falls back to the LLM provider configured in your <code>.sentrik/config.yaml</code>.</p>
+<h2 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h2>
+<p>Launch the full Sentrik management dashboard directly from VS Code:</p>
+<ol>
+<li>Open the Command Palette (<code>Ctrl+Shift+P</code> / <code>Cmd+Shift+P</code>)</li>
+<li>Run <strong>SENTRIK: Open Dashboard</strong></li>
+</ol>
+<p>This starts the dashboard server and opens it in your browser at <code>http://localhost:8000/dashboard</code>. The dashboard gives you access to all 21 tabs including compliance reports, evidence maps, threat models, audit logs, and governance controls — without leaving your development environment.</p>
+<p>Alternatively, run from the integrated terminal:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sentrik<span class="w"> </span>dashboard
+</code></pre></div>
+<h2 id="automatic-scan-on-save">Automatic Scan on Save<a class="headerlink" href="#automatic-scan-on-save" title="Permanent link">&para;</a></h2>
+<p>By default, Sentrik scans your project every time you save a file. The scan is <strong>debounced</strong> (500ms delay) so rapid saves don't trigger multiple scans.</p>
+<p>The scan runs in the background — you can keep editing while it processes. When complete, diagnostics update automatically.</p>
+<p>To disable auto-scan:</p>
+<ol>
+<li>Open Settings (<code>Ctrl+,</code> / <code>Cmd+,</code>)</li>
+<li>Search for <code>sentrik.autoScan</code></li>
+<li>Uncheck the box</li>
+</ol>
+<p>With auto-scan disabled, use the <strong>SENTRIK: Run Scan</strong> command or click the status bar to scan manually.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="extension-settings">Extension Settings<a class="headerlink" href="#extension-settings" title="Permanent link">&para;</a></h3>
+<p>Open VS Code Settings and search for "sentrik" to see all options:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sentrik.autoInit</code></td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>Auto-create <code>.sentrik/config.yaml</code> when opening a project without one</td>
+</tr>
+<tr>
+<td><code>sentrik.autoScan</code></td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>Automatically scan on every file save</td>
+</tr>
+<tr>
+<td><code>sentrik.binaryPath</code></td>
+<td>string</td>
+<td><code>""</code> (auto)</td>
+<td>Path to the <code>sentrik</code> CLI binary. Leave empty to auto-detect from PATH</td>
+</tr>
+<tr>
+<td><code>sentrik.severityFilter</code></td>
+<td>array</td>
+<td><code>["critical", "high", "medium"]</code></td>
+<td>Which severity levels to show as diagnostics</td>
+</tr>
+</tbody>
+</table>
+<h4 id="severity-filter">Severity Filter<a class="headerlink" href="#severity-filter" title="Permanent link">&para;</a></h4>
+<p>By default, <strong>low</strong> and <strong>info</strong> severity findings are hidden to reduce noise. To see all findings:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;sentrik.severityFilter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;critical&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;high&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;low&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Or to only see critical and high severity issues:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;sentrik.severityFilter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;critical&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;high&quot;</span><span class="p">]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="custom-binary-path">Custom Binary Path<a class="headerlink" href="#custom-binary-path" title="Permanent link">&para;</a></h4>
+<p>If the <code>sentrik</code> CLI isn't on your PATH, point the extension to it explicitly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;sentrik.binaryPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/sentrik&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>On Windows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;sentrik.binaryPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\Users\\you\\AppData\\Local\\Programs\\sentrik\\sentrik.exe&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="project-configuration">Project Configuration<a class="headerlink" href="#project-configuration" title="Permanent link">&para;</a></h3>
+<p>The extension uses the same <code>.sentrik/config.yaml</code> (or legacy <code>.guard.yaml</code>) that the CLI uses. Common settings you might configure:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># .sentrik/config.yaml</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Standards packs to enforce</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">standards_packs</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">owasp-top-10</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">soc2</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># Gate thresholds — which severities block the gate</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nt">gate_fail_on</span><span class="p">:</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1"># Output directory for reports</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="nt">output_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">out</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1"># Enable parallel scanning for faster results</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="nt">parallel_scan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="nt">max_workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+</code></pre></div>
+<p>See the <a href="../../getting-started/configuration/">Configuration Guide</a> for the full reference.</p>
+<h2 id="typical-workflows">Typical Workflows<a class="headerlink" href="#typical-workflows" title="Permanent link">&para;</a></h2>
+<h3 id="workflow-1-catch-issues-while-coding">Workflow 1: Catch Issues While Coding<a class="headerlink" href="#workflow-1-catch-issues-while-coding" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open your project in VS Code</li>
+<li>Sentrik auto-initializes and runs an initial scan</li>
+<li>As you edit and save files, findings appear as inline diagnostics</li>
+<li>Hover over a squiggly underline to see the rule and remediation guidance</li>
+<li>Fix the issue and save — the diagnostic disappears on the next scan</li>
+</ol>
+<h3 id="workflow-2-pre-push-gate-check">Workflow 2: Pre-Push Gate Check<a class="headerlink" href="#workflow-2-pre-push-gate-check" title="Permanent link">&para;</a></h3>
+<p>Before pushing a branch:</p>
+<ol>
+<li>Open the Command Palette</li>
+<li>Run <strong>SENTRIK: Run Gate</strong></li>
+<li>If it passes — push with confidence</li>
+<li>If it fails — review the findings in the Problems panel and fix them</li>
+</ol>
+<p>This mirrors exactly what your CI pipeline does, so there are no surprises.</p>
+<h3 id="workflow-3-focused-review">Workflow 3: Focused Review<a class="headerlink" href="#workflow-3-focused-review" title="Permanent link">&para;</a></h3>
+<p>When reviewing a specific area of the codebase:</p>
+<ol>
+<li>Run <strong>SENTRIK: Clear Diagnostics</strong> to start clean</li>
+<li>Open the files you want to review</li>
+<li>Run <strong>SENTRIK: Run Scan</strong></li>
+<li>Review findings in the Problems panel, grouped by file</li>
+</ol>
+<h3 id="workflow-4-compliance-audit-prep">Workflow 4: Compliance Audit Prep<a class="headerlink" href="#workflow-4-compliance-audit-prep" title="Permanent link">&para;</a></h3>
+<p>For regulated environments (medical devices, fintech):</p>
+<ol>
+<li>Configure appropriate standards packs in <code>.sentrik/config.yaml</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">standards_packs</span><span class="p">:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fda-iec-62304</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hipaa</span>
+</code></pre></div></li>
+<li>Save the config — Sentrik rescans with the new rules</li>
+<li>Review all findings in the Problems panel</li>
+<li>Address each finding or document justification for suppression</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="sentrik-error-in-status-bar">"Sentrik: error" in status bar<a class="headerlink" href="#sentrik-error-in-status-bar" title="Permanent link">&para;</a></h3>
+<p>Open the Output panel and select Sentrik to see the error details. Common causes:</p>
+<ul>
+<li><strong>CLI not found:</strong> Install the <code>sentrik</code> package or set <code>sentrik.binaryPath</code></li>
+<li><strong>Config error:</strong> Run <code>sentrik validate-config</code> in your terminal to check for YAML issues</li>
+<li><strong>Timeout:</strong> Scans timeout after 120 seconds. For very large projects, consider using <code>parallel_scan: true</code> or scanning specific directories</li>
+</ul>
+<h3 id="no-diagnostics-appearing">No diagnostics appearing<a class="headerlink" href="#no-diagnostics-appearing" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Check that <code>sentrik.autoScan</code> is enabled</li>
+<li>Check that your <code>sentrik.severityFilter</code> includes the severity levels you expect</li>
+<li>Verify the CLI works: run <code>sentrik scan</code> in your terminal from the project root</li>
+<li>Check that <code>out/findings.json</code> is generated after a scan</li>
+</ol>
+<h3 id="diagnostics-on-wrong-lines">Diagnostics on wrong lines<a class="headerlink" href="#diagnostics-on-wrong-lines" title="Permanent link">&para;</a></h3>
+<p>This can happen when the file has been modified since the last scan. Save the file to trigger a rescan, and the diagnostics will update to the correct positions.</p>
+<h3 id="extension-not-activating">Extension not activating<a class="headerlink" href="#extension-not-activating" title="Permanent link">&para;</a></h3>
+<p>The extension activates when VS Code detects any files in your workspace. If it's not activating:</p>
+<ol>
+<li>Make sure the extension is installed and enabled</li>
+<li>Check the Extensions view for any error badges on the Sentrik extension</li>
+<li>Try reloading VS Code (<code>Ctrl+Shift+P</code> &gt; <strong>Developer: Reload Window</strong>)</li>
+</ol>
+<h2 id="legacy-settings">Legacy Settings<a class="headerlink" href="#legacy-settings" title="Permanent link">&para;</a></h2>
+<p>If you were using the older "AI SDLC Guard" extension, your settings still work. The extension checks legacy settings as a fallback:</p>
+<table>
+<thead>
+<tr>
+<th>Legacy Setting</th>
+<th>New Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ai-sdlc-guard.scanOnSave</code></td>
+<td><code>sentrik.autoScan</code></td>
+</tr>
+<tr>
+<td><code>ai-sdlc-guard.guardPath</code></td>
+<td><code>sentrik.binaryPath</code></td>
+</tr>
+</tbody>
+</table>
+<p>Legacy command IDs (<code>ai-sdlc-guard.scan</code>, <code>ai-sdlc-guard.gate</code>, <code>ai-sdlc-guard.clearDiagnostics</code>) also continue to work.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../cli-reference/">CLI Reference</a> — Full list of Sentrik CLI commands</li>
+<li><a href="../ci-cd-integration/">CI/CD Integration</a> — Set up Sentrik in your CI pipeline</li>
+<li><a href="../dashboard/">Dashboard Guide</a> — Use the web dashboard for deeper analysis</li>
+<li><a href="../../standards-packs/overview/">Standards Packs Overview</a> — Browse available compliance packs</li>
+<li><a href="../../standards-packs/authoring-custom-packs/">Custom Packs</a> — Create your own rules</li>
+</ul>
 
 
 
