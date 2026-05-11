@@ -18,7 +18,7 @@
         <link rel="prev" href="../vscode-extension-tutorial/">
       
       
-        <link rel="next" href="../securing-ai-generated-code/">
+        <link rel="next" href="../compliance-skills/">
       
       
         
@@ -1024,6 +1024,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compliance Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2907,11 +2935,12 @@
 <li><strong>Returns:</strong> Findings with rule_id, severity, line number, message, and suggestions</li>
 </ul>
 <h3 id="get_compliance_context">get_compliance_context<a class="headerlink" href="#get_compliance_context" title="Permanent link">&para;</a></h3>
-<p>Get applicable rules for a file BEFORE reviewing or generating code.</p>
+<p>Get applicable rules and skill guidance for a file BEFORE reviewing or generating code.</p>
 <ul>
 <li><strong>Input:</strong> <code>file_path</code> (string) — path to the file</li>
-<li><strong>Returns:</strong> JSON with applicable rules, frameworks, and human-readable constraints</li>
+<li><strong>Returns:</strong> JSON with applicable rules, frameworks, human-readable constraints, and a <code>skills</code> array containing compliance skill guidance (patterns, anti-patterns, requirements) for each applicable standards pack</li>
 </ul>
+<p>The <code>skills</code> array is the key output for AI agents — it gives the model rich examples of correct and incorrect code for the relevant standards before any code is written or reviewed. See the <a href="../compliance-skills/">Compliance Skills guide</a> for details.</p>
 <h3 id="check_code_snippet">check_code_snippet<a class="headerlink" href="#check_code_snippet" title="Permanent link">&para;</a></h3>
 <p>Check a code snippet inline without needing a file on disk.</p>
 <ul>
