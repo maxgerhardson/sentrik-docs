@@ -958,6 +958,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Multi-Language Coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tree-sitter-ast-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tree-sitter AST rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2422,6 +2439,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Multi-Language Coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tree-sitter-ast-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tree-sitter AST rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2676,22 +2710,31 @@
 </tr>
 <tr>
 <td><code>file_policy</code></td>
-<td>Structural checks (docstrings, file length)</td>
+<td>Structural checks (docstrings, file length, imports)</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td><code>ast</code></td>
-<td>Python AST semantic analysis</td>
+<td>AST analysis: Python built-in checks or tree-sitter queries (11 languages)</td>
 <td>Yes</td>
 </tr>
 <tr>
+<td><code>llm</code></td>
+<td>AI-powered semantic analysis — enforced when an LLM is configured, obligation when not</td>
+<td>Yes*</td>
+</tr>
+<tr>
 <td><code>documentation_obligation</code></td>
-<td>Non-code compliance items</td>
+<td>Process/tooling items requiring human review</td>
 <td>No</td>
 </tr>
 </tbody>
 </table>
 <p>Documentation obligations appear in reports for audit purposes but never fail the gate.</p>
+<p><code>llm</code> rules are evaluated per-file using the configured LLM provider (Copilot, Claude, GPT-4, Ollama). They produce findings with line numbers and <code>confidence: 0.75</code>. When no LLM is configured they degrade automatically to informational obligations — so packs work for everyone and get stronger with AI.</p>
+<p><code>ast</code> rules support two modes:
+- <strong>Built-in Python checks</strong> (<code>ast_check</code> field) — complexity, mutable defaults, star imports, nested functions, global variables, function length
+- <strong>Tree-sitter queries</strong> (<code>language</code> + <code>query</code> fields) — precise structural analysis in Python, C/C++, Go, Rust, Java, JavaScript, TypeScript, Kotlin, Ruby, C#, and more. Install grammars with <code>pip install "sentrik[treesitter]"</code>.</p>
 <h2 id="pack-rule-overrides">Pack Rule Overrides<a class="headerlink" href="#pack-rule-overrides" title="Permanent link">&para;</a></h2>
 <p>You can customize individual rules within a pack without modifying the pack itself. Overrides are stored in config:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">pack_overrides</span><span class="p">:</span>
@@ -2703,7 +2746,7 @@
 </code></pre></div>
 <p>Pack overrides require an Organization or Enterprise license.</p>
 <h2 id="multi-language-coverage">Multi-Language Coverage<a class="headerlink" href="#multi-language-coverage" title="Permanent link">&para;</a></h2>
-<p>The OWASP Top 10 pack covers <strong>8 languages</strong>:</p>
+<p>The OWASP Top 10 pack covers <strong>8 languages</strong> via regex rules:</p>
 <ul>
 <li>Python (<code>.py</code>)</li>
 <li>JavaScript (<code>.js</code>)</li>
@@ -2719,7 +2762,13 @@
 <li><strong>PHP</strong> (<code>.php</code>) — <code>php-security</code> pack (15 rules for PHP and Laravel)</li>
 <li><strong>Kotlin</strong> (<code>.kt</code>, <code>.kts</code>) — <code>kotlin-security</code> pack (13 rules for Android and Spring Boot)</li>
 </ul>
-<p>Other packs use language-agnostic patterns (regex, file policies) that work across all file types.</p>
+<p>Other packs use language-agnostic patterns (regex, file policies) that apply across all file types.</p>
+<h3 id="tree-sitter-ast-rules">Tree-sitter AST rules<a class="headerlink" href="#tree-sitter-ast-rules" title="Permanent link">&para;</a></h3>
+<p>Custom packs can use <a href="https://tree-sitter.github.io/">tree-sitter</a> queries for precise structural analysis — matching real AST nodes instead of text patterns. This enables rules that would be impossible or error-prone with regex: detecting specific function calls, enforcing naming conventions, flagging unsafe constructs at the syntax level.</p>
+<p>Supported languages: Python, C/C++, C, Go, Rust, Java, JavaScript, TypeScript, Kotlin, Ruby, C#.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;sentrik[treesitter]&quot;</span><span class="w">   </span><span class="c1"># install all grammars</span>
+</code></pre></div>
+<p>See <a href="../authoring-custom-packs/">Authoring Custom Packs</a> for query syntax and examples.</p>
 <h2 id="custom-packs">Custom Packs<a class="headerlink" href="#custom-packs" title="Permanent link">&para;</a></h2>
 <p>Create your own packs for organization-specific rules. See <a href="../authoring-custom-packs/">Authoring Custom Packs</a> for a full guide.</p>
 
