@@ -2308,10 +2308,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#22-regulatory-frameworks-526-rules-out-of-the-box" class="md-nav__link">
+  <a href="#24-frameworks-595-rules-out-of-the-box" class="md-nav__link">
     <span class="md-ellipsis">
       
-        22 Regulatory Frameworks. 526 Rules. Out of the Box.
+        24 Frameworks. 595 Rules. Out of the Box.
       
     </span>
   </a>
@@ -2532,7 +2532,7 @@
 <h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
 <p>AI coding assistants have fundamentally changed the rate at which code is produced. Teams using GitHub Copilot, Claude Code, and Cursor report 40–80% increases in code output. Compliance programs have not kept pace.</p>
 <p>The problem is structural. AI models are trained to produce functional code. They are not trained against IEC 62304, HIPAA, EU AI Act, or MISRA C. They hallucinate security patterns, omit required documentation obligations, and introduce vulnerabilities at a rate Stanford researchers estimate at 36% of AI-generated output. When a developer produces ten times the code in the same day, the compliance team inherits ten times the review burden with no additional headcount.</p>
-<p>Sentrik is a governance runtime that sits in the same CI/CD pipeline as your existing tooling and enforces compliance automatically — scanning every commit against 22 regulatory frameworks, blocking non-compliant code before it merges, and generating audit evidence that would otherwise take weeks to assemble.</p>
+<p>Sentrik is a governance runtime that sits in the same CI/CD pipeline as your existing tooling and enforces compliance automatically — scanning every commit against 24 regulatory and security frameworks, blocking non-compliant code before it merges, and generating audit evidence that would otherwise take weeks to assemble.</p>
 <p>This paper describes the problem in detail, how Sentrik solves it, and what teams in regulated industries have reported when they close the gap.</p>
 <hr />
 <h2 id="the-problem-ai-makes-compliance-harder-not-easier">The Problem: AI Makes Compliance Harder, Not Easier<a class="headerlink" href="#the-problem-ai-makes-compliance-harder-not-easier" title="Permanent link">&para;</a></h2>
@@ -2578,27 +2578,30 @@
 <p>The Evidence Map maps specific files and line numbers to the regulatory clauses they satisfy. An auditor reviewing IEC 62304 compliance sees not just "no critical findings" but a positive record: which files implement required error handling, which modules satisfy software safety class requirements, which tests cover the required unit test obligations. This is the difference between a clean scan result and auditable evidence of compliance.</p>
 <p>The Evidence Map is available as an HTML report, a JSON export for GRC platform integration, and a dashboard view with per-framework filtering.</p>
 <hr />
-<h2 id="22-regulatory-frameworks-526-rules-out-of-the-box">22 Regulatory Frameworks. 526 Rules. Out of the Box.<a class="headerlink" href="#22-regulatory-frameworks-526-rules-out-of-the-box" title="Permanent link">&para;</a></h2>
+<h2 id="24-frameworks-595-rules-out-of-the-box">24 Frameworks. 595 Rules. Out of the Box.<a class="headerlink" href="#24-frameworks-595-rules-out-of-the-box" title="Permanent link">&para;</a></h2>
 <p>Sentrik ships with rules covering every major software compliance framework relevant to regulated industries:</p>
 <p><strong>Security (Free tier)</strong>
 - OWASP Top 10 — 69 rules covering injection, broken authentication, XSS, IDOR, and more
 - SOC 2 — 30 rules covering Trust Services Criteria for security, availability, and confidentiality
 - Python Security — 18 rules for Python-specific patterns (eval/exec, pickle, SQL injection, Flask/Django)
 - Go Security — 15 rules for Go-specific patterns (injection, crypto, unsafe, concurrency)
-- Supply Chain Security — 26 rules covering SLSA, SBOM, dependency integrity, and AI tool supply chain</p>
+- Supply Chain Security — 26 rules covering SLSA, SBOM, dependency integrity, and AI tool supply chain
+- C/C++ Coding Standards — 35 rules for modern C/C++ safety and security practices</p>
 <p><strong>Healthcare and Life Sciences (Team tier)</strong>
 - IEC 62304 — 31 rules for medical device software lifecycle
 - HIPAA — 25 rules for ePHI protection under 45 CFR Part 164
 - IEC 81001-5-1 — 20 rules for health software cybersecurity (Organization tier)
-- ISO 14971 — 16 rules for medical device risk management (Organization tier)
+- ISO 14971 — 18 rules for medical device risk management (Organization tier)
 - 21 CFR Part 11 — 16 rules for FDA electronic records (Organization tier)</p>
 <p><strong>Financial Services (Team tier)</strong>
 - PCI DSS v4.0 — 33 rules for cardholder data protection
 - ISO 27001:2022 — 32 rules for information security management
 - SOC 2 — 30 rules (Free tier)</p>
 <p><strong>AI Governance (Team tier)</strong>
-- EU AI Act — 22 rules for high-risk AI systems: risk management, transparency, human oversight, data governance
-- NIST AI RMF — 15 rules for AI risk management (NIST AI 600-1)</p>
+- EU AI Act — 23 rules for high-risk AI systems: risk management, transparency, human oversight, data governance
+- NIST AI RMF — 16 rules for AI risk management (NIST AI 600-1)</p>
+<p><strong>Cloud Infrastructure (Team tier)</strong>
+- Cloud IaC — 30 Terraform security rules for AWS, GCP, and Azure: credentials, public storage, IAM, encryption</p>
 <p><strong>Public Sector and Defense (Team/Org tier)</strong>
 - NIST 800-53 Rev 5 — 21 rules for federal security controls
 - CMMC 2.0 — 19 rules for defense contractor cybersecurity</p>
@@ -2663,7 +2666,7 @@
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sentrik<span class="w"> </span>scan
 </code></pre></div>
 <p><strong>Air-gapped environments</strong> are supported via offline license validation. The license is HMAC-signed and validated locally — no network call required after initial activation.</p>
-<p><strong>License tiers</strong> are enforced locally. The free tier (5 packs, 158 rules) is permanent and requires no license key. Team and Organization tiers are activated with a license key and validated against the local machine without phone-home behavior.</p>
+<p><strong>License tiers</strong> are enforced locally. The free tier (6 packs, 193 rules) is permanent and requires no license key. Team and Organization tiers are activated with an HMAC-signed license key validated locally; when a network is available, paid keys are additionally verified against the licensing portal to catch revoked keys, and validation degrades gracefully offline so air-gapped environments keep working without interruption.</p>
 <p><strong>Docker</strong> support is available for containerized deployment of the REST API and dashboard.</p>
 <hr />
 <h2 id="the-sentrik-dashboard">The Sentrik Dashboard<a class="headerlink" href="#the-sentrik-dashboard" title="Permanent link">&para;</a></h2>
@@ -2690,8 +2693,8 @@
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sentrik<span class="w"> </span>init
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sentrik<span class="w"> </span>scan
 </code></pre></div>
-<p>The free tier includes OWASP Top 10, SOC 2, Python Security, Go Security, and Supply Chain Security — 158 rules, permanently free.</p>
-<p>Team and Organization tiers covering the full 22-framework, 526-rule library are available by contacting the Sentrik team. Air-gapped deployments, custom rule pack development, and compliance audit support are available under the Organization and Enterprise tiers.</p>
+<p>The free tier includes OWASP Top 10, SOC 2, Python Security, Go Security, Supply Chain Security, and C/C++ Coding Standards — 193 rules, permanently free.</p>
+<p>Team and Organization tiers covering the full 24-framework, 595-rule library are available by contacting the Sentrik team. Air-gapped deployments, custom rule pack development, and compliance audit support are available under the Organization and Enterprise tiers.</p>
 <p><strong>Documentation:</strong> docs.sentrik.dev<br />
 <strong>Community and examples:</strong> github.com/maxgerhardson/sentrik-community<br />
 <strong>Early access:</strong> sentrik.dev</p>

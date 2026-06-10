@@ -2367,11 +2367,11 @@
 <blockquote>
 <p>Sentrik is a governance runtime for AI-generated code. While every security tool tells you what's wrong, Sentrik also proves what's right.</p>
 <p>The Compliance Evidence Map shows exactly where your code satisfies each regulatory requirement — with file, line number, and matched pattern. When an auditor asks "show me where you implement encryption at rest," you open the Evidence Map.</p>
-<p>526 rules across 22 frameworks: OWASP, SOC 2, HIPAA, PCI-DSS, IEC 62304, EU AI Act, GDPR, NIST, and more.</p>
-<p><strong>Free tier:</strong> 5 packs, 158 rules, forever. No credit card.</p>
+<p>595 rules across 24 frameworks: OWASP, SOC 2, HIPAA, PCI-DSS, IEC 62304, EU AI Act, GDPR, NIST, and more.</p>
+<p><strong>Free tier:</strong> 6 packs, 193 rules, forever. No credit card.</p>
 <p><strong>How it works:</strong>
 1. <code>pip install sentrik</code>
-2. <code>sentrik scan</code> — 526 rules in 30 seconds
+2. <code>sentrik scan</code> — 595 rules in 30 seconds
 3. <code>sentrik compliance-map</code> — proof of compliance</p>
 <p><strong>Key features:</strong>
 - Compliance Evidence Map (no competitor has this)
@@ -2388,7 +2388,7 @@
 <p>Hey PH! I built Sentrik because I was tired of the compliance gap in AI-assisted development.</p>
 <p>84% of developers now use AI coding tools. But when the auditor shows up, nobody can prove the AI-generated code meets regulations. Teams spend 6+ weeks assembling evidence in spreadsheets.</p>
 <p>The Evidence Map is what makes Sentrik different. Every other security tool finds violations. Sentrik also finds proof — where your code satisfies HIPAA §164.312, SOC 2 CC6.1, or IEC 62304 §5.5.3.</p>
-<p>The free tier includes 5 packs — OWASP, SOC 2, Python Security, Go Security, and Supply Chain (158 rules). Install it, scan your project, and see what it finds.</p>
+<p>The free tier includes 6 packs — OWASP, SOC 2, Python Security, Go Security, Supply Chain, and C/C++ Coding Standards (193 rules). Install it, scan your project, and see what it finds.</p>
 <p>I'm here all day — ask me anything about compliance as code, AI governance, or regulated software.</p>
 </blockquote>
 <p><strong>Topics:</strong> Developer Tools, Compliance, Security, AI</p>
@@ -2410,7 +2410,7 @@
 - <strong>VIOLATED</strong> — violations from the scanner
 - <strong>N/A</strong> — rule doesn't apply to your project</p>
 <p>It also searches .md/.adoc documentation files to satisfy documentation obligations (risk management plans, security policies).</p>
-<p>526 rules across 22 frameworks. Free tier includes 5 packs with 158 rules (forever, no credit card).</p>
+<p>595 rules across 24 frameworks. Free tier includes 6 packs with 193 rules (forever, no credit card).</p>
 <p>pip install sentrik &amp;&amp; sentrik scan</p>
 <p>GitHub Action: uses: maxgerhardson/sentrik-community@v1</p>
 <p>https://sentrik.dev
@@ -2439,8 +2439,8 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 <p><strong>Body:</strong></p>
 <blockquote>
 <p>84% of devs use AI coding tools now. The code ships fast, but when the auditor asks "show me where you implement encryption at rest," nobody has a good answer.</p>
-<p>We built Sentrik to fix this. It scans your code against 526 rules from 22 regulatory frameworks and generates a Compliance Evidence Map — showing where each requirement is satisfied, with the exact file and line number.</p>
-<p>Free tier includes 5 packs with 158 rules, forever: <code>pip install sentrik</code></p>
+<p>We built Sentrik to fix this. It scans your code against 595 rules from 24 regulatory and security frameworks and generates a Compliance Evidence Map — showing where each requirement is satisfied, with the exact file and line number.</p>
+<p>Free tier includes 6 packs with 193 rules, forever: <code>pip install sentrik</code></p>
 <p>One-line CI gate: <code>uses: maxgerhardson/sentrik-community@v1</code></p>
 <p>https://sentrik.dev | https://docs.sentrik.dev</p>
 </blockquote>
@@ -2450,7 +2450,7 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 <blockquote>
 <p>Compliance engineer here. Tired of manually collecting evidence for SOC 2 and HIPAA audits, I built a tool that scans code and generates an evidence map showing where each control is satisfied.</p>
 <p>For example: HIPAA §164.312(b) audit logging → found in middleware/audit.py:14. SOC 2 CC6.1 access controls → verified across 43 files. IEC 62304 §7.1 risk management → documentation found in docs/risk-analysis.adoc.</p>
-<p>526 rules, 22 frameworks, cryptographically signed attestations. Auditor portal with read-only token access.</p>
+<p>595 rules, 24 frameworks, cryptographically signed attestations. Auditor portal with read-only token access.</p>
 <p>Free to try: pip install sentrik</p>
 <p>https://sentrik.dev</p>
 </blockquote>
@@ -2461,7 +2461,7 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 <p>Most security scanners find violations. We built one that also finds proof of compliance.</p>
 <p><code>sentrik compliance-map</code> generates an evidence map showing where your code satisfies each regulatory requirement — HIPAA, SOC 2, OWASP, IEC 62304 — with file, line number, and matched pattern.</p>
 <p>It also searches your .md and .adoc files to find documentation that satisfies process requirements (risk management plans, security policies).</p>
-<p>526 rules, 22 frameworks, free tier forever.</p>
+<p>595 rules, 24 frameworks, free tier forever.</p>
 <p><code>pip install sentrik &amp;&amp; sentrik scan</code></p>
 <p>Blog post: https://sentrik.dev/blog/prove-compliance-ai-generated-code</p>
 </blockquote>
@@ -2471,7 +2471,7 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 <blockquote>
 <p>I work on medical device software. The IEC 62304 compliance evidence process was eating weeks of engineering time every release cycle.</p>
 <p>Built Sentrik to automate it. 31 rules mapped to IEC 62304 clauses (§5.1–§8). It scans your code, verifies coding standards, checks for risk management documentation, generates SBOM for configuration management, and produces a compliance evidence map showing exactly where each clause is satisfied.</p>
-<p>Also covers HIPAA (25 rules), IEC 81001-5-1 (20 rules), ISO 14971 (16 rules), and 21 CFR Part 11 (16 rules).</p>
+<p>Also covers HIPAA (25 rules), IEC 81001-5-1 (20 rules), ISO 14971 (18 rules), and 21 CFR Part 11 (16 rules).</p>
 <p>Signed attestations (HMAC-SHA256) and an auditor portal with token-based read-only access.</p>
 <p>https://sentrik.dev/compliance/iec-62304</p>
 </blockquote>
@@ -2486,19 +2486,19 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 </blockquote>
 <p><strong>Description (long):</strong></p>
 <blockquote>
-<p>Sentrik scans AI-generated code against 526 rules from 22 regulatory frameworks — OWASP, SOC 2, HIPAA, PCI-DSS, IEC 62304, EU AI Act, GDPR, NIST, and more — and generates audit-ready compliance evidence automatically.</p>
+<p>Sentrik scans AI-generated code against 595 rules from 24 regulatory and security frameworks — OWASP, SOC 2, HIPAA, PCI-DSS, IEC 62304, EU AI Act, GDPR, NIST, and more — and generates audit-ready compliance evidence automatically.</p>
 <p>Unlike traditional SAST tools that only find violations, Sentrik's Compliance Evidence Map shows where your code satisfies each regulatory requirement. When an auditor asks "show me where you implement encryption at rest," you open the Evidence Map.</p>
 <p>Key capabilities: compliance evidence mapping, risk scoring, AI-powered remediation, CI/CD gate (GitHub Actions), MCP server for AI coding agents, VS Code extension, SBOM generation, CVE scanning, cryptographically signed attestations, and auditor portal.</p>
-<p>Free tier: 5 packs (OWASP, SOC 2, Python Security, Go Security, Supply Chain), 158 rules, forever. Team: $29/mo. Organization: $99/mo.</p>
+<p>Free tier: 6 packs (OWASP, SOC 2, Python Security, Go Security, Supply Chain, C/C++ Coding Standards), 193 rules, forever. Team and Organization tiers available by contacting hello@sentrik.dev.</p>
 </blockquote>
 <p><strong>Website:</strong> https://sentrik.dev
-<strong>Pricing:</strong> Free, $29/mo, $99/mo</p>
+<strong>Pricing:</strong> Free tier; Team and Organization by contact (hello@sentrik.dev)</p>
 <hr />
 <h2 id="6-alternativeto">6. AlternativeTo<a class="headerlink" href="#6-alternativeto" title="Permanent link">&para;</a></h2>
 <p><strong>URL:</strong> https://alternativeto.net/manage/add/</p>
 <p><strong>Product Name:</strong> Sentrik
 <strong>URL:</strong> https://sentrik.dev
-<strong>Description:</strong> Governance runtime for AI-generated code. 526 rules across 22 regulatory frameworks with compliance evidence mapping. Free tier available.
+<strong>Description:</strong> Governance runtime for AI-generated code. 595 rules across 24 regulatory and security frameworks with compliance evidence mapping. Free tier available.
 <strong>Tags:</strong> compliance, security, SAST, code-quality, governance
 <strong>Alternatives to:</strong> SonarQube, Snyk, Semgrep, Vanta, Drata</p>
 <hr />
@@ -2508,7 +2508,7 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 <strong>Tagline:</strong> Prove where your AI code meets compliance — not just violations
 <strong>URL:</strong> https://sentrik.dev
 <strong>GitHub:</strong> https://github.com/maxgerhardson/sentrik-community
-<strong>Description:</strong> 526 rules, 22 regulatory frameworks, compliance evidence maps. Free tier forever.</p>
+<strong>Description:</strong> 595 rules, 24 regulatory and security frameworks, compliance evidence maps. Free tier forever.</p>
 <hr />
 <h2 id="8-hashnode-blog-republish">8. Hashnode — Blog Republish<a class="headerlink" href="#8-hashnode-blog-republish" title="Permanent link">&para;</a></h2>
 <p><strong>URL:</strong> https://hashnode.com (create blog, write post)</p>
