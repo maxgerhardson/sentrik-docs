@@ -2324,6 +2324,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#10-mcp-directory-submission-pack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. MCP Directory Submission Pack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. MCP Directory Submission Pack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claude-desktop-anthropic-form-httpsformsgletyiazvch1kdadkop9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Desktop / Anthropic form (https://forms.gle/tyiAZvch1kDADKoP9)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glama-httpsglamaaimcpservers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glama (https://glama.ai/mcp/servers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcpmarketcom-claudemarketplacescom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcpmarket.com / claudemarketplaces.com
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#submission-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2518,6 +2568,45 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 <p><strong>URL:</strong> https://medium.com/new-story</p>
 <p>Same content as Dev.to republish. Add canonical link in settings.</p>
 <hr />
+<h2 id="10-mcp-directory-submission-pack">10. MCP Directory Submission Pack<a class="headerlink" href="#10-mcp-directory-submission-pack" title="Permanent link">&para;</a></h2>
+<p>Status as of 2026-06-10: <strong>Official MCP Registry</strong> published (io.github.maxgerhardson/sentrik v1.2.0, points at sentrik-community). <strong>PulseMCP</strong> auto-listed at pulsemcp.com/servers/sentrik — no action needed. <strong>mcp.so</strong> and <strong>Cline Marketplace</strong> submitted earlier. <strong>Glama</strong> not yet indexed — <code>glama.json</code> added to sentrik-community; if not indexed within a week, add manually at https://glama.ai/mcp/servers (sign in with GitHub, submit repo URL).</p>
+<p><strong>Standard MCP config snippet (use in all submissions):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="claude-desktop-anthropic-form-httpsformsgletyiazvch1kdadkop9">Claude Desktop / Anthropic form (https://forms.gle/tyiAZvch1kDADKoP9)<a class="headerlink" href="#claude-desktop-anthropic-form-httpsformsgletyiazvch1kdadkop9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Server name:</strong> Sentrik</li>
+<li><strong>One-line description:</strong> Governance runtime for AI-generated code — compliance scanning, task scope enforcement, and signed audit evidence for AI coding agents.</li>
+<li><strong>Repository:</strong> https://github.com/maxgerhardson/sentrik-community</li>
+<li><strong>Docs:</strong> https://docs.sentrik.dev/guides/mcp-integration/</li>
+<li><strong>Install:</strong> <code>npm install -g sentrik</code> (or <code>pip install sentrik</code>), then the config snippet above. Free tier works with no license key or env vars.</li>
+<li><strong>Example prompts (3+):</strong></li>
+<li>"Before you write this endpoint, check which compliance rules apply to <code>src/api/patients.py</code>" (uses <code>get_compliance_context</code> — the agent sees HIPAA/OWASP rules <em>before</em> generating code, so output passes the gate first try)</li>
+<li>"Scan the file you just wrote for compliance violations" (uses <code>scan_file</code> / <code>check_code_snippet</code> — findings include rule ID, severity, and the regulatory clause)</li>
+<li>"Bind this session to the task 'Fix SQL injection in patients endpoint', scope <code>app/db/**</code>, then verify you stayed in scope" (uses <code>bind_task</code> / <code>check_task_scope</code> — out-of-scope writes are flagged and logged)</li>
+<li>"Any known CVEs in this project's dependencies?" (uses <code>get_vulnerabilities</code> — OSV.dev data with reachability analysis)</li>
+<li>"Generate the signed AI-harness compliance evidence report for this sprint" (uses <code>generate_harness_report</code> — HMAC-signed HTML/JSON evidence of all agent governance activity)</li>
+</ul>
+<h3 id="glama-httpsglamaaimcpservers">Glama (https://glama.ai/mcp/servers)<a class="headerlink" href="#glama-httpsglamaaimcpservers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Submit repo URL: https://github.com/maxgerhardson/sentrik-community (glama.json already present, maintainer: maxgerhardson)</li>
+<li>Description: same one-liner as above.</li>
+</ul>
+<h3 id="mcpmarketcom-claudemarketplacescom">mcpmarket.com / claudemarketplaces.com<a class="headerlink" href="#mcpmarketcom-claudemarketplacescom" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Name:</strong> Sentrik</li>
+<li><strong>Category:</strong> Security / Developer Tools / Compliance</li>
+<li><strong>Description:</strong> The compliance layer for AI coding agents. 24 standards packs (595 rules — OWASP, SOC 2, HIPAA, IEC 62304, EU AI Act, and more), task/intent scope enforcement, blast-radius gating, anomaly detection, and cryptographically signed audit evidence. The agent checks rules before writing code; the gate blocks violations; the evidence map proves what's compliant. Free tier: 6 packs, 193 rules, no key required.</li>
+<li><strong>Links:</strong> https://sentrik.dev | https://docs.sentrik.dev | https://github.com/maxgerhardson/sentrik-community</li>
+</ul>
+<hr />
 <h2 id="submission-checklist">Submission Checklist<a class="headerlink" href="#submission-checklist" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2623,13 +2712,25 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 <td>16</td>
 <td>Claude Desktop form</td>
 <td>MCP listing</td>
-<td>Backlog</td>
+<td>Ready — answers in section 10, needs manual form submit</td>
 </tr>
 <tr>
 <td>17</td>
 <td>PulseMCP</td>
 <td>MCP listing</td>
-<td>Backlog</td>
+<td>DONE — auto-listed at pulsemcp.com/servers/sentrik</td>
+</tr>
+<tr>
+<td>17a</td>
+<td>Glama</td>
+<td>MCP listing</td>
+<td>glama.json pushed; verify indexing, else manual add</td>
+</tr>
+<tr>
+<td>17b</td>
+<td>mcpmarket.com / claudemarketplaces.com</td>
+<td>MCP listing</td>
+<td>Copy ready in section 10</td>
 </tr>
 <tr>
 <td>18</td>
