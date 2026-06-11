@@ -2574,19 +2574,20 @@ Community: https://github.com/maxgerhardson/sentrik-community</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;-y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
 </code></pre></div>
+<p>(Requires <code>pip install sentrik</code> first — pip is the only supported install channel; installing gives the free tier, paid tiers via hello@sentrik.dev.)</p>
 <h3 id="claude-desktop-anthropic-form-httpsformsgletyiazvch1kdadkop9">Claude Desktop / Anthropic form (https://forms.gle/tyiAZvch1kDADKoP9)<a class="headerlink" href="#claude-desktop-anthropic-form-httpsformsgletyiazvch1kdadkop9" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Server name:</strong> Sentrik</li>
 <li><strong>One-line description:</strong> Governance runtime for AI-generated code — compliance scanning, task scope enforcement, and signed audit evidence for AI coding agents.</li>
 <li><strong>Repository:</strong> https://github.com/maxgerhardson/sentrik-community</li>
 <li><strong>Docs:</strong> https://docs.sentrik.dev/guides/mcp-integration/</li>
-<li><strong>Install:</strong> <code>npm install -g sentrik</code> (or <code>pip install sentrik</code>), then the config snippet above. Free tier works with no license key or env vars.</li>
+<li><strong>Install:</strong> <code>pip install sentrik</code>, then the config snippet above. Free tier works with no license key or env vars.</li>
 <li><strong>Example prompts (3+):</strong></li>
 <li>"Before you write this endpoint, check which compliance rules apply to <code>src/api/patients.py</code>" (uses <code>get_compliance_context</code> — the agent sees HIPAA/OWASP rules <em>before</em> generating code, so output passes the gate first try)</li>
 <li>"Scan the file you just wrote for compliance violations" (uses <code>scan_file</code> / <code>check_code_snippet</code> — findings include rule ID, severity, and the regulatory clause)</li>
