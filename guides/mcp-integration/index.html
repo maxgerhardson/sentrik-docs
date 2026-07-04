@@ -18,7 +18,7 @@
         <link rel="prev" href="../vscode-extension-tutorial/">
       
       
-        <link rel="next" href="../compliance-skills/">
+        <link rel="next" href="../agent-governance/">
       
       
         
@@ -1024,6 +1024,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2927,7 +2955,7 @@
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="available-tools">Available Tools<a class="headerlink" href="#available-tools" title="Permanent link">&para;</a></h2>
-<p>The MCP server exposes 8 tools:</p>
+<p>The MCP server exposes 23 tools. The core scanning and context tools are documented in detail below; the full list also includes design and threat intelligence (<code>get_design_constraints</code>, <code>review_design_decisions</code>, <code>get_threat_model</code>), agent governance (<code>bind_task</code>, <code>complete_task</code>, <code>check_task_scope</code>, <code>delegate_task</code>, <code>check_delegation</code>, <code>rollback_task</code>, <code>check_blast_radius</code>, <code>check_anomalies</code>), JIT tool grants (<code>request_tool_grant</code>, <code>release_tool_grant</code>, <code>check_tool_grant</code>), and signed evidence reporting (<code>generate_harness_report</code>) — see the <a href="../cli-reference/#sentrik-mcp-server">CLI Reference</a> for the complete table.</p>
 <h3 id="scan_file">scan_file<a class="headerlink" href="#scan_file" title="Permanent link">&para;</a></h3>
 <p>Scan a single file for compliance issues.</p>
 <ul>

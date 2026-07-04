@@ -609,6 +609,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#agent-governance-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent governance commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approval-grant-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval &amp; grant commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#findings-management-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Findings management commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#admin-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1303,6 +1336,34 @@
     
   
     MCP Integration (AI Agents)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Governance
   
 
     
@@ -2867,6 +2928,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#agent-governance-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent governance commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approval-grant-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval &amp; grant commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#findings-management-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Findings management commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#admin-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3592,6 +3686,18 @@
 <td>Generate per-framework compliance reports</td>
 </tr>
 <tr>
+<td><code>sentrik compliance-map</code></td>
+<td>Evidence map — where code SATISFIES requirements (HTML or <code>--json</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik ai-attribution</code></td>
+<td>Report AI co-authorship of commits (EU AI Act Art. 18)</td>
+</tr>
+<tr>
+<td><code>sentrik pack-changelog</code></td>
+<td>Show per-rule diff of enabled packs since last scan (regulatory change tracking)</td>
+</tr>
+<tr>
 <td><code>sentrik history-report</code></td>
 <td>Generate a report from a historical scan run</td>
 </tr>
@@ -3706,6 +3812,149 @@
 <td><code>sentrik diff-packs &lt;id&gt; &lt;old&gt;</code></td>
 <td>Diff current pack against an older version YAML</td>
 </tr>
+<tr>
+<td><code>sentrik lint-pack &lt;id\|file&gt;</code></td>
+<td>Lint a standards pack for authoring footguns that cause false positives</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agent-governance-commands">Agent governance commands<a class="headerlink" href="#agent-governance-commands" title="Permanent link">&para;</a></h2>
+<p>Identity, scope, and audit controls for AI coding agents.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sentrik agent-register &lt;name&gt;</code></td>
+<td>Register a named agent — prints a <code>sk_agent_...</code> credential once (<code>--scopes</code>, <code>--expires</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik agent-list</code></td>
+<td>List registered agents (<code>--json</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik agent-revoke &lt;name&gt;</code></td>
+<td>Revoke an agent credential</td>
+</tr>
+<tr>
+<td><code>sentrik agent-check &lt;action&gt;</code></td>
+<td>Detect the current agent and check trust level for an action (<code>--quiet</code> for hooks, <code>--json</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik task-bind &lt;intent&gt;</code></td>
+<td>Bind an agent session to a declared intent + authorized paths (<code>--path</code>, <code>--work-item</code>, <code>--ttl</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik task-complete &lt;id&gt;</code></td>
+<td>Mark a task session as done</td>
+</tr>
+<tr>
+<td><code>sentrik task-list</code></td>
+<td>List task sessions (<code>--all</code>, <code>--status violated</code>, <code>--json</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik task-delegate</code></td>
+<td>Delegate a sub-task to another agent with reduced trust (trust chains, depth cap 4)</td>
+</tr>
+<tr>
+<td><code>sentrik task-chain &lt;id&gt;</code></td>
+<td>Show the delegation chain for a task session</td>
+</tr>
+<tr>
+<td><code>sentrik task-rollback &lt;id&gt;</code></td>
+<td>Roll back files changed during a task session (<code>--dry-run</code>; HITL gate on violations)</td>
+</tr>
+<tr>
+<td><code>sentrik blast-check</code></td>
+<td>Check files against blast-radius zones (<code>--staged</code>, explicit files, <code>--quiet</code>, <code>--json</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik anomaly-scan</code></td>
+<td>Detect anomalous agent behavior vs. z-score baseline (clean/suspicious/anomalous verdict)</td>
+</tr>
+<tr>
+<td><code>sentrik harness-report</code></td>
+<td>Generate a signed HTML/JSON evidence report across all governance layers (<code>--verify</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="approval-grant-commands">Approval &amp; grant commands<a class="headerlink" href="#approval-grant-commands" title="Permanent link">&para;</a></h2>
+<p>Human-in-the-loop gates and JIT scope grants for agent actions.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sentrik approvals</code></td>
+<td>List approval requests (<code>--status all</code>, <code>--type auto_patch</code>, <code>--json</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik request-approval &lt;type&gt;</code></td>
+<td>Create an approval gate as an agent (<code>--title</code>, <code>--context</code>, <code>--wait</code>, <code>--timeout</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik approve &lt;id&gt;</code></td>
+<td>Approve or reject a pending request (<code>--action approved\|rejected --comment</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik approval-status &lt;id&gt;</code></td>
+<td>Check status of an approval request</td>
+</tr>
+<tr>
+<td><code>sentrik wait-approval &lt;id&gt;</code></td>
+<td>Block until resolved — exit 0 approved / 1 rejected (<code>--timeout</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik grants</code></td>
+<td>List JIT tool grants (<code>--active</code>, <code>--agent</code>, <code>--scope</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik request-grant &lt;scope&gt;</code></td>
+<td>Request a temporary elevated scope as an agent (<code>--reason</code>, <code>--wait</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik grant &lt;scope&gt; &lt;agent&gt;</code></td>
+<td>Admin: manually grant a scope (<code>--ttl</code>, <code>--reason</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik revoke-grant &lt;id&gt;</code></td>
+<td>Revoke a grant immediately</td>
+</tr>
+</tbody>
+</table>
+<h2 id="findings-management-commands">Findings management commands<a class="headerlink" href="#findings-management-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sentrik suppress</code></td>
+<td>Suppress a rule (<code>--rule</code>, optional <code>--file</code> glob, <code>--expires</code>, <code>--reason</code>; <code>--list</code>, <code>--remove</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik exclude &lt;paths&gt;</code></td>
+<td>Add/remove paths in the config <code>scan_exclude</code> list (<code>--remove</code>, <code>--list</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik suggest-excludes</code></td>
+<td>Show directories and patterns that will be excluded from scans (<code>--json</code>)</td>
+</tr>
+<tr>
+<td><code>sentrik external-detect</code></td>
+<td>Detect external scanner configs and suggest <code>external_scanners</code> settings (<code>--write</code>)</td>
+</tr>
 </tbody>
 </table>
 <h2 id="admin-commands">Admin commands<a class="headerlink" href="#admin-commands" title="Permanent link">&para;</a></h2>
@@ -3736,6 +3985,18 @@
 <tr>
 <td><code>sentrik license</code></td>
 <td>Show license status and features</td>
+</tr>
+<tr>
+<td><code>sentrik login</code></td>
+<td>Authenticate with the SENTRIK platform via browser (Auth0 device flow)</td>
+</tr>
+<tr>
+<td><code>sentrik logout</code></td>
+<td>Clear stored authentication tokens</td>
+</tr>
+<tr>
+<td><code>sentrik version</code></td>
+<td>Print the SENTRIK version</td>
 </tr>
 <tr>
 <td><code>sentrik install-check</code></td>
@@ -4534,7 +4795,7 @@
 <a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="p">}</span>
 </code></pre></div></p>
-<p>The MCP server exposes 10 tools:</p>
+<p>The MCP server exposes 23 tools:</p>
 <table>
 <thead>
 <tr>
@@ -4582,6 +4843,58 @@
 <tr>
 <td><code>review_design_decisions</code></td>
 <td>LLM-powered design decision review for code changes</td>
+</tr>
+<tr>
+<td><code>get_threat_model</code></td>
+<td>Get STRIDE threat model results</td>
+</tr>
+<tr>
+<td><code>bind_task</code></td>
+<td>Bind the agent session to a declared intent + authorized paths</td>
+</tr>
+<tr>
+<td><code>complete_task</code></td>
+<td>Mark a bound task session as done</td>
+</tr>
+<tr>
+<td><code>check_task_scope</code></td>
+<td>Check whether a file is within the bound task's authorized scope</td>
+</tr>
+<tr>
+<td><code>delegate_task</code></td>
+<td>Delegate a sub-task to another agent with reduced trust</td>
+</tr>
+<tr>
+<td><code>check_delegation</code></td>
+<td>Inspect a delegation/trust chain</td>
+</tr>
+<tr>
+<td><code>rollback_task</code></td>
+<td>Roll back files changed during a task session</td>
+</tr>
+<tr>
+<td><code>check_blast_radius</code></td>
+<td>Check files against high-impact blast-radius zones</td>
+</tr>
+<tr>
+<td><code>check_anomalies</code></td>
+<td>Detect anomalous agent behavior vs. baseline</td>
+</tr>
+<tr>
+<td><code>request_tool_grant</code></td>
+<td>Request a temporary elevated scope (JIT grant)</td>
+</tr>
+<tr>
+<td><code>release_tool_grant</code></td>
+<td>Release a held grant</td>
+</tr>
+<tr>
+<td><code>check_tool_grant</code></td>
+<td>Check whether a grant is active for a scope</td>
+</tr>
+<tr>
+<td><code>generate_harness_report</code></td>
+<td>Generate a signed AI-harness governance evidence report</td>
 </tr>
 </tbody>
 </table>
@@ -4641,24 +4954,7 @@
 </tbody>
 </table>
 <h2 id="approval-commands-enterprise">Approval commands (Enterprise)<a class="headerlink" href="#approval-commands-enterprise" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>sentrik approve &lt;id&gt;</code></td>
-<td>Approve a pending approval request</td>
-</tr>
-<tr>
-<td><code>sentrik approval-status &lt;id&gt;</code></td>
-<td>Check status of an approval request</td>
-</tr>
-</tbody>
-</table>
+<p>See the <a href="#approval-grant-commands">Approval &amp; grant commands</a> section above for the full list (<code>approvals</code>, <code>request-approval</code>, <code>approve</code>, <code>approval-status</code>, <code>wait-approval</code>).</p>
 <h2 id="common-options">Common options<a class="headerlink" href="#common-options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
