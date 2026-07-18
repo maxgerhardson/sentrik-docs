@@ -914,6 +914,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sentrik-claude-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik claude-init
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sentrik-mcp-server" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1308,6 +1319,34 @@
     
   
     VS Code Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code Integration
   
 
     
@@ -3316,6 +3355,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sentrik-claude-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sentrik claude-init
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sentrik-mcp-server" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4093,6 +4143,10 @@
 <td><code>sentrik test-connection</code></td>
 <td>Test DevOps provider connectivity</td>
 </tr>
+<tr>
+<td><code>sentrik claude-init</code></td>
+<td>Make the repo Claude-ready: skill, MCP server, CLAUDE.md section, scan-on-edit hook</td>
+</tr>
 </tbody>
 </table>
 <h3 id="sentrik-compliance-report"><code>sentrik compliance-report</code><a class="headerlink" href="#sentrik-compliance-report" title="Permanent link">&para;</a></h3>
@@ -4857,22 +4911,24 @@
 </tbody>
 </table>
 <p>Revokes all tokens matching the given prefix. Use <code>sentrik auditor list</code> to find token prefixes.</p>
+<h3 id="sentrik-claude-init"><code>sentrik claude-init</code><a class="headerlink" href="#sentrik-claude-init" title="Permanent link">&para;</a></h3>
+<p>Make the repository Claude-ready in one command.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sentrik<span class="w"> </span>claude-init<span class="w">              </span><span class="c1"># skill + MCP server + CLAUDE.md + scan-on-edit hook</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>sentrik<span class="w"> </span>claude-init<span class="w"> </span>--no-hooks<span class="w">   </span><span class="c1"># skip the PostToolUse hook</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>sentrik<span class="w"> </span>claude-init<span class="w"> </span>--path<span class="w"> </span>DIR<span class="w">   </span><span class="c1"># target another repository root</span>
+</code></pre></div>
+<p>Generates <code>.claude/skills/sentrik/SKILL.md</code> (onboarding interview, pack
+catalog, workflow), merges the Sentrik MCP server into <code>.mcp.json</code>, maintains
+a marked section in <code>CLAUDE.md</code>, and installs a PostToolUse hook that scans
+every file Claude edits and returns findings into the conversation. All
+writes are idempotent and merge-safe; pack changes refresh the generated
+content automatically. See the <a href="../claude-code-integration/">Claude Code Integration guide</a>.</p>
 <h3 id="sentrik-mcp-server"><code>sentrik mcp-server</code><a class="headerlink" href="#sentrik-mcp-server" title="Permanent link">&para;</a></h3>
 <p>Start the MCP (Model Context Protocol) server for AI agent integration. AI coding tools like Claude Code, Cursor, and VS Code connect to this server to access Sentrik's compliance tools during code generation and review.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sentrik<span class="w"> </span>mcp-server
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sentrik<span class="w"> </span>mcp-server
 </code></pre></div>
 <p>The server communicates over stdio (stdin/stdout) — the standard MCP transport. You don't run this directly; configure it in your AI tool's MCP settings:</p>
 <p><strong>Claude Code</strong> (<code>.claude/claude_desktop_config.json</code> or project <code>.mcp.json</code>):
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="p">}</span>
-</code></pre></div></p>
-<p><strong>Cursor</strong> (Settings &gt; MCP Servers):
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -4881,6 +4937,16 @@
 <a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Cursor</strong> (Settings &gt; MCP Servers):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="nt">&quot;sentrik&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentrik&quot;</span><span class="p">,</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mcp-server&quot;</span><span class="p">]</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="p">}</span>
 </code></pre></div></p>
 <p>The MCP server exposes 26 tools:</p>
 <table>
@@ -5091,7 +5157,7 @@
 </table>
 <p><code>--staged</code>, <code>--git-range</code>, and <code>--diff</code> are mutually exclusive.</p>
 <h2 id="scan-command-options">Scan command options<a class="headerlink" href="#scan-command-options" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sentrik<span class="w"> </span>scan<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sentrik<span class="w"> </span>scan<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5124,7 +5190,7 @@
 </tbody>
 </table>
 <h2 id="gate-command-options">Gate command options<a class="headerlink" href="#gate-command-options" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sentrik<span class="w"> </span>gate<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sentrik<span class="w"> </span>gate<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5169,7 +5235,7 @@
 </tbody>
 </table>
 <h2 id="serve-command-options">Serve command options<a class="headerlink" href="#serve-command-options" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sentrik<span class="w"> </span>dashboard<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sentrik<span class="w"> </span>dashboard<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5194,7 +5260,7 @@
 </tbody>
 </table>
 <h2 id="reconcile-command-options">Reconcile command options<a class="headerlink" href="#reconcile-command-options" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sentrik<span class="w"> </span>reconcile<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sentrik<span class="w"> </span>reconcile<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5224,9 +5290,9 @@
 </table>
 <h3 id="sentrik-import-spec"><code>sentrik import-spec</code><a class="headerlink" href="#sentrik-import-spec" title="Permanent link">&para;</a></h3>
 <p>Generate security rules from an API specification file. Auto-detects format from file extension and content.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>openapi.yaml<span class="w"> </span>--enable<span class="w">          </span><span class="c1"># OpenAPI → rules, enable in config</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>events.yaml<span class="w"> </span>-f<span class="w"> </span>asyncapi<span class="w">        </span><span class="c1"># Explicit format</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>service.proto<span class="w"> </span>--id<span class="w"> </span>my-api<span class="w">      </span><span class="c1"># Custom pack ID</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>openapi.yaml<span class="w"> </span>--enable<span class="w">          </span><span class="c1"># OpenAPI → rules, enable in config</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>events.yaml<span class="w"> </span>-f<span class="w"> </span>asyncapi<span class="w">        </span><span class="c1"># Explicit format</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>sentrik<span class="w"> </span>import-spec<span class="w"> </span>service.proto<span class="w"> </span>--id<span class="w"> </span>my-api<span class="w">      </span><span class="c1"># Custom pack ID</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5266,9 +5332,9 @@
 </ul>
 <h3 id="sentrik-attest"><code>sentrik attest</code><a class="headerlink" href="#sentrik-attest" title="Permanent link">&para;</a></h3>
 <p>Generate or verify a cryptographically signed compliance attestation.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sentrik<span class="w"> </span>attest<span class="w">                              </span><span class="c1"># Generate attestation from latest scan</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>sentrik<span class="w"> </span>attest<span class="w"> </span>-o<span class="w"> </span>proof.json<span class="w">                </span><span class="c1"># Custom output path</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>sentrik<span class="w"> </span>attest<span class="w"> </span>--verify<span class="w"> </span>out/attestation.json<span class="w">  </span><span class="c1"># Verify existing attestation</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>sentrik<span class="w"> </span>attest<span class="w">                              </span><span class="c1"># Generate attestation from latest scan</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>sentrik<span class="w"> </span>attest<span class="w"> </span>-o<span class="w"> </span>proof.json<span class="w">                </span><span class="c1"># Custom output path</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>sentrik<span class="w"> </span>attest<span class="w"> </span>--verify<span class="w"> </span>out/attestation.json<span class="w">  </span><span class="c1"># Verify existing attestation</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5295,8 +5361,8 @@
 <p>The attestation document includes: findings digest (SHA-256), severity counts, gate status, packs enabled, git SHA, tool version, and an HMAC-SHA256 signature.</p>
 <h3 id="sentrik-diff-packs"><code>sentrik diff-packs</code><a class="headerlink" href="#sentrik-diff-packs" title="Permanent link">&para;</a></h3>
 <p>Diff the current version of a standards pack against an older version.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>sentrik<span class="w"> </span>diff-packs<span class="w"> </span>owasp-top-10<span class="w"> </span>old-owasp.yaml<span class="w">       </span><span class="c1"># Human-readable diff</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>sentrik<span class="w"> </span>diff-packs<span class="w"> </span>supply-chain-security<span class="w"> </span>old.yaml<span class="w"> </span>-j<span class="w">  </span><span class="c1"># JSON output</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>sentrik<span class="w"> </span>diff-packs<span class="w"> </span>owasp-top-10<span class="w"> </span>old-owasp.yaml<span class="w">       </span><span class="c1"># Human-readable diff</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>sentrik<span class="w"> </span>diff-packs<span class="w"> </span>supply-chain-security<span class="w"> </span>old.yaml<span class="w"> </span>-j<span class="w">  </span><span class="c1"># JSON output</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5318,9 +5384,9 @@
 </table>
 <h3 id="sentrik-gap-analysis"><code>sentrik gap-analysis</code><a class="headerlink" href="#sentrik-gap-analysis" title="Permanent link">&para;</a></h3>
 <p>Generate a regulatory gap analysis between pack versions. Identifies new obligations, strengthened rules, relaxed rules, and removed controls.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>owasp-top-10<span class="w"> </span>old-owasp.yaml<span class="w">        </span><span class="c1"># Human-readable report</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>soc2<span class="w"> </span>old-soc2.yaml<span class="w"> </span>--json<span class="w">           </span><span class="c1"># JSON for automation</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>hipaa<span class="w"> </span>old.yaml<span class="w"> </span>-o<span class="w"> </span>gap-report.json<span class="w"> </span>-j<span class="w">  </span><span class="c1"># Save to file</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>owasp-top-10<span class="w"> </span>old-owasp.yaml<span class="w">        </span><span class="c1"># Human-readable report</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>soc2<span class="w"> </span>old-soc2.yaml<span class="w"> </span>--json<span class="w">           </span><span class="c1"># JSON for automation</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>sentrik<span class="w"> </span>gap-analysis<span class="w"> </span>hipaa<span class="w"> </span>old.yaml<span class="w"> </span>-o<span class="w"> </span>gap-report.json<span class="w"> </span>-j<span class="w">  </span><span class="c1"># Save to file</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5348,10 +5414,10 @@
 <li><strong>Cross-file</strong> — finds missing source files and suggests where code may have moved</li>
 <li><strong>Acceptance criteria</strong> — LLM validates each acceptance criterion against the implementation</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>sentrik<span class="w"> </span>drift-scan<span class="w">                              </span><span class="c1"># Analyze all requirements</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>-r<span class="w"> </span>custom-reqs.yaml<span class="w">          </span><span class="c1"># Custom requirements file</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>--staged<span class="w">                     </span><span class="c1"># Scope to staged files only</span>
-<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>--json<span class="w"> </span>-o<span class="w"> </span>drift-report.json<span class="w">  </span><span class="c1"># JSON output</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sentrik<span class="w"> </span>drift-scan<span class="w">                              </span><span class="c1"># Analyze all requirements</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>-r<span class="w"> </span>custom-reqs.yaml<span class="w">          </span><span class="c1"># Custom requirements file</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>--staged<span class="w">                     </span><span class="c1"># Scope to staged files only</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>sentrik<span class="w"> </span>drift-scan<span class="w"> </span>--json<span class="w"> </span>-o<span class="w"> </span>drift-report.json<span class="w">  </span><span class="c1"># JSON output</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5387,10 +5453,10 @@
 <h2 id="intelligence-command-details">Intelligence command details<a class="headerlink" href="#intelligence-command-details" title="Permanent link">&para;</a></h2>
 <h3 id="sentrik-quality-score"><code>sentrik quality-score</code><a class="headerlink" href="#sentrik-quality-score" title="Permanent link">&para;</a></h3>
 <p>Calculate a code quality score (0-100) across six weighted dimensions.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sentrik<span class="w"> </span>quality-score<span class="w">                      </span><span class="c1"># Show overall score</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>sentrik<span class="w"> </span>quality-score<span class="w"> </span>--verbose<span class="w">            </span><span class="c1"># Show per-dimension breakdown</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>sentrik<span class="w"> </span>quality-score<span class="w"> </span>--verbose<span class="w"> </span>--json<span class="w">     </span><span class="c1"># JSON output with all dimensions</span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>sentrik<span class="w"> </span>quality-score<span class="w"> </span>--min-quality<span class="w"> </span><span class="m">70</span><span class="w">     </span><span class="c1"># Fail (exit 1) if score is below threshold</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sentrik<span class="w"> </span>quality-score<span class="w">                      </span><span class="c1"># Show overall score</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sentrik<span class="w"> </span>quality-score<span class="w"> </span>--verbose<span class="w">            </span><span class="c1"># Show per-dimension breakdown</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>sentrik<span class="w"> </span>quality-score<span class="w"> </span>--verbose<span class="w"> </span>--json<span class="w">     </span><span class="c1"># JSON output with all dimensions</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>sentrik<span class="w"> </span>quality-score<span class="w"> </span>--min-quality<span class="w"> </span><span class="m">70</span><span class="w">     </span><span class="c1"># Fail (exit 1) if score is below threshold</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5468,9 +5534,9 @@
 <p>Each run is appended to <code>out/quality_history.json</code> for trend tracking.</p>
 <h3 id="sentrik-quality-trend"><code>sentrik quality-trend</code><a class="headerlink" href="#sentrik-quality-trend" title="Permanent link">&para;</a></h3>
 <p>Show quality score trend from historical measurements.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sentrik<span class="w"> </span>quality-trend<span class="w">                      </span><span class="c1"># Show trend table</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sentrik<span class="w"> </span>quality-trend<span class="w"> </span>--last<span class="w"> </span><span class="m">20</span><span class="w">            </span><span class="c1"># Last 20 measurements</span>
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>sentrik<span class="w"> </span>quality-trend<span class="w"> </span>--json<span class="w">               </span><span class="c1"># JSON output</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sentrik<span class="w"> </span>quality-trend<span class="w">                      </span><span class="c1"># Show trend table</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>sentrik<span class="w"> </span>quality-trend<span class="w"> </span>--last<span class="w"> </span><span class="m">20</span><span class="w">            </span><span class="c1"># Last 20 measurements</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>sentrik<span class="w"> </span>quality-trend<span class="w"> </span>--json<span class="w">               </span><span class="c1"># JSON output</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5495,10 +5561,10 @@
 </table>
 <h3 id="sentrik-profile"><code>sentrik profile</code><a class="headerlink" href="#sentrik-profile" title="Permanent link">&para;</a></h3>
 <p>Build or view a project profile — auto-detected languages, frameworks, architecture patterns, conventions, and module map.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sentrik<span class="w"> </span>profile<span class="w">                            </span><span class="c1"># Build/refresh profile</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>sentrik<span class="w"> </span>profile<span class="w"> </span>--show<span class="w">                     </span><span class="c1"># View cached profile</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>sentrik<span class="w"> </span>profile<span class="w"> </span>--for<span class="w"> </span>src/api/routes/<span class="w">      </span><span class="c1"># View constraints for a specific area</span>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>sentrik<span class="w"> </span>profile<span class="w"> </span>--json<span class="w">                     </span><span class="c1"># JSON output</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>sentrik<span class="w"> </span>profile<span class="w">                            </span><span class="c1"># Build/refresh profile</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>sentrik<span class="w"> </span>profile<span class="w"> </span>--show<span class="w">                     </span><span class="c1"># View cached profile</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>sentrik<span class="w"> </span>profile<span class="w"> </span>--for<span class="w"> </span>src/api/routes/<span class="w">      </span><span class="c1"># View constraints for a specific area</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>sentrik<span class="w"> </span>profile<span class="w"> </span>--json<span class="w">                     </span><span class="c1"># JSON output</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5544,11 +5610,11 @@
 </ul>
 <h3 id="sentrik-review-design"><code>sentrik review-design</code><a class="headerlink" href="#sentrik-review-design" title="Permanent link">&para;</a></h3>
 <p>LLM-powered design decision review. Analyses code changes and surfaces architecture, security, and data model decisions that need human attention.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--file<span class="w"> </span>src/auth.py<span class="w">                </span><span class="c1"># Review a specific file</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--git-range<span class="w"> </span>HEAD~3..HEAD<span class="w">          </span><span class="c1"># Review recent changes</span>
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--pending<span class="w">                         </span><span class="c1"># Show unacknowledged decisions</span>
-<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--ack<span class="w"> </span>DD-ABC123<span class="w"> </span>--note<span class="w"> </span><span class="s2">&quot;Reviewed&quot;</span><span class="w"> </span><span class="c1"># Acknowledge a decision</span>
-<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--json<span class="w">                            </span><span class="c1"># JSON output</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--file<span class="w"> </span>src/auth.py<span class="w">                </span><span class="c1"># Review a specific file</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--git-range<span class="w"> </span>HEAD~3..HEAD<span class="w">          </span><span class="c1"># Review recent changes</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--pending<span class="w">                         </span><span class="c1"># Show unacknowledged decisions</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--ack<span class="w"> </span>DD-ABC123<span class="w"> </span>--note<span class="w"> </span><span class="s2">&quot;Reviewed&quot;</span><span class="w"> </span><span class="c1"># Acknowledge a decision</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>sentrik<span class="w"> </span>review-design<span class="w"> </span>--json<span class="w">                            </span><span class="c1"># JSON output</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5609,10 +5675,10 @@
 <p>Decisions are stored in <code>out/design_decisions.json</code>. When <code>governance.design_review.require_acknowledgment</code> is set in config, <code>sentrik gate</code> returns exit code 2 if decisions are pending (compliance passes but design review is incomplete).</p>
 <h3 id="sentrik-check-expertise"><code>sentrik check-expertise</code><a class="headerlink" href="#sentrik-check-expertise" title="Permanent link">&para;</a></h3>
 <p>Check if code changes fall outside the developer's expertise based on git commit history.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sentrik<span class="w"> </span>check-expertise<span class="w"> </span>--profile<span class="w">                    </span><span class="c1"># Show developer profile</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>sentrik<span class="w"> </span>check-expertise<span class="w">                              </span><span class="c1"># Check staged changes</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>sentrik<span class="w"> </span>check-expertise<span class="w"> </span>--git-range<span class="w"> </span>HEAD~5..HEAD<span class="w">     </span><span class="c1"># Check specific range</span>
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>sentrik<span class="w"> </span>check-expertise<span class="w"> </span>--threshold<span class="w"> </span><span class="m">0</span>.1<span class="w">              </span><span class="c1"># More sensitive (flag more)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>sentrik<span class="w"> </span>check-expertise<span class="w"> </span>--profile<span class="w">                    </span><span class="c1"># Show developer profile</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>sentrik<span class="w"> </span>check-expertise<span class="w">                              </span><span class="c1"># Check staged changes</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>sentrik<span class="w"> </span>check-expertise<span class="w"> </span>--git-range<span class="w"> </span>HEAD~5..HEAD<span class="w">     </span><span class="c1"># Check specific range</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>sentrik<span class="w"> </span>check-expertise<span class="w"> </span>--threshold<span class="w"> </span><span class="m">0</span>.1<span class="w">              </span><span class="c1"># More sensitive (flag more)</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5664,9 +5730,9 @@
 <p>When changes touch a language or module where the developer has fewer than <code>threshold</code> proportion of commits, it flags an expertise gap with severity <code>warning</code> or <code>info</code>. Profiles are cached in <code>out/developer_profiles.json</code>.</p>
 <h3 id="sentrik-compare"><code>sentrik compare</code><a class="headerlink" href="#sentrik-compare" title="Permanent link">&para;</a></h3>
 <p>Delta analysis — show new, resolved, and unchanged findings compared to a previous scan.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>sentrik<span class="w"> </span>compare<span class="w">                             </span><span class="c1"># Compare against most recent history</span>
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>sentrik<span class="w"> </span>compare<span class="w"> </span>--run-id<span class="w"> </span>&lt;RUN_ID&gt;<span class="w">           </span><span class="c1"># Compare against a specific run</span>
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>sentrik<span class="w"> </span>compare<span class="w"> </span>--json<span class="w">                      </span><span class="c1"># JSON output</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>sentrik<span class="w"> </span>compare<span class="w">                             </span><span class="c1"># Compare against most recent history</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>sentrik<span class="w"> </span>compare<span class="w"> </span>--run-id<span class="w"> </span>&lt;RUN_ID&gt;<span class="w">           </span><span class="c1"># Compare against a specific run</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>sentrik<span class="w"> </span>compare<span class="w"> </span>--json<span class="w">                      </span><span class="c1"># JSON output</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5697,12 +5763,12 @@
 <p>Shows three categories: <strong>new</strong> findings (introduced since last run), <strong>resolved</strong> findings (fixed), and <strong>unchanged</strong> findings. Useful for PR reviews to see exactly what changed.</p>
 <h3 id="sentrik-threat-model"><code>sentrik threat-model</code><a class="headerlink" href="#sentrik-threat-model" title="Permanent link">&para;</a></h3>
 <p>STRIDE-based threat modeling using LLM analysis. Identifies spoofing, tampering, repudiation, information disclosure, denial of service, and elevation of privilege threats in your code.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--file<span class="w"> </span>src/api/routes/patients.py<span class="w">   </span><span class="c1"># Analyze a specific file</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--git-range<span class="w"> </span>HEAD~3..HEAD<span class="w">            </span><span class="c1"># Analyze recent changes</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--stride<span class="w"> </span>tampering<span class="w">                  </span><span class="c1"># Filter by STRIDE category</span>
-<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--pending<span class="w">                           </span><span class="c1"># Show unmitigated threats</span>
-<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--mitigate<span class="w"> </span>TM-ABC123<span class="w"> </span>--note<span class="w"> </span><span class="s2">&quot;Fixed&quot;</span><span class="w"> </span><span class="c1"># Mark threat as mitigated</span>
-<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--json<span class="w">                              </span><span class="c1"># JSON output</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--file<span class="w"> </span>src/api/routes/patients.py<span class="w">   </span><span class="c1"># Analyze a specific file</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--git-range<span class="w"> </span>HEAD~3..HEAD<span class="w">            </span><span class="c1"># Analyze recent changes</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--stride<span class="w"> </span>tampering<span class="w">                  </span><span class="c1"># Filter by STRIDE category</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--pending<span class="w">                           </span><span class="c1"># Show unmitigated threats</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--mitigate<span class="w"> </span>TM-ABC123<span class="w"> </span>--note<span class="w"> </span><span class="s2">&quot;Fixed&quot;</span><span class="w"> </span><span class="c1"># Mark threat as mitigated</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>sentrik<span class="w"> </span>threat-model<span class="w"> </span>--json<span class="w">                              </span><span class="c1"># JSON output</span>
 </code></pre></div>
 <table>
 <thead>
