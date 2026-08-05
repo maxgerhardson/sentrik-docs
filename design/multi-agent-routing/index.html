@@ -2344,6 +2344,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3. Foundation reused (nothing re-implemented)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reconciliation-with-the-existing-delegation-primitive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconciliation with the existing delegation primitive
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2480,7 +2497,7 @@
 
 
 <h1 id="design-multi-agent-routing-coordination-layer">Design: Multi-agent routing (coordination layer)<a class="headerlink" href="#design-multi-agent-routing-coordination-layer" title="Permanent link">&para;</a></h1>
-<p>Status: <strong>Plan / not started</strong> · Owner: Max · Last updated: 2026-08-05
+<p>Status: <strong>Phase 1 implemented</strong> (router core + CLI + MCP + tests) · Phase 2 pending · Owner: Max · Last updated: 2026-08-05
 Roadmap context: <a href="../agentic-governance-roadmap/">agentic-governance-roadmap.md</a> Phases 1–2 · Est. ~6–10 wk · Ships value at Phase 1 (local MVP)</p>
 <h2 id="1-problem-goal">1. Problem &amp; goal<a class="headerlink" href="#1-problem-goal" title="Permanent link">&para;</a></h2>
 <p>Sentrik governs a <em>single</em> agent's actions well (identity, trust, task scope,
@@ -2550,8 +2567,29 @@ records it — the host (Claude Code, Cursor, a CI script, an SDK loop) still
 <td><code>mcp_server.py</code> MCP tools</td>
 <td>Where <code>route_task</code>/<code>handoff</code>/<code>escalate</code> live</td>
 </tr>
+<tr>
+<td><strong>Trust-capped delegation</strong></td>
+<td><code>core/trust_chain.py</code> (<code>delegate_task</code>) + <code>task-delegate</code>/<code>task-chain</code> CLI, <code>delegate_task</code>/<code>check_delegation</code> MCP</td>
+<td>Hierarchical parent→child sub-tasks with <code>effective_trust = min(parent, max_trust)</code> and chain-depth limits</td>
+</tr>
 </tbody>
 </table>
+<h3 id="reconciliation-with-the-existing-delegation-primitive">Reconciliation with the existing delegation primitive<a class="headerlink" href="#reconciliation-with-the-existing-delegation-primitive" title="Permanent link">&para;</a></h3>
+<p>Sentrik <strong>already ships</strong> hierarchical, trust-capped delegation (<code>trust_chain.delegate_task</code>,
+surfaced via <code>task-delegate</code>/<code>task-chain</code> and MCP <code>delegate_task</code>/<code>check_delegation</code>).
+That is the <em>privilege</em> mechanism (a child can never exceed its parent's trust).
+Routing is the <strong>decision + coordination-ledger + escalation</strong> layer <em>above</em> it —
+"which agent, and is this hop allowed", recorded in a handoff ledger. They are
+complementary, not competing:</p>
+<ul>
+<li><strong>Now (Phase 1, shipped):</strong> <code>agent_router</code> uses an <em>injectable</em> store (better for
+  tests + the future fleet) and creates the receiver session itself with
+  narrow-only scope + a trust gate; escalation is fail-closed.</li>
+<li><strong>Follow-up (unify):</strong> route <code>handoff</code>'s child-session creation <em>through</em>
+  <code>trust_chain.delegate_task</code> so trust-capping + chain-depth live in exactly one
+  place. Blocked only by <code>delegate_task</code> currently binding the <strong>global</strong> session
+  store; give it an injectable store, then have <code>handoff</code> call it.</li>
+</ul>
 <h2 id="4-capabilities">4. Capabilities<a class="headerlink" href="#4-capabilities" title="Permanent link">&para;</a></h2>
 <h3 id="4a-routing-dsl">4a. Routing DSL<a class="headerlink" href="#4a-routing-dsl" title="Permanent link">&para;</a></h3>
 <p>Declarative rules mapping work → agent, stored in <code>.sentrik/routes.yaml</code> (checked
@@ -2617,12 +2655,14 @@ migration — same store).</p>
 </ul>
 <h2 id="8-phasing-matches-roadmap">8. Phasing (matches roadmap)<a class="headerlink" href="#8-phasing-matches-roadmap" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>P1 — Router MVP (local).</strong> <code>agent_router.py</code> + <code>routes.yaml</code> DSL + matcher +
-   <code>route_task</code>/<code>handoff</code> MCP tools + <code>sentrik route</code>/<code>routes</code> CLI + audit + handoff
-   ledger. Demoable coordination with zero infra. (~4–6 wk)</li>
-<li><strong>P2 — Escalation + traceability + UI.</strong> Wire <code>escalate</code> into approvals/HITL,
-   carry work-item links across hops, loop guard, and the dashboard Routes view.
-   (rest of budget)</li>
+<li><strong>P1 — Router MVP (local). ✅ DONE.</strong> <code>core/agent_router.py</code> (models, <code>routes.yaml</code>
+   DSL + matcher, <code>HandoffStore</code> ledger, governed <code>handoff</code> with narrow-only scope +
+   trust gate, fail-closed <code>escalate</code>, loop/hop guard) + <code>route_task</code>/<code>handoff</code>/
+   <code>escalate</code> MCP tools + <code>sentrik route</code>/<code>routes</code>/<code>handoffs</code> CLI + <code>test_agent_router.py</code>
+   (12 tests). Local, zero infra.</li>
+<li><strong>P2 — Escalation + traceability + UI.</strong> Wire <code>escalate</code> into approvals/HITL (real
+   human gate), carry work-item links across hops, the dashboard <strong>Routes</strong> view, and
+   unify handoff's child-session creation through <code>trust_chain.delegate_task</code> (§3).</li>
 </ol>
 <h2 id="9-testing">9. Testing<a class="headerlink" href="#9-testing" title="Permanent link">&para;</a></h2>
 <ul>
