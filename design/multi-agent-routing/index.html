@@ -2497,7 +2497,7 @@
 
 
 <h1 id="design-multi-agent-routing-coordination-layer">Design: Multi-agent routing (coordination layer)<a class="headerlink" href="#design-multi-agent-routing-coordination-layer" title="Permanent link">&para;</a></h1>
-<p>Status: <strong>Phase 1 done · Phase 2 nearly done</strong> (escalate→HITL, traceability, Routes UI done; only delegation-unify remains) · Owner: Max · Last updated: 2026-08-06
+<p>Status: <strong>Phase 1 &amp; 2 DONE</strong> (router, CLI, MCP, HITL escalation, Routes UI, unified through trust_chain) · Owner: Max · Last updated: 2026-08-06
 Roadmap context: <a href="../agentic-governance-roadmap/">agentic-governance-roadmap.md</a> Phases 1–2 · Est. ~6–10 wk · Ships value at Phase 1 (local MVP)</p>
 <h2 id="1-problem-goal">1. Problem &amp; goal<a class="headerlink" href="#1-problem-goal" title="Permanent link">&para;</a></h2>
 <p>Sentrik governs a <em>single</em> agent's actions well (identity, trust, task scope,
@@ -2585,10 +2585,10 @@ complementary, not competing:</p>
 <li><strong>Now (Phase 1, shipped):</strong> <code>agent_router</code> uses an <em>injectable</em> store (better for
   tests + the future fleet) and creates the receiver session itself with
   narrow-only scope + a trust gate; escalation is fail-closed.</li>
-<li><strong>Follow-up (unify):</strong> route <code>handoff</code>'s child-session creation <em>through</em>
-  <code>trust_chain.delegate_task</code> so trust-capping + chain-depth live in exactly one
-  place. Blocked only by <code>delegate_task</code> currently binding the <strong>global</strong> session
-  store; give it an injectable store, then have <code>handoff</code> call it.</li>
+<li><strong>Unified (done):</strong> <code>handoff</code>'s child-session creation now routes <em>through</em>
+  <code>trust_chain.delegate_task</code> — <code>delegate_task</code> gained an optional <code>store</code> param
+  (existing callers unchanged, still use the global store + <code>bind_task</code>); the router
+  passes its own store. Trust-capping + chain-depth now live in exactly one place.</li>
 </ul>
 <h2 id="4-capabilities">4. Capabilities<a class="headerlink" href="#4-capabilities" title="Permanent link">&para;</a></h2>
 <h3 id="4a-routing-dsl">4a. Routing DSL<a class="headerlink" href="#4a-routing-dsl" title="Permanent link">&para;</a></h3>
@@ -2669,8 +2669,10 @@ migration — same store).</p>
      every ledger entry across the chain.</li>
 <li>✅ Dashboard <strong>Routes</strong> view — read-only page (rules + handoff ledger, escalation
      approval gates shown), <code>GET /api/routes</code> + <code>GET /api/handoffs</code>.</li>
-<li>⏳ Unify handoff's child-session creation through <code>trust_chain.delegate_task</code> (§3;
-     needs <code>delegate_task</code> to take an injectable store). <em>Only remaining Phase-2 item.</em></li>
+<li>✅ Unified: <code>handoff</code> now creates its receiver through <code>trust_chain.delegate_task</code>
+     (given an <strong>injectable store</strong> so the child lands in the router's store). Trust-
+     capping (<code>min(sender, receiver)</code>) + chain-depth live in one place, and the receiver
+     joins the delegation chain (visible to <code>check_delegation</code>/<code>task-chain</code>).</li>
 </ol>
 <h2 id="9-testing">9. Testing<a class="headerlink" href="#9-testing" title="Permanent link">&para;</a></h2>
 <ul>
