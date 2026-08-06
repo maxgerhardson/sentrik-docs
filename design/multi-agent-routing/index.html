@@ -2497,7 +2497,7 @@
 
 
 <h1 id="design-multi-agent-routing-coordination-layer">Design: Multi-agent routing (coordination layer)<a class="headerlink" href="#design-multi-agent-routing-coordination-layer" title="Permanent link">&para;</a></h1>
-<p>Status: <strong>Phase 1 implemented</strong> (router core + CLI + MCP + tests) · Phase 2 pending · Owner: Max · Last updated: 2026-08-05
+<p>Status: <strong>Phase 1 done · Phase 2 nearly done</strong> (escalate→HITL, traceability, Routes UI done; only delegation-unify remains) · Owner: Max · Last updated: 2026-08-06
 Roadmap context: <a href="../agentic-governance-roadmap/">agentic-governance-roadmap.md</a> Phases 1–2 · Est. ~6–10 wk · Ships value at Phase 1 (local MVP)</p>
 <h2 id="1-problem-goal">1. Problem &amp; goal<a class="headerlink" href="#1-problem-goal" title="Permanent link">&para;</a></h2>
 <p>Sentrik governs a <em>single</em> agent's actions well (identity, trust, task scope,
@@ -2660,9 +2660,17 @@ migration — same store).</p>
    trust gate, fail-closed <code>escalate</code>, loop/hop guard) + <code>route_task</code>/<code>handoff</code>/
    <code>escalate</code> MCP tools + <code>sentrik route</code>/<code>routes</code>/<code>handoffs</code> CLI + <code>test_agent_router.py</code>
    (12 tests). Local, zero infra.</li>
-<li><strong>P2 — Escalation + traceability + UI.</strong> Wire <code>escalate</code> into approvals/HITL (real
-   human gate), carry work-item links across hops, the dashboard <strong>Routes</strong> view, and
-   unify handoff's child-session creation through <code>trust_chain.delegate_task</code> (§3).</li>
+<li><strong>P2 — Escalation + traceability + UI.</strong> <em>In progress.</em></li>
+<li>✅ <code>escalate</code> opens a real <strong>approval</strong> (HITL gate): escalating to a human creates
+     a pending <code>ApprovalRequest</code> (<code>action_type=agent_escalation</code>); the handoff carries
+     its <code>approval_id</code>. Failed handoffs (trust/scope/loop) escalate to a human, not the
+     failed agent.</li>
+<li>✅ Work-item traceability: <code>work_item_id</code> is carried into the receiver session and
+     every ledger entry across the chain.</li>
+<li>✅ Dashboard <strong>Routes</strong> view — read-only page (rules + handoff ledger, escalation
+     approval gates shown), <code>GET /api/routes</code> + <code>GET /api/handoffs</code>.</li>
+<li>⏳ Unify handoff's child-session creation through <code>trust_chain.delegate_task</code> (§3;
+     needs <code>delegate_task</code> to take an injectable store). <em>Only remaining Phase-2 item.</em></li>
 </ol>
 <h2 id="9-testing">9. Testing<a class="headerlink" href="#9-testing" title="Permanent link">&para;</a></h2>
 <ul>
