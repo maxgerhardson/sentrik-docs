@@ -12,7 +12,7 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/design/sentrik-owned-oauth/">
+        <link rel="canonical" href="https://docs.sentrik.dev/design/attestation-notary/">
       
       
       
@@ -25,7 +25,7 @@
     
     
       
-        <title>Design: Sentrik-owned OAuth apps (zero-config DevOps auth) - sentrik documentation</title>
+        <title>Attestation Notary — Design - sentrik documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#design-sentrik-owned-oauth-apps-zero-config-devops-auth" class="md-skip">
+        <a href="#attestation-notary-design" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Design: Sentrik-owned OAuth apps (zero-config DevOps auth)
+              Attestation Notary — Design
             
           </span>
         </div>
@@ -2341,10 +2341,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-problem" class="md-nav__link">
+  <a href="#the-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Problem
+        The problem
       
     </span>
   </a>
@@ -2352,10 +2352,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-current-state-what-we-build-on" class="md-nav__link">
+  <a href="#constraints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Current state (what we build on)
+        Constraints
       
     </span>
   </a>
@@ -2363,44 +2363,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-the-core-constraint" class="md-nav__link">
+  <a href="#design" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. The core constraint
+        Design
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Recommended architecture: hybrid (PKCE where possible, broker otherwise)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-work-breakdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Work breakdown
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Work breakdown">
+    <nav class="md-nav" aria-label="Design">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-product-ships-in-the-package" class="md-nav__link">
+  <a href="#signing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A. Product (ships in the package)
+        Signing
       
     </span>
   </a>
@@ -2408,10 +2386,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-broker-service-extends-sentrik-portalflydev" class="md-nav__link">
+  <a href="#what-gets-sent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        B. Broker service (extends sentrik-portal.fly.dev)
+        What gets sent
       
     </span>
   </a>
@@ -2419,10 +2397,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#c-dashboard-frontend" class="md-nav__link">
+  <a href="#what-comes-back" class="md-nav__link">
     <span class="md-ellipsis">
       
-        C. Dashboard (frontend)
+        What comes back
       
     </span>
   </a>
@@ -2430,10 +2408,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#d-docs-infra" class="md-nav__link">
+  <a href="#verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        D. Docs / infra
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparency-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transparency log
       
     </span>
   </a>
@@ -2446,10 +2435,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-manual-registration-max-one-time" class="md-nav__link">
+  <a href="#trust-states" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Manual registration (Max — one-time)
+        Trust states
       
     </span>
   </a>
@@ -2457,10 +2446,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-security-checklist" class="md-nav__link">
+  <a href="#claims-this-supports" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Security checklist
+        Claims this supports
       
     </span>
   </a>
@@ -2468,10 +2457,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-phasing" class="md-nav__link">
+  <a href="#deployment-runbook" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Phasing
+        Deployment runbook
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment runbook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-generate-the-keypair-and-set-the-fly-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Generate the keypair and set the Fly secret
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-put-the-public-key-in-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Put the public key in the client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Deploy the server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-prove-it-end-to-end-before-releasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Prove it end to end before releasing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordering-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordering note
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliberately-out-of-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliberately out of scope
       
     </span>
   </a>
@@ -2479,21 +2551,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-testing" class="md-nav__link">
+  <a href="#related" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Testing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-back-compat-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Back-compat &amp; open questions
+        Related
       
     </span>
   </a>
@@ -2517,197 +2578,223 @@
 
 
 
-<h1 id="design-sentrik-owned-oauth-apps-zero-config-devops-auth">Design: Sentrik-owned OAuth apps (zero-config DevOps auth)<a class="headerlink" href="#design-sentrik-owned-oauth-apps-zero-config-devops-auth" title="Permanent link">&para;</a></h1>
-<p>Status: <strong>Plan / not started</strong> · Owner: Max · Last updated: 2026-08-05</p>
-<h2 id="1-problem">1. Problem<a class="headerlink" href="#1-problem" title="Permanent link">&para;</a></h2>
-<p>To connect Azure DevOps / GitHub / Jira today, a user must <strong>register their own
-OAuth app</strong> with each provider and set 6+ env vars per provider
-(<code>GUARD_AZURE_OAUTH_CLIENT_ID</code>, <code>…_CLIENT_SECRET</code>, <code>…_TENANT_ID</code>, redirect URI,
-etc. — see <code>CLAUDE.md</code> "OAuth Integration"). That is the single biggest
-onboarding cliff for the whole integration story: most evaluators never get past
-it, so they fall back to PATs or never connect at all.</p>
-<p><strong>Goal:</strong> the Integration tab's "Connect to <Provider>" button works with <strong>no
-prior setup</strong> — Sentrik ships its own registered OAuth apps and users just click
-→ consent → connected.</p>
-<h2 id="2-current-state-what-we-build-on">2. Current state (what we build on)<a class="headerlink" href="#2-current-state-what-we-build-on" title="Permanent link">&para;</a></h2>
+<h1 id="attestation-notary-design">Attestation Notary — Design<a class="headerlink" href="#attestation-notary-design" title="Permanent link">&para;</a></h1>
+<p>Status: proposed, 2026-08-17
+Supersedes the HMAC self-signing in <code>guard/core/attestation.py</code>.</p>
+<h2 id="the-problem">The problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h2>
+<p><code>sentrik attest</code> produces a document signed with HMAC-SHA256 using a key from
+<code>_get_signing_key()</code>, which auto-generates <code>.sentrik/local/attestation_key</code> if absent.</p>
+<p>Three consequences, all bad:</p>
+<ol>
+<li><strong>The signature proves nothing to an auditor.</strong> The audited party generates and holds
+   the key. They can sign any claim they like. The threat model for compliance evidence is
+   the auditee; a signature the auditee controls does not address it.</li>
+<li><strong>Off-machine verification always fails.</strong> <code>verify_attestation()</code> calls the same
+   <code>_get_signing_key()</code>, so it verifies against <em>the verifier's</em> key. An auditor running
+   <code>sentrik attest --verify</code> on a legitimate document gets
+   <code>"Attestation signature is INVALID — the document may have been tampered with."</code>
+   The tool accuses an honest customer of forgery. It also silently writes 32 random bytes
+   into the verifier's filesystem as a side effect of a read-only-sounding operation.</li>
+<li><strong>A fresh clone invalidates history.</strong> <code>.sentrik/.gitignore</code> ignores <code>local/</code>, which
+   holds both the key and <code>local/attestations/</code>. New machine, new CI runner, fresh clone →
+   key regenerates → <code>sentrik attest --history</code> shows ✗ against every past attestation.</li>
+</ol>
+<p>No amount of HMAC fixes this. Symmetric signing cannot produce a signature that a third
+party can verify but not forge. <strong>The algorithm has to change.</strong></p>
+<h2 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Code never leaves the machine.</strong> This is the product's best architectural property and
+  the notary must not weaken it. The notary therefore receives a <em>hash</em> and nothing else —
+  no findings, no file paths, no rule IDs, no repo name.</li>
+<li><strong>Verification must not require installing Sentrik.</strong> An auditor gets a URL.</li>
+<li><strong>Offline generation must still work.</strong> A notarized attestation is strictly better, but
+  losing network access must degrade, not break.</li>
+</ul>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">&para;</a></h2>
+<h3 id="signing">Signing<a class="headerlink" href="#signing" title="Permanent link">&para;</a></h3>
+<p>Ed25519, via the <code>cryptography</code> package already present transitively through
+<code>python-jose[cryptography]</code>. Private key lives only on the notary server (Fly secret).
+The public key ships in the client and is served at a well-known URL.</p>
+<h3 id="what-gets-sent">What gets sent<a class="headerlink" href="#what-gets-sent" title="Permanent link">&para;</a></h3>
+<p>The client computes <code>payload_sha256 = sha256(canonical_json(attestation))</code> and POSTs
+exactly this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">"payload_sha256"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;64 hex chars&gt;"</span><span class="p">,</span><span class="w"> </span><span class="nt">"tool_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.5.123"</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p><code>tool_version</code> is for operational metrics only. There is no repo identifier, no customer
+identifier, no license key — notarization is deliberately unauthenticated and free. A hash
+is not evidence of anything until someone presents the document that matches it, so there
+is nothing to protect and no reason to gate it. This also means the notary log leaks
+nothing if fully published.</p>
+<h3 id="what-comes-back">What comes back<a class="headerlink" href="#what-comes-back" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"payload_sha256"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">"notarized_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-17T16:04:11Z"</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">"log_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">48213</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">"key_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sentrik-notary-2026"</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;base64 Ed25519 over the countersignature payload&gt;"</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>The countersignature payload is the canonical JSON of
+<code>{payload_sha256, notarized_at, log_index, key_id}</code> — so the timestamp and log position are
+covered by the signature, not just the hash.</p>
+<p>This block is embedded in the attestation document as <code>"notary"</code>, alongside the existing
+local HMAC (which is retained — it is still a useful integrity check for the signer).</p>
+<h3 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h3>
+<p>Anyone, with or without Sentrik installed:</p>
+<ol>
+<li>Recompute <code>sha256(canonical_json(doc["attestation"]))</code>.</li>
+<li>Check it equals <code>doc["notary"]["payload_sha256"]</code> — this binds the countersignature to
+   the actual content.</li>
+<li>Verify the Ed25519 signature over the countersignature payload with the published public
+   key for <code>key_id</code>.</li>
+<li>Optionally <code>GET /api/notary/entry/{payload_sha256}</code> to confirm the hash is in the public
+   log at the stated index.</li>
+</ol>
+<p>Step 3 is what the auditee cannot forge. Step 4 is what makes backdating detectable.</p>
+<h3 id="transparency-log">Transparency log<a class="headerlink" href="#transparency-log" title="Permanent link">&para;</a></h3>
+<p>Append-only table in the existing SQLite database on the Fly volume:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">notary_log</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">log_index</span><span class="w">      </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">payload_sha256</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">notarized_at</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">key_id</span><span class="w">         </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">signature</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">prev_hash</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">entry_hash</span><span class="w">     </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">);</span>
+</code></pre></div>
+<p><code>entry_hash = sha256(prev_hash || payload_sha256 || notarized_at || log_index)</code> chains the
+entries, so removing or reordering history breaks every subsequent hash. <code>GET /api/notary/log</code>
+serves the head so anyone can pin it.</p>
+<p>Duplicate submission of the same hash returns the <strong>original</strong> entry rather than creating a
+second one — the first notarization time is the meaningful one.</p>
+<h2 id="trust-states">Trust states<a class="headerlink" href="#trust-states" title="Permanent link">&para;</a></h2>
+<p><code>verify_attestation_detailed()</code> returns one of:</p>
 <table>
 <thead>
 <tr>
-<th>Piece</th>
-<th>Where</th>
-<th>Notes</th>
+<th>Status</th>
+<th>Meaning</th>
+<th>Who can rely on it</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Client id/secret resolution</td>
-<td><code>oauth/manager.py::build_oauth_config</code></td>
-<td>Reads <code>GUARD_*_OAUTH_CLIENT_ID/SECRET</code> env vars. <strong>No defaults.</strong></td>
+<td><code>notarized</code></td>
+<td>Ed25519 countersignature valid, hash matches content</td>
+<td>Anyone, including an auditor</td>
 </tr>
 <tr>
-<td>Authorize + exchange</td>
-<td><code>oauth/manager.py</code> (<code>get_authorize_url</code>, <code>exchange_code</code>) → <code>oauth/providers.py</code></td>
-<td>Confidential flow: <code>exchange_code</code> sends the <strong>client_secret</strong>. <strong>No PKCE today.</strong></td>
+<td><code>self_signed</code></td>
+<td>Local HMAC valid, no notary block</td>
+<td>The signer only</td>
 </tr>
 <tr>
-<td>Connect/callback endpoints</td>
-<td><code>server.py</code> <code>/oauth/{provider}/connect</code>, <code>/oauth/{provider}/callback</code></td>
-<td>In-memory <code>_oauth_states</code> (state→provider, TTL).</td>
+<td><code>tampered</code></td>
+<td>Content does not match a signature that should cover it</td>
+<td>—</td>
 </tr>
 <tr>
-<td>Token storage</td>
-<td><code>oauth/store.py</code></td>
-<td><code>.sentrik/local/oauth_tokens.json</code>, Fernet-encrypted (machine-id + salt). <strong>Local only</strong> — good; keep.</td>
+<td><code>no_local_key</code></td>
+<td>Self-signed doc, no key on this machine to check against</td>
+<td>Nobody — and this is <em>not</em> tampering</td>
 </tr>
 <tr>
-<td>Precedent for hosted auth</td>
-<td><code>auth/device_flow.py</code></td>
-<td>Sentrik's own login already uses an Auth0 <strong>device flow</strong> (client_id, no secret). Reuse the mental model.</td>
-</tr>
-<tr>
-<td>Existing hosted service</td>
-<td><code>sentrik-portal.fly.dev</code> (FastAPI/Fly)</td>
-<td>Already does licensing + telemetry. Natural home for a token broker.</td>
+<td><code>malformed</code></td>
+<td>Missing or unrecognized structure</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<h2 id="3-the-core-constraint">3. The core constraint<a class="headerlink" href="#3-the-core-constraint" title="Permanent link">&para;</a></h2>
-<p><strong>We cannot ship OAuth client <em>secrets</em> in a distributed CLI/binary</strong> — they are
-trivially extractable (same class of problem as the <code>_PRODUCTION_SECRET</code> license
-footgun). So the design splits by what each provider allows:</p>
-<ul>
-<li><strong>Public client + PKCE</strong> (no secret): the app is registered as a <em>native/public</em>
-  client; the CLI does the code→token exchange itself using PKCE. Secret never
-  exists. <strong>Azure Entra</strong> supports this cleanly (multi-tenant, <code>common</code>).</li>
-<li><strong>Confidential exchange via a broker</strong>: where the provider <em>requires</em> a secret
-  at the token endpoint (<strong>Atlassian/Jira</strong>, and <strong>GitHub OAuth Apps</strong>, which do
-  not support PKCE), a <strong>Sentrik-hosted broker</strong> holds the secret and performs the
-  exchange. Tokens pass through to the local install; the broker never persists
-  them.</li>
-</ul>
-<h2 id="4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise">4. Recommended architecture: hybrid (PKCE where possible, broker otherwise)<a class="headerlink" href="#4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                     ┌───────────────────────── local machine ─────────────────────────┐
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Dashboard "Connect"│  server.py /oauth/{p}/connect                                    │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        ──────────────►  build authorize URL (Sentrik client_id, state, PKCE challenge) │
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                     │        │                                                          │
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   browser ◄─────────────────┘ 302 to provider consent                                  │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        │            └──────────────────────────────────────────────────────────────────┘
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        ▼
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>   Provider consent (login.microsoftonline.com / github.com / auth.atlassian.com)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        │
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        ├── Azure (PKCE, public):  redirect → http://localhost:8000/oauth/azure/callback?code&amp;state
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        │        server.py exchanges code + code_verifier itself → token (no secret)
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        │
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        └── GitHub / Jira (broker): redirect → https://portal.sentrik.dev/oauth/{p}/callback?code&amp;state
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                 broker exchanges code (+ its secret) → token, then
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                 302 → http://localhost:8000/oauth/{p}/callback?session=&lt;one-time&gt;
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                 server.py GETs portal /oauth/{p}/claim?session=&lt;one-time&gt; → token
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        │
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        ▼
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>   oauth/store.py: encrypt + save locally (unchanged)
+<p><code>no_local_key</code> is the state that today gets reported as tampering. Separating it is the
+single most important behavioural fix in this document.</p>
+<h2 id="claims-this-supports">Claims this supports<a class="headerlink" href="#claims-this-supports" title="Permanent link">&para;</a></h2>
+<p>Once shipped, "cryptographically signed, independently verifiable compliance attestation"
+is accurate. Until then, the honest phrasing is "integrity-checked" — the current HMAC does
+detect accidental corruption, which is a real if much smaller property. The eight places in
+docs and launch copy that currently say "cryptographically signed" / "tamper-evident" must
+not be updated to the stronger claim before the notary is actually live.</p>
+<h2 id="deployment-runbook">Deployment runbook<a class="headerlink" href="#deployment-runbook" title="Permanent link">&para;</a></h2>
+<p>Do these in order. The ordering matters: it lets you prove the whole thing works before
+anything ships to users.</p>
+<h3 id="1-generate-the-keypair-and-set-the-fly-secret">1. Generate the keypair and set the Fly secret<a class="headerlink" href="#1-generate-the-keypair-and-set-the-fly-secret" title="Permanent link">&para;</a></h3>
+<p>Every run of the script mints a <strong>new</strong> keypair, so generate once and use that output for
+both steps 1 and 2. The private key must never reach shell history, argv, or a commit.</p>
+<p>Run this in <strong>Git Bash</strong>, not PowerShell — PowerShell's pipeline can append a CR to the
+piped line, which ends up inside the secret value:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>license-server
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python<span class="w"> </span>generate_notary_key.py<span class="w"> </span>--secret-only<span class="w"> </span><span class="p">|</span><span class="w"> </span>fly<span class="w"> </span>secrets<span class="w"> </span>import<span class="w"> </span>--app<span class="w"> </span>sentrik-portal
 </code></pre></div>
-<p>Why hybrid rather than "broker for everything": Azure via PKCE removes a hosted
-round-trip and a class of "our broker is down" failures for the most common
-enterprise provider. GitHub/Jira must go through the broker because of their
-secret requirement, but the token still lands only on the user's machine.</p>
-<p><strong>Token privacy guarantee:</strong> the broker does the exchange and immediately hands
-the token back through a one-time <code>session</code> claim (single-use, ~60s TTL,
-in-memory). It is never written to Sentrik disk/logs. Document this in the trust
-center.</p>
-<h2 id="5-work-breakdown">5. Work breakdown<a class="headerlink" href="#5-work-breakdown" title="Permanent link">&para;</a></h2>
-<h3 id="a-product-ships-in-the-package">A. Product (ships in the package)<a class="headerlink" href="#a-product-ships-in-the-package" title="Permanent link">&para;</a></h3>
-<ol>
-<li><code>oauth/manager.py::build_oauth_config</code>: add <strong>baked-in default client IDs</strong>
-   (public, safe to embed) per provider; env vars still override (BYO-app for
-   self-hosters / air-gapped). Add a <code>broker_base_url</code> default
-   (<code>https://portal.sentrik.dev</code>), overridable.</li>
-<li>Add <strong>PKCE</strong> to <code>oauth/providers.py</code> + <code>manager.get_authorize_url</code>
-   (<code>code_verifier</code>/<code>code_challenge</code>, S256). Store the verifier alongside state.</li>
-<li><code>manager.exchange_code</code>: branch per provider — PKCE-self-exchange (Azure) vs
-   broker-claim (GitHub/Jira).</li>
-<li><code>server.py</code>: extend <code>/oauth/{provider}/connect</code> to emit PKCE + choose
-   redirect target (loopback for Azure, broker for GitHub/Jira); extend
-   <code>/oauth/{provider}/callback</code> to handle the <code>session</code> claim path. Persist state
-   with its verifier (extend <code>_oauth_states</code> value tuple).</li>
-<li>No change to <code>oauth/store.py</code> (local encryption stays).</li>
-</ol>
-<h3 id="b-broker-service-extends-sentrik-portalflydev">B. Broker service (extends <code>sentrik-portal.fly.dev</code>)<a class="headerlink" href="#b-broker-service-extends-sentrik-portalflydev" title="Permanent link">&para;</a></h3>
-<ol>
-<li>New endpoints: <code>/oauth/{provider}/callback</code> (provider redirects here; broker
-   exchanges code using the secret held in Fly secrets), and
-   <code>/oauth/{provider}/claim?session=…</code> (one-time, single-use, short-TTL handoff
-   to the local install). PKCE <code>code_verifier</code> is passed through from the client
-   via the <code>state</code>→session mapping so the broker can complete the exchange.</li>
-<li>Fly secrets: <code>SENTRIK_GITHUB_OAUTH_CLIENT_SECRET</code>, <code>SENTRIK_JIRA_OAUTH_CLIENT_SECRET</code>
-   (+ client IDs). Rotatable without a client release.</li>
-<li>Rate-limit + bind <code>session</code> to the originating <code>state</code>; never log tokens.</li>
-</ol>
-<h3 id="c-dashboard-frontend">C. Dashboard (frontend)<a class="headerlink" href="#c-dashboard-frontend" title="Permanent link">&para;</a></h3>
-<ol>
-<li>No UX change required — the existing Integration tab "Connect" button already
-   hits <code>/oauth/{provider}/connect</code>. Optionally add a "Using Sentrik's app —
-   connect your own in Settings" hint and a BYO-app advanced panel.</li>
-</ol>
-<h3 id="d-docs-infra">D. Docs / infra<a class="headerlink" href="#d-docs-infra" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Rewrite <code>CLAUDE.md</code> + docs "OAuth Integration": default path becomes "click
-    Connect"; the env-var registration becomes an <em>advanced / self-host</em> section.</li>
-<li>Trust-center note on the broker token-privacy model.</li>
-</ol>
-<h2 id="6-manual-registration-max-one-time">6. Manual registration (Max — one-time)<a class="headerlink" href="#6-manual-registration-max-one-time" title="Permanent link">&para;</a></h2>
+<p>stdout carries <code>NOTARY_PRIVATE_KEY=&lt;base64&gt;</code> into Fly; stderr prints the matching public
+key to your terminal. Keep that line if it is convenient, but it is not critical: the
+public half is derived from the private key, so once the server is deployed
+<code>GET /api/notary/log</code> reports it and step 2 can read it from there.</p>
+<p>If you would rather not pipe, run <code>python generate_notary_key.py</code> with no flag, then paste
+into <code>fly secrets set</code> — but be aware that puts the key in your shell history, and you
+should clear it afterwards.</p>
+<p>Store the private key in a password manager as the only backup. Losing it means rotating
+to a new <code>key_id</code>; attestations signed with the old one keep verifying as long as its
+public key stays in the client table, which is why entries are never removed.</p>
+<h3 id="2-put-the-public-key-in-the-client">2. Put the public key in the client<a class="headerlink" href="#2-put-the-public-key-in-the-client" title="Permanent link">&para;</a></h3>
+<p>Note the ordering: if you have already deployed the server (step 3), read the public key
+straight off <code>GET /api/notary/log</code> rather than relying on what step 1 printed. That is
+also the check that the two halves match, since the server derives it from the private
+key it actually holds.</p>
+<p>Edit <code>NOTARY_PUBLIC_KEYS</code> in <code>src/guard/core/notary.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">NOTARY_PUBLIC_KEYS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="s2">"sentrik-notary-2026"</span><span class="p">:</span> <span class="s2">"&lt;the base64 public key from step 1&gt;"</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>The dict key must match the server's <code>KEY_ID</code>, which defaults to <code>sentrik-notary-2026</code>.
+If you override <code>NOTARY_KEY_ID</code> on Fly, these must agree or every countersignature is
+rejected as an unknown key id.</p>
+<p>Do not release yet.</p>
+<h3 id="3-deploy-the-server">3. Deploy the server<a class="headerlink" href="#3-deploy-the-server" title="Permanent link">&para;</a></h3>
+<p>The notary endpoints do not exist on the currently deployed app, and <code>requirements.txt</code>
+has gained <code>cryptography</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>license-server
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>fly<span class="w"> </span>deploy<span class="w"> </span>--app<span class="w"> </span>sentrik-portal
+</code></pre></div>
+<p>Check it came up with a signing key — this returns 503 if <code>NOTARY_PRIVATE_KEY</code> is unset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>https://sentrik-portal.fly.dev/api/notary/log
+</code></pre></div>
+<p>Expect <code>{"size": 0, "head_hash": "000...", "latest_at": null, "key_id": "sentrik-notary-2026", "public_key": "..."}</code>.
+<strong>The <code>public_key</code> here must equal what you pasted in step 2.</strong> If it does not, the two
+halves are from different runs of the generator — start over at step 1.</p>
+<h3 id="4-prove-it-end-to-end-before-releasing">4. Prove it end to end before releasing<a class="headerlink" href="#4-prove-it-end-to-end-before-releasing" title="Permanent link">&para;</a></h3>
+<p>From the worktree, against the live server, without installing anything:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">PYTHONPATH</span><span class="o">=</span>./src<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>guard<span class="w"> </span>scan
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">PYTHONPATH</span><span class="o">=</span>./src<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>guard<span class="w"> </span>attest<span class="w"> </span>--notarize
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">PYTHONPATH</span><span class="o">=</span>./src<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>guard<span class="w"> </span>attest<span class="w"> </span>--verify<span class="w"> </span>out/attestation.json
+</code></pre></div>
+<p>You want <code>Attestation is notarized and valid.</code> If you get <code>Not notarized: ...</code> the client
+could not reach or could not verify the notary, and the message says which.</p>
+<p>Then confirm the auditor path — no install, no account, someone else's machine:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>https://sentrik-portal.fly.dev/api/notary/entry/&lt;payload_sha256<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>attestation&gt;
+</code></pre></div>
+<h3 id="5-release">5. Release<a class="headerlink" href="#5-release" title="Permanent link">&para;</a></h3>
+<p>Ship a Sentrik release carrying the public key. Only now is the stronger claim
+("independently verifiable") accurate — see the comment in <code>docs/LAUNCH_SUBMISSIONS.md</code>
+for the wording to switch to, and update <code>docs/index.md</code>, <code>docs/guides/cli-reference.md</code>
+and the whitepaper to match.</p>
+<h3 id="ordering-note">Ordering note<a class="headerlink" href="#ordering-note" title="Permanent link">&para;</a></h3>
+<p>If the server is deployed before a client carries the public key, <code>--notarize</code> on an old
+client fails <strong>safely</strong>: <code>request_countersignature</code> verifies the block before embedding it,
+so an unverifiable countersignature is refused and recorded as <code>notary_error</code> rather than
+written into the document. Users get an un-notarized attestation, not a broken one.</p>
+<h2 id="deliberately-out-of-scope">Deliberately out of scope<a class="headerlink" href="#deliberately-out-of-scope" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Entra ID</strong>: register a <strong>multi-tenant</strong> app (<code>common</code>), platform = <em>Mobile &amp;
-  desktop / public client</em>, enable PKCE, redirect <code>http://localhost:8000/oauth/azure/callback</code>
-  (+ any future SaaS origin). API permission: Azure DevOps <code>user_impersonation</code>.
-  Embed the client id. No secret.</li>
-<li><strong>GitHub</strong>: OAuth App (or GitHub App), redirect <code>https://portal.sentrik.dev/oauth/github/callback</code>.
-  Client id embedded; secret → Fly secret.</li>
-<li><strong>Atlassian</strong>: OAuth 2.0 (3LO) app, redirect <code>https://portal.sentrik.dev/oauth/jira/callback</code>,
-  scopes for Jira work items + offline_access. Client id embedded; secret → Fly.</li>
+<li><strong>Identity.</strong> The notary attests that <em>a</em> document with this hash existed at this time. It
+  does not attest to who produced it. Binding to an organization requires customer identity
+  and is a later, separate decision.</li>
+<li><strong>Revocation.</strong> Nothing to revoke; entries are facts about the past.</li>
+<li><strong>Migrating existing attestations.</strong> They stay self-signed. There is no honest way to
+  retroactively notarize something whose existence at that time we cannot establish.</li>
 </ul>
-<h2 id="7-security-checklist">7. Security checklist<a class="headerlink" href="#7-security-checklist" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Secrets only in Fly secrets (broker); never in the package.</li>
-<li>PKCE (S256) on every provider that supports it; <code>state</code> nonce always.</li>
-<li>Redirect-URI allowlist: loopback <code>127.0.0.1/localhost</code> + the registered broker
-  origin only.</li>
-<li><code>session</code> claim: single-use, ≤60s, bound to <code>state</code>, in-memory.</li>
-<li>Least-scope requests; <code>offline_access</code> only where refresh is needed.</li>
-<li>Tokens stay Fernet-encrypted locally (existing); broker is pass-through.</li>
-<li>Multi-tenant Azure: rely on per-tenant admin consent; document it.</li>
-</ul>
-<h2 id="8-phasing">8. Phasing<a class="headerlink" href="#8-phasing" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Phase 1 — Azure PKCE, no broker.</strong> Proves zero-config end-to-end for the
-   top enterprise provider; smallest surface. (Product-only change.)</li>
-<li><strong>Phase 2 — Broker for GitHub + Jira</strong> on the Fly portal.</li>
-<li><strong>Phase 3 — Embed client IDs + flip docs</strong> so plain installs are zero-config;
-   keep env-var override.</li>
-<li><strong>Phase 4 — Production redirect URIs</strong> when the SaaS domain is live (ties into
-   the existing "OAuth redirect URIs for production" TODO).</li>
-</ol>
-<h2 id="9-testing">9. Testing<a class="headerlink" href="#9-testing" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Unit: PKCE challenge/verifier generation; per-provider exchange branching;
-  state+verifier round-trip; broker-claim happy path + expiry/reuse rejection.</li>
-<li>Integration (mocked provider + mocked broker): connect→callback→token stored,
-  for each provider path.</li>
-<li>Back-compat: env-var BYO-app still overrides the baked-in defaults.</li>
-<li>Manual: real consent against each provider in a scratch org.</li>
-</ul>
-<h2 id="10-back-compat-open-questions">10. Back-compat &amp; open questions<a class="headerlink" href="#10-back-compat-open-questions" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Back-compat:</strong> existing BYO-app users are unaffected — env vars win over the
-  baked-in defaults. No token migration (storage format unchanged).</li>
-<li><strong>Open:</strong> GitHub App vs OAuth App (a GitHub <em>App</em> gives finer-grained, org-
-  installable perms and short-lived tokens — worth it if we want per-repo scoping,
-  but heavier). Decide before Phase 2.</li>
-<li><strong>Open:</strong> device-flow fallback for headless/CI (no loopback browser) — GitHub +
-  Azure both support device flow; could reuse the <code>auth/device_flow.py</code> shape.</li>
-<li><strong>Open:</strong> broker availability/SLO — Azure PKCE avoids it; GitHub/Jira depend on
-  the Fly portal being up. Acceptable given it's already the license/telemetry
-  dependency, but note it.</li>
-</ul>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<p>The same flaw exists in <code>core/licensing.py</code> — <code>_PRODUCTION_SECRET</code> is a hardcoded HMAC
+secret, extractable from the package, so license keys are forgeable. The Ed25519 pattern
+established here is the fix for that too, and reuses the same key-distribution mechanism.</p>
 
 
 

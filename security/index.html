@@ -12,27 +12,31 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/design/sentrik-owned-oauth/">
+        <link rel="canonical" href="https://docs.sentrik.dev/security/">
       
       
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../getting-started/installation/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/favicon.svg">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Design: Sentrik-owned OAuth apps (zero-config DevOps auth) - sentrik documentation</title>
+        <title>Security - sentrik documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../assets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#design-sentrik-owned-oauth-apps-zero-config-devops-auth" class="md-skip">
+        <a href="#security-and-data-handling" class="md-skip">
           Skip to content
         </a>
       
@@ -94,9 +98,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="sentrik documentation" class="md-header__button md-logo" aria-label="sentrik documentation" data-md-component="logo">
+    <a href=".." title="sentrik documentation" class="md-header__button md-logo" aria-label="sentrik documentation" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -113,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Design: Sentrik-owned OAuth apps (zero-config DevOps auth)
+              Security
             
           </span>
         </div>
@@ -219,9 +223,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="sentrik documentation" class="md-nav__button md-logo" aria-label="sentrik documentation" data-md-component="logo">
+    <a href=".." title="sentrik documentation" class="md-nav__button md-logo" aria-label="sentrik documentation" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     sentrik documentation
@@ -236,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -260,10 +264,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../security/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -279,6 +310,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-architecture-in-one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The architecture, in one line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-leaves-the-machine-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What leaves the machine, by default
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-leaves-the-machine-only-when-you-ask-for-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What leaves the machine only when you ask for it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attestation-and-the-notary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attestation and the notary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-a-vulnerability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting a vulnerability
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -344,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/installation/" class="md-nav__link">
+      <a href="../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -372,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/quickstart/" class="md-nav__link">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -400,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/configuration/" class="md-nav__link">
+      <a href="../getting-started/configuration/" class="md-nav__link">
         
   
   
@@ -489,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../HOW_SENTRIK_WORKS/" class="md-nav__link">
+      <a href="../HOW_SENTRIK_WORKS/" class="md-nav__link">
         
   
   
@@ -517,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/cli-reference/" class="md-nav__link">
+      <a href="../guides/cli-reference/" class="md-nav__link">
         
   
   
@@ -545,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/dashboard/" class="md-nav__link">
+      <a href="../guides/dashboard/" class="md-nav__link">
         
   
   
@@ -573,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/compliance-evidence-map/" class="md-nav__link">
+      <a href="../guides/compliance-evidence-map/" class="md-nav__link">
         
   
   
@@ -601,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/auto-patching/" class="md-nav__link">
+      <a href="../guides/auto-patching/" class="md-nav__link">
         
   
   
@@ -629,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/ci-cd-integration/" class="md-nav__link">
+      <a href="../guides/ci-cd-integration/" class="md-nav__link">
         
   
   
@@ -657,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/vscode-extension-tutorial/" class="md-nav__link">
+      <a href="../guides/vscode-extension-tutorial/" class="md-nav__link">
         
   
   
@@ -685,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/claude-code-integration/" class="md-nav__link">
+      <a href="../guides/claude-code-integration/" class="md-nav__link">
         
   
   
@@ -713,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/mcp-integration/" class="md-nav__link">
+      <a href="../guides/mcp-integration/" class="md-nav__link">
         
   
   
@@ -741,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/agent-governance/" class="md-nav__link">
+      <a href="../guides/agent-governance/" class="md-nav__link">
         
   
   
@@ -769,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/compliance-skills/" class="md-nav__link">
+      <a href="../guides/compliance-skills/" class="md-nav__link">
         
   
   
@@ -797,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/securing-ai-generated-code/" class="md-nav__link">
+      <a href="../guides/securing-ai-generated-code/" class="md-nav__link">
         
   
   
@@ -886,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/overview/" class="md-nav__link">
+      <a href="../standards-packs/overview/" class="md-nav__link">
         
   
   
@@ -965,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/owasp-top-10/" class="md-nav__link">
+      <a href="../standards-packs/owasp-top-10/" class="md-nav__link">
         
   
   
@@ -993,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/soc2/" class="md-nav__link">
+      <a href="../standards-packs/soc2/" class="md-nav__link">
         
   
   
@@ -1021,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/python-security/" class="md-nav__link">
+      <a href="../standards-packs/python-security/" class="md-nav__link">
         
   
   
@@ -1049,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/go-security/" class="md-nav__link">
+      <a href="../standards-packs/go-security/" class="md-nav__link">
         
   
   
@@ -1077,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/supply-chain-security/" class="md-nav__link">
+      <a href="../standards-packs/supply-chain-security/" class="md-nav__link">
         
   
   
@@ -1164,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/iec-62304/" class="md-nav__link">
+      <a href="../standards-packs/iec-62304/" class="md-nav__link">
         
   
   
@@ -1192,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/hipaa/" class="md-nav__link">
+      <a href="../standards-packs/hipaa/" class="md-nav__link">
         
   
   
@@ -1220,7 +1348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/pci-dss/" class="md-nav__link">
+      <a href="../standards-packs/pci-dss/" class="md-nav__link">
         
   
   
@@ -1248,7 +1376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/iso-27001/" class="md-nav__link">
+      <a href="../standards-packs/iso-27001/" class="md-nav__link">
         
   
   
@@ -1276,7 +1404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/gdpr/" class="md-nav__link">
+      <a href="../standards-packs/gdpr/" class="md-nav__link">
         
   
   
@@ -1304,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/nist-800-53/" class="md-nav__link">
+      <a href="../standards-packs/nist-800-53/" class="md-nav__link">
         
   
   
@@ -1332,7 +1460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/cmmc/" class="md-nav__link">
+      <a href="../standards-packs/cmmc/" class="md-nav__link">
         
   
   
@@ -1360,7 +1488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/nist-ai-rmf/" class="md-nav__link">
+      <a href="../standards-packs/nist-ai-rmf/" class="md-nav__link">
         
   
   
@@ -1388,7 +1516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/eu-ai-act/" class="md-nav__link">
+      <a href="../standards-packs/eu-ai-act/" class="md-nav__link">
         
   
   
@@ -1416,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/php-security/" class="md-nav__link">
+      <a href="../standards-packs/php-security/" class="md-nav__link">
         
   
   
@@ -1444,7 +1572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/kotlin-security/" class="md-nav__link">
+      <a href="../standards-packs/kotlin-security/" class="md-nav__link">
         
   
   
@@ -1472,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/java-security/" class="md-nav__link">
+      <a href="../standards-packs/java-security/" class="md-nav__link">
         
   
   
@@ -1500,7 +1628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/csharp-security/" class="md-nav__link">
+      <a href="../standards-packs/csharp-security/" class="md-nav__link">
         
   
   
@@ -1587,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/iec-81001-5-1/" class="md-nav__link">
+      <a href="../standards-packs/iec-81001-5-1/" class="md-nav__link">
         
   
   
@@ -1615,7 +1743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/fda-21cfr11/" class="md-nav__link">
+      <a href="../standards-packs/fda-21cfr11/" class="md-nav__link">
         
   
   
@@ -1643,7 +1771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/iso-14971/" class="md-nav__link">
+      <a href="../standards-packs/iso-14971/" class="md-nav__link">
         
   
   
@@ -1671,7 +1799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/misra-c/" class="md-nav__link">
+      <a href="../standards-packs/misra-c/" class="md-nav__link">
         
   
   
@@ -1699,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/do-178c/" class="md-nav__link">
+      <a href="../standards-packs/do-178c/" class="md-nav__link">
         
   
   
@@ -1727,7 +1855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/iso-26262/" class="md-nav__link">
+      <a href="../standards-packs/iso-26262/" class="md-nav__link">
         
   
   
@@ -1763,7 +1891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../standards-packs/authoring-custom-packs/" class="md-nav__link">
+      <a href="../standards-packs/authoring-custom-packs/" class="md-nav__link">
         
   
   
@@ -1852,7 +1980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/reference/" class="md-nav__link">
+      <a href="../api/reference/" class="md-nav__link">
         
   
   
@@ -1880,7 +2008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/authentication/" class="md-nav__link">
+      <a href="../api/authentication/" class="md-nav__link">
         
   
   
@@ -1908,7 +2036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/rbac/" class="md-nav__link">
+      <a href="../api/rbac/" class="md-nav__link">
         
   
   
@@ -1997,7 +2125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../use-cases/medical-devices/" class="md-nav__link">
+      <a href="../use-cases/medical-devices/" class="md-nav__link">
         
   
   
@@ -2025,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../use-cases/fintech/" class="md-nav__link">
+      <a href="../use-cases/fintech/" class="md-nav__link">
         
   
   
@@ -2053,7 +2181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../use-cases/saas/" class="md-nav__link">
+      <a href="../use-cases/saas/" class="md-nav__link">
         
   
   
@@ -2142,7 +2270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/medical-device-walkthrough/" class="md-nav__link">
+      <a href="../tutorials/medical-device-walkthrough/" class="md-nav__link">
         
   
   
@@ -2231,7 +2359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../TOOL_QUALIFICATION/" class="md-nav__link">
+      <a href="../TOOL_QUALIFICATION/" class="md-nav__link">
         
   
   
@@ -2259,7 +2387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../TOOL_QUALIFICATION_CHECKLIST/" class="md-nav__link">
+      <a href="../TOOL_QUALIFICATION_CHECKLIST/" class="md-nav__link">
         
   
   
@@ -2294,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/" class="md-nav__link">
+      <a href="../telemetry/" class="md-nav__link">
         
   
   
@@ -2341,10 +2469,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-problem" class="md-nav__link">
+  <a href="#the-architecture-in-one-line" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Problem
+        The architecture, in one line
       
     </span>
   </a>
@@ -2352,10 +2480,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-current-state-what-we-build-on" class="md-nav__link">
+  <a href="#what-leaves-the-machine-by-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Current state (what we build on)
+        What leaves the machine, by default
       
     </span>
   </a>
@@ -2363,10 +2491,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-the-core-constraint" class="md-nav__link">
+  <a href="#what-leaves-the-machine-only-when-you-ask-for-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. The core constraint
+        What leaves the machine only when you ask for it
       
     </span>
   </a>
@@ -2374,10 +2502,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise" class="md-nav__link">
+  <a href="#attestation-and-the-notary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Recommended architecture: hybrid (PKCE where possible, broker otherwise)
+        Attestation and the notary
       
     </span>
   </a>
@@ -2385,71 +2513,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-work-breakdown" class="md-nav__link">
+  <a href="#local-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Work breakdown
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Work breakdown">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-product-ships-in-the-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A. Product (ships in the package)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-broker-service-extends-sentrik-portalflydev" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B. Broker service (extends sentrik-portal.fly.dev)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-dashboard-frontend" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C. Dashboard (frontend)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#d-docs-infra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        D. Docs / infra
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-manual-registration-max-one-time" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Manual registration (Max — one-time)
+        Local state
       
     </span>
   </a>
@@ -2457,10 +2524,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-security-checklist" class="md-nav__link">
+  <a href="#known-limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Security checklist
+        Known limitations
       
     </span>
   </a>
@@ -2468,32 +2535,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-phasing" class="md-nav__link">
+  <a href="#reporting-a-vulnerability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Phasing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Testing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-back-compat-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Back-compat &amp; open questions
+        Reporting a vulnerability
       
     </span>
   </a>
@@ -2517,197 +2562,168 @@
 
 
 
-<h1 id="design-sentrik-owned-oauth-apps-zero-config-devops-auth">Design: Sentrik-owned OAuth apps (zero-config DevOps auth)<a class="headerlink" href="#design-sentrik-owned-oauth-apps-zero-config-devops-auth" title="Permanent link">&para;</a></h1>
-<p>Status: <strong>Plan / not started</strong> · Owner: Max · Last updated: 2026-08-05</p>
-<h2 id="1-problem">1. Problem<a class="headerlink" href="#1-problem" title="Permanent link">&para;</a></h2>
-<p>To connect Azure DevOps / GitHub / Jira today, a user must <strong>register their own
-OAuth app</strong> with each provider and set 6+ env vars per provider
-(<code>GUARD_AZURE_OAUTH_CLIENT_ID</code>, <code>…_CLIENT_SECRET</code>, <code>…_TENANT_ID</code>, redirect URI,
-etc. — see <code>CLAUDE.md</code> "OAuth Integration"). That is the single biggest
-onboarding cliff for the whole integration story: most evaluators never get past
-it, so they fall back to PATs or never connect at all.</p>
-<p><strong>Goal:</strong> the Integration tab's "Connect to <Provider>" button works with <strong>no
-prior setup</strong> — Sentrik ships its own registered OAuth apps and users just click
-→ consent → connected.</p>
-<h2 id="2-current-state-what-we-build-on">2. Current state (what we build on)<a class="headerlink" href="#2-current-state-what-we-build-on" title="Permanent link">&para;</a></h2>
+<h1 id="security-and-data-handling">Security and data handling<a class="headerlink" href="#security-and-data-handling" title="Permanent link">&para;</a></h1>
+<p>Sentrik is used to scan codebases that are, by definition, sensitive — medical device
+firmware, health records systems, payment code. This page states exactly what runs where
+and exactly what leaves your machine, so you can verify the claim rather than take it.</p>
+<p>Everything here is checkable against the source. Where a behaviour is a default that can
+be turned off, the setting is named.</p>
+<h2 id="the-architecture-in-one-line">The architecture, in one line<a class="headerlink" href="#the-architecture-in-one-line" title="Permanent link">&para;</a></h2>
+<p><strong>Scanning is entirely local.</strong> Your source code is read from disk, matched against rules
+that ship inside the Python package, and the findings are written to <code>out/</code>. No file
+contents, file paths, rule matches, or findings are transmitted anywhere as part of a
+scan. There is no cloud scanning tier that would change this.</p>
+<p>The rest of this page is about the things that <em>do</em> make network calls, none of which are
+the scan itself.</p>
+<h2 id="what-leaves-the-machine-by-default">What leaves the machine, by default<a class="headerlink" href="#what-leaves-the-machine-by-default" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Piece</th>
+<th>What</th>
 <th>Where</th>
-<th>Notes</th>
+<th>Contains</th>
+<th>Turn off with</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Client id/secret resolution</td>
-<td><code>oauth/manager.py::build_oauth_config</code></td>
-<td>Reads <code>GUARD_*_OAUTH_CLIENT_ID/SECRET</code> env vars. <strong>No defaults.</strong></td>
+<td>Daily usage ping</td>
+<td><code>sentrik-portal.fly.dev</code></td>
+<td>A random install-scoped id, the command name, Sentrik version, OS name, Python major.minor, and whether <code>CI</code> is set. Nothing else. Sent at most once per day. The client IP is deliberately <strong>not</strong> recorded.</td>
+<td><code>SENTRIK_TELEMETRY=0</code>, or <code>telemetry_enabled: false</code></td>
 </tr>
 <tr>
-<td>Authorize + exchange</td>
-<td><code>oauth/manager.py</code> (<code>get_authorize_url</code>, <code>exchange_code</code>) → <code>oauth/providers.py</code></td>
-<td>Confidential flow: <code>exchange_code</code> sends the <strong>client_secret</strong>. <strong>No PKCE today.</strong></td>
-</tr>
-<tr>
-<td>Connect/callback endpoints</td>
-<td><code>server.py</code> <code>/oauth/{provider}/connect</code>, <code>/oauth/{provider}/callback</code></td>
-<td>In-memory <code>_oauth_states</code> (state→provider, TTL).</td>
-</tr>
-<tr>
-<td>Token storage</td>
-<td><code>oauth/store.py</code></td>
-<td><code>.sentrik/local/oauth_tokens.json</code>, Fernet-encrypted (machine-id + salt). <strong>Local only</strong> — good; keep.</td>
-</tr>
-<tr>
-<td>Precedent for hosted auth</td>
-<td><code>auth/device_flow.py</code></td>
-<td>Sentrik's own login already uses an Auth0 <strong>device flow</strong> (client_id, no secret). Reuse the mental model.</td>
-</tr>
-<tr>
-<td>Existing hosted service</td>
-<td><code>sentrik-portal.fly.dev</code> (FastAPI/Fly)</td>
-<td>Already does licensing + telemetry. Natural home for a token broker.</td>
+<td>License check</td>
+<td><code>sentrik-portal.fly.dev</code></td>
+<td>Your license key. Only when a key is configured.</td>
+<td><code>online_license_check: false</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="3-the-core-constraint">3. The core constraint<a class="headerlink" href="#3-the-core-constraint" title="Permanent link">&para;</a></h2>
-<p><strong>We cannot ship OAuth client <em>secrets</em> in a distributed CLI/binary</strong> — they are
-trivially extractable (same class of problem as the <code>_PRODUCTION_SECRET</code> license
-footgun). So the design splits by what each provider allows:</p>
+<p>That is the complete default list. Both are off in a fully air-gapped install and Sentrik
+continues to scan normally without them.</p>
+<h2 id="what-leaves-the-machine-only-when-you-ask-for-it">What leaves the machine only when you ask for it<a class="headerlink" href="#what-leaves-the-machine-only-when-you-ask-for-it" title="Permanent link">&para;</a></h2>
+<p>These are opt-in — they run because you invoked a command or configured an integration.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Where</th>
+<th>What is sent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sentrik vulns</code>, <code>sentrik sbom</code></td>
+<td><code>api.osv.dev</code></td>
+<td><strong>Dependency names and versions</strong> from your manifests. Not your source. Note this does reveal your dependency graph to a third party.</td>
+</tr>
+<tr>
+<td><code>sentrik licenses</code></td>
+<td>package registries</td>
+<td>Dependency names and versions</td>
+</tr>
+<tr>
+<td><code>sentrik attest --notarize</code></td>
+<td><code>sentrik-portal.fly.dev</code></td>
+<td>A <strong>SHA-256 digest</strong> of the attestation body, and nothing else. No findings, no paths, no repository name. See <a href="#attestation-and-the-notary">attestation</a>.</td>
+</tr>
+<tr>
+<td>Work-item sync (<code>reconcile</code>, <code>pull-reqs</code>, PR decoration)</td>
+<td>Azure DevOps / GitHub / Jira, as configured</td>
+<td>Finding summaries and file paths, because that is the point — it writes them into your tracker</td>
+</tr>
+<tr>
+<td>LLM features (confidence scoring, design review, threat model)</td>
+<td>Your configured provider</td>
+<td><strong>Code excerpts.</strong> Off unless <code>GUARD_LLM_PROVIDER</code> is set. Point <code>GUARD_LLM_BASE_URL</code> at a local Ollama instance to keep this on-premise.</td>
+</tr>
+<tr>
+<td>GRC push, Slack/Teams notifications</td>
+<td>Your configured endpoint</td>
+<td>Finding counts and gate status</td>
+</tr>
+</tbody>
+</table>
+<p>If you run Sentrik with no license key, no telemetry, no LLM provider, and no DevOps
+integration, it makes <strong>no network calls at all</strong>.</p>
+<h2 id="attestation-and-the-notary">Attestation and the notary<a class="headerlink" href="#attestation-and-the-notary" title="Permanent link">&para;</a></h2>
+<p>An attestation records what a scan found and whether the gate passed. It is signed twice,
+and the difference matters:</p>
 <ul>
-<li><strong>Public client + PKCE</strong> (no secret): the app is registered as a <em>native/public</em>
-  client; the CLI does the code→token exchange itself using PKCE. Secret never
-  exists. <strong>Azure Entra</strong> supports this cleanly (multi-tenant, <code>common</code>).</li>
-<li><strong>Confidential exchange via a broker</strong>: where the provider <em>requires</em> a secret
-  at the token endpoint (<strong>Atlassian/Jira</strong>, and <strong>GitHub OAuth Apps</strong>, which do
-  not support PKCE), a <strong>Sentrik-hosted broker</strong> holds the secret and performs the
-  exchange. Tokens pass through to the local install; the broker never persists
-  them.</li>
+<li><strong>Local signature (HMAC).</strong> Made with a key in <code>.sentrik/local/attestation_key</code> on the
+  machine that ran the scan. This detects alteration, and that is all it does. It is
+  <strong>not evidence for an auditor</strong>, because the key belongs to the party being audited —
+  they could sign any claim they liked. It also cannot be checked on another machine,
+  since the key is not committed.</li>
+<li><strong>Notary countersignature (Ed25519), via <code>--notarize</code>.</strong> A SHA-256 of the attestation is
+  sent to the Sentrik notary, which countersigns it with a private key that only Sentrik
+  holds and appends the digest to a public, hash-chained transparency log. This is the
+  signature a third party can rely on, precisely because you cannot produce it.</li>
 </ul>
-<h2 id="4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise">4. Recommended architecture: hybrid (PKCE where possible, broker otherwise)<a class="headerlink" href="#4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                     ┌───────────────────────── local machine ─────────────────────────┐
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Dashboard "Connect"│  server.py /oauth/{p}/connect                                    │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        ──────────────►  build authorize URL (Sentrik client_id, state, PKCE challenge) │
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                     │        │                                                          │
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   browser ◄─────────────────┘ 302 to provider consent                                  │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        │            └──────────────────────────────────────────────────────────────────┘
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        ▼
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>   Provider consent (login.microsoftonline.com / github.com / auth.atlassian.com)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        │
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        ├── Azure (PKCE, public):  redirect → http://localhost:8000/oauth/azure/callback?code&amp;state
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        │        server.py exchanges code + code_verifier itself → token (no secret)
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        │
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        └── GitHub / Jira (broker): redirect → https://portal.sentrik.dev/oauth/{p}/callback?code&amp;state
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                 broker exchanges code (+ its secret) → token, then
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                 302 → http://localhost:8000/oauth/{p}/callback?session=&lt;one-time&gt;
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                 server.py GETs portal /oauth/{p}/claim?session=&lt;one-time&gt; → token
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        │
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        ▼
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>   oauth/store.py: encrypt + save locally (unchanged)
-</code></pre></div>
-<p>Why hybrid rather than "broker for everything": Azure via PKCE removes a hosted
-round-trip and a class of "our broker is down" failures for the most common
-enterprise provider. GitHub/Jira must go through the broker because of their
-secret requirement, but the token still lands only on the user's machine.</p>
-<p><strong>Token privacy guarantee:</strong> the broker does the exchange and immediately hands
-the token back through a one-time <code>session</code> claim (single-use, ~60s TTL,
-in-memory). It is never written to Sentrik disk/logs. Document this in the trust
-center.</p>
-<h2 id="5-work-breakdown">5. Work breakdown<a class="headerlink" href="#5-work-breakdown" title="Permanent link">&para;</a></h2>
-<h3 id="a-product-ships-in-the-package">A. Product (ships in the package)<a class="headerlink" href="#a-product-ships-in-the-package" title="Permanent link">&para;</a></h3>
-<ol>
-<li><code>oauth/manager.py::build_oauth_config</code>: add <strong>baked-in default client IDs</strong>
-   (public, safe to embed) per provider; env vars still override (BYO-app for
-   self-hosters / air-gapped). Add a <code>broker_base_url</code> default
-   (<code>https://portal.sentrik.dev</code>), overridable.</li>
-<li>Add <strong>PKCE</strong> to <code>oauth/providers.py</code> + <code>manager.get_authorize_url</code>
-   (<code>code_verifier</code>/<code>code_challenge</code>, S256). Store the verifier alongside state.</li>
-<li><code>manager.exchange_code</code>: branch per provider — PKCE-self-exchange (Azure) vs
-   broker-claim (GitHub/Jira).</li>
-<li><code>server.py</code>: extend <code>/oauth/{provider}/connect</code> to emit PKCE + choose
-   redirect target (loopback for Azure, broker for GitHub/Jira); extend
-   <code>/oauth/{provider}/callback</code> to handle the <code>session</code> claim path. Persist state
-   with its verifier (extend <code>_oauth_states</code> value tuple).</li>
-<li>No change to <code>oauth/store.py</code> (local encryption stays).</li>
-</ol>
-<h3 id="b-broker-service-extends-sentrik-portalflydev">B. Broker service (extends <code>sentrik-portal.fly.dev</code>)<a class="headerlink" href="#b-broker-service-extends-sentrik-portalflydev" title="Permanent link">&para;</a></h3>
-<ol>
-<li>New endpoints: <code>/oauth/{provider}/callback</code> (provider redirects here; broker
-   exchanges code using the secret held in Fly secrets), and
-   <code>/oauth/{provider}/claim?session=…</code> (one-time, single-use, short-TTL handoff
-   to the local install). PKCE <code>code_verifier</code> is passed through from the client
-   via the <code>state</code>→session mapping so the broker can complete the exchange.</li>
-<li>Fly secrets: <code>SENTRIK_GITHUB_OAUTH_CLIENT_SECRET</code>, <code>SENTRIK_JIRA_OAUTH_CLIENT_SECRET</code>
-   (+ client IDs). Rotatable without a client release.</li>
-<li>Rate-limit + bind <code>session</code> to the originating <code>state</code>; never log tokens.</li>
-</ol>
-<h3 id="c-dashboard-frontend">C. Dashboard (frontend)<a class="headerlink" href="#c-dashboard-frontend" title="Permanent link">&para;</a></h3>
-<ol>
-<li>No UX change required — the existing Integration tab "Connect" button already
-   hits <code>/oauth/{provider}/connect</code>. Optionally add a "Using Sentrik's app —
-   connect your own in Settings" hint and a BYO-app advanced panel.</li>
-</ol>
-<h3 id="d-docs-infra">D. Docs / infra<a class="headerlink" href="#d-docs-infra" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Rewrite <code>CLAUDE.md</code> + docs "OAuth Integration": default path becomes "click
-    Connect"; the env-var registration becomes an <em>advanced / self-host</em> section.</li>
-<li>Trust-center note on the broker token-privacy model.</li>
-</ol>
-<h2 id="6-manual-registration-max-one-time">6. Manual registration (Max — one-time)<a class="headerlink" href="#6-manual-registration-max-one-time" title="Permanent link">&para;</a></h2>
+<p>Verification reports which of these it checked, and distinguishes "this document was
+altered" from "this machine holds no key to check it against" — the second is not an
+accusation, and it is what an auditor on their own laptop will normally see for a
+self-signed document.</p>
+<p>The notary never receives the attestation itself, only its digest. A hash discloses
+nothing until someone presents the document that matches it, which is why the notary is
+unauthenticated and free: requiring a license key would mean Sentrik knows which customer
+produced which attestation, and an evidence service should not be a surveillance one.</p>
+<h2 id="local-state">Local state<a class="headerlink" href="#local-state" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Contents</th>
+<th>Committed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.sentrik/config.yaml</code></td>
+<td>Shared team config</td>
+<td>Yes, by design</td>
+</tr>
+<tr>
+<td><code>.sentrik/rules/</code></td>
+<td>Your custom rules</td>
+<td>Yes, by design</td>
+</tr>
+<tr>
+<td><code>.sentrik/local/</code></td>
+<td>Attestation key, attestation history, OAuth tokens, machine-local state</td>
+<td><strong>No</strong> — gitignored</td>
+</tr>
+<tr>
+<td><code>out/</code></td>
+<td>Findings, reports, metrics</td>
+<td>Usually gitignored</td>
+</tr>
+</tbody>
+</table>
+<p>OAuth tokens in <code>.sentrik/local/oauth_tokens.json</code> are encrypted at rest with Fernet. The
+audit log is HMAC-signed. When the REST API is exposed, it is rate-limited per IP (60
+rpm default) and API keys are compared in constant time.</p>
+<p>Because <code>.sentrik/local/</code> is not committed, attestation history does not survive a fresh
+clone or move to a new CI runner. Notarized attestations are unaffected — they verify
+anywhere, from the document alone.</p>
+<h2 id="known-limitations">Known limitations<a class="headerlink" href="#known-limitations" title="Permanent link">&para;</a></h2>
+<p>Stated plainly, because a security page that only lists strengths is not a security page.</p>
 <ul>
-<li><strong>Entra ID</strong>: register a <strong>multi-tenant</strong> app (<code>common</code>), platform = <em>Mobile &amp;
-  desktop / public client</em>, enable PKCE, redirect <code>http://localhost:8000/oauth/azure/callback</code>
-  (+ any future SaaS origin). API permission: Azure DevOps <code>user_impersonation</code>.
-  Embed the client id. No secret.</li>
-<li><strong>GitHub</strong>: OAuth App (or GitHub App), redirect <code>https://portal.sentrik.dev/oauth/github/callback</code>.
-  Client id embedded; secret → Fly secret.</li>
-<li><strong>Atlassian</strong>: OAuth 2.0 (3LO) app, redirect <code>https://portal.sentrik.dev/oauth/jira/callback</code>,
-  scopes for Jira work items + offline_access. Client id embedded; secret → Fly.</li>
+<li><strong>License keys are HMAC-signed with a secret embedded in the package.</strong> It is extractable,
+  so keys are forgeable by a determined user. This is a revenue-protection weakness, not a
+  path into your code or systems. Moving licensing to the same Ed25519 scheme as the notary
+  is planned.</li>
+<li><strong>Dependency scanning discloses your dependency graph</strong> to OSV.dev. That is inherent to
+  querying a public vulnerability database, but it is a disclosure and you should know
+  about it before enabling it on a sensitive project.</li>
+<li><strong>LLM features send code excerpts to whichever provider you configure.</strong> They are off by
+  default. If your policy forbids this, either leave them off or point them at a local model.</li>
+<li><strong>Sentrik has not completed a SOC 2 audit</strong> and does not claim to have one.</li>
 </ul>
-<h2 id="7-security-checklist">7. Security checklist<a class="headerlink" href="#7-security-checklist" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Secrets only in Fly secrets (broker); never in the package.</li>
-<li>PKCE (S256) on every provider that supports it; <code>state</code> nonce always.</li>
-<li>Redirect-URI allowlist: loopback <code>127.0.0.1/localhost</code> + the registered broker
-  origin only.</li>
-<li><code>session</code> claim: single-use, ≤60s, bound to <code>state</code>, in-memory.</li>
-<li>Least-scope requests; <code>offline_access</code> only where refresh is needed.</li>
-<li>Tokens stay Fernet-encrypted locally (existing); broker is pass-through.</li>
-<li>Multi-tenant Azure: rely on per-tenant admin consent; document it.</li>
-</ul>
-<h2 id="8-phasing">8. Phasing<a class="headerlink" href="#8-phasing" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Phase 1 — Azure PKCE, no broker.</strong> Proves zero-config end-to-end for the
-   top enterprise provider; smallest surface. (Product-only change.)</li>
-<li><strong>Phase 2 — Broker for GitHub + Jira</strong> on the Fly portal.</li>
-<li><strong>Phase 3 — Embed client IDs + flip docs</strong> so plain installs are zero-config;
-   keep env-var override.</li>
-<li><strong>Phase 4 — Production redirect URIs</strong> when the SaaS domain is live (ties into
-   the existing "OAuth redirect URIs for production" TODO).</li>
-</ol>
-<h2 id="9-testing">9. Testing<a class="headerlink" href="#9-testing" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Unit: PKCE challenge/verifier generation; per-provider exchange branching;
-  state+verifier round-trip; broker-claim happy path + expiry/reuse rejection.</li>
-<li>Integration (mocked provider + mocked broker): connect→callback→token stored,
-  for each provider path.</li>
-<li>Back-compat: env-var BYO-app still overrides the baked-in defaults.</li>
-<li>Manual: real consent against each provider in a scratch org.</li>
-</ul>
-<h2 id="10-back-compat-open-questions">10. Back-compat &amp; open questions<a class="headerlink" href="#10-back-compat-open-questions" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Back-compat:</strong> existing BYO-app users are unaffected — env vars win over the
-  baked-in defaults. No token migration (storage format unchanged).</li>
-<li><strong>Open:</strong> GitHub App vs OAuth App (a GitHub <em>App</em> gives finer-grained, org-
-  installable perms and short-lived tokens — worth it if we want per-repo scoping,
-  but heavier). Decide before Phase 2.</li>
-<li><strong>Open:</strong> device-flow fallback for headless/CI (no loopback browser) — GitHub +
-  Azure both support device flow; could reuse the <code>auth/device_flow.py</code> shape.</li>
-<li><strong>Open:</strong> broker availability/SLO — Azure PKCE avoids it; GitHub/Jira depend on
-  the Fly portal being up. Acceptable given it's already the license/telemetry
-  dependency, but note it.</li>
-</ul>
+<h2 id="reporting-a-vulnerability">Reporting a vulnerability<a class="headerlink" href="#reporting-a-vulnerability" title="Permanent link">&para;</a></h2>
+<p>Email <code>security@sentrik.dev</code>. Please include reproduction steps and give a reasonable
+window before public disclosure.</p>
 
 
 
@@ -2796,10 +2812,10 @@ center.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

@@ -12,7 +12,7 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/design/sentrik-owned-oauth/">
+        <link rel="canonical" href="https://docs.sentrik.dev/design/self-scan-findings-2026-08/">
       
       
       
@@ -25,7 +25,7 @@
     
     
       
-        <title>Design: Sentrik-owned OAuth apps (zero-config DevOps auth) - sentrik documentation</title>
+        <title>Self-scan triage — running the corpus method against our own tree - sentrik documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#design-sentrik-owned-oauth-apps-zero-config-devops-auth" class="md-skip">
+        <a href="#self-scan-triage-running-the-corpus-method-against-our-own-tree" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Design: Sentrik-owned OAuth apps (zero-config DevOps auth)
+              Self-scan triage — running the corpus method against our own tree
             
           </span>
         </div>
@@ -2341,10 +2341,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-problem" class="md-nav__link">
+  <a href="#why-this-was-worth-doing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Problem
+        Why this was worth doing
       
     </span>
   </a>
@@ -2352,55 +2352,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-current-state-what-we-build-on" class="md-nav__link">
+  <a href="#confirmed-false-positives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Current state (what we build on)
+        Confirmed false positives
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-the-core-constraint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. The core constraint
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Recommended architecture: hybrid (PKCE where possible, broker otherwise)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-work-breakdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Work breakdown
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Work breakdown">
+    <nav class="md-nav" aria-label="Confirmed false positives">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-product-ships-in-the-package" class="md-nav__link">
+  <a href="#1-owasp-a03-006-no-exec-fires-on-the-standard-javascript-regex-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A. Product (ships in the package)
+        1. OWASP-A03-006 no-exec — fires on the standard JavaScript regex API
       
     </span>
   </a>
@@ -2408,10 +2375,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-broker-service-extends-sentrik-portalflydev" class="md-nav__link">
+  <a href="#2-py-sec-001-owasp-a03-005-no-eval-fires-on-prose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        B. Broker service (extends sentrik-portal.fly.dev)
+        2. PY-SEC-001 / OWASP-A03-005 no-eval — fires on prose
       
     </span>
   </a>
@@ -2419,10 +2386,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#c-dashboard-frontend" class="md-nav__link">
+  <a href="#3-std-003-no-hardcoded-secrets-fires-on-documentation-placeholders-8-findings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        C. Dashboard (frontend)
+        3. STD-003 no-hardcoded-secrets — fires on documentation placeholders (8 findings)
       
     </span>
   </a>
@@ -2430,10 +2397,65 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#d-docs-infra" class="md-nav__link">
+  <a href="#4-owasp-a02-003-fires-on-a-sentinel-that-means-no-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        D. Docs / infra
+        4. OWASP-A02-003 — fires on a sentinel that means "no key"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pack-yaml-matching-its-own-rule-definitions-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Pack YAML matching its own rule definitions (again)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-scs-dep-002-fires-on-an-error-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. SCS-DEP-002 — fires on an error message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-scs-ci-006-all_patterns-has-no-proximity-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. SCS-CI-006 — all_patterns has no proximity requirement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-req-drift-treats-binary-and-generated-files-as-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. REQ-DRIFT-* — treats binary and generated files as source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-owasp-a05-001-schema-namespace-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. OWASP-A05-001 — schema namespace URL
       
     </span>
   </a>
@@ -2446,10 +2468,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-manual-registration-max-one-time" class="md-nav__link">
+  <a href="#true-positives-worth-acting-on" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Manual registration (Max — one-time)
+        True positives worth acting on
       
     </span>
   </a>
@@ -2457,10 +2479,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-security-checklist" class="md-nav__link">
+  <a href="#suggested-order" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Security checklist
+        Suggested order
       
     </span>
   </a>
@@ -2468,32 +2490,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-phasing" class="md-nav__link">
+  <a href="#making-this-repeatable" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Phasing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Testing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-back-compat-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Back-compat &amp; open questions
+        Making this repeatable
       
     </span>
   </a>
@@ -2517,197 +2517,149 @@
 
 
 
-<h1 id="design-sentrik-owned-oauth-apps-zero-config-devops-auth">Design: Sentrik-owned OAuth apps (zero-config DevOps auth)<a class="headerlink" href="#design-sentrik-owned-oauth-apps-zero-config-devops-auth" title="Permanent link">&para;</a></h1>
-<p>Status: <strong>Plan / not started</strong> · Owner: Max · Last updated: 2026-08-05</p>
-<h2 id="1-problem">1. Problem<a class="headerlink" href="#1-problem" title="Permanent link">&para;</a></h2>
-<p>To connect Azure DevOps / GitHub / Jira today, a user must <strong>register their own
-OAuth app</strong> with each provider and set 6+ env vars per provider
-(<code>GUARD_AZURE_OAUTH_CLIENT_ID</code>, <code>…_CLIENT_SECRET</code>, <code>…_TENANT_ID</code>, redirect URI,
-etc. — see <code>CLAUDE.md</code> "OAuth Integration"). That is the single biggest
-onboarding cliff for the whole integration story: most evaluators never get past
-it, so they fall back to PATs or never connect at all.</p>
-<p><strong>Goal:</strong> the Integration tab's "Connect to <Provider>" button works with <strong>no
-prior setup</strong> — Sentrik ships its own registered OAuth apps and users just click
-→ consent → connected.</p>
-<h2 id="2-current-state-what-we-build-on">2. Current state (what we build on)<a class="headerlink" href="#2-current-state-what-we-build-on" title="Permanent link">&para;</a></h2>
+<h1 id="self-scan-triage-running-the-corpus-method-against-our-own-tree">Self-scan triage — running the corpus method against our own tree<a class="headerlink" href="#self-scan-triage-running-the-corpus-method-against-our-own-tree" title="Permanent link">&para;</a></h1>
+<p>Date: 2026-08-17. Scope: <code>python-security</code>, <code>owasp-top-10</code>, <code>supply-chain-security</code> —
+the three packs the dev repo self-scans with. 67 findings across 29 rules.</p>
+<h2 id="why-this-was-worth-doing">Why this was worth doing<a class="headerlink" href="#why-this-was-worth-doing" title="Permanent link">&para;</a></h2>
+<p>Three false positives surfaced in a single day (<code>SCS-BUILD-001</code>, <code>SCS-CI-004</code>,
+<code>PY-SEC-014</code>), and <strong>every one of them surfaced only because a PR happened to touch the
+file</strong>. <code>PY-SEC-014</code> had been wrong since it was written and sat undetected in the
+licensing service. The gate only ever looks at changed files, so a bad rule in an
+untouched file is invisible indefinitely.</p>
+<p>The corpus harness already exists for external repos. Pointing the same method at our own
+tree costs one scan. The oracles in <code>scripts/corpus/invariants.py</code> cannot find this class
+of bug — they compare Sentrik against itself and catch walker/exclude errors. Finding a
+rule whose <em>pattern is simply wrong</em> requires looking at what it matched.</p>
+<p>Findings in <code>demo/</code> are excluded from what follows: that project contains deliberate
+vulnerabilities and Sentrik correctly flags all of them.</p>
+<h2 id="confirmed-false-positives">Confirmed false positives<a class="headerlink" href="#confirmed-false-positives" title="Permanent link">&para;</a></h2>
+<h3 id="1-owasp-a03-006-no-exec-fires-on-the-standard-javascript-regex-api">1. <code>OWASP-A03-006</code> no-exec — fires on the standard JavaScript regex API<a class="headerlink" href="#1-owasp-a03-006-no-exec-fires-on-the-standard-javascript-regex-api" title="Permanent link">&para;</a></h3>
+<p><code>critical</code>, pattern <code>\bexec\s*\(</code>, glob <code>**/*.{py,js,ts,jsx,tsx,rb,kt}</code>.</p>
+<p>The rule means Python's <code>exec()</code>. The pattern matches any method named <code>exec</code>:</p>
 <table>
 <thead>
 <tr>
-<th>Piece</th>
-<th>Where</th>
-<th>Notes</th>
+<th>Code</th>
+<th>Fires</th>
+<th>What it actually is</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Client id/secret resolution</td>
-<td><code>oauth/manager.py::build_oauth_config</code></td>
-<td>Reads <code>GUARD_*_OAUTH_CLIENT_ID/SECRET</code> env vars. <strong>No defaults.</strong></td>
+<td><code>/foo(\d+)/.exec(input)</code></td>
+<td>yes</td>
+<td><strong>The standard JS regex API</strong></td>
 </tr>
 <tr>
-<td>Authorize + exchange</td>
-<td><code>oauth/manager.py</code> (<code>get_authorize_url</code>, <code>exchange_code</code>) → <code>oauth/providers.py</code></td>
-<td>Confidential flow: <code>exchange_code</code> sends the <strong>client_secret</strong>. <strong>No PKCE today.</strong></td>
+<td><code>while ((m = pattern.exec(text)) !== null)</code></td>
+<td>yes</td>
+<td>Same, the canonical iteration idiom</td>
 </tr>
 <tr>
-<td>Connect/callback endpoints</td>
-<td><code>server.py</code> <code>/oauth/{provider}/connect</code>, <code>/oauth/{provider}/callback</code></td>
-<td>In-memory <code>_oauth_states</code> (state→provider, TTL).</td>
+<td><code>cp.exec(cmd, opts, cb)</code></td>
+<td>yes</td>
+<td>Node <code>child_process</code> — a different vuln with different remediation</td>
 </tr>
 <tr>
-<td>Token storage</td>
-<td><code>oauth/store.py</code></td>
-<td><code>.sentrik/local/oauth_tokens.json</code>, Fernet-encrypted (machine-id + salt). <strong>Local only</strong> — good; keep.</td>
+<td><code>db.exec("PRAGMA journal_mode=WAL")</code></td>
+<td>yes</td>
+<td>sqlite DDL</td>
 </tr>
 <tr>
-<td>Precedent for hosted auth</td>
-<td><code>auth/device_flow.py</code></td>
-<td>Sentrik's own login already uses an Auth0 <strong>device flow</strong> (client_id, no secret). Reuse the mental model.</td>
-</tr>
-<tr>
-<td>Existing hosted service</td>
-<td><code>sentrik-portal.fly.dev</code> (FastAPI/Fly)</td>
-<td>Already does licensing + telemetry. Natural home for a token broker.</td>
+<td><code>exec("os.system(x)")</code></td>
+<td>yes</td>
+<td>the actual vulnerability</td>
 </tr>
 </tbody>
 </table>
-<h2 id="3-the-core-constraint">3. The core constraint<a class="headerlink" href="#3-the-core-constraint" title="Permanent link">&para;</a></h2>
-<p><strong>We cannot ship OAuth client <em>secrets</em> in a distributed CLI/binary</strong> — they are
-trivially extractable (same class of problem as the <code>_PRODUCTION_SECRET</code> license
-footgun). So the design splits by what each provider allows:</p>
-<ul>
-<li><strong>Public client + PKCE</strong> (no secret): the app is registered as a <em>native/public</em>
-  client; the CLI does the code→token exchange itself using PKCE. Secret never
-  exists. <strong>Azure Entra</strong> supports this cleanly (multi-tenant, <code>common</code>).</li>
-<li><strong>Confidential exchange via a broker</strong>: where the provider <em>requires</em> a secret
-  at the token endpoint (<strong>Atlassian/Jira</strong>, and <strong>GitHub OAuth Apps</strong>, which do
-  not support PKCE), a <strong>Sentrik-hosted broker</strong> holds the secret and performs the
-  exchange. Tokens pass through to the local install; the broker never persists
-  them.</li>
-</ul>
-<h2 id="4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise">4. Recommended architecture: hybrid (PKCE where possible, broker otherwise)<a class="headerlink" href="#4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                     ┌───────────────────────── local machine ─────────────────────────┐
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Dashboard "Connect"│  server.py /oauth/{p}/connect                                    │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        ──────────────►  build authorize URL (Sentrik client_id, state, PKCE challenge) │
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                     │        │                                                          │
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   browser ◄─────────────────┘ 302 to provider consent                                  │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        │            └──────────────────────────────────────────────────────────────────┘
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        ▼
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>   Provider consent (login.microsoftonline.com / github.com / auth.atlassian.com)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        │
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        ├── Azure (PKCE, public):  redirect → http://localhost:8000/oauth/azure/callback?code&amp;state
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        │        server.py exchanges code + code_verifier itself → token (no secret)
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        │
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        └── GitHub / Jira (broker): redirect → https://portal.sentrik.dev/oauth/{p}/callback?code&amp;state
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                 broker exchanges code (+ its secret) → token, then
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                 302 → http://localhost:8000/oauth/{p}/callback?session=&lt;one-time&gt;
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                 server.py GETs portal /oauth/{p}/claim?session=&lt;one-time&gt; → token
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        │
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        ▼
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>   oauth/store.py: encrypt + save locally (unchanged)
+<p>Hit in our own tree at <code>vscode-extension/src/extension.ts:1696</code>. In any regex-heavy
+JavaScript codebase this fires continuously, at <code>critical</code>.</p>
+<p><strong>Fix:</strong> restrict the glob to Python/Ruby, or require the Python call shape. <code>.exec(</code> with
+a receiver is never Python's builtin.</p>
+<h3 id="2-py-sec-001-owasp-a03-005-no-eval-fires-on-prose">2. <code>PY-SEC-001</code> / <code>OWASP-A03-005</code> no-eval — fires on prose<a class="headerlink" href="#2-py-sec-001-owasp-a03-005-no-eval-fires-on-prose" title="Permanent link">&para;</a></h3>
+<p><code>critical</code>, pattern <code>\beval\s*\(</code>. At <code>src/guard/reporters/executive_summary.py:148</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>kind of issue is in general (e.g. an &lt;code&gt;eval()&lt;/code&gt; call is always Critical).
 </code></pre></div>
-<p>Why hybrid rather than "broker for everything": Azure via PKCE removes a hosted
-round-trip and a class of "our broker is down" failures for the most common
-enterprise provider. GitHub/Jira must go through the broker because of their
-secret requirement, but the token still lands only on the user's machine.</p>
-<p><strong>Token privacy guarantee:</strong> the broker does the exchange and immediately hands
-the token back through a one-time <code>session</code> claim (single-use, ~60s TTL,
-in-memory). It is never written to Sentrik disk/logs. Document this in the trust
-center.</p>
-<h2 id="5-work-breakdown">5. Work breakdown<a class="headerlink" href="#5-work-breakdown" title="Permanent link">&para;</a></h2>
-<h3 id="a-product-ships-in-the-package">A. Product (ships in the package)<a class="headerlink" href="#a-product-ships-in-the-package" title="Permanent link">&para;</a></h3>
-<ol>
-<li><code>oauth/manager.py::build_oauth_config</code>: add <strong>baked-in default client IDs</strong>
-   (public, safe to embed) per provider; env vars still override (BYO-app for
-   self-hosters / air-gapped). Add a <code>broker_base_url</code> default
-   (<code>https://portal.sentrik.dev</code>), overridable.</li>
-<li>Add <strong>PKCE</strong> to <code>oauth/providers.py</code> + <code>manager.get_authorize_url</code>
-   (<code>code_verifier</code>/<code>code_challenge</code>, S256). Store the verifier alongside state.</li>
-<li><code>manager.exchange_code</code>: branch per provider — PKCE-self-exchange (Azure) vs
-   broker-claim (GitHub/Jira).</li>
-<li><code>server.py</code>: extend <code>/oauth/{provider}/connect</code> to emit PKCE + choose
-   redirect target (loopback for Azure, broker for GitHub/Jira); extend
-   <code>/oauth/{provider}/callback</code> to handle the <code>session</code> claim path. Persist state
-   with its verifier (extend <code>_oauth_states</code> value tuple).</li>
-<li>No change to <code>oauth/store.py</code> (local encryption stays).</li>
-</ol>
-<h3 id="b-broker-service-extends-sentrik-portalflydev">B. Broker service (extends <code>sentrik-portal.fly.dev</code>)<a class="headerlink" href="#b-broker-service-extends-sentrik-portalflydev" title="Permanent link">&para;</a></h3>
-<ol>
-<li>New endpoints: <code>/oauth/{provider}/callback</code> (provider redirects here; broker
-   exchanges code using the secret held in Fly secrets), and
-   <code>/oauth/{provider}/claim?session=…</code> (one-time, single-use, short-TTL handoff
-   to the local install). PKCE <code>code_verifier</code> is passed through from the client
-   via the <code>state</code>→session mapping so the broker can complete the exchange.</li>
-<li>Fly secrets: <code>SENTRIK_GITHUB_OAUTH_CLIENT_SECRET</code>, <code>SENTRIK_JIRA_OAUTH_CLIENT_SECRET</code>
-   (+ client IDs). Rotatable without a client release.</li>
-<li>Rate-limit + bind <code>session</code> to the originating <code>state</code>; never log tokens.</li>
-</ol>
-<h3 id="c-dashboard-frontend">C. Dashboard (frontend)<a class="headerlink" href="#c-dashboard-frontend" title="Permanent link">&para;</a></h3>
-<ol>
-<li>No UX change required — the existing Integration tab "Connect" button already
-   hits <code>/oauth/{provider}/connect</code>. Optionally add a "Using Sentrik's app —
-   connect your own in Settings" hint and a BYO-app advanced panel.</li>
-</ol>
-<h3 id="d-docs-infra">D. Docs / infra<a class="headerlink" href="#d-docs-infra" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Rewrite <code>CLAUDE.md</code> + docs "OAuth Integration": default path becomes "click
-    Connect"; the env-var registration becomes an <em>advanced / self-host</em> section.</li>
-<li>Trust-center note on the broker token-privacy model.</li>
-</ol>
-<h2 id="6-manual-registration-max-one-time">6. Manual registration (Max — one-time)<a class="headerlink" href="#6-manual-registration-max-one-time" title="Permanent link">&para;</a></h2>
+<p>That is explanatory text in an HTML report template, flagged as a critical injection
+vector. Same shape as the <code>\bassert\b</code> and <code>\bgoto\b</code> problems fixed in the medtech packs:
+a bare keyword match with no code context.</p>
+<h3 id="3-std-003-no-hardcoded-secrets-fires-on-documentation-placeholders-8-findings">3. <code>STD-003</code> no-hardcoded-secrets — fires on documentation placeholders (8 findings)<a class="headerlink" href="#3-std-003-no-hardcoded-secrets-fires-on-documentation-placeholders-8-findings" title="Permanent link">&para;</a></h3>
+<p><code>critical</code>, all in <code>license-server/README.md</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>export GUARD_LICENSE_SECRET="your-secret-here"
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>export STRIPE_WEBHOOK_SECRET="whsec_..."
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>fly secrets set GUARD_LICENSE_SECRET="your-production-secret"
+</code></pre></div>
+<p>These are setup instructions telling operators to use env vars — the remediation the rule
+itself recommends. Same self-defeating shape as HIPAA-164.312-a1 flagging <code>patient_id</code>.</p>
+<p><strong>Fix:</strong> exclude obvious placeholder values (<code>your-...</code>, <code>&lt;...&gt;</code>, <code>...</code>, <code>changeme</code>,
+<code>xxx</code>) and consider whether <code>**/*.md</code> belongs in the glob at all.</p>
+<h3 id="4-owasp-a02-003-fires-on-a-sentinel-that-means-no-key">4. <code>OWASP-A02-003</code> — fires on a sentinel that means "no key"<a class="headerlink" href="#4-owasp-a02-003-fires-on-a-sentinel-that-means-no-key" title="Permanent link">&para;</a></h3>
+<p><code>src/guard/providers/llm_openai.py:39</code>: <code>self._api_key = "proxy-no-key-required"</code>.
+A literal whose entire purpose is to say there is no credential.</p>
+<h3 id="5-pack-yaml-matching-its-own-rule-definitions-again">5. Pack YAML matching its own rule definitions (again)<a class="headerlink" href="#5-pack-yaml-matching-its-own-rule-definitions-again" title="Permanent link">&para;</a></h3>
+<p><code>SCS-DEP-002</code> and <code>SCS-BUILD-002</code> fire on
+<code>src/guard/packs/iec_81001_5_1/pack.yaml:238</code> and
+<code>src/guard/packs/supply_chain_security/pack.yaml:180</code> — the lines that <em>define</em> the
+patterns being hunted. <code>STD-001</code> (no-todo-comments) does the same on
+<code>src/guard/core/drift_analyzer.py:374</code>, a regex containing the word TODO.</p>
+<p>This is the <code>SCS-CI-004</code> case, already suppressed for <code>SCS-CI-*</code> and <code>SCS-BUILD-001</code>.
+The suppression needs to cover the whole class, not one rule at a time — a rule
+definition is data, not an instance of what it describes.</p>
+<h3 id="6-scs-dep-002-fires-on-an-error-message">6. <code>SCS-DEP-002</code> — fires on an error message<a class="headerlink" href="#6-scs-dep-002-fires-on-an-error-message" title="Permanent link">&para;</a></h3>
+<p><code>demo/run_demo.sh:48</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>err<span class="w"> </span><span class="s2">"Could not find 'sentra' command. Install with: npm install -g sentra"</span>
+</code></pre></div>
+A string telling a user how to install something is not an unpinned install.</p>
+<h3 id="7-scs-ci-006-all_patterns-has-no-proximity-requirement">7. <code>SCS-CI-006</code> — <code>all_patterns</code> has no proximity requirement<a class="headerlink" href="#7-scs-ci-006-all_patterns-has-no-proximity-requirement" title="Permanent link">&para;</a></h3>
+<p>Reported at <code>templates/gitlab-ci-sentrik.yml:1</code>, which is a comment:
+<code># Sentrik compliance gate for GitLab CI/CD</code>.</p>
+<p><code>all_patterns</code> is a <strong>file-level AND</strong>: pattern A (<code>security|scan|sentrik|...</code>) matches
+line 1, pattern B (<code>allow.failure|continue-on-error</code>) matches somewhere else entirely, and
+the finding is pinned to the first match. Nothing requires the two to be the same CI step.</p>
+<p>Any CI file that mentions "security" or "scan" anywhere and uses <code>continue-on-error</code>
+anywhere will fire, however unrelated. This is a rule-engine semantics issue rather than
+one bad pattern, and it affects every rule using <code>all_patterns</code>.</p>
+<h3 id="8-req-drift-treats-binary-and-generated-files-as-source">8. <code>REQ-DRIFT-*</code> — treats binary and generated files as source<a class="headerlink" href="#8-req-drift-treats-binary-and-generated-files-as-source" title="Permanent link">&para;</a></h3>
+<p><code>high</code> severity, on:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>project_management/AI_SDLC_Guard_Demo_Plan.docx
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>project_management/AI_SDLC_Guard_Product_Plan.pptx
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>project_management/AI_SDLC_Guard_Task_Tracker.xlsx
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>~$_SDLC_Guard_UX_Changelog.docx      &lt;- a Word lock file
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>site/sitemap.xml.gz                  &lt;- gzip
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>_dash_debug.js
+</code></pre></div>
+<p>"Source file X is missing requirement Y" for a PowerPoint, and for a temporary lock file
+Word creates while a document is open. The drift analyzer needs the same non-source suffix
+filter that <code>_filter_scannable</code> gained in #158.</p>
+<h3 id="9-owasp-a05-001-schema-namespace-url">9. <code>OWASP-A05-001</code> — schema namespace URL<a class="headerlink" href="#9-owasp-a05-001-schema-namespace-url" title="Permanent link">&para;</a></h3>
+<p><code>src/guard/core/notifications.py:271</code>:
+<code>"$schema": "http://adaptivecards.io/schemas/adaptive-card.json"</code></p>
+<p>A JSON Schema identifier, not a data transmission — the same class as the RFC 2606 and
+<code>w3.org</code> exclusions added in #159. <code>adaptivecards.io</code> (and schema namespaces generally)
+belong in that allowlist.</p>
+<h2 id="true-positives-worth-acting-on">True positives worth acting on<a class="headerlink" href="#true-positives-worth-acting-on" title="Permanent link">&para;</a></h2>
+<p>Not everything here is noise:</p>
 <ul>
-<li><strong>Entra ID</strong>: register a <strong>multi-tenant</strong> app (<code>common</code>), platform = <em>Mobile &amp;
-  desktop / public client</em>, enable PKCE, redirect <code>http://localhost:8000/oauth/azure/callback</code>
-  (+ any future SaaS origin). API permission: Azure DevOps <code>user_impersonation</code>.
-  Embed the client id. No secret.</li>
-<li><strong>GitHub</strong>: OAuth App (or GitHub App), redirect <code>https://portal.sentrik.dev/oauth/github/callback</code>.
-  Client id embedded; secret → Fly secret.</li>
-<li><strong>Atlassian</strong>: OAuth 2.0 (3LO) app, redirect <code>https://portal.sentrik.dev/oauth/jira/callback</code>,
-  scopes for Jira work items + offline_access. Client id embedded; secret → Fly.</li>
+<li><code>PY-SEC-008</code> / <code>OWASP-A03-004</code> — <code>subprocess.run(cmd, shell=True, ...)</code> at
+  <code>scripts/run_manual_tests.py:21</code>. Real, in our own tooling.</li>
+<li><code>SCS-DEP-001</code> — unpinned <code>pip install</code> in <code>scripts/build-binary.sh:18</code>,
+  <code>azure-pipelines.yml:67</code> and <code>automation/scripts/setup.sh</code>. Real supply-chain exposure
+  in our own build.</li>
 </ul>
-<h2 id="7-security-checklist">7. Security checklist<a class="headerlink" href="#7-security-checklist" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Secrets only in Fly secrets (broker); never in the package.</li>
-<li>PKCE (S256) on every provider that supports it; <code>state</code> nonce always.</li>
-<li>Redirect-URI allowlist: loopback <code>127.0.0.1/localhost</code> + the registered broker
-  origin only.</li>
-<li><code>session</code> claim: single-use, ≤60s, bound to <code>state</code>, in-memory.</li>
-<li>Least-scope requests; <code>offline_access</code> only where refresh is needed.</li>
-<li>Tokens stay Fernet-encrypted locally (existing); broker is pass-through.</li>
-<li>Multi-tenant Azure: rely on per-tenant admin consent; document it.</li>
-</ul>
-<h2 id="8-phasing">8. Phasing<a class="headerlink" href="#8-phasing" title="Permanent link">&para;</a></h2>
+<h2 id="suggested-order">Suggested order<a class="headerlink" href="#suggested-order" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Phase 1 — Azure PKCE, no broker.</strong> Proves zero-config end-to-end for the
-   top enterprise provider; smallest surface. (Product-only change.)</li>
-<li><strong>Phase 2 — Broker for GitHub + Jira</strong> on the Fly portal.</li>
-<li><strong>Phase 3 — Embed client IDs + flip docs</strong> so plain installs are zero-config;
-   keep env-var override.</li>
-<li><strong>Phase 4 — Production redirect URIs</strong> when the SaaS domain is live (ties into
-   the existing "OAuth redirect URIs for production" TODO).</li>
+<li><code>OWASP-A03-006</code> glob/shape — highest volume on any JS codebase, and <code>critical</code>.</li>
+<li>Placeholder handling in <code>STD-003</code> / <code>OWASP-A02-003</code> — affects every user with a README.</li>
+<li><code>REQ-DRIFT-*</code> non-source filter — currently emits <code>high</code> findings about PowerPoints.</li>
+<li>Class-wide suppression for pack YAML self-matches.</li>
+<li><code>all_patterns</code> proximity — the largest change, and a design decision rather than a fix.</li>
+<li>Fix the two real ones in our own build scripts.</li>
 </ol>
-<h2 id="9-testing">9. Testing<a class="headerlink" href="#9-testing" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Unit: PKCE challenge/verifier generation; per-provider exchange branching;
-  state+verifier round-trip; broker-claim happy path + expiry/reuse rejection.</li>
-<li>Integration (mocked provider + mocked broker): connect→callback→token stored,
-  for each provider path.</li>
-<li>Back-compat: env-var BYO-app still overrides the baked-in defaults.</li>
-<li>Manual: real consent against each provider in a scratch org.</li>
-</ul>
-<h2 id="10-back-compat-open-questions">10. Back-compat &amp; open questions<a class="headerlink" href="#10-back-compat-open-questions" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Back-compat:</strong> existing BYO-app users are unaffected — env vars win over the
-  baked-in defaults. No token migration (storage format unchanged).</li>
-<li><strong>Open:</strong> GitHub App vs OAuth App (a GitHub <em>App</em> gives finer-grained, org-
-  installable perms and short-lived tokens — worth it if we want per-repo scoping,
-  but heavier). Decide before Phase 2.</li>
-<li><strong>Open:</strong> device-flow fallback for headless/CI (no loopback browser) — GitHub +
-  Azure both support device flow; could reuse the <code>auth/device_flow.py</code> shape.</li>
-<li><strong>Open:</strong> broker availability/SLO — Azure PKCE avoids it; GitHub/Jira depend on
-  the Fly portal being up. Acceptable given it's already the license/telemetry
-  dependency, but note it.</li>
-</ul>
+<h2 id="making-this-repeatable">Making this repeatable<a class="headerlink" href="#making-this-repeatable" title="Permanent link">&para;</a></h2>
+<p>This was a single manual scan. It should be a corpus phase: add the Sentrik tree as a
+target in <code>scripts/corpus/corpus.yaml</code> so a self-scan runs alongside the external repos
+and <code>compare_runs.py</code> shows rule-level drift release over release. The gate will never
+catch this class on its own, because it only ever looks at files a PR happened to touch.</p>
 
 
 

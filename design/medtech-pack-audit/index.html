@@ -12,7 +12,7 @@
         <meta name="author" content="Sentrik">
       
       
-        <link rel="canonical" href="https://docs.sentrik.dev/design/sentrik-owned-oauth/">
+        <link rel="canonical" href="https://docs.sentrik.dev/design/medtech-pack-audit/">
       
       
       
@@ -25,7 +25,7 @@
     
     
       
-        <title>Design: Sentrik-owned OAuth apps (zero-config DevOps auth) - sentrik documentation</title>
+        <title>IEC 62304 + HIPAA pack audit - sentrik documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#design-sentrik-owned-oauth-apps-zero-config-devops-auth" class="md-skip">
+        <a href="#iec-62304-hipaa-pack-audit" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Design: Sentrik-owned OAuth apps (zero-config DevOps auth)
+              IEC 62304 + HIPAA pack audit
             
           </span>
         </div>
@@ -2341,10 +2341,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-problem" class="md-nav__link">
+  <a href="#the-shape-of-the-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Problem
+        The shape of the problem
       
     </span>
   </a>
@@ -2352,10 +2352,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-current-state-what-we-build-on" class="md-nav__link">
+  <a href="#what-changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Current state (what we build on)
+        What changed
       
     </span>
   </a>
@@ -2363,10 +2363,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-the-core-constraint" class="md-nav__link">
+  <a href="#you-replaced-one-concentration-with-another" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. The core constraint
+        "You replaced one concentration with another"
       
     </span>
   </a>
@@ -2374,10 +2374,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise" class="md-nav__link">
+  <a href="#still-wrong-needs-a-decision-not-a-patch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Recommended architecture: hybrid (PKCE where possible, broker otherwise)
+        Still wrong — needs a decision, not a patch
       
     </span>
   </a>
@@ -2385,115 +2385,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-work-breakdown" class="md-nav__link">
+  <a href="#what-this-does-not-cover" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Work breakdown
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Work breakdown">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-product-ships-in-the-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A. Product (ships in the package)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-broker-service-extends-sentrik-portalflydev" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B. Broker service (extends sentrik-portal.fly.dev)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-dashboard-frontend" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C. Dashboard (frontend)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#d-docs-infra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        D. Docs / infra
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-manual-registration-max-one-time" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Manual registration (Max — one-time)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-security-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Security checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-phasing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Phasing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Testing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-back-compat-open-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Back-compat &amp; open questions
+        What this does not cover
       
     </span>
   </a>
@@ -2517,196 +2412,207 @@
 
 
 
-<h1 id="design-sentrik-owned-oauth-apps-zero-config-devops-auth">Design: Sentrik-owned OAuth apps (zero-config DevOps auth)<a class="headerlink" href="#design-sentrik-owned-oauth-apps-zero-config-devops-auth" title="Permanent link">&para;</a></h1>
-<p>Status: <strong>Plan / not started</strong> · Owner: Max · Last updated: 2026-08-05</p>
-<h2 id="1-problem">1. Problem<a class="headerlink" href="#1-problem" title="Permanent link">&para;</a></h2>
-<p>To connect Azure DevOps / GitHub / Jira today, a user must <strong>register their own
-OAuth app</strong> with each provider and set 6+ env vars per provider
-(<code>GUARD_AZURE_OAUTH_CLIENT_ID</code>, <code>…_CLIENT_SECRET</code>, <code>…_TENANT_ID</code>, redirect URI,
-etc. — see <code>CLAUDE.md</code> "OAuth Integration"). That is the single biggest
-onboarding cliff for the whole integration story: most evaluators never get past
-it, so they fall back to PATs or never connect at all.</p>
-<p><strong>Goal:</strong> the Integration tab's "Connect to <Provider>" button works with <strong>no
-prior setup</strong> — Sentrik ships its own registered OAuth apps and users just click
-→ consent → connected.</p>
-<h2 id="2-current-state-what-we-build-on">2. Current state (what we build on)<a class="headerlink" href="#2-current-state-what-we-build-on" title="Permanent link">&para;</a></h2>
+<h1 id="iec-62304-hipaa-pack-audit">IEC 62304 + HIPAA pack audit<a class="headerlink" href="#iec-62304-hipaa-pack-audit" title="Permanent link">&para;</a></h1>
+<p>Status: first pass done 2026-08-17. <strong>Not a substitute for RA/regulatory sign-off</strong> — see
+"What this does not cover" at the end.</p>
+<p>Prompted by an external review that opened the packs, read a handful of rules, and
+concluded the mappings were "thematically in the neighbourhood of the standard but not
+defensible against it". That was accurate. This documents what changed, what is still
+wrong, and what needs a decision.</p>
+<h2 id="the-shape-of-the-problem">The shape of the problem<a class="headerlink" href="#the-shape-of-the-problem" title="Permanent link">&para;</a></h2>
+<p>Two clauses were doing the work of a whole standard:</p>
+<ul>
+<li><strong>20 of 31</strong> IEC 62304 rules cited <strong>5.5.5</strong></li>
+<li><strong>10 of 25</strong> HIPAA rules cited <strong>164.312(a)(2)</strong></li>
+</ul>
+<p>Neither is a coincidence, and neither is defensible. 5.5.5 is <em>Software unit verification</em>
+— a process objective about verifying units against acceptance criteria and recording the
+results. It has nothing to say about <code>goto</code>, <code>assert</code>, <code>eval</code>, <code>calloc</code> or <code>panic</code>.
+164.312(a)(2) is a bare implementation-specification header over (i)–(iv); citing it alone
+points an auditor at nothing they can check.</p>
+<p>A clause stamped on a rule is a claim about that clause. A QA/RA lead at a Class II
+manufacturer, or a DER on a DO-178C project, reads three rules to decide whether the tool
+understands the standard — and in this market that judgment is permanent.</p>
+<h2 id="what-changed">What changed<a class="headerlink" href="#what-changed" title="Permanent link">&para;</a></h2>
+<p><strong>34 clause mappings corrected.</strong></p>
 <table>
 <thead>
 <tr>
-<th>Piece</th>
-<th>Where</th>
-<th>Notes</th>
+<th>Rules</th>
+<th>Was</th>
+<th>Now</th>
+<th>Why</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Client id/secret resolution</td>
-<td><code>oauth/manager.py::build_oauth_config</code></td>
-<td>Reads <code>GUARD_*_OAUTH_CLIENT_ID/SECRET</code> env vars. <strong>No defaults.</strong></td>
+<td>Plaintext PHI storage (4)</td>
+<td><code>164.312(a)(1)</code> / <code>(a)(2)</code></td>
+<td><code>164.312(a)(2)(iv)</code></td>
+<td>(a)(1) is the Access Control <em>standard</em>; (a)(2)(iv) is Encryption and decryption, which is what these test</td>
 </tr>
 <tr>
-<td>Authorize + exchange</td>
-<td><code>oauth/manager.py</code> (<code>get_authorize_url</code>, <code>exchange_code</code>) → <code>oauth/providers.py</code></td>
-<td>Confidential flow: <code>exchange_code</code> sends the <strong>client_secret</strong>. <strong>No PKCE today.</strong></td>
+<td>PHI in logs (7)</td>
+<td><code>164.312(a)(2)</code></td>
+<td><code>164.312(a)(1)</code></td>
+<td>A plaintext log is a copy of ePHI outside the access-control boundary. The review proposed <code>164.312(b)</code> audit controls; that standard governs <em>having</em> mechanisms that record activity, not the contents of what they record, so over-broad access to logged PHI is an access-control failure. The reviewer agreed on second look.</td>
 </tr>
 <tr>
-<td>Connect/callback endpoints</td>
-<td><code>server.py</code> <code>/oauth/{provider}/connect</code>, <code>/oauth/{provider}/callback</code></td>
-<td>In-memory <code>_oauth_states</code> (state→provider, TTL).</td>
+<td>Unencrypted transmission (2)</td>
+<td><code>164.312(e)(1)</code></td>
+<td><code>164.312(e)(2)(ii)</code></td>
+<td>(e)(1) is the standard; (e)(2)(ii) is the Encryption spec</td>
 </tr>
 <tr>
-<td>Token storage</td>
-<td><code>oauth/store.py</code></td>
-<td><code>.sentrik/local/oauth_tokens.json</code>, Fernet-encrypted (machine-id + salt). <strong>Local only</strong> — good; keep.</td>
+<td>Debug in production</td>
+<td><code>164.308(a)(5)</code></td>
+<td><code>164.312(a)(1)</code></td>
+<td>(a)(5) is Security Awareness and <strong>Training</strong></td>
 </tr>
 <tr>
-<td>Precedent for hosted auth</td>
-<td><code>auth/device_flow.py</code></td>
-<td>Sentrik's own login already uses an Auth0 <strong>device flow</strong> (client_id, no secret). Reuse the mental model.</td>
+<td>Common defect rules (17)</td>
+<td><code>5.5.5</code></td>
+<td><code>5.1.12</code></td>
+<td>Amendment 1 added 5.1.12, <em>Identification and avoidance of common software defects</em> — precisely what a static defect rule is evidence for</td>
 </tr>
 <tr>
-<td>Existing hosted service</td>
-<td><code>sentrik-portal.fly.dev</code> (FastAPI/Fly)</td>
-<td>Already does licensing + telemetry. Natural home for a token broker.</td>
+<td><code>no-goto-cpp</code></td>
+<td><code>5.5.5</code></td>
+<td><code>5.1.4</code></td>
+<td>A coding-standard prohibition, not a defect class</td>
+</tr>
+<tr>
+<td><code>no-todo-in-medical</code></td>
+<td><code>5.5.5</code></td>
+<td><code>5.8.2</code></td>
+<td>Closest available (documenting residual anomalies at release) — still weak, see below</td>
+</tr>
+<tr>
+<td><code>no-hardcoded-credentials</code></td>
+<td><code>5.2.4</code></td>
+<td><code>5.2.2</code></td>
+<td>5.2.4 is <em>re-evaluate medical device risk analysis</em>, which this is not</td>
 </tr>
 </tbody>
 </table>
-<h2 id="3-the-core-constraint">3. The core constraint<a class="headerlink" href="#3-the-core-constraint" title="Permanent link">&para;</a></h2>
-<p><strong>We cannot ship OAuth client <em>secrets</em> in a distributed CLI/binary</strong> — they are
-trivially extractable (same class of problem as the <code>_PRODUCTION_SECRET</code> license
-footgun). So the design splits by what each provider allows:</p>
+<p><strong>Patterns narrowed, measured on the pinned healthcare corpus</strong> (medplum, openmrs-core,
+ohif-viewers, hapi-fhir — 11,296 source files):</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Before</th>
+<th>After</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plaintext PHI storage</td>
+<td>3,103</td>
+<td>214</td>
+<td><strong>-93.1%</strong></td>
+</tr>
+<tr>
+<td>PHI in logs (console/System.out/logger)</td>
+<td>415</td>
+<td>119</td>
+<td><strong>-71.3%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The storage rule previously matched <code>(ssn|social.security|patient|diagnosis|medical.record).*=\s*"..."</code>,
+which fired on <code>patient_id = "12345"</code>, <code>patient_view = "detail"</code> and <code>PatientType = "inpatient"</code>.
+Note what the first one is: a reference ID is <em>exactly</em> what the rule's own remediation
+guidance tells you to use instead of PHI. The rule flagged its own recommended fix. It now
+matches the shape of the <strong>value</strong> — an SSN, a date of birth, an MRN — not the name of the
+variable.</p>
+<p>The log rules matched the <em>word</em> "patient" anywhere in a log call, so
+<code>logger.info("patient record updated")</code> was a finding. Logging the word is not a
+disclosure; logging <code>patient.ssn</code> is. The PHI term must now appear as an expression
+(interpolated, attribute access, or passed as an argument).</p>
+<p>Three bare-keyword patterns were also fixed: <code>\bassert\b</code>, <code>\bgoto\b</code> and <code>\bsignal\s*\(</code>
+matched prose in comments, and the last also matched every Qt <code>signal()</code> and
+Boost.Signals2 declaration.</p>
+<h2 id="you-replaced-one-concentration-with-another">"You replaced one concentration with another"<a class="headerlink" href="#you-replaced-one-concentration-with-another" title="Permanent link">&para;</a></h2>
+<p>Seventeen of thirty-one rules now cite 5.1.12, where twenty of thirty-one cited 5.5.5.
+A specialist will see that shape before they read the justification, so the answer needs
+to be ready:</p>
+<blockquote>
+<p>5.5.5 is <em>Software unit verification</em> — a process objective about verifying units
+against acceptance criteria and recording the results. <strong>No code pattern belongs there
+at all</strong>, so any concentration was evidence of a dumping ground. 5.1.12 is
+<em>Identification and avoidance of common software defects</em>, which requires the
+manufacturer to document which defect classes the language and technology can
+introduce and show they do not contribute to unacceptable risk. <strong>A static defect rule
+is that evidence by construction.</strong> A pack of defect-class rules concentrating there
+is the clause working as intended, not a filing convenience.</p>
+</blockquote>
+<p>The distinction is testable rather than rhetorical: for every rule now on 5.1.12, the
+finding it produces is admissible as 5.1.12 evidence in a design history file. For the
+same rules on 5.5.5, none of them were.</p>
+<p>The honest limit of that answer: it justifies the clause, not the rule. Four rules
+listed below remain weak regardless of where they are filed, and 5.1.12 does not rescue
+them.</p>
+<h2 id="still-wrong-needs-a-decision-not-a-patch">Still wrong — needs a decision, not a patch<a class="headerlink" href="#still-wrong-needs-a-decision-not-a-patch" title="Permanent link">&para;</a></h2>
+<p>These are rules whose problem is the rule, not its mapping. I have <strong>not</strong> removed them,
+because the pack counts (Team 512, Org 632) are pinned in <code>tests/test_packs.py</code> and quoted
+on the website; cutting rules is a product decision.</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Problem</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IEC62304-CODE-005</code> no-todo-in-medical</td>
+<td>IEC 62304 does not prohibit TODOs. 5.8.2 is about <em>documented, evaluated</em> residual anomalies, not comments. Fires on every TODO in every file.</td>
+<td><strong>Cut</strong>, or drop to <code>info</code> and reword as a release-readiness hint</td>
+</tr>
+<tr>
+<td><code>IEC62304-CODE-007-CPP</code> no-goto-cpp</td>
+<td>62304 does not ban <code>goto</code> — MISRA does, and there is a <code>misra-c</code> pack that already carries it. Duplicated obligation under the wrong standard.</td>
+<td><strong>Cut from 62304</strong>; it is already covered where it belongs</td>
+</tr>
+<tr>
+<td><code>IEC62304-CODE-009-JAVA</code> no-thread-sleep</td>
+<td><code>Thread.sleep()</code> is not prohibited by any 62304 clause and is legitimate in scheduling and test harnesses.</td>
+<td><strong>Cut</strong></td>
+</tr>
+<tr>
+<td><code>IEC62304-CODE-001</code> no-assert-in-production</td>
+<td>Narrowed to the statement form, but the underlying claim is still contestable — several medical-device coding standards <em>require</em> assertions.</td>
+<td>Keep, but reword to the real concern: asserts compiled out by <code>NDEBUG</code> leave error paths unchecked</td>
+</tr>
+<tr>
+<td><code>HIPAA-164.312-a2-CPP2</code> file I/O</td>
+<td>Still the old word-matching shape: <code>(fopen\|ofstream\|...).*(patient\|ssn\|...)</code></td>
+<td>Narrow the same way as the log rules</td>
+</tr>
+</tbody>
+</table>
+<p>The review's argument was that 632 shallow rules is a weaker product than 60 defensible
+ones. Cutting the four above costs 4 rules and removes the examples most likely to be the
+ones an expert opens first.</p>
+<h2 id="what-this-does-not-cover">What this does not cover<a class="headerlink" href="#what-this-does-not-cover" title="Permanent link">&para;</a></h2>
+<p>I corrected mappings that are demonstrably wrong against the structure of the standards.
+That is a different thing from certifying the pack. Specifically <strong>not</strong> done:</p>
 <ul>
-<li><strong>Public client + PKCE</strong> (no secret): the app is registered as a <em>native/public</em>
-  client; the CLI does the code→token exchange itself using PKCE. Secret never
-  exists. <strong>Azure Entra</strong> supports this cleanly (multi-tenant, <code>common</code>).</li>
-<li><strong>Confidential exchange via a broker</strong>: where the provider <em>requires</em> a secret
-  at the token endpoint (<strong>Atlassian/Jira</strong>, and <strong>GitHub OAuth Apps</strong>, which do
-  not support PKCE), a <strong>Sentrik-hosted broker</strong> holds the secret and performs the
-  exchange. Tokens pass through to the local install; the broker never persists
-  them.</li>
-</ul>
-<h2 id="4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise">4. Recommended architecture: hybrid (PKCE where possible, broker otherwise)<a class="headerlink" href="#4-recommended-architecture-hybrid-pkce-where-possible-broker-otherwise" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                     ┌───────────────────────── local machine ─────────────────────────┐
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Dashboard "Connect"│  server.py /oauth/{p}/connect                                    │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        ──────────────►  build authorize URL (Sentrik client_id, state, PKCE challenge) │
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                     │        │                                                          │
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   browser ◄─────────────────┘ 302 to provider consent                                  │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        │            └──────────────────────────────────────────────────────────────────┘
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        ▼
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>   Provider consent (login.microsoftonline.com / github.com / auth.atlassian.com)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        │
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        ├── Azure (PKCE, public):  redirect → http://localhost:8000/oauth/azure/callback?code&amp;state
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        │        server.py exchanges code + code_verifier itself → token (no secret)
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        │
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        └── GitHub / Jira (broker): redirect → https://portal.sentrik.dev/oauth/{p}/callback?code&amp;state
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                 broker exchanges code (+ its secret) → token, then
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                 302 → http://localhost:8000/oauth/{p}/callback?session=&lt;one-time&gt;
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                 server.py GETs portal /oauth/{p}/claim?session=&lt;one-time&gt; → token
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        │
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        ▼
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>   oauth/store.py: encrypt + save locally (unchanged)
-</code></pre></div>
-<p>Why hybrid rather than "broker for everything": Azure via PKCE removes a hosted
-round-trip and a class of "our broker is down" failures for the most common
-enterprise provider. GitHub/Jira must go through the broker because of their
-secret requirement, but the token still lands only on the user's machine.</p>
-<p><strong>Token privacy guarantee:</strong> the broker does the exchange and immediately hands
-the token back through a one-time <code>session</code> claim (single-use, ~60s TTL,
-in-memory). It is never written to Sentrik disk/logs. Document this in the trust
-center.</p>
-<h2 id="5-work-breakdown">5. Work breakdown<a class="headerlink" href="#5-work-breakdown" title="Permanent link">&para;</a></h2>
-<h3 id="a-product-ships-in-the-package">A. Product (ships in the package)<a class="headerlink" href="#a-product-ships-in-the-package" title="Permanent link">&para;</a></h3>
-<ol>
-<li><code>oauth/manager.py::build_oauth_config</code>: add <strong>baked-in default client IDs</strong>
-   (public, safe to embed) per provider; env vars still override (BYO-app for
-   self-hosters / air-gapped). Add a <code>broker_base_url</code> default
-   (<code>https://portal.sentrik.dev</code>), overridable.</li>
-<li>Add <strong>PKCE</strong> to <code>oauth/providers.py</code> + <code>manager.get_authorize_url</code>
-   (<code>code_verifier</code>/<code>code_challenge</code>, S256). Store the verifier alongside state.</li>
-<li><code>manager.exchange_code</code>: branch per provider — PKCE-self-exchange (Azure) vs
-   broker-claim (GitHub/Jira).</li>
-<li><code>server.py</code>: extend <code>/oauth/{provider}/connect</code> to emit PKCE + choose
-   redirect target (loopback for Azure, broker for GitHub/Jira); extend
-   <code>/oauth/{provider}/callback</code> to handle the <code>session</code> claim path. Persist state
-   with its verifier (extend <code>_oauth_states</code> value tuple).</li>
-<li>No change to <code>oauth/store.py</code> (local encryption stays).</li>
-</ol>
-<h3 id="b-broker-service-extends-sentrik-portalflydev">B. Broker service (extends <code>sentrik-portal.fly.dev</code>)<a class="headerlink" href="#b-broker-service-extends-sentrik-portalflydev" title="Permanent link">&para;</a></h3>
-<ol>
-<li>New endpoints: <code>/oauth/{provider}/callback</code> (provider redirects here; broker
-   exchanges code using the secret held in Fly secrets), and
-   <code>/oauth/{provider}/claim?session=…</code> (one-time, single-use, short-TTL handoff
-   to the local install). PKCE <code>code_verifier</code> is passed through from the client
-   via the <code>state</code>→session mapping so the broker can complete the exchange.</li>
-<li>Fly secrets: <code>SENTRIK_GITHUB_OAUTH_CLIENT_SECRET</code>, <code>SENTRIK_JIRA_OAUTH_CLIENT_SECRET</code>
-   (+ client IDs). Rotatable without a client release.</li>
-<li>Rate-limit + bind <code>session</code> to the originating <code>state</code>; never log tokens.</li>
-</ol>
-<h3 id="c-dashboard-frontend">C. Dashboard (frontend)<a class="headerlink" href="#c-dashboard-frontend" title="Permanent link">&para;</a></h3>
-<ol>
-<li>No UX change required — the existing Integration tab "Connect" button already
-   hits <code>/oauth/{provider}/connect</code>. Optionally add a "Using Sentrik's app —
-   connect your own in Settings" hint and a BYO-app advanced panel.</li>
-</ol>
-<h3 id="d-docs-infra">D. Docs / infra<a class="headerlink" href="#d-docs-infra" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Rewrite <code>CLAUDE.md</code> + docs "OAuth Integration": default path becomes "click
-    Connect"; the env-var registration becomes an <em>advanced / self-host</em> section.</li>
-<li>Trust-center note on the broker token-privacy model.</li>
-</ol>
-<h2 id="6-manual-registration-max-one-time">6. Manual registration (Max — one-time)<a class="headerlink" href="#6-manual-registration-max-one-time" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Entra ID</strong>: register a <strong>multi-tenant</strong> app (<code>common</code>), platform = <em>Mobile &amp;
-  desktop / public client</em>, enable PKCE, redirect <code>http://localhost:8000/oauth/azure/callback</code>
-  (+ any future SaaS origin). API permission: Azure DevOps <code>user_impersonation</code>.
-  Embed the client id. No secret.</li>
-<li><strong>GitHub</strong>: OAuth App (or GitHub App), redirect <code>https://portal.sentrik.dev/oauth/github/callback</code>.
-  Client id embedded; secret → Fly secret.</li>
-<li><strong>Atlassian</strong>: OAuth 2.0 (3LO) app, redirect <code>https://portal.sentrik.dev/oauth/jira/callback</code>,
-  scopes for Jira work items + offline_access. Client id embedded; secret → Fly.</li>
-</ul>
-<h2 id="7-security-checklist">7. Security checklist<a class="headerlink" href="#7-security-checklist" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Secrets only in Fly secrets (broker); never in the package.</li>
-<li>PKCE (S256) on every provider that supports it; <code>state</code> nonce always.</li>
-<li>Redirect-URI allowlist: loopback <code>127.0.0.1/localhost</code> + the registered broker
-  origin only.</li>
-<li><code>session</code> claim: single-use, ≤60s, bound to <code>state</code>, in-memory.</li>
-<li>Least-scope requests; <code>offline_access</code> only where refresh is needed.</li>
-<li>Tokens stay Fernet-encrypted locally (existing); broker is pass-through.</li>
-<li>Multi-tenant Azure: rely on per-tenant admin consent; document it.</li>
-</ul>
-<h2 id="8-phasing">8. Phasing<a class="headerlink" href="#8-phasing" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Phase 1 — Azure PKCE, no broker.</strong> Proves zero-config end-to-end for the
-   top enterprise provider; smallest surface. (Product-only change.)</li>
-<li><strong>Phase 2 — Broker for GitHub + Jira</strong> on the Fly portal.</li>
-<li><strong>Phase 3 — Embed client IDs + flip docs</strong> so plain installs are zero-config;
-   keep env-var override.</li>
-<li><strong>Phase 4 — Production redirect URIs</strong> when the SaaS domain is live (ties into
-   the existing "OAuth redirect URIs for production" TODO).</li>
-</ol>
-<h2 id="9-testing">9. Testing<a class="headerlink" href="#9-testing" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Unit: PKCE challenge/verifier generation; per-provider exchange branching;
-  state+verifier round-trip; broker-claim happy path + expiry/reuse rejection.</li>
-<li>Integration (mocked provider + mocked broker): connect→callback→token stored,
-  for each provider path.</li>
-<li>Back-compat: env-var BYO-app still overrides the baked-in defaults.</li>
-<li>Manual: real consent against each provider in a scratch org.</li>
-</ul>
-<h2 id="10-back-compat-open-questions">10. Back-compat &amp; open questions<a class="headerlink" href="#10-back-compat-open-questions" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Back-compat:</strong> existing BYO-app users are unaffected — env vars win over the
-  baked-in defaults. No token migration (storage format unchanged).</li>
-<li><strong>Open:</strong> GitHub App vs OAuth App (a GitHub <em>App</em> gives finer-grained, org-
-  installable perms and short-lived tokens — worth it if we want per-repo scoping,
-  but heavier). Decide before Phase 2.</li>
-<li><strong>Open:</strong> device-flow fallback for headless/CI (no loopback browser) — GitHub +
-  Azure both support device flow; could reuse the <code>auth/device_flow.py</code> shape.</li>
-<li><strong>Open:</strong> broker availability/SLO — Azure PKCE avoids it; GitHub/Jira depend on
-  the Fly portal being up. Acceptable given it's already the license/telemetry
-  dependency, but note it.</li>
+<li>No review by a qualified RA/QA professional. The review recommends 20–40 hours of
+  consultant time (~$5–10K in the Boston market) over all 31 rules and every mapping, with
+  their name attached. That recommendation stands and this work does not replace it.</li>
+<li>5.1.12 is from IEC 62304:2006/AMD1:2015. Manufacturers still working to the 2006 text
+  without Amendment 1 will not have it. Worth confirming which edition to target.</li>
+<li>No assessment of <strong>coverage</strong> — which 62304 or HIPAA obligations have no rule at all.
+  Precision improved here; recall was not measured.</li>
+<li>The remaining 214 storage matches are almost entirely synthetic fixtures in test, mock
+  and example paths (<code>packages/mock/src/mocks/simpsons.ts</code> in medplum is The Simpsons as
+  patients). Those are structurally correct matches on fake data — a test-path policy
+  question, tracked separately as the <code>scan_exclude</code> / <code>quality_exclude</code> split, and a
+  blocker on publishing any precision figure.</li>
 </ul>
 
 
